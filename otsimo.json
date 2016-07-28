@@ -1,0 +1,41 @@
+{
+    "unique_name": "otsimo-game-template",
+    "version": "1.0.0",
+    "main": "index.html",
+    "licence": "Apache 2",
+    "languages": [
+        "en"
+    ],
+    "default_language": "en",
+    "developer_name": "Otsimo",
+    "homepage": "https://github.com/otsimo/otsimo-game-template",
+    "repository": "https://github.com/otsimo/otsimo-game-template.git",
+    "authors": [
+        {
+            "name": "User Name",
+            "email": "name@example.com"
+        }
+    ],
+    "exclude": [],
+    "settings": "settings.json",
+    "kv_path": "data",
+    "metadata": [
+        {
+            "language": "en",
+            "visible_name": "Otsimo Game Template",
+            "summary": "a short description",
+            "description": "an awesome game, this is long description",
+            "keywords": [
+                "game"
+            ],
+            "logo": "i18n/en/template-logo.png",
+            "icon": "i18n/en/template-icon.png",
+            "images": [
+            ],
+            "assets": [
+                "img/en",
+                "audio/en"
+            ]
+        }
+    ]
+}
