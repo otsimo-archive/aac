@@ -5,10 +5,6 @@ otsimo.logic.setGridUpdater=function(updater:IUpdater)
 
 */
 // document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
-console.log("It is here 1")
-
-//responsiveVoice.setDefaultVoice("UK English Female");
-
 //localStorage Settings
 if (!localStorage.phraseHistory) {
     console.log("LS: not yet initilized, firstTime load.");
@@ -43,6 +39,20 @@ function returnTime() {
     var d = new Date();
     return d.getTime();
 }
+
+
+var statusSettings = 0;
+
+function toggleSettings(){
+  if(statusSettings != 1){
+    document.getElementById("settings").style.right = "0px";
+    statusSettings = 1;
+  }else{
+    document.getElementById("settings").style.right = "-270px";
+    statusSettings = 0;
+  }
+}
+
 
 var runUygulama = null;
 
@@ -137,7 +147,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     $scope.clickWord = function (wordObj) {
         add2Phrase(wordObj);
         updateScroll();
-      		responsiveVoice.speak(wordObj.title);
+      		otsimo.tts.speak(wordObj.title);
     }
 
     $scope.removeLastWord = function () {
@@ -156,7 +166,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
                 currentPhraseString = currentPhraseString + $scope.currentPhrase[i].title + " ";
                 i++;
             }
-            responsiveVoice.speak(currentPhraseString);
+            otsimo.tts.speak(currentPhraseString);
         }
     }
 
@@ -309,12 +319,34 @@ otsimo.onSettingsChanged(function (settings, sound) {
     //otsimo.game.sound.mute = !sound
 });
 
+var responsiveVoiceDriver = {}
 
+responsiveVoiceDriver.speak = function (text) {
+    if (responsiveVoice) {
+        responsiveVoice.speak(text);
+    }
+}
+
+responsiveVoiceDriver.setVoice = function (voice) {
+    if (responsiveVoice) {
+        responsiveVoice.setDefaultVoice(voice);
+    }
+}
+
+responsiveVoiceDriver.getVoice = function () {
+    return ""
+}
+
+responsiveVoiceDriver.voiceList = function () {
+    return [];
+}
 
 otsimo.run(function () {
-    console.log("It is here")
+    if (!otsimo.isWKWebView) {
+        otsimo.tts.setDriver(responsiveVoiceDriver);
+        otsimo.tts.setVoice("UK English Female");
+    }
     runUygulama(5, 4);
-    // Otsimo Run!
 });
 
 
@@ -359,4 +391,3 @@ console.log(resp);
 }
 
 */
-
