@@ -2,18 +2,20 @@
 <head>
 	<meta charset="utf-8">
 	<title>SPEC App UI</title>
-	<link href="css/norm.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="src/css/norm.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="src/css/style.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+	<!-- build:js js/vendor.js -->
 	<script src="node_modules/otsimo/otsimo.js"></script>
-	<!--build:js js/main.min.js -->
-	<script src="js/fastclick.js"></script>
-	<script src="js/angular.min.js"></script>
-	<script src="js/ngTouch.js"></script>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/fastclick/lib/fastclick.js"></script>
+	<script src="node_modules/angular-touch/angular-touch.js"></script>
 	<!-- endbuild -->
+
 	<script src='//vws.responsivevoice.com/v/e?key=utvgu25X'></script>
 	<script type="text/javascript">
 	if ('addEventListener' in document) {
@@ -117,7 +119,9 @@
 			</div>
 		</div>
 
-    <script src="js/app.js"></script>
+		<!-- build:js js/main.js -->
+    <script src="src/js/app.js"></script>
+		<!-- endbuild -->
 		<script type="text/javascript">
 		otsimo.init();
 		</script>
