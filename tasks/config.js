@@ -12,11 +12,12 @@ var cfg = {
 }
 
 let globs = {
-    js: path.join(cfg.paths.src.root, 'app', 'js'),
+    js: path.join(cfg.paths.src.root, 'app', 'js', '**', '*.js'),
     img: path.join(cfg.paths.src.root, 'app', 'img', '**', '*'),
     symbols: path.join(cfg.paths.src.root, 'app', 'symbols', '**', '*.svg'),
     data: path.join(cfg.paths.src.root, 'app', 'data', '**', '*.json'),
     json: path.join(cfg.paths.src.root, 'app', '*.json'),
+    css: path.join(cfg.paths.src.root, 'app', 'css',  '*.css'),
     html: path.join(cfg.paths.src.root, 'app', "index.html")
 };
 

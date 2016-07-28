@@ -17,3 +17,8 @@ gulp.task('img:prod', function () {
         .pipe(gulp.dest(config.paths.builds.prod.img));
 });
 
+// Copy all static svg
+gulp.task('symbols:prod', function () {
+    return gulp.src([config.paths.src.symbols])
+        .pipe(gulp.dest(config.paths.builds.prod.symbols));
+});

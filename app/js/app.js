@@ -5,8 +5,9 @@ otsimo.logic.setGridUpdater=function(updater:IUpdater)
 
 */
 // document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
+console.log("It is here 1")
 
-responsiveVoice.setDefaultVoice("UK English Female");
+//responsiveVoice.setDefaultVoice("UK English Female");
 
 //localStorage Settings
 if (!localStorage.phraseHistory) {
@@ -311,9 +312,12 @@ otsimo.onSettingsChanged(function (settings, sound) {
 
 
 otsimo.run(function () {
+    console.log("It is here")
     runUygulama(5, 4);
     // Otsimo Run!
 });
+
+
 
 
 /*
