@@ -165,6 +165,7 @@ var runUygulama=null;
 
       $scope.openRecent = function(){
         changeCurrentTab("recent");
+        $scope.changeInterval(1);
       }
 
       $scope.openGrid = function(){
