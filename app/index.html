@@ -13,8 +13,8 @@
 	<!-- build:vendor(./) js/vendor.js -->
 	<script src="node_modules/otsimo/otsimo.js"></script>
 	<script src="node_modules/angular/angular.js"></script>
-	<script src="node_modules/fastclick/lib/fastclick.js"></script>
 	<script src="node_modules/angular-touch/angular-touch.js"></script>
+	<script src="node_modules/fastclick/lib/fastclick.js"></script>
 	<!-- endbuild -->
 	<script src='//vws.responsivevoice.com/v/e?key=utvgu25X'></script>
 
@@ -34,7 +34,21 @@
 			<i ng-click="openGrid()" class="material-icons">grid_on</i>
 			<i class="material-icons">keyboard</i>
 			<i ng-click="openRecent()" class="material-icons">history</i>
-			<i ng-click="changeGridSize(6,5)" class="material-icons">settings</i>
+			<i onclick="toggleSettings()" class="material-icons">settings</i>
+		</div>
+	</div>
+
+	<div class="settings" id="settings">
+		<div class="settingHeader">
+			<i class="material-icons">done</i>
+			Complete Changes
+		</div>
+		<div class="settingsBody">
+			<div class="settingList">
+				<li>Setting1</li>
+				<li>Setting2</li>
+				<li>Setting3</li>
+			</div>
 		</div>
 	</div>
 
