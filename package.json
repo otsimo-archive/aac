@@ -1,14 +1,13 @@
 {
-  "name": "ui",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "aac",
+  "version": "0.1.0",
+  "description": "Otsimo symbol based AAC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/btk/codename-acc.git"
+    "url": "git+https://github.com/otsimo/acc.git"
   },
   "keywords": [
     "otsimo",
@@ -17,10 +16,10 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/btk/codename-acc/issues"
+    "url": "https://github.com/otsimo/acc/issues"
   },
-  "homepage": "https://github.com/btk/codename-acc#readme",
+  "homepage": "https://github.com/otsimo/acc/#readme",
   "dependencies": {
-    "otsimo": "^1.0.0"
+    "otsimo": "^1.2.0"
   }
 }
