@@ -74,11 +74,11 @@
 					<div class="gridText">Previous</div>
 				</div>
 
-				<div class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in mainSymbolData | filter: {is_home: true} track by symbol.slug"
-					ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity">
+				<div class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in mainSymbolData | filter: {is_home: true} track by $index"
+					ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity" ng-touchstart="deriveTouchStart(symbol.title, symbol.derive)" ng-touchend="deriveTouchEnd()" >
 					<!-- Add is home control -->
 					<img src="symbols/potatoes.svg">
-					<div class="gridText">{{symbol.title}}</div>
+					<div class="gridText">{{symbol.title}} <span ng-if="symbol.derive[0]">(D)</span></div>
 				</div>
 
 				<div class="gridItem gridGroup" ng-click="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
@@ -93,7 +93,12 @@
 				</div>
 			</div>
 			<div ng-switch-when="derivable">
-				<div class="gridItem" ng-repeat="symbol in derivableSymbolData">
+
+				<div class="gridItem gridGroup" ng-click="goBack()">
+					<img src="symbols/back.svg">
+					<div class="gridText">Go Back</div>
+				</div>
+				<div class="gridItem" ng-click="clickWord(symbol)" ng-repeat="symbol in derivableSymbolData">
 					<img src="symbols/potatoes.svg">
 					<div class="gridText">{{symbol.title}}</div>
 				</div>

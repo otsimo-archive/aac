@@ -110,13 +110,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
             });
 
         } else if (tabExp == "derivable") {
-
-            $http.get("symbol.json").then(function (resp) {
-                if (resp.status == 200) {
-                    $scope.derivableSymbolData = resp.data.symbols;
-                }
-            });
-
+            //do nothing
         } else if (tabExp == "group") {
             var lengthFiltered = 0;
             var i = 0;
@@ -264,20 +258,37 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     }
 
 
-    // Touch
+        // Touch
 
-    var touchTimer;
-    $scope.bsTouchStart = function () {
-        document.getElementById("bs").style.color = "red";
-        touchTimer = setTimeout(function () {
-            $scope.currentPhrase = [];
-        }, 300);
-    }
+        var bstouchTimer;
+        $scope.bsTouchStart = function () {
+            document.getElementById("bs").style.color = "red";
+            bstouchTimer = setTimeout(function () {
+                $scope.currentPhrase = [];
+            }, 300);
+        }
 
-    $scope.bsTouchEnd = function () {
-        document.getElementById("bs").style.color = "#444";
-        clearTimeout(touchTimer);
-    }
+        $scope.bsTouchEnd = function () {
+            document.getElementById("bs").style.color = "#444";
+            clearTimeout(bstouchTimer);
+        }
+
+        // Touch Derive
+
+        var derivetouchTimer;
+        $scope.deriveTouchStart = function (sytitle, deriveData) {
+          if(deriveData[0]){
+            derivetouchTimer = setTimeout(function () {
+                $scope.currentDerivable = sytitle;
+                $scope.derivableSymbolData = deriveData;
+                changeCurrentTab("derivable");
+            }, 200);
+          }
+        }
+
+        $scope.deriveTouchEnd = function () {
+            clearTimeout(derivetouchTimer);
+        }
 
 
     //unGeneric Functions for controller.
