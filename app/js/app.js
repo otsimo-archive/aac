@@ -6,6 +6,14 @@ otsimo.logic.setGridUpdater=function(updater:IUpdater)
 */
 // document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
 //localStorage Settings
+
+window.onscroll = function(event) {
+  event.preventDefault();
+}
+document.ontouchmove = function(event){
+    event.preventDefault();
+}
+
 if (!localStorage.phraseHistory) {
     console.log("LS: not yet initilized, firstTime load.");
     localStorage.phraseHistory = "[]";
@@ -38,6 +46,10 @@ function addPhrase2History(arrPhrase) {
 function returnTime() {
     var d = new Date();
     return d.getTime();
+}
+
+function clickCover(){
+  document.getElementById("derivableCover").style.display = "none";
 }
 
 
@@ -145,7 +157,6 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
       	otsimo.tts.speak(wordObj.title);
     }
     $scope.touchWord = function(wordT){
-      console.log("asdasd");
         var wordElem = document.getElementById("word-" + wordT);
         wordElem.className = wordElem.className + " gridItemClick";
         setTimeout(function(){
@@ -274,7 +285,8 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
             document.getElementById("bs").style.color = "red";
             bstouchTimer = setTimeout(function () {
                 $scope.currentPhrase = [];
-            }, 300);
+                $scope.$apply();
+            }, 500);
         }
 
         $scope.bsTouchEnd = function () {
@@ -288,17 +300,23 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
         $scope.deriveTouchStart = function (sytitle, deriveData, slug) {
           if(deriveData[0]){
             derivetouchTimer = setTimeout(function () {
+              document.getElementById("derivableCover").style.display = "block";
                 $scope.currentDerivable = sytitle;
                 $scope.derivableSymbolData = deriveData;
                 changeCurrentTab("derivable");
-            }, 200);
-
+                $scope.$apply();
+            }, 300);
+            /*
+            setTimeout(function(){
+              document.getElementById("derivableCover").style.display = "none";
+            }, 1000);
+            */
           }
               var wordElem = document.getElementById("word-"+ slug);
               wordElem.className = wordElem.className + " gridItemClick";
               setTimeout(function(){
                 wordElem.className = wordElem.className.replace(" gridItemClick", "");
-              }, 200);
+              }, 300);
 
         }
 
@@ -347,9 +365,10 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
 });
 
 
-
 otsimo.onSettingsChanged(function (settings, sound) {
-    //otsimo.game.sound.mute = !sound
+  var otsGridSize = otsimo.settings.gridsize.split("Grid ")[1];
+  var otsGridXY = otsGridSize.split("x");
+  changeGridSize(otsGridXY[0], otsGridXY[1]);
 });
 
 var responsiveVoiceDriver = {}
@@ -379,10 +398,15 @@ otsimo.run(function () {
         otsimo.tts.setDriver(responsiveVoiceDriver);
         otsimo.tts.setVoice("UK English Female");
     }
-    runUygulama(5, 4);
+    setSettings();
+    var otsGridSize = otsimo.settings.gridsize.split("Grid ")[1];
+    var otsGridXY = otsGridSize.split("x");
+    runUygulama(otsGridXY[0], otsGridXY[1]);
 });
 
-
+function setSettings(){
+    document.body.style.fontSize = "20px";
+}
 
 
 /*

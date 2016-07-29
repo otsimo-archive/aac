@@ -28,7 +28,9 @@
 	</script>
 </head>
 
-<body ng-app="ngPescGeneral" ng-controller="ngControlGeneral">
+<body ng-app="ngPescGeneral" ng-controller="ngControlGeneral" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+		<div id="derivableCover" class="derivableCover" onclick="clickCover()"></div>
 	<div class="header">
 		<div class="headerTitle">{{currentPage}}</div>
 		<div class="headerIcons">
@@ -94,7 +96,6 @@
 				</div>
 			</div>
 			<div ng-switch-when="derivable">
-
 				<div class="gridItem gridGroup" ng-click="goBack()">
 					<img src="symbols/back.svg">
 					<div class="gridText">Go Back</div>
