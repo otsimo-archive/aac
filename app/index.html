@@ -70,7 +70,7 @@
 		<div class="grids grid{{gridSize[0]}}x{{gridSize[1]}}">
 			<div ng-switch-when="main">
 				<div class="gridItem gridGroup" ng-click="goPrevMain()" ng-if="mainPageNo != 0">
-					<img src="symbols/output/previous.svg">
+					<img src="symbols/prev.svg">
 					<div class="gridText">Previous</div>
 				</div>
 
@@ -82,7 +82,7 @@
 				</div>
 
 				<div class="gridItem gridGroup" ng-click="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
-					<img src="symbols/output/next.svg">
+					<img src="symbols/next.svg">
 					<div class="gridText">Next</div>
 				</div>
 
@@ -100,7 +100,7 @@
 			</div>
 			<div ng-switch-when="group">
 				<div class="gridItem gridGroup" ng-click="goBack()">
-					<img src="symbols/output/back.svg">
+					<img src="symbols/back.svg">
 					<div class="gridText">Go Back</div>
 				</div>
 				<div class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in groupSymbolData  | filter: currentGroup track by symbol.title"
@@ -109,7 +109,7 @@
 					<div class="gridText">{{symbol.title}}</div>
 				</div>
 				<div class="gridItem gridGroup" ng-click="goNextGroup()" ng-if="groupMaxPageNo >= (groupPageNo + 1)">
-					<img src="symbols/output/next.svg">
+					<img src="symbols/next.svg">
 					<div class="gridText">Next</div>
 				</div>
 			</div>
@@ -125,7 +125,7 @@
 				</div>
 
 				<div class="recentPhraseHolder">
-					<div class="resPhrase" ng-repeat="phraseRecent in recentPhrases | orderBy:'-time' track by $index" ng-if="phraseRecent.time < timeH && phraseRecent.time > timeL">
+					<div class="resPhrase" ng-click="loadRecentPhrase($index)" ng-repeat="phraseRecent in recentPhrases | orderBy:'-time' track by $index" ng-if="phraseRecent.time < timeH && phraseRecent.time > timeL">
 						<div class="resPhraseScroll">
 							<div class="wordItemRes" ng-repeat="wordRecent in phraseRecent.phrase track by $index">
 								<img src="symbols/potatoes.svg" />
