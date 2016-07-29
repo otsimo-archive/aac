@@ -1,10 +1,26 @@
 {
     "symbols": [
         {
+            "title": "",
+            "slug": "",
+            "group_slug": "zipper",
+            "derive": ["apples", "apple's"],
+            "is_home": true,
+            "type": "noun"
+        },
+        {
             "title": "Apple",
             "slug": "apple",
             "group_slug": "zipper",
-            "derive": ["apples", "apple's"],
+            "derive": [{
+                          "title": "Apples",
+                          "slug": "apples",
+                          "type": "noun"
+                      }, {
+                          "title": "Apple's",
+                          "slug": "apple",
+                          "type": "noun"
+                      }],
             "is_home": true,
             "type": "noun"
         },
@@ -13,7 +29,7 @@
             "slug": "air_base",
             "group_slug": "zipper",
             "derive": [],
-            "is_home": false,
+            "is_home": true,
             "type": "noun"
         },
         {
