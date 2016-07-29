@@ -9,10 +9,6 @@
         "indent": [
             0
         ],
-        "quotes": [
-            2,
-            "double"
-        ],
         "linebreak-style": [
             2,
             "unix"
