@@ -41,10 +41,18 @@
             "type": "verb"
         },
         {
-            "title": "air",
+            "title": "Air",
             "slug": "air",
             "group_slug": "zipper",
-            "derive": [],
+            "derive": [{
+                          "title": "Air Pressure",
+                          "slug": "air_pressure",
+                          "type": "noun"
+                      }, {
+                          "title": "Air's",
+                          "slug": "airs",
+                          "type": "noun"
+                      }],
             "is_home": true,
             "type": "verb"
         },
