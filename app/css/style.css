@@ -81,8 +81,9 @@ body {
   transition:200ms all;
   box-shadow:0px 0px 0px 0px rgba(0,0,0,0.01);
   overflow:hidden;
+  position:relative;
 }
-.gridItem:hover {
+.gridItemClick {
   box-shadow:0px 0px 15px 0px rgba(0,0,0,0.01);
   transform:scale(0.9);
 }
@@ -103,13 +104,23 @@ body {
 }
 
 .gridType-noun { border-color:#5d8dcc; }
+.gridType-noun .derivable{ background:#5d8dcc; }
 .gridType-verb { border-color:#cb5dcc; }
+.gridType-verb .derivable { border-color:#cb5dcc; }
 .gridType-pronoun { border-color:#cc5e5d; }
+.gridType-pronoun .derivable { border-color:#cc5e5d; }
 .gridType-adjective { border-color:#5dcc66; }
+.gridType-adjective .derivable { border-color:#5dcc66; }
 .gridType-adverb { border-color:#c4cc5d; }
+.gridType-adverb .derivable { border-color:#c4cc5d; }
 .gridType-preposition { border-color:#5dccb3; }
+.gridType-preposition .derivable { border-color:#5dccb3; }
 .gridType-conjunction { border-color:#795dcc; }
+.gridType-conjunction .derivable { border-color:#795dcc; }
 .gridType-interjection { border-color:#cc5d9f; }
+.gridType-interjection .derivable { border-color:#cc5d9f; }
+
+.derivable { position:absolute; right:-20px; top:-20px; width:40px; height:40px;transform:rotateZ(45deg); }
 
 
 .grid2x2 .gridItem { width:calc(100% / 2 - 34px); height:calc(100% / 2 - 34px); }

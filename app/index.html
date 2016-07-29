@@ -78,7 +78,8 @@
 					ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity" ng-touchstart="deriveTouchStart(symbol.title, symbol.derive)" ng-touchend="deriveTouchEnd()" >
 					<!-- Add is home control -->
 					<img src="symbols/potatoes.svg">
-					<div class="gridText">{{symbol.title}} <span ng-if="symbol.derive[0]">(D)</span></div>
+					<div class="gridText">{{symbol.title}}</div>
+					<div class="derivable" ng-if="symbol.derive[0]"></div>
 				</div>
 
 				<div class="gridItem gridGroup" ng-click="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
