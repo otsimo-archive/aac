@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Otsimo symbol based AAC",
   "scripts": {
-    "test": "gulp test"
+    "test": "eslint app/js/*.js",
+    "build": "gulp build",
+    "dev": "gulp"
   },
   "repository": {
     "type": "git",

@@ -3,8 +3,10 @@ node_js:
 - '6.1'
 install:
 - npm install -g gulp
+- npm install eslint
 - npm install
 script:
+- npm test
 - gulp build
 notifications:
   email: false
