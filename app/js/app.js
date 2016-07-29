@@ -170,6 +170,12 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
         }
     }
 
+    $scope.loadRecentPhrase = function(index){
+        var phraseHistory = getHistoryAsArray();
+        var phrase2Add = phraseHistory[phraseHistory.length - (index + 1)].phrase;
+        $scope.currentPhrase = $scope.currentPhrase.concat(phrase2Add);
+    }
+
     $scope.openRecent = function () {
         changeCurrentTab("recent");
         $scope.changeInterval(1);
