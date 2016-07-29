@@ -1,8 +1,12 @@
 language: node_js
 node_js:
-  - "6.1"
+- '6.1'
 install:
-  - npm install -g gulp
-  - npm install
-script: 
-  - gulp build
+- npm install -g gulp
+- npm install
+script:
+- gulp build
+notifications:
+  email: false
+  slack:
+    secure: CXpzdWAJUREDEfTSmtCE3sq0eVvJc4Q0Ci57yu6670HYi/Nowx9CXQlv7u8TwUakL22NygGB8POGHtCJZ1CBDV44T1T81xHnsJYBe2AkbML9KhTZwP4v4STtgz7wLc9KJ0LtMD/F3EpgfWW4xj7eth8mQWj8V4hMxLTQArhvMH1LtdEF5o102ZtFEfNKlged/jSXl/NOL47ONl/GM13ZE9riocpaAKztlG/ZxAgAd5gGk08Gv7GkYug3NWi2nSPDrYqnOkORBCjr3sXzj2djDCYoKjdBIXe9gLnX3iCC+QnN0NbxHcz2jHsyKSohCWrbjzHgujrNoY7l/HyJNUI2edgIZSzmST1zuV6r/jxu88pictjBHcy7pjYgyS+ob+V2AnEr8/n6mHiqQL3dFIkmdO4UDq+oK1NJkJC54xp8HhVtMafuuDh4BsY6pBtYiuD65xHwmvJSm35KDY8fYFEZHq/zepio+cLKfpOUrHYfzXzEkTFD5d4zBMKyvzQRwQdVuLoE7GUNYW0tkPgJ3onA0aQI/Ih2c11hh/kajjZQeQKSVJevBSmn8IIIBSSD5VRHyLbf9/Qp6OtFs5RNKHae6dl0K2iKCzHIrfAp1vo4eJwkJWVvwrfSDGjU3E53IhbOLagaKbNj/iHNQR/J/4YkOsDdyabZwK4tHn4+KUbdr1w=
