@@ -1,0 +1,38 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 5
+    },
+    "ecmaFeatures": {
+        "blockBindings": true
+    },
+    "rules": {
+        "indent": [
+            0
+        ],
+        "quotes": [
+            2,
+            "double"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "semi": [
+            0,
+            "never"
+        ],
+        "no-console": [
+            0
+        ]
+    },
+    "env": {
+        "browser": true,
+        "es6": false
+    },
+    "globals": {
+        "otsimo": true,
+        "angular": true,
+        "responsiveVoice": true
+    },
+    "extends": "eslint:recommended"
+}

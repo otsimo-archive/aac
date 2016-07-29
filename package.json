@@ -1,9 +1,11 @@
 {
-  "name": "aac",
+  "name": "otsimo-symbol-aac",
   "version": "0.1.0",
   "description": "Otsimo symbol based AAC",
   "scripts": {
-    "test": "gulp test"
+    "test": "eslint app/js/*.js",
+    "build": "gulp build",
+    "dev": "gulp"
   },
   "repository": {
     "type": "git",
@@ -13,8 +15,8 @@
     "otsimo",
     "aac"
   ],
-  "author": "burak",
-  "license": "ISC",
+  "author": "Burak Tokak <burak@otsimo.com>",
+  "license": "GPL-v3",
   "bugs": {
     "url": "https://github.com/otsimo/acc/issues"
   },
@@ -49,6 +51,5 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
     "tiny-lr": "^0.2.1"
-  },
-  "main": "gulpfile.js"
+  }
 }
