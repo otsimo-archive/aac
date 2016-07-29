@@ -1,19 +1,19 @@
 {
-    "unique_name": "otsimo-game-template",
-    "version": "1.0.0",
+    "unique_name": "aac",
+    "version": "0.0.1",
     "main": "index.html",
-    "licence": "Apache 2",
+    "licence": "GPL-v3",
     "languages": [
         "en"
     ],
     "default_language": "en",
     "developer_name": "Otsimo",
-    "homepage": "https://github.com/otsimo/otsimo-game-template",
-    "repository": "https://github.com/otsimo/otsimo-game-template.git",
+    "homepage": "https://github.com/otsimo/aac",
+    "repository": "https://github.com/otsimo/aac.git",
     "authors": [
         {
-            "name": "User Name",
-            "email": "name@example.com"
+            "name": "Burak Tokak",
+            "email": "burak@otsimo.com"
         }
     ],
     "exclude": [],
@@ -22,16 +22,15 @@
     "metadata": [
         {
             "language": "en",
-            "visible_name": "Otsimo Game Template",
-            "summary": "a short description",
-            "description": "an awesome game, this is long description",
+            "visible_name": "Otsimo AAC",
+            "summary": "summary",
+            "description": "description",
             "keywords": [
-                "game"
+                "aac"
             ],
             "logo": "i18n/en/template-logo.png",
             "icon": "i18n/en/template-icon.png",
-            "images": [
-            ],
+            "images": [],
             "assets": [
                 "img/en",
                 "audio/en"
