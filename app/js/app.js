@@ -41,6 +41,7 @@ function returnTime() {
 }
 
 
+/*
 var statusSettings = 0;
 
 function toggleSettings(){
@@ -51,7 +52,7 @@ function toggleSettings(){
     document.getElementById("settings").style.right = "-270px";
     statusSettings = 0;
   }
-}
+}*/
 
 
 var runUygulama = null;
@@ -141,7 +142,15 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     $scope.clickWord = function (wordObj) {
         add2Phrase(wordObj);
         updateScroll();
-      		otsimo.tts.speak(wordObj.title);
+      	otsimo.tts.speak(wordObj.title);
+    }
+    $scope.touchWord = function(wordT){
+      console.log("asdasd");
+        var wordElem = document.getElementById("word-" + wordT);
+        wordElem.className = wordElem.className + " gridItemClick";
+        setTimeout(function(){
+          wordElem.className = wordElem.className.replace(" gridItemClick", "");
+        }, 200);
     }
 
     $scope.removeLastWord = function () {
@@ -276,14 +285,21 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
         // Touch Derive
 
         var derivetouchTimer;
-        $scope.deriveTouchStart = function (sytitle, deriveData) {
+        $scope.deriveTouchStart = function (sytitle, deriveData, slug) {
           if(deriveData[0]){
             derivetouchTimer = setTimeout(function () {
                 $scope.currentDerivable = sytitle;
                 $scope.derivableSymbolData = deriveData;
                 changeCurrentTab("derivable");
             }, 200);
+
           }
+              var wordElem = document.getElementById("word-"+ slug);
+              wordElem.className = wordElem.className + " gridItemClick";
+              setTimeout(function(){
+                wordElem.className = wordElem.className.replace(" gridItemClick", "");
+              }, 200);
+
         }
 
         $scope.deriveTouchEnd = function () {
