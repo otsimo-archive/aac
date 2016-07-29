@@ -34,6 +34,7 @@
     "browser-sync": "^2.13.0",
     "del": "^2.2.1",
     "ecstatic": "^1.4.1",
+    "eslint": "^3.1.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^4.2.0",
