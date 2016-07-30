@@ -59,7 +59,7 @@
 		<div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" ng-click="submitPhrase()">
 			<div class="currentPhraseScroll">
 				<div class="wordItem" ng-repeat="word in currentPhrase track by $index" ng-if="word.title">
-					<img src="symbols/potatoes.svg" />
+					<img src="symbols/{{word.slug}}.svg" />
 					<div class="wordText">{{word.title}}</div>
 				</div>
 			</div>
@@ -79,7 +79,7 @@
 				<div id="word-{{symbol.slug}}" class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in mainSymbolData | filter: {is_home: true} track by $index"
 					ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity" ng-touchstart="deriveTouchStart(symbol.title, symbol.derive, symbol.slug)" ng-touchend="deriveTouchEnd()">
 					<!-- Add is home control -->
-					<img src="symbols/potatoes.svg">
+					<img src="symbols/{{symbol.slug}}.svg">
 					<div class="gridText">{{symbol.title}}</div>
 					<div class="derivable" ng-if="symbol.derive[0]"></div>
 				</div>
@@ -91,7 +91,7 @@
 
 				<div id="word-{{group.slug}}" ng-touchstart="touchWord(group.slug)" class="gridItem gridGroup" ng-click="groupClick(group.slug)" ng-if="!(mainMaxPageNo > (mainPageNo + 1))" ng-repeat="group in groupsSymbolData">
 					<!-- Add is home control -->
-					<img src="symbols/potatoes.svg">
+					<img src="symbols/{{group.slug}}.svg">
 					<div class="gridText">{{group.title}}</div>
 				</div>
 			</div>
@@ -101,7 +101,7 @@
 					<div class="gridText">Go Back</div>
 				</div>
 				<div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in derivableSymbolData">
-					<img src="symbols/potatoes.svg">
+					<img src="symbols/{{symbol.slug}}.svg">
 					<div class="gridText">{{symbol.title}}</div>
 				</div>
 			</div>
@@ -112,7 +112,7 @@
 				</div>
 				<div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in groupSymbolData  | filter: currentGroup track by symbol.title"
 					ng-if="groupPageNo * gridQuantity < $index && $index < (groupPageNo + 1) * gridQuantity">
-					<img src="symbols/potatoes.svg">
+					<img src="symbols/{{symbol.slug}}.svg">
 					<div class="gridText">{{symbol.title}}</div>
 				</div>
 				<div class="gridItem gridGroup" ng-click="goNextGroup()" ng-if="groupMaxPageNo >= (groupPageNo + 1)">
@@ -135,7 +135,7 @@
 					<div class="resPhrase" ng-click="loadRecentPhrase($index)" ng-repeat="phraseRecent in recentPhrases | orderBy:'-time' track by $index" ng-if="phraseRecent.time < timeH && phraseRecent.time > timeL">
 						<div class="resPhraseScroll">
 							<div class="wordItemRes" ng-repeat="wordRecent in phraseRecent.phrase track by $index">
-								<img src="symbols/potatoes.svg" />
+								<img src="symbols/{{wordRecent.slug}}.svg" />
 								<div class="wordText">{{wordRecent.title}}</div>
 							</div>
 						</div>
