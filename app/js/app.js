@@ -405,7 +405,7 @@ otsimo.run(function () {
 });
 
 function setSettings(){
-    document.body.style.fontSize = "20px";
+    document.body.style.fontSize = "18px";
 }
 
 

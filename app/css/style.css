@@ -21,7 +21,7 @@ body {
 .headerTitle {
   line-height:60px;
   padding:0px 20px;
-  font-size:21px;
+  font-size:1.16em;
   float:left;
 }
 
@@ -32,7 +32,7 @@ body {
 .headerIcons i {
   line-height:60px;
   width:60px; text-align:center !important;
-  font-size:30px;
+  font-size:1.6em;
   transition:200ms all;
 }
 
@@ -99,7 +99,7 @@ body {
 .gridItem .gridText {
   text-align:center;
   font-weight:bold;
-  font-size:18px; 
+  font-size:1em;
   line-height:16px;
   text-transform:capitalize;
   padding-top:10px;
