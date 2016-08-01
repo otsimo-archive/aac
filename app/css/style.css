@@ -244,3 +244,19 @@ margin:2px;}
 .settingHeader { border-bottom:1px solid #eee; padding:10px; }
 .settingHeader i { position:relative; top:5px;  margin-right:5px; margin-left:7px;}
 .settingList li { list-style:none; padding:10px 15px; }
+
+@media all and (max-width:800px){
+  .header { height:40px; font-size:0.8em; }
+  .header .headerTitle {  line-height:40px; }
+  .header i { line-height:40px; width:40px !important;}
+  .phraseHolder { height:80px; }
+  .wordItem { height:80px; padding:0px 10px; padding-top:5px; }
+  .wordItemRes { height:80px; padding:0px 10px; padding-top:5px; }
+  .backspace i{ height:80px; line-height:80px !important; font-size:2.22em;}
+  .backspace{ height:80px; margin-right:18px;}
+  .currentPhrase { height:80px; }
+  .gridHolder { height:calc(100% - 121px);}
+  .resPhrase { height:80px; }
+  .recentTabs li{ font-size:0.9em; padding:8px 0px;}
+  .gridItem img{ height: calc(100% - 23px); }
+}
