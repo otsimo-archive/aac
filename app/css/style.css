@@ -99,7 +99,7 @@ body {
 .gridItem .gridText {
   text-align:center;
   font-weight:bold;
-  font-size:18px;
+  font-size:18px; 
   line-height:16px;
   text-transform:capitalize;
   padding-top:10px;
