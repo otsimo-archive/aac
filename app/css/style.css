@@ -34,7 +34,6 @@ body {
   line-height:60px;
   width:60px; text-align:center !important;
   font-size:1.6em;
-  position:relative; top:3px;
   transition:200ms all;
 }
 
@@ -46,6 +45,8 @@ body {
 
 .backIcon i {
   padding-left:10px;
+  position:relative;
+  top:2px; 
   line-height:60px;
   width:50px; text-align:center !important;
   font-size:1.6em;
