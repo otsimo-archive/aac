@@ -35,5 +35,6 @@
     "timeIntervalText4": "Last Week",
     "previousText": "Previous",
     "nextText": "Next",
-    "backText": "Go Back"
+    "backText": "Go Back",
+    "headerColor": "#3a3e4a"
 }

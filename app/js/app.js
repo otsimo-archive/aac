@@ -75,7 +75,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     // scope.currentTab = "main";
 
     // SYS Variables (Private for View)
-    $scope.currentGroup = "a"; // If exists
+    $scope.currentGroup = ""; // If exists
     $scope.currentDerivable = ""; // If exists
     $scope.mainPageNo = 0;
     $scope.mainMaxPageNo = 0;
@@ -258,7 +258,26 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     };
 
 
+    var setSettings = function(){
 
+          $scope.pageText1 = otsimo.kv.pageText1;
+          $scope.pageText2 = otsimo.kv.pageText2;
+          $scope.pageText3 = otsimo.kv.pageText3;
+          $scope.pageText4 = otsimo.kv.pageText4;
+          $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
+          $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
+          $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
+          $scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
+          $scope.previousText = otsimo.kv.previousText;
+          $scope.nextText = otsimo.kv.nextText;
+          $scope.backText = otsimo.kv.backText;
+          // Colors & styles
+          $scope.headerColor = otsimo.kv.headerColor;
+          $scope.generalFont = otsimo.kv.generalFont;
+          document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
+          document.body.style.fontSize = $scope.generalFont;
+          
+    }
 
 
 
@@ -267,19 +286,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     //Main Action
 
     runUygulama = function logic(x, y) {
-
-        document.body.style.fontSize = otsimo.kv.generalFont;
-        $scope.pageText1 = otsimo.kv.pageText1;
-        $scope.pageText2 = otsimo.kv.pageText2;
-        $scope.pageText3 = otsimo.kv.pageText3;
-        $scope.pageText4 = otsimo.kv.pageText4;
-        $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
-        $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
-        $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
-        $scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
-        $scope.previousText = otsimo.kv.previousText;
-        $scope.nextText = otsimo.kv.nextText;
-        $scope.backText = otsimo.kv.backText;
+        setSettings();
         $scope.changeGridSize(x, y);
         $scope.changeInterval(1);
         changeCurrentTab("main");
