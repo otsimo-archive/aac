@@ -34,8 +34,8 @@
     "timeIntervalText3": "Yesterday",
     "timeIntervalText4": "Last Week",
     "previousText": "Previous",
-    "completeChangesText": "Complete Changes",
     "nextText": "Next",
     "backText": "Go Back",
+    "completeChangesText": "Complete Changes",
     "headerColor": "#3a3e4a"
 }
