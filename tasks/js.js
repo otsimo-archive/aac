@@ -18,7 +18,6 @@ gulp.task('js:dev', function () {
 
 gulp.task('js:prod', function () {
   return gulp.src(config.paths.src.js)
-    .pipe(uglify())
     .pipe(concat('main.js'))
     .pipe(gulp.dest(config.paths.builds.prod.js))
     .on('error', util.log);
