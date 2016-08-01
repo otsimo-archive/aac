@@ -5,3 +5,4 @@
 - There is 4 tabs at the main switch "main, derivable, group, recent"
 
 - otsimoctl login
+- sh publish.sh staging
