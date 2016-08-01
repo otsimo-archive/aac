@@ -14,6 +14,7 @@ var cfg = {
 let globs = {
     js: path.join(cfg.paths.src.root, 'app', 'js', '**', '*.js'),
     img: path.join(cfg.paths.src.root, 'app', 'img', '**', '*'),
+    woff: path.join(cfg.paths.src.root, 'app', 'woff', '**', '*.woff'),
     symbols: path.join(cfg.paths.src.root, 'app', 'symbols', '**', '*.svg'),
     data: path.join(cfg.paths.src.root, 'app', 'data', '**', '*.json'),
     json: path.join(cfg.paths.src.root, 'app', '*.json'),
