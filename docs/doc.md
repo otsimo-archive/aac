@@ -6,3 +6,4 @@
 
 - otsimoctl login
 - sh publish.sh staging
+- server push?
