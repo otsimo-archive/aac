@@ -276,7 +276,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
           $scope.generalFont = otsimo.kv.generalFont;
           document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
           document.body.style.fontSize = $scope.generalFont;
-          
+
     }
 
 
@@ -381,7 +381,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
 
 
 otsimo.onSettingsChanged(function (settings, sound) {
-  var otsGridSize = otsimo.settings.gridsize.split("Grid ")[1];
+  var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
   var otsGridXY = otsGridSize.split("x");
   changeGridSize(otsGridXY[0], otsGridXY[1]);
 });
@@ -414,7 +414,7 @@ otsimo.run(function () {
         otsimo.tts.setVoice("UK English Female");
     }
 
-    var otsGridSize = otsimo.settings.gridsize.split("Grid ")[1];
+    var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
     var otsGridXY = otsGridSize.split("x");
     runUygulama(otsGridXY[0], otsGridXY[1]);
 });
