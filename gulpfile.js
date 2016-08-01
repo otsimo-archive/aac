@@ -15,7 +15,9 @@ gulp.task('build', () => {
       'js:prod',
       'json:prod',
       'css:prod',
-      'data:prod'
+      'data:prod',
+      'i18n:prod',
+      'symbols:prod'
     ],
     'html:prod'
   );

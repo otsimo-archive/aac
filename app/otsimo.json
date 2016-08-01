@@ -28,12 +28,24 @@
             "keywords": [
                 "aac"
             ],
-            "logo": "i18n/en/template-logo.png",
-            "icon": "i18n/en/template-icon.png",
+            "logo": "i18n/en/icon_en_512.png",
+            "icon": "i18n/en/logo_en_450x300.png",
             "images": [],
             "assets": [
-                "img/en",
-                "audio/en"
+            ]
+        },        
+        {
+            "language": "tr",
+            "visible_name": "Otsimo AAC",
+            "summary": "özet",
+            "description": "açıklama",
+            "keywords": [
+                "aac"
+            ],
+            "logo": "i18n/tr/icon_tr_512.png",
+            "icon": "i18n/tr/logo_tr_450x300.png",
+            "images": [],
+            "assets": [
             ]
         }
     ]
