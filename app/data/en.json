@@ -24,5 +24,16 @@
     "settings/gridsize/keys/grid-11x9/title": "11x9 Size",
     "settings/gridsize/keys/grid-11x9/description": "11x9 Size",
     "loadingText": "Loading...",
-    "generalFont": "18px"
+    "generalFont": "18px",
+    "pageText1": "Main Picture Cards",
+    "pageText2": "Group Cards Of ",
+    "pageText3": "Derivables Of ",
+    "pageText4": "Recent Phrases",
+    "timeIntervalText1": "Last 30 Min",
+    "timeIntervalText2": "Today",
+    "timeIntervalText3": "Yesterday",
+    "timeIntervalText4": "Last Week",
+    "previousText": "Previous",
+    "nextText": "Next",
+    "backText": "Go Back"
 }

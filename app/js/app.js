@@ -83,22 +83,17 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     $scope.groupMaxPageNo = 0;
 
     $scope.currentPhrase = [];
-    //Setting $scope variables
-    //...
-    var changeCurrentPageText = function (cPageText) {
-        $scope.currentPage = cPageText;
-    };
 
     var changeCurrentTab = function (tabExp) {
 
         if (tabExp == "main") {
-            changeCurrentPageText("Main Picture Cards");
+            $scope.currentPage = $scope.pageText1;
         } else if (tabExp == "group") {
-            changeCurrentPageText("Group Cards Of " + capitalize($scope.currentGroup));
+            $scope.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
         } else if (tabExp == "derivable") {
-            changeCurrentPageText("Derivables Of " + capitalize($scope.currentDerivable));
+            $scope.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
         } else if (tabExp == "recent") {
-            changeCurrentPageText("Recent Phrases");
+            $scope.currentPage = $scope.pageText4;
         }
 
         $scope.currentTab = tabExp;
@@ -272,9 +267,22 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     //Main Action
 
     runUygulama = function logic(x, y) {
-        changeCurrentTab("main");
+
+        document.body.style.fontSize = otsimo.kv.generalFont;
+        $scope.pageText1 = otsimo.kv.pageText1;
+        $scope.pageText2 = otsimo.kv.pageText2;
+        $scope.pageText3 = otsimo.kv.pageText3;
+        $scope.pageText4 = otsimo.kv.pageText4;
+        $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
+        $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
+        $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
+        $scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
+        $scope.previousText = otsimo.kv.previousText;
+        $scope.nextText = otsimo.kv.nextText;
+        $scope.backText = otsimo.kv.backText;
         $scope.changeGridSize(x, y);
         $scope.changeInterval(1);
+        changeCurrentTab("main");
     }
 
 
@@ -398,15 +406,11 @@ otsimo.run(function () {
         otsimo.tts.setDriver(responsiveVoiceDriver);
         otsimo.tts.setVoice("UK English Female");
     }
-    setSettings();
+
     var otsGridSize = otsimo.settings.gridsize.split("Grid ")[1];
     var otsGridXY = otsGridSize.split("x");
     runUygulama(otsGridXY[0], otsGridXY[1]);
 });
-
-function setSettings(){
-    document.body.style.fontSize = "18px";
-}
 
 
 /*

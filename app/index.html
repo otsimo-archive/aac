@@ -73,7 +73,7 @@
 			<div ng-switch-when="main">
 				<div class="gridItem gridGroup" ng-click="goPrevMain()" ng-if="mainPageNo != 0">
 					<img src="symbols/prev.svg">
-					<div class="gridText">Previous</div>
+					<div class="gridText">{{previousText}}</div>
 				</div>
 <!-- touchWord -->
 				<div id="word-{{symbol.slug}}" class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in mainSymbolData | filter: {is_home: true} track by $index"
@@ -86,7 +86,7 @@
 
 				<div class="gridItem gridGroup" ng-click="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
 					<img src="symbols/next.svg">
-					<div class="gridText">Next</div>
+					<div class="gridText">{{nextText}}</div>
 				</div>
 
 				<div id="word-{{group.slug}}" ng-touchstart="touchWord(group.slug)" class="gridItem gridGroup" ng-click="groupClick(group.slug)" ng-if="!(mainMaxPageNo > (mainPageNo + 1))" ng-repeat="group in groupsSymbolData">
@@ -98,7 +98,7 @@
 			<div ng-switch-when="derivable">
 				<div class="gridItem gridGroup" ng-click="goBack()">
 					<img src="symbols/back.svg">
-					<div class="gridText">Go Back</div>
+					<div class="gridText">{{backText}}</div>
 				</div>
 				<div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in derivableSymbolData">
 					<img src="symbols/{{symbol.slug}}.svg">
@@ -123,10 +123,10 @@
 			<div ng-switch-when="recent">
 				<div class="recentTabs">
 					<ul>
-						<li ng-click="changeInterval(1)">Last 30 Min</li>
-						<li ng-click="changeInterval(2)">Today</li>
-						<li ng-click="changeInterval(3)">Yesterday</li>
-						<li ng-click="changeInterval(4)">Last Week</li>
+						<li ng-click="changeInterval(1)">{{timeIntervalText1}}</li>
+						<li ng-click="changeInterval(2)">{{timeIntervalText2}}</li>
+						<li ng-click="changeInterval(3)">{{timeIntervalText3}}</li>
+						<li ng-click="changeInterval(4)">{{timeIntervalText4}}</li>
 					</ul>
 					<div class="clear"></div>
 				</div>
