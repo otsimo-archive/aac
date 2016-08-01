@@ -24,6 +24,7 @@ coverage
 .lock-wscript
 
 dist
+app/symbols
 
 # Dependency directories
 node_modules
