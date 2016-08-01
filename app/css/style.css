@@ -21,6 +21,7 @@ body {
 .headerTitle {
   line-height:60px;
   padding:0px 20px;
+  padding-left:0px;
   font-size:1.16em;
   float:left;
 }
@@ -33,10 +34,25 @@ body {
   line-height:60px;
   width:60px; text-align:center !important;
   font-size:1.6em;
+  position:relative; top:3px;
   transition:200ms all;
 }
 
 .headerIcons i:hover {
+  background:rgba(255,255,255,0.1);
+}
+
+.backIcon { float:left; }
+
+.backIcon i {
+  padding-left:10px;
+  line-height:60px;
+  width:50px; text-align:center !important;
+  font-size:1.6em;
+  transition:200ms all;
+}
+
+.backIcon i:hover {
   background:rgba(255,255,255,0.1);
 }
 

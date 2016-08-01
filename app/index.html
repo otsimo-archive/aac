@@ -11,7 +11,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
 	<!-- build:otsimo(./) js/otsimo.js -->
-	<script src="node_modules/otsimo/otsimo.js"></script>	
+	<script src="node_modules/otsimo/otsimo.js"></script>
 	<!-- endbuild -->
 	<!-- build:vendor(./) js/vendor.js -->
 	<script src="node_modules/angular/angular.js"></script>
@@ -34,6 +34,7 @@
 
 		<div id="derivableCover" class="derivableCover" onclick="clickCover()"></div>
 	<div class="header">
+		<div class="backIcon" onclick="otsimo.quitgame()"><i class="material-icons">keyboard_arrow_left</i></div>
 		<div class="headerTitle">{{currentPage}}</div>
 		<div class="headerIcons">
 			<i ng-click="openGrid()" class="material-icons">grid_on</i>
