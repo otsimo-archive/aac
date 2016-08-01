@@ -271,6 +271,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
           $scope.previousText = otsimo.kv.previousText;
           $scope.nextText = otsimo.kv.nextText;
           $scope.backText = otsimo.kv.backText;
+          $scope.completeChnges = otsimo.kv.completeChangesText;
           // Colors & styles
           $scope.headerColor = otsimo.kv.headerColor;
           $scope.generalFont = otsimo.kv.generalFont;
