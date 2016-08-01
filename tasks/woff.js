@@ -8,7 +8,7 @@ gulp.task('woff:dev', function () {
 });
 
 gulp.task('woff:prod', function () {
-  return gulp.src(config.paths.src.data)
+  return gulp.src(config.paths.src.woff)
     .pipe(gulp.dest(config.paths.builds.prod.woff))
     .on('error', util.log);
 });
