@@ -258,18 +258,24 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
         $scope.gridQuantity = gridX * gridY;
     };
 
-    window.addEventListener("orientationchange", function() {
-    	// Announce the new orientation number
-      console.log(screen.orientation.type);
+    function checkPortLand(){
       var gridSizeTemp = $scope.gridSize;
-    	if(screen.orientation.type == "portrait-primary"){
+      if(screen.orientation.type == "portrait-primary"){
         $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
         $scope.$apply();
       }else if(screen.orientation.type == "landscape-primary"){
         $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
         $scope.$apply();
       }
+    }
+
+    window.addEventListener("orientationchange", function() {
+    	// Announce the new orientation number
+      // console.log(screen.orientation.type);
+      checkPortLand();
     }, false);
+
+
 
 
     var setSettings = function(){
@@ -305,6 +311,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
         $scope.changeGridSize(x, y);
         $scope.changeInterval(1);
         changeCurrentTab("main");
+        checkPortLand();
     }
 
 
