@@ -146,28 +146,48 @@ body {
 
 .grid2x2 .gridItem { width:calc(100% / 2 - 34px); height:calc(100% / 2 - 34px); }
 .grid3x2 .gridItem { width:calc(100% / 3 - 34px); height:calc(100% / 2 - 34px); }
+.grid2x3 .gridItem { width:calc(100% / 2 - 34px); height:calc(100% / 3 - 34px); }
 .grid3x3 .gridItem { width:calc(100% / 3 - 34px); height:calc(100% / 3 - 34px); }
 .grid4x3 .gridItem { width:calc(100% / 4 - 34px); height:calc(100% / 3 - 34px); }
+.grid3x4 .gridItem { width:calc(100% / 3 - 34px); height:calc(100% / 4 - 34px); }
 .grid5x3 .gridItem { width:calc(100% / 5 - 34px); height:calc(100% / 3 - 34px); }
+.grid3x5 .gridItem { width:calc(100% / 3 - 34px); height:calc(100% / 5 - 34px); }
 .grid5x4 .gridItem { width:calc(100% / 5 - 34px); height:calc(100% / 4 - 34px); }
+.grid4x5 .gridItem { width:calc(100% / 4 - 34px); height:calc(100% / 5 - 34px); }
 .grid6x4 .gridItem { width:calc(100% / 6 - 34px); height:calc(100% / 4 - 34px); }
 .grid6x4 .gridText { font-size:0.94em; }
+.grid4x6 .gridItem { width:calc(100% / 4 - 34px); height:calc(100% / 6 - 34px); }
+.grid4x6 .gridText { font-size:0.94em; }
 .grid6x5 .gridItem { width:calc(100% / 6 - 34px); height:calc(100% / 5 - 34px); }
+.grid5x6 .gridItem { width:calc(100% / 5 - 34px); height:calc(100% / 6 - 34px); }
 .grid6x5 .gridText { font-size:0.94em; }
+.grid5x6 .gridText { font-size:0.94em; }
 .grid8x5 .gridItem { width:calc(100% / 8 - 20px); height:calc(100% / 5 - 20px);
   padding:5px;
   margin:3px;
   }
+  .grid5x8 .gridItem { width:calc(100% / 5 - 20px); height:calc(100% / 8 - 20px);
+    padding:5px;
+    margin:3px;
+    }
 .grid8x5 .gridText { font-size:0.88em; }
+.grid5x8 .gridText { font-size:0.88em; }
 .grid10x7 .gridItem { width:calc(100% / 10 - 14px); height:calc(100% / 7 - 14px);
   padding:3px;
   margin:2px;}
+  .grid7x10 .gridItem { width:calc(100% / 7 - 14px); height:calc(100% / 10 - 14px);
+    padding:3px;
+    margin:2px;}
 .grid10x7 .gridText { font-size:0.72em; }
+.grid7x10 .gridText { font-size:0.72em; }
 
 .grid11x9 .gridItem { width:calc(100% / 11 - 8px); height:calc(100% / 9 - 0px);
 padding:0px;
 margin:2px;}
-.grid11x9 .gridText { font-size:0.61em; padding-top:5px; }
+.grid9x11 .gridItem { width:calc(100% / 9 - 8px); height:calc(100% / 11 - 0px);
+padding:0px;
+margin:2px;}
+.grid11x9 .gridText, .grid9x11 .gridText { font-size:0.61em; padding-top:5px; }
 
 .resPhrase {
   float:left;

@@ -255,11 +255,12 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     //Settings Functions
     $scope.changeGridSize = function (gridX, gridY) {
         $scope.gridSize = [gridX, gridY];
+        $scope.gridSizeStatic = [gridX, gridY];
         $scope.gridQuantity = gridX * gridY;
     };
 
     function checkPortLand(){
-      var gridSizeTemp = $scope.gridSize;
+      var gridSizeTemp = $scope.gridSizeStatic;
       if(screen.orientation.type == "portrait-primary"){
         $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
         $scope.$apply();
