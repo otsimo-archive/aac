@@ -7,12 +7,13 @@ otsimo.logic.setGridUpdater=function(updater:IUpdater)
 // document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
 //localStorage Settings
 
-window.onscroll = function(event) {
+/*window.onscroll = function(event) {
   event.preventDefault();
-}
+}*/
 document.ontouchmove = function(event){
     event.preventDefault();
 }
+
 
 if (!localStorage.phraseHistory) {
     console.log("LS: not yet initilized, firstTime load.");
@@ -256,6 +257,19 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
         $scope.gridSize = [gridX, gridY];
         $scope.gridQuantity = gridX * gridY;
     };
+
+    window.addEventListener("orientationchange", function() {
+    	// Announce the new orientation number
+      console.log(screen.orientation.type);
+      var gridSizeTemp = $scope.gridSize;
+    	if(screen.orientation.type == "portrait-primary"){
+        $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+        $scope.$apply();
+      }else if(screen.orientation.type == "landscape-primary"){
+        $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+        $scope.$apply();
+      }
+    }, false);
 
 
     var setSettings = function(){
