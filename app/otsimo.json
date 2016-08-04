@@ -1,6 +1,6 @@
 {
     "unique_name": "aac",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [

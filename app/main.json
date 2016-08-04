@@ -181,8 +181,8 @@
             "class" : "group"
         },
         {
-            "title": "Tell",
-            "slug": "tell",
+            "title": "Colors",
+            "slug": "color",
             "derive": [],
             "class" : "group"
         }

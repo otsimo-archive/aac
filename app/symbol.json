@@ -3306,7 +3306,7 @@
     }, {
         "title": "Black",
         "slug": "black",
-        "group_slug": "",
+        "group_slug": "colors",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -3425,7 +3425,7 @@
     }, {
         "title": "Blue",
         "slug": "blue",
-        "group_slug": "",
+        "group_slug": "colors",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -9725,7 +9725,7 @@
     }, {
         "title": "Green",
         "slug": "green",
-        "group_slug": "",
+        "group_slug": "colors",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -16375,7 +16375,7 @@
     }, {
         "title": "Red",
         "slug": "red",
-        "group_slug": "",
+        "group_slug": "colors",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -22521,7 +22521,7 @@
     }, {
         "title": "Yellow",
         "slug": "yellow",
-        "group_slug": "",
+        "group_slug": "colors",
         "derive": [],
         "is_home": true,
         "type": "noun"
