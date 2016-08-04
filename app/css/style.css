@@ -60,7 +60,10 @@ body {
 .backIcon i:hover {
   background:rgba(255,255,255,0.1);
 }
-
+.backIcon, .headerIcons {
+  position:relative;
+  z-index:99;
+}
 .phraseHolder {
   position:relative; z-index:98;
   box-shadow:0px 0px 12px 0px rgba(0,0,0,0.2);
