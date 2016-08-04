@@ -7,8 +7,8 @@
 
 var runUygulama = null;
 
-var uygulama = angular.module("ngPescGeneral", ["ngTouch"]);
-uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
+var uygulama = angular.module("otsPescGeneral", ["ngTouch"]);
+uygulama.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
 
     // SYS Variables (Private for View)
