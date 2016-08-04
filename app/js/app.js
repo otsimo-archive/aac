@@ -29,6 +29,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
         if (tabExp == "main") {
             $scope.currentPage = $scope.pageText1;
+            $scope.isHome = 1;
         } else if (tabExp == "group") {
             $scope.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
             $scope.isHome = 0;
@@ -47,6 +48,14 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     $scope.openRecent = function () {
         changeCurrentTab("recent");
         $scope.changeInterval(1);
+    }
+
+    $scope.quitGame = function(){
+      if($scope.isHome == 1){
+        otsimo.quitgame();
+      }else{
+        $scope.goHome();
+      }
     }
 
     $scope.openGrid = function () {
