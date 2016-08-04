@@ -15,6 +15,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     $scope.mainMaxPageNo = 0;
     $scope.groupPageNo = 0;
     $scope.groupMaxPageNo = 0;
+    $scope.isHome = 1;
 
     $scope.currentPhrase = [];
 
@@ -30,26 +31,26 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
             $scope.currentPage = $scope.pageText1;
         } else if (tabExp == "group") {
             $scope.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
+            $scope.isHome = 0;
         } else if (tabExp == "derivable") {
             $scope.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
+            $scope.isHome = 0;
         } else if (tabExp == "recent") {
             $scope.currentPage = $scope.pageText4;
+            $scope.isHome = 0;
         }
 
         $scope.currentTab = tabExp;
-        otsimo.customevent("app:currentTab", {"currentTab-slug":tabExp});
         updateTab(tabExp);
     };
 
     $scope.openRecent = function () {
         changeCurrentTab("recent");
         $scope.changeInterval(1);
-        otsimo.customevent("app:recent", {"recent":1});
     }
 
     $scope.openGrid = function () {
         changeCurrentTab("main");
-        otsimo.customevent("app:grid", {"grid":1});
     }
 
     $scope.groupClick = function (slug) {
@@ -112,6 +113,14 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         updateGridQuantity();
     }
 
+    $scope.goHome = function () {
+        changeCurrentTab("main");
+        $scope.currentGroup = "";
+        $scope.currentDerivable = "";
+        $scope.mainPageNo = 0;
+        updateGridQuantity();
+    }
+
     $scope.goNextGroup = function () {
         $scope.groupPageNo++;
         updateGridQuantity();
@@ -147,7 +156,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         add2Phrase(wordObj);
         updateCurrentPhraseScroll();
       	otsimo.tts.speak(wordObj.title);
-        otsimo.customevent("app:word", {"word":wordObj.title});
+        otsimo.customevent("app:word", {"word":wordObj.title, "gridX": $scope.gridSize[0], "gridY":$scope.gridSize[1], "gridXY": $scope.gridSize[0]+"x"+$scope.gridSize[1]});
     }
     $scope.touchWord = function(wordT, ind){
       if(ind || ind === 0){
@@ -163,7 +172,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
     $scope.removeLastWord = function () {
         $scope.currentPhrase.pop();
-        otsimo.customevent("app:removeLast", {"removeLast":1});
     }
 
     $scope.submitPhrase = function () {
@@ -179,7 +187,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
                 i++;
             }
             otsimo.tts.speak(currentPhraseString);
-            otsimo.customevent("app:phrase", {"phare": currentPhraseString});
+            otsimo.customevent("app:phrase", {"phrase": currentPhraseString});
         }
     }
 
@@ -241,7 +249,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         wordTouchTimer = setTimeout(function () {
           document.getElementById("derivableCover").style.display = "block";
             $scope.currentDerivable = sytitle;
-            otsimo.customevent("app:derivative", {"derivativeOf":slug});
+            otsimo.customevent("app:derive", {"derivative":slug});
             $scope.derivableSymbolData = deriveData;
             changeCurrentTab("derivable");
             $scope.$apply();

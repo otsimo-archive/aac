@@ -1,0 +1,3 @@
+app:group -> when tapped on a group // {"group-slug":slug}
+app:derive -> when holded on a derivable // {"derivative":slug})
+app:phrase -> when tapped on completed phrase // {"phrase": currentPhraseString}
