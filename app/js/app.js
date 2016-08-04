@@ -143,8 +143,12 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         updateCurrentPhraseScroll();
       	otsimo.tts.speak(wordObj.title);
     }
-    $scope.touchWord = function(wordT){
-        var wordElem = document.getElementById("word-" + wordT);
+    $scope.touchWord = function(wordT, ind){
+      if(ind || ind === 0){
+          var wordElem = document.getElementById("word-" + wordT + "-" + ind);
+      }else{
+          var wordElem = document.getElementById("word-" + wordT);
+      }
         wordElem.className = wordElem.className + " gridItemClick";
         setTimeout(function(){
           wordElem.className = wordElem.className.replace(" gridItemClick", "");
@@ -206,7 +210,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     /*
     -- Touch Animations
     Functions to animate the hold and click actions
-    on picture cards at in the grid.
+    on picture cards and backspace (bs) in the grid.
     */
     var bstouchTimer;
     $scope.bsTouchStart = function () {
@@ -222,10 +226,10 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         clearTimeout(bstouchTimer);
     }
 
-    var derivetouchTimer;
-    $scope.deriveTouchStart = function (sytitle, deriveData, slug) {
+    var wordTouchTimer;
+    $scope.wordTouchStart = function (sytitle, deriveData, slug) {
       if(deriveData[0]){
-        derivetouchTimer = setTimeout(function () {
+        wtouchTimer = setTimeout(function () {
           document.getElementById("derivableCover").style.display = "block";
             $scope.currentDerivable = sytitle;
             $scope.derivableSymbolData = deriveData;
@@ -241,10 +245,11 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
     }
 
-    $scope.deriveTouchEnd = function () {
-        clearTimeout(derivetouchTimer);
+    $scope.wordTouchEnd = function (objMain) {
+        clearTimeout(wordTouchTimer);
+        $scope.clickWord(objMain);
     }
-
+    
 
 
     /*
