@@ -1,79 +1,15 @@
 /*
-otsimo.logic.updateGrid=function(x:int,y:int)
-otsimo.logic.sdasf=function(x:int,y:int)
-otsimo.logic.setGridUpdater=function(updater:IUpdater)
+  -- app.js
+  Main JS file
+  Angular modules and controllers is located here
 
 */
-// document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
-//localStorage Settings
-
-/*window.onscroll = function(event) {
-  event.preventDefault();
-}*/
-document.ontouchmove = function(event){
-    event.preventDefault();
-}
-
-
-if (!localStorage.phraseHistory) {
-    console.log("LS: not yet initilized, firstTime load.");
-    localStorage.phraseHistory = "[]";
-}
-
-function getHistoryAsArray() {
-    var tempHistoryArr = JSON.parse(localStorage.phraseHistory);
-    return tempHistoryArr;
-}
-function updateHistoryAsString(tempArr) {
-    localStorage.phraseHistory = JSON.stringify(tempArr);
-}
-
-function addPhrase2History(arrPhrase) {
-    var tempHistoryArr = getHistoryAsArray();
-    var stringifyLast;
-    if (tempHistoryArr.length > 0) {
-        stringifyLast = JSON.stringify(tempHistoryArr[tempHistoryArr.length - 1].phrase);
-    }
-    if (stringifyLast != JSON.stringify(arrPhrase)) {
-        var obj2Push = {};
-        obj2Push.phrase = arrPhrase;
-        obj2Push.time = returnTime();
-        //console.log(obj2Push.phrase);
-        tempHistoryArr.push(obj2Push);
-        updateHistoryAsString(tempHistoryArr);
-    }
-}
-
-function returnTime() {
-    var d = new Date();
-    return d.getTime();
-}
-
-function clickCover(){
-  document.getElementById("derivableCover").style.display = "none";
-}
-
-
-/*
-var statusSettings = 0;
-
-function toggleSettings(){
-  if(statusSettings != 1){
-    document.getElementById("settings").style.right = "0px";
-    statusSettings = 1;
-  }else{
-    document.getElementById("settings").style.right = "-270px";
-    statusSettings = 0;
-  }
-}*/
-
 
 var runUygulama = null;
 
 var uygulama = angular.module("ngPescGeneral", ["ngTouch"]);
 uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
-    // $scope.currentPage = "Current Page";
-    // scope.currentTab = "main";
+
 
     // SYS Variables (Private for View)
     $scope.currentGroup = ""; // If exists
@@ -143,7 +79,7 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     //Click Functoions
     $scope.clickWord = function (wordObj) {
         add2Phrase(wordObj);
-        updateScroll();
+        updateCurrentPhraseScroll();
       	otsimo.tts.speak(wordObj.title);
     }
     $scope.touchWord = function(wordT){
@@ -363,15 +299,6 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
         //console.log($scope.currentPhrase);
     }
 
-    function updateScroll() {
-        setTimeout(function () {
-            var element = document.getElementById("cPhrase");
-            element.scrollLeft = element.scrollWidth - 924;
-        }, 1);
-    }
-    function capitalize(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
 
     function calcPageCount(len) {
         $scope.mainMaxPageNo = len / $scope.gridQuantity;
@@ -395,84 +322,3 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     }
 
 });
-
-
-otsimo.onSettingsChanged(function (settings, sound) {
-  var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
-  var otsGridXY = otsGridSize.split("x");
-  changeGridSize(otsGridXY[0], otsGridXY[1]);
-});
-
-var responsiveVoiceDriver = {}
-
-responsiveVoiceDriver.speak = function (text) {
-    if (responsiveVoice) {
-        responsiveVoice.speak(text);
-    }
-}
-
-responsiveVoiceDriver.setVoice = function (voice) {
-    if (responsiveVoice) {
-        responsiveVoice.setDefaultVoice(voice);
-    }
-}
-
-responsiveVoiceDriver.getVoice = function () {
-    return ""
-}
-
-responsiveVoiceDriver.voiceList = function () {
-    return [];
-}
-
-otsimo.run(function () {
-    if (!otsimo.isWKWebView) {
-        otsimo.tts.setDriver(responsiveVoiceDriver);
-        otsimo.tts.setVoice("UK English Female");
-    }
-
-    var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
-    var otsGridXY = otsGridSize.split("x");
-    runUygulama(otsGridXY[0], otsGridXY[1]);
-});
-
-
-/*
-var getJSON = function(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("get", url, true);
-    xhr.responseType = "json";
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status == 200) {
-        callback(null, xhr.response);
-      } else {
-        callback(status);
-      }
-    };
-    xhr.send();
-};
-
-
-window.onload = function () {
-
-    var gridElem = document.getElementById("grids").innerHTML;
-    var i = 0;
-    var ngrid;
-      getJSON("symbol.json", function(n, resp){
-console.log(resp);
-        while (i < resp.symbols.length) {
-        ngrid = `
-        <div class="gridItem">
-          <img src="symbols/output/${resp.symbols[i].slug}">
-          <div class="gridText">${resp.symbols[i].title}</div>
-        </div>`;
-
-          document.getElementById("grids").innerHTML = document.getElementById("grids").innerHTML + ngrid;
-          i++;
-      }
-
-      });
-}
-
-*/

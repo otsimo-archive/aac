@@ -13,6 +13,7 @@
 	<!-- build:otsimo(./) js/otsimo.js -->
 	<script src="node_modules/otsimo/otsimo.js"></script>
 	<!-- endbuild -->
+
 	<!-- build:vendor(./) js/vendor.js -->
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="node_modules/ngtouch/build/ngTouch.min.js"></script>
@@ -22,15 +23,6 @@
 	<!-- build:remove -->
 	<script src='//vws.responsivevoice.com/v/e?key=utvgu25X'></script>
 	<!-- endbuild -->
-
-	<script type="text/javascript">
-	if ('addEventListener' in document) {
-	    document.addEventListener('DOMContentLoaded', function() {
-	        FastClick.attach(document.body);
-	    }, false);
-	}
-	//travis deneme 2
-	</script>
 </head>
 
 <body ng-app="ngPescGeneral" ng-controller="ngControlGeneral" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -91,7 +83,7 @@
 							<div class="gridText">{{main.title}}</div>
 							<div class="derivable" ng-if="main.derive[0]"></div>
 						</div>
-						<div id="word-{{main.slug}}" ng-touchstart="touchWord(main.slug)" class="gridItem gridGroup" ng-click="groupClick(main.slug)" 
+						<div id="word-{{main.slug}}" ng-touchstart="touchWord(main.slug)" class="gridItem gridGroup" ng-click="groupClick(main.slug)"
 							ng-if="main.class == 'group'">
 							<!-- Add is home control -->
 							<img src="symbols/{{main.slug}}.svg">
