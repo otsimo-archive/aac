@@ -24,6 +24,10 @@ body {
   padding-left:0px;
   font-size:1.16em;
   float:left;
+  position: fixed;
+  left:0px;
+  text-align:center;
+  width:100%;
 }
 
 .headerIcons{
