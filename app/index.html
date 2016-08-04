@@ -77,12 +77,23 @@
 
 					<span ng-repeat="main in mainSymbolData track by $index" ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity">
 						<div id="word-{{main.slug}}" class="gridItem gridType-{{main.type}}"
-							ng-if="main.class == 'word'" ng-touchstart="wordTouchStart(main.title, main.derive, main.slug)" ng-touchend="wordTouchEnd(main)">
+							ng-if="main.class == 'word' && main.derive.length > 0" ng-touchstart="wordTouchStart(main.title, main.derive, main.slug)"
+							ng-click="clickWord(main)" ng-touchend="wordTouchEnd(main, 1)">
 							<!-- Add is home control -->
 							<img src="symbols/{{main.slug}}.svg">
 							<div class="gridText">{{main.title}}</div>
 							<div class="derivable" ng-if="main.derive[0]"></div>
 						</div>
+
+						<div id="word-{{main.slug}}" class="gridItem gridType-{{main.type}}"
+							ng-if="main.class == 'word' && main.derive.length == 0" ng-touchstart="wordTouchStart(main.title, main.derive, main.slug)"
+							ng-touchend="wordTouchEnd(main)">
+							<!-- Add is home control -->
+							<img src="symbols/{{main.slug}}.svg">
+							<div class="gridText">{{main.title}}</div>
+							<div class="derivable" ng-if="main.derive[0]"></div>
+						</div>
+
 						<div id="word-{{main.slug}}" ng-touchstart="touchWord(main.slug)" class="gridItem gridGroup" ng-click="groupClick(main.slug)"
 							ng-if="main.class == 'group'">
 							<!-- Add is home control -->
@@ -91,13 +102,10 @@
 						</div>
 					</span>
 
-
-
 				  <div class="gridItem gridGroup" ng-click="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
 				    <img src="symbols/next.svg">
 				    <div class="gridText">{{nextText}}</div>
 				  </div>
-
 
 			</div>
 			<div ng-switch-when="derivable">
@@ -105,7 +113,8 @@
 					<img src="symbols/back.svg">
 					<div class="gridText">{{backText}}</div>
 				</div>
-				<div id="word-{{symbol.slug}}-{{$index}}" ng-touchstart="touchWord(symbol.slug, $index)" class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in derivableSymbolData">
+				<div id="word-{{symbol.slug}}-{{$index}}" ng-touchstart="touchWord(symbol.slug, $index)" class="gridItem gridType-{{symbol.type}}"
+					ng-touchend="wordTouchEnd(symbol)" ng-repeat="symbol in derivableSymbolData">
 					<img src="symbols/{{symbol.slug}}.svg">
 					<div class="gridText">{{symbol.title}}</div>
 				</div>
@@ -115,8 +124,9 @@
 					<img src="symbols/back.svg">
 					<div class="gridText">Go Back</div>
 				</div>
-				<div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in groupSymbolData  | filter: currentGroup track by symbol.title"
-					ng-if="groupPageNo * gridQuantity < $index && $index < (groupPageNo + 1) * gridQuantity">
+				<div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-touchend="wordTouchEnd(symbol)"
+				 ng-repeat="symbol in groupSymbolData | filter: currentGroup track by symbol.title"
+				 ng-if="groupPageNo * gridQuantity < $index && $index < (groupPageNo + 1) * gridQuantity">
 					<img src="symbols/{{symbol.slug}}.svg">
 					<div class="gridText">{{symbol.title}}</div>
 				</div>

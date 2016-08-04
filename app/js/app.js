@@ -229,7 +229,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     var wordTouchTimer;
     $scope.wordTouchStart = function (sytitle, deriveData, slug) {
       if(deriveData[0]){
-        wtouchTimer = setTimeout(function () {
+        wordTouchTimer = setTimeout(function () {
           document.getElementById("derivableCover").style.display = "block";
             $scope.currentDerivable = sytitle;
             $scope.derivableSymbolData = deriveData;
@@ -245,11 +245,15 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
     }
 
-    $scope.wordTouchEnd = function (objMain) {
+    $scope.wordTouchEnd = function (objMain, derivable) {
         clearTimeout(wordTouchTimer);
+          console.log("wordTouchEnd with dertivable");
+        if(!derivable){
+          console.log("wordTouchEnd without dertivable");
         $scope.clickWord(objMain);
+        }
     }
-    
+
 
 
     /*
