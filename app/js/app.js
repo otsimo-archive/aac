@@ -37,16 +37,19 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         }
 
         $scope.currentTab = tabExp;
+        otsimo.customevent("app:currentTab", {"currentTab-slug":tabExp});
         updateTab(tabExp);
     };
 
     $scope.openRecent = function () {
         changeCurrentTab("recent");
         $scope.changeInterval(1);
+        otsimo.customevent("app:recent", {"recent":1});
     }
 
     $scope.openGrid = function () {
         changeCurrentTab("main");
+        otsimo.customevent("app:grid", {"grid":1});
     }
 
     $scope.groupClick = function (slug) {
@@ -55,6 +58,8 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         changeCurrentTab("group");
         // Current group is accessible in view.
         updateGridQuantity();
+
+        otsimo.customevent("app:group", {"group-slug":slug});
     }
 
     var updateTab = function (tabExp) {
@@ -142,6 +147,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         add2Phrase(wordObj);
         updateCurrentPhraseScroll();
       	otsimo.tts.speak(wordObj.title);
+        otsimo.customevent("app:word", {"word":wordObj.title});
     }
     $scope.touchWord = function(wordT, ind){
       if(ind || ind === 0){
@@ -157,6 +163,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
     $scope.removeLastWord = function () {
         $scope.currentPhrase.pop();
+        otsimo.customevent("app:removeLast", {"removeLast":1});
     }
 
     $scope.submitPhrase = function () {
@@ -172,6 +179,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
                 i++;
             }
             otsimo.tts.speak(currentPhraseString);
+            otsimo.customevent("app:phrase", {"phare": currentPhraseString});
         }
     }
 
@@ -203,6 +211,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         }
         $scope.timeH = timeH;
         $scope.timeL = timeL;
+        otsimo.customevent("app:timeInterval", {"recentTimeInterval":val});
     }
 
 
@@ -232,6 +241,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         wordTouchTimer = setTimeout(function () {
           document.getElementById("derivableCover").style.display = "block";
             $scope.currentDerivable = sytitle;
+            otsimo.customevent("app:derivative", {"derivativeOf":slug});
             $scope.derivableSymbolData = deriveData;
             changeCurrentTab("derivable");
             $scope.$apply();
@@ -292,11 +302,10 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     }
 
 
-
     /*
     -- App Setting Initilizer and Updater Functions
     Initilize and updates the $scope variables that will be used in view
-    Settings are
+
     */
     var setSettings = function(){
       $scope.pageText1 = otsimo.kv.pageText1;
@@ -324,6 +333,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         $scope.changeInterval(1);
         changeCurrentTab("main");
         checkOrientation();
+        otsimo.customevent("app:run", {"runApp":1});
     }
 
     window.addEventListener("orientationchange", function() {

@@ -1,6 +1,6 @@
 {
     "unique_name": "aac",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [
@@ -30,7 +30,7 @@
             "summary": "An app to compose phrases for kids with autism.",
             "description": "Otsimo AAC is an application that ables kids with autism who can not speak to compose phrases by tapping on the words. Otsimo AAC uses picture exchange communication system.",
             "keywords": [
-                "aac", "pecs", "cümle", "konuşma"
+                "aac", "pecs", "phrase", "talking"
             ],
             "logo": "i18n/en/icon_en_512.png",
             "icon": "i18n/en/logo_en_450x300.png",
@@ -43,7 +43,7 @@
             "summary": "Otizmli çocuklar için cümle oluşturma uygulaması",
             "description": "Otsimo AAC, konuşamakta zorluk çeken otizmli çocukların, ekrandaki kelimelere dokunarak cümle oluşturmasını sağlayan bir uygulamasdır. Otsimo AAC, resim değiş-tokuş iletişim sistemini kullanır.",
             "keywords": [
-                "aac", "pecs", "phrase", "talking"
+                "aac", "pecs", "cümle", "konuşma"
             ],
             "logo": "i18n/tr/icon_tr_512.png",
             "icon": "i18n/tr/logo_tr_450x300.png",
