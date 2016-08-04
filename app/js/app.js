@@ -20,79 +20,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
 
 
-
-
-    /*
-    -- Word & Phrase Building Action Functions
-    Functions to change (Addword, removeWord) and reflect changes to the currentPhrase.
-    Functions to manage the interval of the recentPhrase history.
-
-    */
-    $scope.clickWord = function (wordObj) {
-        add2Phrase(wordObj);
-        updateCurrentPhraseScroll();
-      	otsimo.tts.speak(wordObj.title);
-    }
-    $scope.touchWord = function(wordT){
-        var wordElem = document.getElementById("word-" + wordT);
-        wordElem.className = wordElem.className + " gridItemClick";
-        setTimeout(function(){
-          wordElem.className = wordElem.className.replace(" gridItemClick", "");
-        }, 200);
-    }
-
-    $scope.removeLastWord = function () {
-        $scope.currentPhrase.pop();
-    }
-
-    $scope.submitPhrase = function () {
-        if ($scope.currentPhrase[0]) {
-            var i = 0;
-            var currentPhraseString = "";
-            $scope.currentPhraseTransition = "cpTransition";
-            addPhrase2History($scope.currentPhrase);
-
-            $timeout(function () { $scope.currentPhraseTransition = ""; }, 300);
-            while (i < $scope.currentPhrase.length) {
-                currentPhraseString = currentPhraseString + $scope.currentPhrase[i].title + " ";
-                i++;
-            }
-            otsimo.tts.speak(currentPhraseString);
-        }
-    }
-
-    $scope.loadRecentPhrase = function(index){
-        var phraseHistory = getHistoryAsArray();
-        var phrase2Add = phraseHistory[phraseHistory.length - (index + 1)].phrase;
-        $scope.currentPhrase = $scope.currentPhrase.concat(phrase2Add);
-    }
-
-    function add2Phrase(obj) {
-        $scope.currentPhrase.push(obj);
-    }
-    $scope.changeInterval = function (val) {
-        var timeH;
-        var timeC = returnTime();
-        var timeL;
-        if (val == 1) {
-            timeH = timeC;
-            timeL = timeC - 1000 * 60 * 30;
-        } else if (val == 2) {
-            timeH = timeC - 1000 * 60 * 30;
-            timeL = timeC - 1000 * 60 * 60 * 24;
-        } else if (val == 3) {
-            timeH = timeC - 1000 * 60 * 30 * 24;
-            timeL = timeC - 1000 * 60 * 60 * 24 * 2;
-        } else if (val == 4) {
-            timeH = timeC - 1000 * 60 * 30 * 24 * 2;
-            timeL = timeC - 1000 * 60 * 60 * 24 * 7;
-        }
-        $scope.timeH = timeH;
-        $scope.timeL = timeL;
-    }
-
-
-
     /*
     -- General Navigation Functions (Click Functions)
     Functions to navigate between Grid (main, group, derivative) and recentPhrases
@@ -206,6 +133,77 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
 
     /*
+    -- Word & Phrase Building Action Functions
+    Functions to change (Addword, removeWord) and reflect changes to the currentPhrase.
+    Functions to manage the interval of the recentPhrase history.
+
+    */
+    $scope.clickWord = function (wordObj) {
+        add2Phrase(wordObj);
+        updateCurrentPhraseScroll();
+      	otsimo.tts.speak(wordObj.title);
+    }
+    $scope.touchWord = function(wordT){
+        var wordElem = document.getElementById("word-" + wordT);
+        wordElem.className = wordElem.className + " gridItemClick";
+        setTimeout(function(){
+          wordElem.className = wordElem.className.replace(" gridItemClick", "");
+        }, 200);
+    }
+
+    $scope.removeLastWord = function () {
+        $scope.currentPhrase.pop();
+    }
+
+    $scope.submitPhrase = function () {
+        if ($scope.currentPhrase[0]) {
+            var i = 0;
+            var currentPhraseString = "";
+            $scope.currentPhraseTransition = "cpTransition";
+            addPhrase2History($scope.currentPhrase);
+
+            $timeout(function () { $scope.currentPhraseTransition = ""; }, 300);
+            while (i < $scope.currentPhrase.length) {
+                currentPhraseString = currentPhraseString + $scope.currentPhrase[i].title + " ";
+                i++;
+            }
+            otsimo.tts.speak(currentPhraseString);
+        }
+    }
+
+    $scope.loadRecentPhrase = function(index){
+        var phraseHistory = getHistoryAsArray();
+        var phrase2Add = phraseHistory[phraseHistory.length - (index + 1)].phrase;
+        $scope.currentPhrase = $scope.currentPhrase.concat(phrase2Add);
+    }
+
+    function add2Phrase(obj) {
+        $scope.currentPhrase.push(obj);
+    }
+    $scope.changeInterval = function (val) {
+        var timeH;
+        var timeC = returnTime();
+        var timeL;
+        if (val == 1) {
+            timeH = timeC;
+            timeL = timeC - 1000 * 60 * 30;
+        } else if (val == 2) {
+            timeH = timeC - 1000 * 60 * 30;
+            timeL = timeC - 1000 * 60 * 60 * 24;
+        } else if (val == 3) {
+            timeH = timeC - 1000 * 60 * 30 * 24;
+            timeL = timeC - 1000 * 60 * 60 * 24 * 2;
+        } else if (val == 4) {
+            timeH = timeC - 1000 * 60 * 30 * 24 * 2;
+            timeL = timeC - 1000 * 60 * 60 * 24 * 7;
+        }
+        $scope.timeH = timeH;
+        $scope.timeL = timeL;
+    }
+
+
+
+    /*
     -- Touch Animations
     Functions to animate the hold and click actions
     on picture cards at in the grid.
@@ -288,50 +286,43 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
 
 
-        window.addEventListener("orientationchange", function() {
-        	// Announce the new orientation number
-          // console.log(screen.orientation.type);
-          checkOrientation();
-        }, false);
+    /*
+    -- App Setting Initilizer and Updater Functions
+    Initilize and updates the $scope variables that will be used in view
+    Settings are
+    */
+    var setSettings = function(){
+      $scope.pageText1 = otsimo.kv.pageText1;
+      $scope.pageText2 = otsimo.kv.pageText2;
+      $scope.pageText3 = otsimo.kv.pageText3;
+      $scope.pageText4 = otsimo.kv.pageText4;
+      $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
+      $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
+      $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
+      $scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
+      $scope.previousText = otsimo.kv.previousText;
+      $scope.nextText = otsimo.kv.nextText;
+      $scope.backText = otsimo.kv.backText;
+      $scope.completeChnges = otsimo.kv.completeChangesText;
+      // Colors & styles
+      $scope.headerColor = otsimo.kv.headerColor;
+      $scope.generalFont = otsimo.kv.generalFont;
+      document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
+      document.body.style.fontSize = $scope.generalFont;
+    }
 
+    runApp = function logic(x, y) {
+        setSettings();
+        $scope.changeGridSize(x, y);
+        $scope.changeInterval(1);
+        changeCurrentTab("main");
+        checkOrientation();
+    }
 
-
-
-
-        //Main Action
-
-        runApp = function logic(x, y) {
-            setSettings();
-            $scope.changeGridSize(x, y);
-            $scope.changeInterval(1);
-            changeCurrentTab("main");
-            checkOrientation();
-        }
-
-        var setSettings = function(){
-          $scope.pageText1 = otsimo.kv.pageText1;
-          $scope.pageText2 = otsimo.kv.pageText2;
-          $scope.pageText3 = otsimo.kv.pageText3;
-          $scope.pageText4 = otsimo.kv.pageText4;
-          $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
-          $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
-          $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
-          $scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
-          $scope.previousText = otsimo.kv.previousText;
-          $scope.nextText = otsimo.kv.nextText;
-          $scope.backText = otsimo.kv.backText;
-          $scope.completeChnges = otsimo.kv.completeChangesText;
-          // Colors & styles
-          $scope.headerColor = otsimo.kv.headerColor;
-          $scope.generalFont = otsimo.kv.generalFont;
-          document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
-          document.body.style.fontSize = $scope.generalFont;
-        }
-
-
-
-
-
-
+    window.addEventListener("orientationchange", function() {
+    	// Announce the new orientation number
+      // console.log(screen.orientation.type);
+      checkOrientation();
+    }, false);
 
 });

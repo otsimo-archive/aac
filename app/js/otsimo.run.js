@@ -6,11 +6,6 @@
 
 */
 
-otsimo.onSettingsChanged(function (settings, sound) {
-  var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
-  var otsGridXY = otsGridSize.split("x");
-  changeGridSize(otsGridXY[0], otsGridXY[1]);
-});
 
 var responsiveVoiceDriver = {}
 
@@ -33,6 +28,13 @@ responsiveVoiceDriver.getVoice = function () {
 responsiveVoiceDriver.voiceList = function () {
     return [];
 }
+
+otsimo.onSettingsChanged(function (settings, sound) {
+  var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
+  var otsGridXY = otsGridSize.split("x");
+  runApp(otsGridXY[0], otsGridXY[1]);
+});
+
 
 otsimo.run(function () {
     if (!otsimo.isWKWebView) {
