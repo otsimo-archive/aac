@@ -42,5 +42,5 @@ otsimo.run(function () {
 
     var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
     var otsGridXY = otsGridSize.split("x");
-    runUygulama(otsGridXY[0], otsGridXY[1]);
+    runApp(otsGridXY[0], otsGridXY[1]);
 });

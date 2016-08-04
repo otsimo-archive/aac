@@ -5,15 +5,12 @@
 
 */
 
-var runUygulama = null;
+var runApp = null;
 
-var uygulama = angular.module("otsPescGeneral", ["ngTouch"]);
-uygulama.controller('otsControlGeneral', function ($scope, $http, $timeout) {
+var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
+aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
-
-    // SYS Variables (Private for View)
-    $scope.currentGroup = ""; // If exists
-    $scope.currentDerivable = ""; // If exists
+    //Variable Initialization
     $scope.mainPageNo = 0;
     $scope.mainMaxPageNo = 0;
     $scope.groupPageNo = 0;
@@ -21,62 +18,16 @@ uygulama.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
     $scope.currentPhrase = [];
 
-    var changeCurrentTab = function (tabExp) {
 
-        if (tabExp == "main") {
-            $scope.currentPage = $scope.pageText1;
-        } else if (tabExp == "group") {
-            $scope.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
-        } else if (tabExp == "derivable") {
-            $scope.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
-        } else if (tabExp == "recent") {
-            $scope.currentPage = $scope.pageText4;
-        }
 
-        $scope.currentTab = tabExp;
-        updateTab(tabExp);
-    };
 
-    var updateTab = function (tabExp) {
-        if (tabExp == "main") {
-            $scope.groupPageNo = 0;
-            $http.get("main.json").then(function (resp) {
-                if (resp.status == 200) {
-                    $scope.mainSymbolData = resp.data.main;
 
-                    calcPageCount(resp.data.main.length);
-                }
-            });
+    /*
+    -- Word & Phrase Building Action Functions
+    Functions to change (Addword, removeWord) and reflect changes to the currentPhrase.
+    Functions to manage the interval of the recentPhrase history.
 
-        } else if (tabExp == "derivable") {
-            //do nothing
-        } else if (tabExp == "group") {
-            var lengthFiltered = 0;
-            var i = 0;
-            $http.get("symbol.json").then(function (resp) {
-                if (resp.status == 200) {
-                    $scope.groupSymbolData = resp.data.symbols;
-
-                    while (resp.data.symbols[i]) {
-                        if (resp.data.symbols[i].group_slug == $scope.currentGroup) {
-                            lengthFiltered++;
-                        }
-
-                        i++;
-                    }
-
-                    calcPageCountGroup(lengthFiltered);
-                }
-            });
-
-        } else if (tabExp == "recent") {
-            $scope.recentPhrases = getHistoryAsArray();
-        }
-
-        // end updateTab;
-    }
-
-    //Click Functoions
+    */
     $scope.clickWord = function (wordObj) {
         add2Phrase(wordObj);
         updateCurrentPhraseScroll();
@@ -116,50 +67,9 @@ uygulama.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         $scope.currentPhrase = $scope.currentPhrase.concat(phrase2Add);
     }
 
-    $scope.openRecent = function () {
-        changeCurrentTab("recent");
-        $scope.changeInterval(1);
+    function add2Phrase(obj) {
+        $scope.currentPhrase.push(obj);
     }
-
-    $scope.openGrid = function () {
-        changeCurrentTab("main");
-    }
-
-    //Main Tab Click Functions
-    $scope.goNextMain = function () {
-        $scope.mainPageNo++;
-        checkNUpdateGridSize();
-    }
-
-    $scope.goPrevMain = function () {
-        $scope.mainPageNo--;
-        checkNUpdateGridSize();
-    }
-
-    // Click Functions for groups
-    $scope.groupClick = function (slug) {
-
-        $scope.currentGroup = slug;
-        changeCurrentTab("group");
-        // Current group is accessible in view.
-        checkNUpdateGridSize();
-
-    }
-
-    $scope.goBack = function () {
-        changeCurrentTab("main");
-        $scope.currentGroup = "";
-        checkNUpdateGridSize();
-    }
-
-    $scope.goNextGroup = function () {
-        $scope.groupPageNo++;
-        checkNUpdateGridSize();
-    }
-
-
-
-    //Click functions for history
     $scope.changeInterval = function (val) {
         var timeH;
         var timeC = returnTime();
@@ -182,14 +92,178 @@ uygulama.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     }
 
 
-    //Settings Functions
+
+    /*
+    -- General Navigation Functions (Click Functions)
+    Functions to navigate between Grid (main, group, derivative) and recentPhrases
+    */
+    var changeCurrentTab = function (tabExp) {
+
+        if (tabExp == "main") {
+            $scope.currentPage = $scope.pageText1;
+        } else if (tabExp == "group") {
+            $scope.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
+        } else if (tabExp == "derivable") {
+            $scope.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
+        } else if (tabExp == "recent") {
+            $scope.currentPage = $scope.pageText4;
+        }
+
+        $scope.currentTab = tabExp;
+        updateTab(tabExp);
+    };
+
+    $scope.openRecent = function () {
+        changeCurrentTab("recent");
+        $scope.changeInterval(1);
+    }
+
+    $scope.openGrid = function () {
+        changeCurrentTab("main");
+    }
+
+    $scope.groupClick = function (slug) {
+
+        $scope.currentGroup = slug;
+        changeCurrentTab("group");
+        // Current group is accessible in view.
+        updateGridQuantity();
+    }
+
+    var updateTab = function (tabExp) {
+        if (tabExp == "main") {
+            $scope.groupPageNo = 0;
+            $http.get("main.json").then(function (resp) {
+                if (resp.status == 200) {
+                    $scope.mainSymbolData = resp.data.main;
+
+                    calcPageCount(resp.data.main.length);
+                }
+            });
+
+        } else if (tabExp == "derivable") {
+            //do nothing
+        } else if (tabExp == "group") {
+            var lengthFiltered = 0;
+            var i = 0;
+            $http.get("symbol.json").then(function (resp) {
+                if (resp.status == 200) {
+                    $scope.groupSymbolData = resp.data.symbols;
+
+                    while (resp.data.symbols[i]) {
+                        if (resp.data.symbols[i].group_slug == $scope.currentGroup) {
+                            lengthFiltered++;
+                        }
+
+                        i++;
+                    }
+
+                    calcPageCountGroup(lengthFiltered);
+                }
+            });
+
+        } else if (tabExp == "recent") {
+            $scope.recentPhrases = getHistoryAsArray();
+        }
+    }
+
+
+
+    /*
+    -- Card Navigation Functions (Click Functions)
+    Functions to navigate between cards and group holders
+
+    */
+    $scope.goBack = function () {
+        changeCurrentTab("main");
+        $scope.currentGroup = "";
+        updateGridQuantity();
+    }
+
+    $scope.goNextGroup = function () {
+        $scope.groupPageNo++;
+        updateGridQuantity();
+    }
+
+    $scope.goNextMain = function () {
+        $scope.mainPageNo++;
+        updateGridQuantity();
+    }
+
+    $scope.goPrevMain = function () {
+        $scope.mainPageNo--;
+        updateGridQuantity();
+    }
+
+    function calcPageCount(len) {
+        $scope.mainMaxPageNo = len / $scope.gridQuantity;
+    }
+
+    function calcPageCountGroup(len) {
+        $scope.groupMaxPageNo = Math.floor(len / $scope.gridQuantity);
+    }
+
+
+
+    /*
+    -- Touch Animations
+    Functions to animate the hold and click actions
+    on picture cards at in the grid.
+    */
+    var bstouchTimer;
+    $scope.bsTouchStart = function () {
+        document.getElementById("bs").style.color = "red";
+        bstouchTimer = setTimeout(function () {
+            $scope.currentPhrase = [];
+            $scope.$apply();
+        }, 500);
+    }
+
+    $scope.bsTouchEnd = function () {
+        document.getElementById("bs").style.color = "#444";
+        clearTimeout(bstouchTimer);
+    }
+
+    var derivetouchTimer;
+    $scope.deriveTouchStart = function (sytitle, deriveData, slug) {
+      if(deriveData[0]){
+        derivetouchTimer = setTimeout(function () {
+          document.getElementById("derivableCover").style.display = "block";
+            $scope.currentDerivable = sytitle;
+            $scope.derivableSymbolData = deriveData;
+            changeCurrentTab("derivable");
+            $scope.$apply();
+        }, 300);
+      }
+          var wordElem = document.getElementById("word-"+ slug);
+          wordElem.className = wordElem.className + " gridItemClick";
+          setTimeout(function(){
+            wordElem.className = wordElem.className.replace(" gridItemClick", "");
+          }, 300);
+
+    }
+
+    $scope.deriveTouchEnd = function () {
+        clearTimeout(derivetouchTimer);
+    }
+
+
+
+    /*
+    -- Grid manipulation functions
+    Functions to change-listen situation changes on grid size settings.
+    - $scope.changeGridSize(x,y) - updated the grid variables into supplied Variables
+    - checkOrientation() - checks the orientation type and changes the grid according to it.
+    - updateGridQuantity() - updates the total size of picture cards that the grid can by currentTab.
+    */
+
     $scope.changeGridSize = function (gridX, gridY) {
         $scope.gridSize = [gridX, gridY];
         $scope.gridSizeStatic = [gridX, gridY];
         $scope.gridQuantity = gridX * gridY;
     };
 
-    function checkPortLand(){
+    function checkOrientation(){
       var gridSizeTemp = $scope.gridSizeStatic;
       if(screen.orientation.type == "portrait-primary"){
         $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
@@ -200,17 +274,41 @@ uygulama.controller('otsControlGeneral', function ($scope, $http, $timeout) {
       }
     }
 
-    window.addEventListener("orientationchange", function() {
-    	// Announce the new orientation number
-      // console.log(screen.orientation.type);
-      checkPortLand();
-    }, false);
+    function updateGridQuantity() {
+        if ($scope.currentTab != "main") {
+            $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1] - 1;
+        } else {
+            if ($scope.mainPageNo == 0) {
+                $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1];
+            } else {
+                $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1] - 1;
+            }
+        }
+    }
+
+
+
+        window.addEventListener("orientationchange", function() {
+        	// Announce the new orientation number
+          // console.log(screen.orientation.type);
+          checkOrientation();
+        }, false);
 
 
 
 
-    var setSettings = function(){
 
+        //Main Action
+
+        runApp = function logic(x, y) {
+            setSettings();
+            $scope.changeGridSize(x, y);
+            $scope.changeInterval(1);
+            changeCurrentTab("main");
+            checkOrientation();
+        }
+
+        var setSettings = function(){
           $scope.pageText1 = otsimo.kv.pageText1;
           $scope.pageText2 = otsimo.kv.pageText2;
           $scope.pageText3 = otsimo.kv.pageText3;
@@ -228,97 +326,12 @@ uygulama.controller('otsControlGeneral', function ($scope, $http, $timeout) {
           $scope.generalFont = otsimo.kv.generalFont;
           document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
           document.body.style.fontSize = $scope.generalFont;
-
-    }
-
-
-
-
-
-    //Main Action
-
-    runUygulama = function logic(x, y) {
-        setSettings();
-        $scope.changeGridSize(x, y);
-        $scope.changeInterval(1);
-        changeCurrentTab("main");
-        checkPortLand();
-    }
-
-
-        // Touch
-
-        var bstouchTimer;
-        $scope.bsTouchStart = function () {
-            document.getElementById("bs").style.color = "red";
-            bstouchTimer = setTimeout(function () {
-                $scope.currentPhrase = [];
-                $scope.$apply();
-            }, 500);
-        }
-
-        $scope.bsTouchEnd = function () {
-            document.getElementById("bs").style.color = "#444";
-            clearTimeout(bstouchTimer);
-        }
-
-        // Touch Derive
-
-        var derivetouchTimer;
-        $scope.deriveTouchStart = function (sytitle, deriveData, slug) {
-          if(deriveData[0]){
-            derivetouchTimer = setTimeout(function () {
-              document.getElementById("derivableCover").style.display = "block";
-                $scope.currentDerivable = sytitle;
-                $scope.derivableSymbolData = deriveData;
-                changeCurrentTab("derivable");
-                $scope.$apply();
-            }, 300);
-            /*
-            setTimeout(function(){
-              document.getElementById("derivableCover").style.display = "none";
-            }, 1000);
-            */
-          }
-              var wordElem = document.getElementById("word-"+ slug);
-              wordElem.className = wordElem.className + " gridItemClick";
-              setTimeout(function(){
-                wordElem.className = wordElem.className.replace(" gridItemClick", "");
-              }, 300);
-
-        }
-
-        $scope.deriveTouchEnd = function () {
-            clearTimeout(derivetouchTimer);
         }
 
 
-    //unGeneric Functions for controller.
-    function add2Phrase(obj) {
-        $scope.currentPhrase.push(obj);
-        //console.log($scope.currentPhrase);
-    }
 
 
-    function calcPageCount(len) {
-        $scope.mainMaxPageNo = len / $scope.gridQuantity;
-    }
 
-    function calcPageCountGroup(len) {
-        $scope.groupMaxPageNo = Math.floor(len / $scope.gridQuantity);
-    }
 
-    function checkNUpdateGridSize() {
-        if ($scope.currentTab != "main") {
-            $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1] - 1;
-        } else {
-            if ($scope.mainPageNo == 0) {
-                $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1];
-            } else {
-                $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1] - 1;
-            }
-        }
-
-    }
 
 });
