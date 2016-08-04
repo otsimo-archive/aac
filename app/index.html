@@ -70,7 +70,7 @@
 		<div class="grids grid{{gridSize[0]}}x{{gridSize[1]}}">
 			<div ng-switch-when="main">
 
-				  <div class="gridItem gridGroup" ng-click="goPrevMain()" ng-if="mainPageNo != 0">
+				  <div class="gridItem gridGroup" ng-touchend="goPrevMain()" ng-if="mainPageNo != 0">
 				    <img src="symbols/prev.svg">
 				    <div class="gridText">{{previousText}}</div>
 				  </div>
@@ -102,14 +102,14 @@
 						</div>
 					</span>
 
-				  <div class="gridItem gridGroup" ng-click="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
+				  <div class="gridItem gridGroup" ng-touchend="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
 				    <img src="symbols/next.svg">
 				    <div class="gridText">{{nextText}}</div>
 				  </div>
 
 			</div>
 			<div ng-switch-when="derivable">
-				<div class="gridItem gridGroup" ng-click="goBack()">
+				<div class="gridItem gridGroup" ng-touchend="goBack()">
 					<img src="symbols/back.svg">
 					<div class="gridText">{{backText}}</div>
 				</div>
@@ -120,7 +120,7 @@
 				</div>
 			</div>
 			<div ng-switch-when="group">
-				<div class="gridItem gridGroup" ng-click="goBack()">
+				<div class="gridItem gridGroup" ng-touchend="goBack()">
 					<img src="symbols/back.svg">
 					<div class="gridText">Go Back</div>
 				</div>
@@ -130,7 +130,7 @@
 					<img src="symbols/{{symbol.slug}}.svg">
 					<div class="gridText">{{symbol.title}}</div>
 				</div>
-				<div class="gridItem gridGroup" ng-click="goNextGroup()" ng-if="groupMaxPageNo >= (groupPageNo + 1)">
+				<div class="gridItem gridGroup" ng-touchend="goNextGroup()" ng-if="groupMaxPageNo >= (groupPageNo + 1)">
 					<img src="symbols/next.svg">
 					<div class="gridText">Next</div>
 				</div>
