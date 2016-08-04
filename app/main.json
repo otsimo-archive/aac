@@ -10,11 +10,11 @@
             "title": "I",
             "slug": "i",
             "derive": [{
-                "title": "Me",
+                "title": "me",
                 "slug": "i",
                 "type": "noun"
             },{
-                "title": "Us",
+                "title": "us",
                 "slug": "us",
                 "type": "noun"
             }],
@@ -22,14 +22,14 @@
             "class" : "word"
         },
         {
-            "title": "Is",
+            "title": "is",
             "slug": "equal",
             "derive": [{
-                "title": "Are",
+                "title": "are",
                 "slug": "equal",
                 "type": "noun"
                 },{
-                "title": "Am",
+                "title": "am",
                 "slug": "equal",
                 "type": "noun"
                 }],
@@ -37,77 +37,77 @@
             "class" : "word"
         },
         {
-            "title": "Big",
+            "title": "big",
             "slug": "big",
             "derive": [],
             "type": "noun",
             "class" : "word"
         },
         {
-            "title": "Want",
+            "title": "want",
             "slug": "want",
             "derive": [],
             "type": "noun",
             "class" : "word"
         },
         {
-            "title": "Like",
+            "title": "like",
             "slug": "like",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "Not",
+            "title": "not",
             "slug": "not",
             "derive": [],
             "type": "adjective",
             "class" : "word"
         },
         {
-            "title": "More",
+            "title": "more",
             "slug": "more",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "You",
+            "title": "you",
             "slug": "you",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "It",
+            "title": "it",
             "slug": "it",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "Clean",
+            "title": "clean",
             "slug": "clean",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "Dry",
+            "title": "dry",
             "slug": "dry",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "Very",
+            "title": "very",
             "slug": "very",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "Less",
+            "title": "less",
             "slug": "less",
             "derive": [],
             "type": "verb",
@@ -128,7 +128,7 @@
             "class" : "word"
         },
         {
-            "title": "First",
+            "title": "first",
             "slug": "first",
             "derive": [],
             "type": "verb",
@@ -142,21 +142,21 @@
             "class" : "word"
         },
         {
-            "title": "Fun",
+            "title": "fun",
             "slug": "fun",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "Happy",
+            "title": "happy",
             "slug": "happy",
             "derive": [],
             "type": "verb",
             "class" : "word"
         },
         {
-            "title": "Sad",
+            "title": "sad",
             "slug": "sad",
             "derive": [],
             "type": "verb",
