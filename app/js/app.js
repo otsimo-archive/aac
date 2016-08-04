@@ -247,9 +247,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
     $scope.wordTouchEnd = function (objMain, derivable) {
         clearTimeout(wordTouchTimer);
-          console.log("wordTouchEnd with dertivable");
         if(!derivable){
-          console.log("wordTouchEnd without dertivable");
         $scope.clickWord(objMain);
         }
     }
