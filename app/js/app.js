@@ -104,17 +104,11 @@ uygulama.controller('ngControlGeneral', function ($scope, $http, $timeout) {
     var updateTab = function (tabExp) {
         if (tabExp == "main") {
             $scope.groupPageNo = 0;
-            $http.get("symbol.json").then(function (resp) {
+            $http.get("main.json").then(function (resp) {
                 if (resp.status == 200) {
-                    $scope.mainSymbolData = resp.data.symbols;
+                    $scope.mainSymbolData = resp.data.main;
 
-                    calcPageCount(resp.data.symbols.length);
-                }
-            });
-
-            $http.get("group.json").then(function (resp) {
-                if (resp.status == 200) {
-                    $scope.groupsSymbolData = resp.data.groups;
+                    calcPageCount(resp.data.main.length);
                 }
             });
 

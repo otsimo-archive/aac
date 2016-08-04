@@ -18,7 +18,7 @@
 	<script src="node_modules/ngtouch/build/ngTouch.min.js"></script>
 	<script src="node_modules/fastclick/lib/fastclick.js"></script>
 	<!-- endbuild -->
-	
+
 	<!-- build:remove -->
 	<script src='//vws.responsivevoice.com/v/e?key=utvgu25X'></script>
 	<!-- endbuild -->
@@ -77,29 +77,36 @@
 	<div class="gridHolder" ng-switch="currentTab">
 		<div class="grids grid{{gridSize[0]}}x{{gridSize[1]}}">
 			<div ng-switch-when="main">
-				<div class="gridItem gridGroup" ng-click="goPrevMain()" ng-if="mainPageNo != 0">
-					<img src="symbols/prev.svg">
-					<div class="gridText">{{previousText}}</div>
-				</div>
-<!-- touchWord -->
-				<div id="word-{{symbol.slug}}" class="gridItem gridType-{{symbol.type}}" ng-click="clickWord(symbol)" ng-repeat="symbol in mainSymbolData | filter: {is_home: true} track by $index"
-					ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity" ng-touchstart="deriveTouchStart(symbol.title, symbol.derive, symbol.slug)" ng-touchend="deriveTouchEnd()">
-					<!-- Add is home control -->
-					<img src="symbols/{{symbol.slug}}.svg">
-					<div class="gridText">{{symbol.title}}</div>
-					<div class="derivable" ng-if="symbol.derive[0]"></div>
-				</div>
 
-				<div class="gridItem gridGroup" ng-click="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
-					<img src="symbols/next.svg">
-					<div class="gridText">{{nextText}}</div>
-				</div>
+				  <div class="gridItem gridGroup" ng-click="goPrevMain()" ng-if="mainPageNo != 0">
+				    <img src="symbols/prev.svg">
+				    <div class="gridText">{{previousText}}</div>
+				  </div>
 
-				<div id="word-{{group.slug}}" ng-touchstart="touchWord(group.slug)" class="gridItem gridGroup" ng-click="groupClick(group.slug)" ng-if="!(mainMaxPageNo > (mainPageNo + 1))" ng-repeat="group in groupsSymbolData">
-					<!-- Add is home control -->
-					<img src="symbols/{{group.slug}}.svg">
-					<div class="gridText">{{group.title}}</div>
-				</div>
+					<span ng-repeat="main in mainSymbolData track by $index" ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity">
+						<div id="word-{{main.slug}}" class="gridItem gridType-{{main.type}}" ng-click="clickWord(main)"
+							ng-if="main.class == 'word'" ng-touchstart="deriveTouchStart(main.title, main.derive, main.slug)" ng-touchend="deriveTouchEnd()">
+							<!-- Add is home control -->
+							<img src="symbols/{{main.slug}}.svg">
+							<div class="gridText">{{main.title}}</div>
+							<div class="derivable" ng-if="main.derive[0]"></div>
+						</div>
+						<div id="word-{{main.slug}}" ng-touchstart="touchWord(main.slug)" class="gridItem gridGroup" ng-click="groupClick(main.slug)" 
+							ng-if="main.class == 'group'">
+							<!-- Add is home control -->
+							<img src="symbols/{{main.slug}}.svg">
+							<div class="gridText">{{main.title}}</div>
+						</div>
+					</span>
+
+
+
+				  <div class="gridItem gridGroup" ng-click="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
+				    <img src="symbols/next.svg">
+				    <div class="gridText">{{nextText}}</div>
+				  </div>
+
+
 			</div>
 			<div ng-switch-when="derivable">
 				<div class="gridItem gridGroup" ng-click="goBack()">
