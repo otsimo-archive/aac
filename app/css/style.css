@@ -48,7 +48,6 @@ body {
 .backIcon { float:left; }
 
 .backIcon i {
-  padding-left:10px;
   position:relative;
   top:2px;
   line-height:60px;
