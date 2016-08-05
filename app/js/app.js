@@ -294,16 +294,19 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         $scope.gridSizeStatic = [gridX, gridY];
         $scope.gridQuantity = gridX * gridY;
     };
-
+    const ORIENTATION_TOP = 0;
+    const ORIENTATION_BOTTOM = 180;
+    const ORIENTATION_LEFT = 90;
+    const ORIENTATION_RIGHT = -90;
     function checkOrientation(){
 
       var gridSizeTemp = $scope.gridSizeStatic;
       if(window.orientation){
         //production
-        if(window.orientation == 0 || window.orientation == 180){
+        if(window.orientation == ORIENTATION_TOP || window.orientation == ORIENTATION_BOTTOM){
           $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
           $scope.$apply();
-        }else if(window.orientation == 90 || window.orientation == -90){
+        }else if(window.orientation == ORIENTATION_LEFT || window.orientation == ORIENTATION_RIGHT){
           $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
           $scope.$apply();
         }
@@ -355,6 +358,16 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
       $scope.generalFont = otsimo.kv.generalFont;
       document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
       document.body.style.fontSize = $scope.generalFont;
+
+      if(otsimo.child.language.split("-")[0] == "tr"){
+        otsimo.tts.setVoice("com.apple.ttsbundle.Yelda-compact");
+        console.log("Yelda's Voice");
+      }else if(otsimo.child.language.split("-")[0] == "en"){
+        otsimo.tts.setVoice("com.apple.ttsbundle.Samantha-compact");
+        console.log("Samantha's Voice");
+      }else{
+        console.error("this language is not supported")
+      }
     }
 
     runApp = function logic(x, y) {
@@ -364,7 +377,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         changeCurrentTab("main");
         checkOrientation();
         otsimo.customevent("app:run", {"runApp":1});
-        console.log(otsimo.default_language);
     }
 
     window.addEventListener("orientationchange", function() {

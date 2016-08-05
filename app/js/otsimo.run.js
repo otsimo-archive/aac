@@ -45,6 +45,4 @@ otsimo.run(function () {
     var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
     var otsGridXY = otsGridSize.split("x");
     runApp(otsGridXY[0], otsGridXY[1]);
-    otsimo.log("Get Voice" + otsimo.tts.getVoice())
-    otsimo.log("Voice List" +otsimo.tts.voiceList())
 });
