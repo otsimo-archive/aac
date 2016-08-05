@@ -15,6 +15,7 @@
     "otsimo",
     "aac"
   ],
+  "eslintConfig": ".eslintrc.json",
   "author": "Burak Tokak <burak@otsimo.com>",
   "license": "GPL-v3",
   "bugs": {

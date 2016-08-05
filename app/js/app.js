@@ -6,6 +6,10 @@
 */
 
 var runApp = null;
+const ORIENTATION_TOP = 0;
+const ORIENTATION_BOTTOM = 180;
+const ORIENTATION_LEFT = 90;
+const ORIENTATION_RIGHT = -90;
 
 var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
 aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
@@ -50,12 +54,12 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         $scope.changeInterval(1);
     }
 
-    $scope.quitGame = function(){
-      if($scope.isHome == 1){
-        otsimo.quitgame();
-      }else{
-        $scope.goHome();
-      }
+    $scope.quitGame = function () {
+        if ($scope.isHome == 1) {
+            otsimo.quitgame();
+        } else {
+            $scope.goHome();
+        }
     }
 
     $scope.openGrid = function () {
@@ -69,7 +73,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         // Current group is accessible in view.
         updateGridQuantity();
 
-        otsimo.customevent("app:group", {"group-slug":slug});
+        otsimo.customevent("app:group", { "group_slug": slug });
     }
 
     var updateTab = function (tabExp) {
@@ -164,18 +168,19 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     $scope.clickWord = function (wordObj) {
         add2Phrase(wordObj);
         updateCurrentPhraseScroll();
-      	otsimo.tts.speak(wordObj.title);
-        otsimo.customevent("app:word", {"word":wordObj.title, "grid-x": $scope.gridSize[0], "grid-y":$scope.gridSize[1], "grid-xy": $scope.gridSize[0]+"x"+$scope.gridSize[1]});
+        otsimo.tts.speak(wordObj.title);
+        otsimo.customevent("app:word", { "word": wordObj.title, "grid_x": $scope.gridSize[0], "grid_y": $scope.gridSize[1], "grid_xy": $scope.gridSize[0] + "x" + $scope.gridSize[1] });
     }
-    $scope.touchWord = function(wordT, ind){
-      if(ind || ind === 0){
-          var wordElem = document.getElementById("word-" + wordT + "-" + ind);
-      }else{
-          var wordElem = document.getElementById("word-" + wordT);
-      }
+    $scope.touchWord = function (wordT, ind) {
+        var wordElem;
+        if (ind || ind === 0) {
+            wordElem = document.getElementById("word-" + wordT + "-" + ind);
+        } else {
+            wordElem = document.getElementById("word-" + wordT);
+        }
         wordElem.className = wordElem.className + " gridItemClick";
-        setTimeout(function(){
-          wordElem.className = wordElem.className.replace(" gridItemClick", "");
+        setTimeout(function () {
+            wordElem.className = wordElem.className.replace(" gridItemClick", "");
         }, 200);
     }
 
@@ -196,11 +201,11 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
                 i++;
             }
             otsimo.tts.speak(currentPhraseString);
-            otsimo.customevent("app:phrase", {"phrase": currentPhraseString});
+            otsimo.customevent("app:phrase", { "phrase": currentPhraseString });
         }
     }
 
-    $scope.loadRecentPhrase = function(index){
+    $scope.loadRecentPhrase = function (index) {
         var phraseHistory = getHistoryAsArray();
         var phrase2Add = phraseHistory[phraseHistory.length - (index + 1)].phrase;
         $scope.currentPhrase = $scope.currentPhrase.concat(phrase2Add);
@@ -228,7 +233,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         }
         $scope.timeH = timeH;
         $scope.timeL = timeL;
-        otsimo.customevent("app:timeInterval", {"recentTimeInterval":val});
+        otsimo.customevent("app:time_interval", { "recent_time_interval": val });
     }
 
 
@@ -254,28 +259,28 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
     var wordTouchTimer;
     $scope.wordTouchStart = function (sytitle, deriveData, slug) {
-      if(deriveData[0]){
-        wordTouchTimer = setTimeout(function () {
-          document.getElementById("derivableCover").style.display = "block";
-            $scope.currentDerivable = sytitle;
-            otsimo.customevent("app:derive", {"derivative":slug});
-            $scope.derivableSymbolData = deriveData;
-            changeCurrentTab("derivable");
-            $scope.$apply();
-        }, 300);
-      }
-          var wordElem = document.getElementById("word-"+ slug);
-          wordElem.className = wordElem.className + " gridItemClick";
-          setTimeout(function(){
+        if (deriveData[0]) {
+            wordTouchTimer = setTimeout(function () {
+                document.getElementById("derivableCover").style.display = "block";
+                $scope.currentDerivable = sytitle;
+                otsimo.customevent("app:derive", { "derivative": slug });
+                $scope.derivableSymbolData = deriveData;
+                changeCurrentTab("derivable");
+                $scope.$apply();
+            }, 300);
+        }
+        var wordElem = document.getElementById("word-" + slug);
+        wordElem.className = wordElem.className + " gridItemClick";
+        setTimeout(function () {
             wordElem.className = wordElem.className.replace(" gridItemClick", "");
-          }, 300);
+        }, 300);
 
     }
 
     $scope.wordTouchEnd = function (objMain, derivable) {
         clearTimeout(wordTouchTimer);
-        if(!derivable){
-        $scope.clickWord(objMain);
+        if (!derivable) {
+            $scope.clickWord(objMain);
         }
     }
 
@@ -294,32 +299,29 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         $scope.gridSizeStatic = [gridX, gridY];
         $scope.gridQuantity = gridX * gridY;
     };
-    const ORIENTATION_TOP = 0;
-    const ORIENTATION_BOTTOM = 180;
-    const ORIENTATION_LEFT = 90;
-    const ORIENTATION_RIGHT = -90;
-    function checkOrientation(){
 
-      var gridSizeTemp = $scope.gridSizeStatic;
-      if(window.orientation){
-        //production
-        if(window.orientation == ORIENTATION_TOP || window.orientation == ORIENTATION_BOTTOM){
-          $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
-          $scope.$apply();
-        }else if(window.orientation == ORIENTATION_LEFT || window.orientation == ORIENTATION_RIGHT){
-          $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
-          $scope.$apply();
+    function checkOrientation() {
+
+        var gridSizeTemp = $scope.gridSizeStatic;
+        if (window.orientation) {
+            //production
+            if (window.orientation == ORIENTATION_TOP || window.orientation == ORIENTATION_BOTTOM) {
+                $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+                $scope.$apply();
+            } else if (window.orientation == ORIENTATION_LEFT || window.orientation == ORIENTATION_RIGHT) {
+                $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+                $scope.$apply();
+            }
+        } else {
+            //development
+            if (screen.orientation.type == "portrait-primary") {
+                $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+                $scope.$apply();
+            } else if (screen.orientation.type == "landscape-primary") {
+                $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+                $scope.$apply();
+            }
         }
-      }else{
-        //development
-        if(screen.orientation.type == "portrait-primary"){
-          $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
-          $scope.$apply();
-        }else if(screen.orientation.type == "landscape-primary"){
-          $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
-          $scope.$apply();
-        }
-      }
     }
 
     function updateGridQuantity() {
@@ -340,25 +342,25 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     Initilize and updates the $scope variables that will be used in view
 
     */
-    var setSettings = function(){
-      $scope.pageText1 = otsimo.kv.pageText1;
-      $scope.pageText2 = otsimo.kv.pageText2;
-      $scope.pageText3 = otsimo.kv.pageText3;
-      $scope.pageText4 = otsimo.kv.pageText4;
-      $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
-      $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
-      $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
-      $scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
-      $scope.previousText = otsimo.kv.previousText;
-      $scope.nextText = otsimo.kv.nextText;
-      $scope.backText = otsimo.kv.backText;
-      $scope.completeChnges = otsimo.kv.completeChangesText;
-      // Colors & styles
-      $scope.headerColor = otsimo.kv.headerColor;
-      $scope.generalFont = otsimo.kv.generalFont;
-      document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
-      document.body.style.fontSize = $scope.generalFont;
-      otsimo.tts.setVoice(otsimo.kv.voiceId);
+    var setSettings = function () {
+        $scope.pageText1 = otsimo.kv.pageText1;
+        $scope.pageText2 = otsimo.kv.pageText2;
+        $scope.pageText3 = otsimo.kv.pageText3;
+        $scope.pageText4 = otsimo.kv.pageText4;
+        $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
+        $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
+        $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
+        $scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
+        $scope.previousText = otsimo.kv.previousText;
+        $scope.nextText = otsimo.kv.nextText;
+        $scope.backText = otsimo.kv.backText;
+        $scope.completeChnges = otsimo.kv.completeChangesText;
+        // Colors & styles
+        $scope.headerColor = otsimo.kv.headerColor;
+        $scope.generalFont = otsimo.kv.generalFont;
+        document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
+        document.body.style.fontSize = $scope.generalFont;
+        otsimo.tts.setVoice(otsimo.kv.voiceId);
 
     }
 
@@ -368,12 +370,11 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         $scope.changeInterval(1);
         changeCurrentTab("main");
         checkOrientation();
-        otsimo.customevent("app:run", {"runApp":1});
     }
 
-    window.addEventListener("orientationchange", function() {
-    	// Announce the new orientation number
-      // console.log(screen.orientation.type);
-      checkOrientation();
+    window.addEventListener("orientationchange", function () {
+        // Announce the new orientation number
+        // console.log(screen.orientation.type);
+        checkOrientation();
     }, false);
 });
