@@ -1,0 +1,194 @@
+{
+    "main": [
+        {
+            "title": ".",
+            "slug": ".",
+            "derive": [],
+            "type": ".",
+            "class" : "."
+        },{
+            "title": "ben",
+            "slug": "i",
+            "derive": [{
+                "title": "bana",
+                "slug": "i",
+                "type": "noun"
+            },{
+                "title": "biz",
+                "slug": "us",
+                "type": "noun"
+            }],
+            "type": "noun",
+            "class" : "word"
+        },
+        {
+            "title": "eşit",
+            "slug": "equal",
+            "derive": [],
+            "type": "noun",
+            "class" : "word"
+        },
+        {
+            "title": "büyük",
+            "slug": "big",
+            "derive": [],
+            "type": "noun",
+            "class" : "word"
+        },
+        {
+            "title": "istemek",
+            "slug": "want",
+            "derive": [],
+            "type": "noun",
+            "class" : "word"
+        },
+        {
+            "title": "sevmek",
+            "slug": "like",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "değil",
+            "slug": "not",
+            "derive": [],
+            "type": "adjective",
+            "class" : "word"
+        },
+        {
+            "title": "daha",
+            "slug": "more",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "sen",
+            "slug": "you",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "O",
+            "slug": "it",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "temiz",
+            "slug": "clean",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "kuru",
+            "slug": "dry",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "çok",
+            "slug": "very",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "az",
+            "slug": "less",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "yeterli",
+            "slug": "enough",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "doydum",
+            "slug": "all-done",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "ilk",
+            "slug": "first",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "dolu",
+            "slug": "full",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "eğlenceli",
+            "slug": "fun",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "mutlu",
+            "slug": "happy",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "üzgün",
+            "slug": "sad",
+            "derive": [],
+            "type": "verb",
+            "class" : "word"
+        },
+        {
+            "title": "Renkler",
+            "slug": "color",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Hisler",
+            "slug": "feelings",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Yemek",
+            "slug": "food",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Yerler",
+            "slug": "places",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Hareketler",
+            "slug": "action",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Tanımlama",
+            "slug": "describe",
+            "derive": [],
+            "class" : "group"
+        }
+    ]
+}

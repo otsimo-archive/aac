@@ -163,26 +163,32 @@
             "class" : "word"
         },
         {
-            "title": "Zipper",
-            "slug": "zipper",
-            "derive": [],
-            "class" : "group"
-        },
-        {
-            "title": "Word",
-            "slug": "word",
-            "derive": [],
-            "class" : "group"
-        },
-        {
-            "title": "Wind",
-            "slug": "wind",
-            "derive": [],
-            "class" : "group"
-        },
-        {
             "title": "Colors",
             "slug": "color",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Feelings",
+            "slug": "feelings",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Food",
+            "slug": "food",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Places",
+            "slug": "places",
+            "derive": [],
+            "class" : "group"
+        },
+        {
+            "title": "Actions",
+            "slug": "action",
             "derive": [],
             "class" : "group"
         }

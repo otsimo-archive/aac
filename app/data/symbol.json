@@ -58,7 +58,7 @@
     }, {
         "title": "Amsterdam",
         "slug": "Amsterdam",
-        "group_slug": "",
+        "group_slug": "places",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -79,7 +79,7 @@
     }, {
         "title": "Arizona",
         "slug": "Arizona",
-        "group_slug": "",
+        "group_slug": "places",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -107,7 +107,7 @@
     }, {
         "title": "Australia",
         "slug": "Australia",
-        "group_slug": "",
+        "group_slug": "places",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -128,7 +128,7 @@
     }, {
         "title": "Bahamas",
         "slug": "Bahamas",
-        "group_slug": "",
+        "group_slug": "places",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -233,7 +233,7 @@
     }, {
         "title": "California",
         "slug": "California",
-        "group_slug": "",
+        "group_slug": "places",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -268,7 +268,7 @@
     }, {
         "title": "Chicago",
         "slug": "Chicago",
-        "group_slug": "",
+        "group_slug": "places",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -2053,7 +2053,7 @@
     }, {
         "title": "Apple",
         "slug": "apple",
-        "group_slug": "",
+        "group_slug": "food",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -7982,7 +7982,7 @@
     }, {
         "title": "Excited",
         "slug": "excited",
-        "group_slug": "",
+        "group_slug": "feelings",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -9970,7 +9970,7 @@
     }, {
         "title": "Happy",
         "slug": "happy",
-        "group_slug": "",
+        "group_slug": "feelings",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -15080,7 +15080,7 @@
     }, {
         "title": "Pineapple",
         "slug": "pineapple",
-        "group_slug": "",
+        "group_slug": "food",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -15115,14 +15115,14 @@
     }, {
         "title": "Pistachios",
         "slug": "pistachios",
-        "group_slug": "",
+        "group_slug": "food",
         "derive": [],
         "is_home": true,
         "type": "noun"
     }, {
         "title": "Pitas",
         "slug": "pitas",
-        "group_slug": "",
+        "group_slug": "food",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -15143,7 +15143,7 @@
     }, {
         "title": "Pizza",
         "slug": "pizza",
-        "group_slug": "",
+        "group_slug": "food",
         "derive": [],
         "is_home": true,
         "type": "noun"
@@ -16956,7 +16956,7 @@
     }, {
         "title": "Sad",
         "slug": "sad",
-        "group_slug": "",
+        "group_slug": "feelings",
         "derive": [],
         "is_home": true,
         "type": "noun"
