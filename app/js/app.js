@@ -165,7 +165,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         add2Phrase(wordObj);
         updateCurrentPhraseScroll();
       	otsimo.tts.speak(wordObj.title);
-        otsimo.customevent("app:word", {"word":wordObj.title, "gridX": $scope.gridSize[0], "gridY":$scope.gridSize[1], "gridXY": $scope.gridSize[0]+"x"+$scope.gridSize[1]});
+        otsimo.customevent("app:word", {"word":wordObj.title, "grid-x": $scope.gridSize[0], "grid-y":$scope.gridSize[1], "grid-xy": $scope.gridSize[0]+"x"+$scope.gridSize[1]});
     }
     $scope.touchWord = function(wordT, ind){
       if(ind || ind === 0){
@@ -296,13 +296,26 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     };
 
     function checkOrientation(){
+
       var gridSizeTemp = $scope.gridSizeStatic;
-      if(screen.orientation.type == "portrait-primary"){
-        $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
-        $scope.$apply();
-      }else if(screen.orientation.type == "landscape-primary"){
-        $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
-        $scope.$apply();
+      if(window.orientation){
+        //production
+        if(window.orientation == 0 || window.orientation == 180){
+          $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+          $scope.$apply();
+        }else if(window.orientation == 90 || window.orientation == -90){
+          $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+          $scope.$apply();
+        }
+      }else{
+        //development
+        if(screen.orientation.type == "portrait-primary"){
+          $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+          $scope.$apply();
+        }else if(screen.orientation.type == "landscape-primary"){
+          $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+          $scope.$apply();
+        }
       }
     }
 
