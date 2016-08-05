@@ -28,45 +28,15 @@
 <body ng-app="otsPescGeneral" ng-controller="otsControlGeneral" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 
 		<div id="derivableCover" class="derivableCover" onclick="clickCover()"></div>
-	<div class="header">
-		<div class="backIcon" ng-click="quitGame()"><i class="material-icons">keyboard_arrow_left</i></div>
-		<div class="headerTitle">{{currentPage}}</div>
-		<div class="headerIcons">
-			<i ng-click="goHome()" class="material-icons">home</i>
-			<i ng-click="openGrid()" class="material-icons">grid_on</i>
-			<i class="material-icons">keyboard</i>
-			<i ng-click="openRecent()" class="material-icons">history</i>
-			<!--<i onclick="toggleSettings()" class="material-icons">settings</i>-->
-		</div>
-	</div>
+<div ng-controller="otsControlHeader">
+	<div header></div>
+</div><!-- header controller -->
 
-	<div class="settings" id="settings">
-		<div class="settingHeader">
-			<i class="material-icons">done</i>
-			{{completeChanges}}
-		</div>
-		<div class="settingsBody">
-			<div class="settingList">
-				<li>Setting1</li>
-				<li>Setting2</li>
-				<li>Setting3</li>
-			</div>
-		</div>
-	</div>
+<div ng-controller="otsControlPhrase">
+	<div phrase></div>
+</div><!-- phrase controller -->
 
-	<div class="phraseHolder">
-		<div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" ng-click="submitPhrase()">
-			<div class="currentPhraseScroll">
-				<div class="wordItem" ng-repeat="word in currentPhrase track by $index" ng-if="word.title">
-					<img src="symbols/{{word.slug}}.svg" />
-					<div class="wordText">{{word.title}}</div>
-				</div>
-			</div>
-		</div>
-		<div ng-click="removeLastWord()" ng-touchstart="bsTouchStart()" ng-touchend="bsTouchEnd()" class="backspace">
-			<i id="bs" class="material-icons">backspace</i>
-		</div>
-	</div>
+<div ng-controller="otsControlRest">
 	<div class="gridHolder" ng-switch="currentTab">
 		<div class="grids grid{{gridSize[0]}}x{{gridSize[1]}}">
 			<div ng-switch-when="main">
@@ -160,11 +130,12 @@
 			</div>
 		</div>
 	</div>
+</div><!-- rest controller -->
 
 	<script src="js/main.js"></script>
 	<script type="text/javascript">
 		otsimo.init({language:"tr"});
-		</script>
+	</script>
 </body>
 
 </html>
