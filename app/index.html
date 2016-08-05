@@ -1,5 +1,4 @@
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<title>SPEC App UI</title>
@@ -24,26 +23,21 @@
 	<script src='//vws.responsivevoice.com/v/e?key=utvgu25X'></script>
 	<!-- endbuild -->
 </head>
+<body ng-app="otsPescGeneral"
+			ng-controller="otsControlGeneral"
+			oncontextmenu="return false"
+			onselectstart="return false"
+			ondragstart="return false">
 
-<body ng-app="otsPescGeneral" ng-controller="otsControlGeneral" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 <div id="derivableCover" class="derivableCover" onclick="clickCover()"></div>
 
-<div ng-controller="otsControlHeader">
-	<div header></div>
-</div><!-- header controller -->
-
-<div ng-controller="otsControlPhrase">
-	<div phrase></div>
-</div><!-- phrase controller -->
-
-<div ng-controller="otsControlGrid">
-	<div grid></div>
-</div><!-- rest controller -->
+	<div ng-controller="otsControlHeader" header></div>
+	<div ng-controller="otsControlPhrase" phrase></div>
+	<div ng-controller="otsControlGrid" grid></div>
 
 	<script src="js/main.js"></script>
 	<script type="text/javascript">
 		otsimo.init({language:"tr"});
 	</script>
 </body>
-
 </html>
