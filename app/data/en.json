@@ -37,5 +37,8 @@
     "nextText": "Next",
     "backText": "Go Back",
     "completeChangesText": "Complete Changes",
-    "headerColor": "#3a3e4a"
+    "headerColor": "#3a3e4a",
+    "mainJsonPath": "data/main_en.json",
+    "symbolJsonPath": "data/symbol_en.json",
+    "groupJsonPath": "data/group_en.json"
 }

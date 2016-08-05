@@ -37,5 +37,8 @@
     "nextText": "Sonraki",
     "backText": "Geri Dön",
     "completeChangesText": "Değişiklikleri Kaydet",
-    "headerColor": "#3a3e4a"
+    "headerColor": "#3a3e4a",
+    "mainJsonPath": "data/main_tr.json",
+    "symbolJsonPath": "data/symbol_tr.json",
+    "groupJsonPath": "data/group_tr.json"
 }

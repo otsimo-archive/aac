@@ -75,7 +75,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     var updateTab = function (tabExp) {
         if (tabExp == "main") {
             $scope.groupPageNo = 0;
-            $http.get("main.json").then(function (resp) {
+            $http.get(otsimo.kv.mainJsonPath).then(function (resp) {
                 if (resp.status == 200) {
                     $scope.mainSymbolData = resp.data.main;
 
@@ -351,6 +351,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         changeCurrentTab("main");
         checkOrientation();
         otsimo.customevent("app:run", {"runApp":1});
+        console.log(otsimo.default_language);
     }
 
     window.addEventListener("orientationchange", function() {
@@ -358,5 +359,4 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
       // console.log(screen.orientation.type);
       checkOrientation();
     }, false);
-
 });
