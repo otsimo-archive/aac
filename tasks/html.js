@@ -24,3 +24,24 @@ gulp.task('html:prod', () => {
         .pipe(gulp.dest(config.paths.builds.prod.root))
         .on('error', util.log);
 });
+
+
+gulp.task('template:dev', function () {
+    return gulp.src(config.paths.src.template)
+        .pipe(gulp.dest(config.paths.builds.dev.template))
+});
+
+gulp.task('template:prod', () => {
+    return gulp.src(config.paths.src.template)
+        .pipe(gulp.dest(config.paths.builds.prod.template))
+        .pipe(usemin({
+            otsimo: [],
+            vendor: [],
+            html: [htmlmin({
+                removeComments: true,
+                collapseWhitespace: true
+            })]
+        }))
+        .pipe(gulp.dest(config.paths.builds.prod.template))
+        .on('error', util.log);
+});

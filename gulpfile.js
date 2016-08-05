@@ -20,7 +20,8 @@ gulp.task('build', () => {
       'data:prod',
       'i18n:prod',
       'symbols:prod',
-      'version:prod'
+      'version:prod',
+      'template:prod'
     ],
     'html:prod'
   );
@@ -37,7 +38,8 @@ gulp.task('default', () => {
       'woff:dev',
       'woff2:dev',
       'json:dev',
-      'data:dev'
+      'data:dev',
+      'template:dev'
     ],
     'watch',
     'serve'

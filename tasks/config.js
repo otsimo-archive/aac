@@ -23,6 +23,7 @@ let globs = {
     json: path.join(cfg.paths.src.root, 'app', '*.json'),
     css: path.join(cfg.paths.src.root, 'app', 'css',  '*.css'),
     html: path.join(cfg.paths.src.root, 'app', "index.html"),
+    template: path.join(cfg.paths.src.root, 'app', 'template', "*.html"),
     i18n: path.join(cfg.paths.src.root, 'i18n', '**', '*'),
 };
 
