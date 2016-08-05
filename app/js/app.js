@@ -389,7 +389,7 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout) {
 
 });
 
-aacApp.controller('otsControlRest', function ($scope, $http, $timeout) {
+aacApp.controller('otsControlGrid', function ($scope, $http, $timeout) {
 
 
 });

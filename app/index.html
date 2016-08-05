@@ -26,8 +26,8 @@
 </head>
 
 <body ng-app="otsPescGeneral" ng-controller="otsControlGeneral" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<div id="derivableCover" class="derivableCover" onclick="clickCover()"></div>
 
-		<div id="derivableCover" class="derivableCover" onclick="clickCover()"></div>
 <div ng-controller="otsControlHeader">
 	<div header></div>
 </div><!-- header controller -->
@@ -36,7 +36,7 @@
 	<div phrase></div>
 </div><!-- phrase controller -->
 
-<div ng-controller="otsControlRest">
+<div ng-controller="otsControlGrid">
 	<div class="gridHolder" ng-switch="currentTab">
 		<div class="grids grid{{gridSize[0]}}x{{gridSize[1]}}">
 			<div ng-switch-when="main">
