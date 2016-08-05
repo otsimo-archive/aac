@@ -405,3 +405,9 @@ aacApp.directive('phrase', function() {
     templateUrl: 'template/phrase.html'
   };
 });
+
+aacApp.directive('grid', function() {
+  return {
+    templateUrl: 'template/grid.html'
+  };
+});

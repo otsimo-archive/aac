@@ -1,0 +1,93 @@
+<div class="gridHolder" ng-switch="currentTab">
+  <div class="grids grid{{gridSize[0]}}x{{gridSize[1]}}">
+    <div ng-switch-when="main">
+
+        <div class="gridItem gridGroup" ng-touchend="goPrevMain()" ng-if="mainPageNo != 0">
+          <img src="symbols/prev.svg">
+          <div class="gridText">{{previousText}}</div>
+        </div>
+
+        <span ng-repeat="main in mainSymbolData track by $index" ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity">
+          <div id="word-{{main.slug}}" class="gridItem gridType-{{main.type}}"
+            ng-if="main.class == 'word' && main.derive.length > 0" ng-touchstart="wordTouchStart(main.title, main.derive, main.slug)"
+            ng-click="clickWord(main)" ng-touchend="wordTouchEnd(main, 1)">
+            <!-- Add is home control -->
+            <img src="symbols/{{main.slug}}.svg">
+            <div class="gridText">{{main.title}}</div>
+            <div class="derivable" ng-if="main.derive[0]"></div>
+          </div>
+
+          <div id="word-{{main.slug}}" class="gridItem gridType-{{main.type}}"
+            ng-if="main.class == 'word' && main.derive.length == 0" ng-touchstart="wordTouchStart(main.title, main.derive, main.slug)"
+            ng-touchend="wordTouchEnd(main)">
+            <!-- Add is home control -->
+            <img src="symbols/{{main.slug}}.svg">
+            <div class="gridText">{{main.title}}</div>
+            <div class="derivable" ng-if="main.derive[0]"></div>
+          </div>
+
+          <div id="word-{{main.slug}}" ng-touchstart="touchWord(main.slug)" class="gridItem gridGroup" ng-click="groupClick(main.slug)"
+            ng-if="main.class == 'group'">
+            <!-- Add is home control -->
+            <img src="symbols/{{main.slug}}.svg">
+            <div class="gridText">{{main.title}}</div>
+          </div>
+        </span>
+
+        <div class="gridItem gridGroup" ng-touchend="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
+          <img src="symbols/next.svg">
+          <div class="gridText">{{nextText}}</div>
+        </div>
+
+    </div>
+    <div ng-switch-when="derivable">
+      <div class="gridItem gridGroup" ng-touchend="goBack()">
+        <img src="symbols/back.svg">
+        <div class="gridText">{{backText}}</div>
+      </div>
+      <div id="word-{{symbol.slug}}-{{$index}}" ng-touchstart="touchWord(symbol.slug, $index)" class="gridItem gridType-{{symbol.type}}"
+        ng-touchend="wordTouchEnd(symbol)" ng-repeat="symbol in derivableSymbolData">
+        <img src="symbols/{{symbol.slug}}.svg">
+        <div class="gridText">{{symbol.title}}</div>
+      </div>
+    </div>
+    <div ng-switch-when="group">
+      <div class="gridItem gridGroup" ng-touchend="goBack()">
+        <img src="symbols/back.svg">
+        <div class="gridText">Go Back</div>
+      </div>
+      <div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-touchend="wordTouchEnd(symbol)"
+       ng-repeat="symbol in groupSymbolData | filter: currentGroup track by symbol.title"
+       ng-if="groupPageNo * gridQuantity < $index && $index < (groupPageNo + 1) * gridQuantity">
+        <img src="symbols/{{symbol.slug}}.svg">
+        <div class="gridText">{{symbol.title}}</div>
+      </div>
+      <div class="gridItem gridGroup" ng-touchend="goNextGroup()" ng-if="groupMaxPageNo >= (groupPageNo + 1)">
+        <img src="symbols/next.svg">
+        <div class="gridText">Next</div>
+      </div>
+    </div>
+    <div ng-switch-when="recent">
+      <div class="recentTabs">
+        <ul>
+          <li ng-click="changeInterval(1)">{{timeIntervalText1}}</li>
+          <li ng-click="changeInterval(2)">{{timeIntervalText2}}</li>
+          <li ng-click="changeInterval(3)">{{timeIntervalText3}}</li>
+          <li ng-click="changeInterval(4)">{{timeIntervalText4}}</li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+
+      <div class="recentPhraseHolder">
+        <div class="resPhrase" ng-click="loadRecentPhrase($index)" ng-repeat="phraseRecent in recentPhrases | orderBy:'-time' track by $index" ng-if="phraseRecent.time < timeH && phraseRecent.time > timeL">
+          <div class="resPhraseScroll">
+            <div class="wordItemRes" ng-repeat="wordRecent in phraseRecent.phrase track by $index">
+              <img src="symbols/{{wordRecent.slug}}.svg" />
+              <div class="wordText">{{wordRecent.title}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
