@@ -286,4 +286,5 @@ margin:2px;}
   .resPhrase { height:80px; }
   .recentTabs li{ font-size:0.9em; padding:8px 0px;}
   .gridItem img{ height: calc(100% - 23px); }
+  .headerTitle { display:none; }
 }
