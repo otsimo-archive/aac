@@ -1,6 +1,6 @@
 {
     "unique_name": "aac",
-    "version": "0.0.24",
+    "version": "0.0.26",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [
@@ -35,8 +35,8 @@
                 "phrase",
                 "talking"
             ],
-            "logo": "i18n/en/icon_en_512.png",
-            "icon": "i18n/en/logo_en_450x300.png",
+            "logo": "i18n/en/logo_en_512.png",
+            "icon": "i18n/en/icon_en_450x300.png",
             "images": [],
             "assets": []
         },
@@ -51,8 +51,8 @@
                 "cümle",
                 "konuşma"
             ],
-            "logo": "i18n/tr/icon_tr_512.png",
-            "icon": "i18n/tr/logo_tr_450x300.png",
+            "logo": "i18n/tr/logo_tr_450x300.png",
+            "icon": "i18n/tr/icon_tr_512.png",
             "images": [],
             "assets": []
         }
