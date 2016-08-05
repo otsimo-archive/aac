@@ -40,5 +40,6 @@
     "headerColor": "#3a3e4a",
     "mainJsonPath": "data/main_tr.json",
     "symbolJsonPath": "data/symbol_tr.json",
-    "groupJsonPath": "data/group_tr.json"
+    "groupJsonPath": "data/group_tr.json",
+    "voiceId": "com.apple.ttsbundle.Yelda-compact"
 }

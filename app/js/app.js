@@ -358,16 +358,8 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
       $scope.generalFont = otsimo.kv.generalFont;
       document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
       document.body.style.fontSize = $scope.generalFont;
+      otsimo.tts.setVoice(otsimo.kv.voiceId);
 
-      if(otsimo.child.language.split("-")[0] == "tr"){
-        otsimo.tts.setVoice("com.apple.ttsbundle.Yelda-compact");
-        console.log("Yelda's Voice");
-      }else if(otsimo.child.language.split("-")[0] == "en"){
-        otsimo.tts.setVoice("com.apple.ttsbundle.Samantha-compact");
-        console.log("Samantha's Voice");
-      }else{
-        console.error("this language is not supported")
-      }
     }
 
     runApp = function logic(x, y) {
