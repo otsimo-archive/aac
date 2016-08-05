@@ -29,7 +29,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     -- General Navigation Functions (Click Functions)
     Functions to navigate between Grid (main, group, derivative) and recentPhrases
     */
-    var changeCurrentTab = function (tabExp) {
+    $scope.changeCurrentTab = function (tabExp) {
 
         if (tabExp == "main") {
             $scope.currentPage = $scope.pageText1;
@@ -46,37 +46,21 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         }
 
         $scope.currentTab = tabExp;
-        updateTab(tabExp);
+        $scope.updateTab(tabExp);
     };
 
-    $scope.openRecent = function () {
-        changeCurrentTab("recent");
-        $scope.changeInterval(1);
-    }
-
-    $scope.quitGame = function () {
-        if ($scope.isHome == 1) {
-            otsimo.quitgame();
-        } else {
-            $scope.goHome();
-        }
-    }
-
-    $scope.openGrid = function () {
-        changeCurrentTab("main");
-    }
 
     $scope.groupClick = function (slug) {
 
         $scope.currentGroup = slug;
-        changeCurrentTab("group");
+        $scope.changeCurrentTab("group");
         // Current group is accessible in view.
         updateGridQuantity();
 
         otsimo.customevent("app:group", { "group_slug": slug });
     }
 
-    var updateTab = function (tabExp) {
+    $scope.updateTab = function (tabExp) {
         if (tabExp == "main") {
             $scope.groupPageNo = 0;
             $http.get(otsimo.kv.mainJsonPath).then(function (resp) {
@@ -121,13 +105,13 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
 
     */
     $scope.goBack = function () {
-        changeCurrentTab("main");
+        $scope.changeCurrentTab("main");
         $scope.currentGroup = "";
         updateGridQuantity();
     }
 
     $scope.goHome = function () {
-        changeCurrentTab("main");
+        $scope.changeCurrentTab("main");
         $scope.currentGroup = "";
         $scope.currentDerivable = "";
         $scope.mainPageNo = 0;
@@ -265,7 +249,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
                 $scope.currentDerivable = sytitle;
                 otsimo.customevent("app:derive", { "derivative": slug });
                 $scope.derivableSymbolData = deriveData;
-                changeCurrentTab("derivable");
+                $scope.changeCurrentTab("derivable");
                 $scope.$apply();
             }, 300);
         }
@@ -368,7 +352,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         setSettings();
         $scope.changeGridSize(x, y);
         $scope.changeInterval(1);
-        changeCurrentTab("main");
+        $scope.changeCurrentTab("main");
         checkOrientation();
     }
 
@@ -377,4 +361,47 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
         // console.log(screen.orientation.type);
         checkOrientation();
     }, false);
+});
+
+aacApp.controller('otsControlHeader', function ($scope, $http, $timeout) {
+
+  $scope.openRecent = function () {
+      $scope.changeCurrentTab("recent");
+      $scope.changeInterval(1);
+  }
+
+  $scope.quitGame = function () {
+      if ($scope.isHome == 1) {
+          otsimo.quitgame();
+      } else {
+          $scope.goHome();
+      }
+  }
+
+  $scope.openGrid = function () {
+      $scope.changeCurrentTab("main");
+  }
+
+});
+
+aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout) {
+
+
+});
+
+aacApp.controller('otsControlRest', function ($scope, $http, $timeout) {
+
+
+});
+
+aacApp.directive('header', function() {
+  return {
+    templateUrl: 'template/header.html'
+  };
+});
+
+aacApp.directive('phrase', function() {
+  return {
+    templateUrl: 'template/phrase.html'
+  };
 });
