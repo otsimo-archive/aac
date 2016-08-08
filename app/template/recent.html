@@ -1,0 +1,22 @@
+<div>
+  <div class="recentTabs">
+    <ul>
+      <li ng-click="global.changeInterval(1)">{{timeIntervalText1}}</li>
+      <li ng-click="global.changeInterval(2)">{{timeIntervalText2}}</li>
+      <li ng-click="global.changeInterval(3)">{{timeIntervalText3}}</li>
+      <li ng-click="global.changeInterval(4)">{{timeIntervalText4}}</li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+
+  <div class="recentPhraseHolder">
+    <div class="resPhrase" ng-click="loadRecentPhrase($index)" ng-repeat="phraseRecent in global.recentPhrases | orderBy:'-time' track by $index" ng-if="phraseRecent.time < timeH && phraseRecent.time > timeL">
+      <div class="resPhraseScroll">
+        <div class="wordItemRes" ng-repeat="wordRecent in phraseRecent.phrase track by $index">
+          <img src="symbols/{{wordRecent.slug}}.svg" />
+          <div class="wordText">{{wordRecent.title}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
