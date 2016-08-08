@@ -1,7 +1,7 @@
 <div class="phraseHolder">
   <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" ng-click="submitPhrase()">
     <div class="currentPhraseScroll">
-      <div class="wordItem" ng-repeat="word in currentPhrase track by $index" ng-if="word.title">
+      <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index" ng-if="word.title">
         <img src="symbols/{{word.slug}}.svg" />
         <div class="wordText">{{word.title}}</div>
       </div>
