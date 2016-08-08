@@ -18,6 +18,7 @@ aacApp.factory('$global',function(){
           currentPhrase: [],
           isHome: 1,
           currentTab: "",
+          currentPage: "",
           gridSize: [0,0],
           gridSizeStatic: [0,0],
           gridQuantity: 0
@@ -43,16 +44,16 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     $scope.changeCurrentTab = function (tabExp) {
 
         if (tabExp == "main") {
-            $scope.currentPage = $scope.pageText1;
+            $global.currentPage = $scope.pageText1;
             $global.isHome = 1;
         } else if (tabExp == "group") {
-            $scope.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
+            $global.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
             $global.isHome = 0;
         } else if (tabExp == "derivable") {
-            $scope.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
+            $global.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
             $global.isHome = 0;
         } else if (tabExp == "recent") {
-            $scope.currentPage = $scope.pageText4;
+            $global.currentPage = $scope.pageText4;
             $global.isHome = 0;
         }
 
