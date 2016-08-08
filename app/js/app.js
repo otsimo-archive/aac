@@ -16,7 +16,8 @@ var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
 aacApp.factory('$global',function(){
         return {
           currentPhrase: [],
-          isHome: 1
+          isHome: 1,
+          currentTab: ""
         };
     });
 
@@ -32,7 +33,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     $scope.groupMaxPageNo = 0;
     $scope.currentGroup = "";
     $scope.currentDerivable = "";
-    $scope.currentTab = "";
 
     /*
     -- General Navigation Functions (Click Functions)
@@ -54,7 +54,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
             $global.isHome = 0;
         }
 
-        $scope.currentTab = tabExp;
+        $global.currentTab = tabExp;
         $scope.updateTab(tabExp);
     };
 
@@ -173,7 +173,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     }
 
     $scope.updateGridQuantity = function () {
-        if ($scope.currentTab != "main") {
+        if ($global.currentTab != "main") {
             $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1] - 1;
         } else {
             if ($scope.mainPageNo == 0) {
