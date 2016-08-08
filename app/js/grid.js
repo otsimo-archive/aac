@@ -1,14 +1,18 @@
-aacApp.factory('$symbol', function($http, $global){
-  var main;
+aacApp.factory('$symbol', function ($http, $global) {
+    var main;
     $http.get("data/main_en.json").then(function (resp) {
-      $global.main = resp.data.symbols;
+        $global.main = resp.data.symbols;
     });
 
-      return{
+    return {
         main: 1
-      };
+    };
 });
 
+const PAGE_DERIVABLE = "derivable";
+const PAGE_MAIN = "main";
+const PAGE_GROUP = "group";
+const PAGE_RECENT = "recent";
 
 aacApp.directive('grid', function () {
     return {
@@ -17,78 +21,100 @@ aacApp.directive('grid', function () {
 });
 
 aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, $symbol) {
+    $scope.tabs = {}
+
+    $scope.tabs[PAGE_MAIN] = function () {
+        var symbolQuantity = 0;
+        if ($global.PageNo === 0) {
+            symbolQuantity = $global.gridQuantity - 1;
+        } else {
+            symbolQuantity = $global.gridQuantity - 2;
+        }
+        $scope.mainDataUnpaged = $global.main.filter(function (f) {
+            return (f.parent == "main")
+        });
+        $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo * symbolQuantity, ($global.PageNo + 1) * symbolQuantity);
+        $global.MaxPageNo = returnMaxPage();
+    }
+
+    $scope.tabs[PAGE_DERIVABLE] = function () {
+        $global.PageNo = 0;
+        var symbolQuantity = $global.gridQuantity - 2;
+        $scope.mainDataUnpaged = $global.main.filter(function (f) {
+            return (f.parent == $global.currentDerivable)
+        })
+        $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo * symbolQuantity, ($global.PageNo + 1) * symbolQuantity);
+        $global.MaxPageNo = returnMaxPage();
+    }
+
+    $scope.tabs[PAGE_GROUP] = function () {
+        $global.PageNo = 0;
+        var symbolQuantity = $global.gridQuantity - 2;
+        $scope.mainDataUnpaged = $global.main.filter(function (f) {
+            return (f.parent == $global.currentGroup)
+        });
+        console.log($scope.mainDataUnpaged.length);
+        $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo * symbolQuantity, ($global.PageNo + 1) * symbolQuantity);
+        $global.MaxPageNo = returnMaxPage();
+    }
+
+    $scope.tabs[PAGE_RECENT] = function () {
+        $global.recentPhrases = getHistoryAsArray();
+    }
 
     $global.changeTab = function (tabExp) {
-      console.log("tabExp:+ "+tabExp);
-        var symbolQuantity;
-        if (tabExp == "main") {
-
-            if($global.PageNo===0){
-              symbolQuantity = $global.gridQuantity - 1;
-            }else{
-              symbolQuantity = $global.gridQuantity - 2;
-            }
-            $scope.mainDataUnpaged = $global.main.filter(function(f){
-              return (f.parent == "main")
-            });
-            $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo*symbolQuantity, ($global.PageNo + 1)*symbolQuantity);
-            $global.MaxPageNo = returnMaxPage();
-
-        }else if (tabExp == "derivable") {
-
-            symbolQuantity = $global.gridQuantity - 2;
-            $scope.mainDataUnpaged = $global.main.filter(function(f){
-              return (f.parent == $global.currentDerivable)
-            })
-            $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo*symbolQuantity, ($global.PageNo + 1)*symbolQuantity);
-            $global.MaxPageNo = returnMaxPage();
-
-
-
-        }else if (tabExp == "recent") {
-            $global.recentPhrases = getHistoryAsArray();
+        var t = $scope.tabs[tabExp];
+        if (t) {
+            t();
+        } else {
+            console.error(tabExp, " unknown tab")
         }
     }
 
-    var returnMaxPage = function(){
-       return parseInt($scope.mainDataUnpaged.length / $global.gridQuantity);
+    var returnMaxPage = function () {
+        return parseInt($scope.mainDataUnpaged.length / $global.gridQuantity);
     }
 
 
     $scope.goBack = function () {
-        $global.changeCurrentTab("main");
+        $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
     }
 
     $scope.goNextMain = function () {
         $global.PageNo++;
-        $global.changeTab("main");
+        $global.changeTab(PAGE_MAIN);
     }
 
     $scope.goPrevMain = function () {
         $global.PageNo--;
-        $global.changeTab("main");
+        $global.changeTab(PAGE_MAIN);
     }
 
     var wordTouchTimer;
     var currentlyHolding;
-    $scope.wordTouchStart = function(wordObj){
-      currentlyHolding = wordObj.title;
-      if(wordObj.class=="derive"){
-        wordTouchTimer = setTimeout(function () {
-            $global.currentDerivable = wordObj.slug;
-            otsimo.customevent("app:derive", { "derivative": wordObj.slug });
-            $global.changeCurrentTab("derivable");
-            $scope.$apply();
-        }, 300);
-      }
+    $scope.wordTouchStart = function (wordObj) {
+        currentlyHolding = wordObj.title;
+        if (wordObj.class == "derive") {
+            wordTouchTimer = setTimeout(function () {
+                $global.currentDerivable = wordObj.slug;
+                otsimo.customevent("app:derive", { "derivative": wordObj.slug });
+                $global.changeCurrentTab(PAGE_DERIVABLE);
+                $scope.$apply();
+            }, 300);
+        }
 
     }
 
     $scope.wordTouchEnd = function (wordObj) {
-      clearTimeout(wordTouchTimer);
-        if(currentlyHolding == wordObj.title){
-        $scope.clickWord(wordObj);
+        clearTimeout(wordTouchTimer);
+        if (wordObj.class == "group") {
+            $global.currentGroup = wordObj.slug;
+            $global.changeCurrentTab(PAGE_GROUP);
+        } else {
+            if (currentlyHolding == wordObj.title && wordObj.class != "group") {
+                $scope.clickWord(wordObj);
+            }
         }
     }
 
@@ -129,7 +155,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
 
 
     $global.updateGridQuantity = function () {
-        if ($global.currentTab != "main") {
+        if ($global.currentTab != PAGE_MAIN) {
             $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
         } else {
             if ($global.mainPageNo == 0) {
@@ -174,5 +200,4 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
         // console.log(screen.orientation.type);
         $global.checkOrientation();
     }, false);
-
 });

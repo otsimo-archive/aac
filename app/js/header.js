@@ -8,12 +8,12 @@ aacApp.directive('header', function () {
 aacApp.controller('otsControlHeader', function ($scope, $global) {
 
     $scope.openRecent = function () {
-        $global.changeCurrentTab("recent");
+        $global.changeCurrentTab(PAGE_RECENT);
         $global.changeInterval(1);
     }
 
     $scope.goHome = function () {
-        $global.changeCurrentTab("main");
+        $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
         $global.currentDerivable = "";
         $global.mainPageNo = 0;
@@ -29,7 +29,7 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.openGrid = function () {
-        $global.changeCurrentTab("main");
+        $global.changeCurrentTab(PAGE_MAIN);
     }
 
 

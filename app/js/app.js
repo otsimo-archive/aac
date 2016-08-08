@@ -13,20 +13,21 @@ const ORIENTATION_RIGHT = -90;
 
 var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
 
-aacApp.factory('$global', function(){
-        return {
-          currentPhrase: [],
-          isHome: 1,
-          currentTab: "",
-          currentPage: "",
-          currentDerivable: "",
-          gridSize: [0,0],
-          gridSizeStatic: [0,0],
-          gridQuantity: 0,
-          PageNo: 0,
-          MaxPageNo: 0
-        };
-    });
+aacApp.factory('$global', function () {
+    return {
+        currentPhrase: [],
+        isHome: 1,
+        currentTab: "",
+        currentPage: "",
+        currentDerivable: "",
+        currentGroup: "",
+        gridSize: [0, 0],
+        gridSizeStatic: [0, 0],
+        gridQuantity: 0,
+        PageNo: 0,
+        MaxPageNo: 0
+    };
+});
 
 aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $global) {
 
@@ -57,7 +58,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     runApp = function logic(x, y) {
         setSettings();
         $global.changeGridSize(x, y);
-        $global.changeCurrentTab("main");
+        $global.changeCurrentTab(PAGE_MAIN);
         $global.checkOrientation();
     }
 

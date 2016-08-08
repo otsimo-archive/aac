@@ -259,6 +259,24 @@
             "parent": "main"
         },
         {
+            "title": "Apple",
+            "slug": "apple",
+            "class" : "word",
+            "parent": "food"
+        },
+        {
+            "title": "Potatoes",
+            "slug": "potatoes",
+            "class" : "word",
+            "parent": "food"
+        },
+        {
+            "title": "Bread",
+            "slug": "bread",
+            "class" : "word",
+            "parent": "food"
+        },
+        {
             "title": "Places",
             "slug": "places",
             "class" : "group",
