@@ -17,10 +17,12 @@ aacApp.factory('$global',function(){
         return {
           currentPhrase: [],
           isHome: 1,
-          currentTab: ""
+          currentTab: "",
+          gridSize: [0,0],
+          gridSizeStatic: [0,0],
+          gridQuantity: 0
         };
     });
-
 
 aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $global) {
 
@@ -99,11 +101,11 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
 
     function calcPageCount(len) {
-        $scope.mainMaxPageNo = len / $scope.gridQuantity;
+        $scope.mainMaxPageNo = len / $global.gridQuantity;
     }
 
     function calcPageCountGroup(len) {
-        $scope.groupMaxPageNo = Math.floor(len / $scope.gridQuantity);
+        $scope.groupMaxPageNo = Math.floor(len / $global.gridQuantity);
     }
 
 
@@ -143,30 +145,30 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     */
 
     $scope.changeGridSize = function (gridX, gridY) {
-        $scope.gridSize = [gridX, gridY];
-        $scope.gridSizeStatic = [gridX, gridY];
-        $scope.gridQuantity = gridX * gridY;
+        $global.gridSize = [gridX, gridY];
+        $global.gridSizeStatic = [gridX, gridY];
+        $global.gridQuantity = gridX * gridY;
     };
 
     $scope.checkOrientation = function () {
 
-        var gridSizeTemp = $scope.gridSizeStatic;
+        var gridSizeTemp = $global.gridSizeStatic;
         if (window.orientation) {
             //production
             if (window.orientation == ORIENTATION_TOP || window.orientation == ORIENTATION_BOTTOM) {
-                $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+                $global.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
                 $scope.$apply();
             } else if (window.orientation == ORIENTATION_LEFT || window.orientation == ORIENTATION_RIGHT) {
-                $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+                $global.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
                 $scope.$apply();
             }
         } else {
             //development
             if (screen.orientation.type == "portrait-primary") {
-                $scope.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+                $global.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
                 $scope.$apply();
             } else if (screen.orientation.type == "landscape-primary") {
-                $scope.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+                $global.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
                 $scope.$apply();
             }
         }
@@ -174,12 +176,12 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
     $scope.updateGridQuantity = function () {
         if ($global.currentTab != "main") {
-            $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1] - 1;
+            $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
         } else {
             if ($scope.mainPageNo == 0) {
-                $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1];
+                $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1];
             } else {
-                $scope.gridQuantity = $scope.gridSize[0] * $scope.gridSize[1] - 1;
+                $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
             }
         }
     }
@@ -346,7 +348,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         $scope.add2Phrase(wordObj);
         updateCurrentPhraseScroll();
         otsimo.tts.speak(wordObj.title);
-        otsimo.customevent("app:word", { "word": wordObj.title, "grid_x": $scope.gridSize[0], "grid_y": $scope.gridSize[1], "grid_xy": $scope.gridSize[0] + "x" + $scope.gridSize[1] });
+        otsimo.customevent("app:word", { "word": wordObj.title, "grid_x": $global.gridSize[0], "grid_y": $global.gridSize[1], "grid_xy": $global.gridSize[0] + "x" + $global.gridSize[1] });
     }
     $scope.touchWord = function (wordT, ind) {
         var wordElem;

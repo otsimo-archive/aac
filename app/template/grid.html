@@ -1,5 +1,5 @@
 <div class="gridHolder" ng-switch="global.currentTab">
-  <div class="grids grid{{gridSize[0]}}x{{gridSize[1]}}">
+  <div class="grids grid{{global.gridSize[0]}}x{{global.gridSize[1]}}">
     <div ng-switch-when="main">
 
         <div class="gridItem gridGroup" ng-touchend="goPrevMain()" ng-if="mainPageNo != 0">
@@ -7,7 +7,7 @@
           <div class="gridText">{{previousText}}</div>
         </div>
 
-        <span ng-repeat="main in mainSymbolData track by $index" ng-if="mainPageNo * gridQuantity < $index && $index < (mainPageNo + 1) * gridQuantity">
+        <span ng-repeat="main in mainSymbolData track by $index" ng-if="mainPageNo * global.gridQuantity < $index && $index < (mainPageNo + 1) * global.gridQuantity">
           <div id="word-{{main.slug}}" class="gridItem gridType-{{main.type}}"
             ng-if="main.class == 'word' && main.derive.length > 0" ng-touchstart="wordTouchStart(main.title, main.derive, main.slug)"
             ng-click="clickWord(main)" ng-touchend="wordTouchEnd(main, 1)">
@@ -58,7 +58,7 @@
       </div>
       <div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-touchend="wordTouchEnd(symbol)"
        ng-repeat="symbol in groupSymbolData | filter: currentGroup track by symbol.title"
-       ng-if="groupPageNo * gridQuantity < $index && $index < (groupPageNo + 1) * gridQuantity">
+       ng-if="groupPageNo * global.gridQuantity < $index && $index < (groupPageNo + 1) * global.gridQuantity">
         <img src="symbols/{{symbol.slug}}.svg">
         <div class="gridText">{{symbol.title}}</div>
       </div>
