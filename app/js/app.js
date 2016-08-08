@@ -12,7 +12,17 @@ const ORIENTATION_LEFT = 90;
 const ORIENTATION_RIGHT = -90;
 
 var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
-aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
+
+aacApp.factory('$global',function(){
+        return {
+          currentPhrase: []
+        };
+    });
+
+
+aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $global) {
+
+    $scope.global = $global;
 
     //Variable Initialization
     $scope.mainPageNo = 0;
@@ -23,11 +33,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     $scope.currentGroup = "";
     $scope.currentDerivable = "";
     $scope.currentTab = "";
-    $scope.currentPhrase = [];
-
-
-
-
 
     /*
     -- General Navigation Functions (Click Functions)
@@ -102,11 +107,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     }
 
 
-
-    $scope.add2Phrase = function (obj) {
-        console.log("add2Phrase", $scope.currentPhrase, obj);
-        $scope.currentPhrase.push(obj);
-    }
 
 
     $scope.changeInterval = function (val) {
@@ -227,7 +227,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout) {
     }, false);
 });
 
-aacApp.controller('otsControlHeader', function ($scope) {
+aacApp.controller('otsControlHeader', function ($scope, $global) {
 
     $scope.openRecent = function () {
         $scope.changeCurrentTab("recent");
@@ -256,21 +256,21 @@ aacApp.controller('otsControlHeader', function ($scope) {
 
 });
 
-aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout) {
+aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global) {
     $scope.removeLastWord = function () {
-        $scope.currentPhrase.pop();
+        $global.currentPhrase.pop();
     }
 
     $scope.submitPhrase = function () {
-        if ($scope.currentPhrase.length > 0) {
+        if ($global.currentPhrase.length > 0) {
             var i = 0;
             var currentPhraseString = "";
             $scope.currentPhraseTransition = "cpTransition";
-            addPhrase2History($scope.currentPhrase);
+            addPhrase2History($global.currentPhrase);
 
             $timeout(function () { $scope.currentPhraseTransition = ""; }, 300);
-            while (i < $scope.currentPhrase.length) {
-                currentPhraseString = currentPhraseString + $scope.currentPhrase[i].title + " ";
+            while (i < $global.currentPhrase.length) {
+                currentPhraseString = currentPhraseString + $global.currentPhrase[i].title + " ";
                 i++;
             }
             otsimo.tts.speak(currentPhraseString);
@@ -284,7 +284,7 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout) {
     $scope.bsTouchStart = function () {
         document.getElementById("bs").style.color = "red";
         bstouchTimer = setTimeout(function () {
-            $scope.currentPhrase.splice(0, $scope.currentPhrase.length);
+            $global.currentPhrase.splice(0, $global.currentPhrase.length);
             $scope.$apply();
         }, 500);
     }
@@ -297,7 +297,7 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout) {
 
 });
 
-aacApp.controller('otsControlGrid', function ($scope, $http, $timeout) {
+aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) {
 
 
     /*
@@ -309,7 +309,6 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout) {
     $scope.groupClick = function (slug) {
         $scope.currentGroup = slug;
         $scope.changeCurrentTab("group");
-        // Current group is accessible in view.
         $scope.updateGridQuantity();
 
         otsimo.customevent("app:group", { "group_slug": slug });
@@ -362,6 +361,12 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout) {
         }, 200);
     }
 
+
+    $scope.add2Phrase = function (obj) {
+        console.log("add2Phrase", $global.currentPhrase, obj);
+        $global.currentPhrase.push(obj);
+    }
+
     /*
     -- Touch Animations
     Functions to animate the hold and click actions
@@ -398,7 +403,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout) {
     $scope.loadRecentPhrase = function (index) {
         var phraseHistory = getHistoryAsArray();
         var phrase2Add = phraseHistory[phraseHistory.length - (index + 1)].phrase;
-        $scope.currentPhrase = $scope.currentPhrase.concat(phrase2Add);
+        $global.currentPhrase = $global.currentPhrase.concat(phrase2Add);
     }
 
 
