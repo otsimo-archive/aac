@@ -35,26 +35,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     $scope.global = $global;
 
 
-    $scope.changeCurrentTab = function (tabExp) {
-
-        if (tabExp == "main") {
-            $global.currentPage = $scope.pageText1;
-            $global.isHome = 1;
-        } else if (tabExp == "group") {
-            $global.currentPage = $scope.pageText2 + capitalize($global.currentGroup);
-            $global.isHome = 0;
-        } else if (tabExp == "derivable") {
-            $global.currentPage = $scope.pageText3 + capitalize($global.currentDerivable);
-            $global.isHome = 0;
-        } else if (tabExp == "recent") {
-            $global.currentPage = $scope.pageText4;
-            $global.isHome = 0;
-        }
-
-        $global.currentTab = tabExp;
-        $scope.updateTab(tabExp);
-    };
-
 
     $scope.updateTab = function (tabExp) {
         if (tabExp == "main") {
@@ -87,8 +67,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         }
     }
 
-
-
     function calcPageCount(len) {
         $global.mainMaxPageNo = len / $global.gridQuantity;
     }
@@ -99,10 +77,10 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
 
     var setSettings = function () {
-        $scope.pageText1 = otsimo.kv.pageText1;
-        $scope.pageText2 = otsimo.kv.pageText2;
-        $scope.pageText3 = otsimo.kv.pageText3;
-        $scope.pageText4 = otsimo.kv.pageText4;
+        $global.pageText1 = otsimo.kv.pageText1;
+        $global.pageText2 = otsimo.kv.pageText2;
+        $global.pageText3 = otsimo.kv.pageText3;
+        $global.pageText4 = otsimo.kv.pageText4;
         $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
         $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
         $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
@@ -124,7 +102,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         setSettings();
         $global.changeGridSize(x, y);
         $global.changeInterval(1);
-        $scope.changeCurrentTab("main");
+        $global.changeCurrentTab("main");
         $global.checkOrientation();
     }
 
@@ -133,12 +111,12 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 aacApp.controller('otsControlHeader', function ($scope, $global) {
 
     $scope.openRecent = function () {
-        $scope.changeCurrentTab("recent");
+        $global.changeCurrentTab("recent");
         $global.changeInterval(1);
     }
 
     $scope.goHome = function () {
-        $scope.changeCurrentTab("main");
+        $global.changeCurrentTab("main");
         $global.currentGroup = "";
         $global.currentDerivable = "";
         $global.mainPageNo = 0;
@@ -154,8 +132,29 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.openGrid = function () {
-        $scope.changeCurrentTab("main");
+        $global.changeCurrentTab("main");
     }
+
+
+    $global.changeCurrentTab = function (tabExp) {
+
+        if (tabExp == "main") {
+            $global.currentPage = $global.pageText1;
+            $global.isHome = 1;
+        } else if (tabExp == "group") {
+            $global.currentPage = $global.pageText2 + capitalize($global.currentGroup);
+            $global.isHome = 0;
+        } else if (tabExp == "derivable") {
+            $global.currentPage = $global.pageText3 + capitalize($global.currentDerivable);
+            $global.isHome = 0;
+        } else if (tabExp == "recent") {
+            $global.currentPage = $global.pageText4;
+            $global.isHome = 0;
+        }
+
+        $global.currentTab = tabExp;
+        $scope.updateTab(tabExp);
+    };
 
 });
 
@@ -211,14 +210,14 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
 
     $scope.groupClick = function (slug) {
         $global.currentGroup = slug;
-        $scope.changeCurrentTab("group");
+        $global.changeCurrentTab("group");
         $global.updateGridQuantity();
 
         otsimo.customevent("app:group", { "group_slug": slug });
     }
 
     $scope.goBack = function () {
-        $scope.changeCurrentTab("main");
+        $global.changeCurrentTab("main");
         $global.currentGroup = "";
         $global.updateGridQuantity();
     }
@@ -284,7 +283,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
                 $global.currentDerivable = sytitle;
                 otsimo.customevent("app:derive", { "derivative": slug });
                 $scope.derivableSymbolData = deriveData;
-                $scope.changeCurrentTab("derivable");
+                $global.changeCurrentTab("derivable");
                 $scope.$apply();
             }, 300);
         }
