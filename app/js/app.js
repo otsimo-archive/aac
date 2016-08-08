@@ -15,7 +15,8 @@ var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
 
 aacApp.factory('$global',function(){
         return {
-          currentPhrase: []
+          currentPhrase: [],
+          isHome: 1
         };
     });
 
@@ -29,7 +30,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     $scope.mainMaxPageNo = 0;
     $scope.groupPageNo = 0;
     $scope.groupMaxPageNo = 0;
-    $scope.isHome = 1;
     $scope.currentGroup = "";
     $scope.currentDerivable = "";
     $scope.currentTab = "";
@@ -42,16 +42,16 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
         if (tabExp == "main") {
             $scope.currentPage = $scope.pageText1;
-            $scope.isHome = 1;
+            $global.isHome = 1;
         } else if (tabExp == "group") {
             $scope.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
-            $scope.isHome = 0;
+            $global.isHome = 0;
         } else if (tabExp == "derivable") {
             $scope.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
-            $scope.isHome = 0;
+            $global.isHome = 0;
         } else if (tabExp == "recent") {
             $scope.currentPage = $scope.pageText4;
-            $scope.isHome = 0;
+            $global.isHome = 0;
         }
 
         $scope.currentTab = tabExp;
@@ -243,7 +243,7 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.quitGame = function () {
-        if ($scope.isHome == 1) {
+        if ($global.isHome == 1) {
             otsimo.quitgame();
         } else {
             $scope.goHome();
