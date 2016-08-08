@@ -19,6 +19,7 @@ aacApp.factory('$global',function(){
           isHome: 1,
           currentTab: "",
           currentPage: "",
+          currentDerivable: "",
           gridSize: [0,0],
           gridSizeStatic: [0,0],
           gridQuantity: 0,
@@ -33,13 +34,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
     $scope.global = $global;
 
-    //Variable Initialization
-    $scope.currentDerivable = "";
 
-    /*
-    -- General Navigation Functions (Click Functions)
-    Functions to navigate between Grid (main, group, derivative) and recentPhrases
-    */
     $scope.changeCurrentTab = function (tabExp) {
 
         if (tabExp == "main") {
@@ -49,7 +44,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
             $global.currentPage = $scope.pageText2 + capitalize($global.currentGroup);
             $global.isHome = 0;
         } else if (tabExp == "derivable") {
-            $global.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
+            $global.currentPage = $scope.pageText3 + capitalize($global.currentDerivable);
             $global.isHome = 0;
         } else if (tabExp == "recent") {
             $global.currentPage = $scope.pageText4;
@@ -80,7 +75,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
             $http.get("data/symbol.json").then(function (resp) {
                 if (resp.status == 200) {
                     $scope.groupSymbolData = resp.data.symbols;
-                    calcPageCountGroup(resp.data.filter(function(s){
+                    calcPageCountGroup(resp.data.symbols.filter(function(s){
                       return s.group_slug==$global.currentGroup;
                     }).length);
 
@@ -103,59 +98,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     }
 
 
-
-
-    /*
-    -- Grid manipulation functions
-    Functions to change-listen situation changes on grid size settings.
-    - $scope.changeGridSize(x,y) - updated the grid variables into supplied Variables
-    - $scope.checkOrientation() - checks the orientation type and changes the grid according to it.
-    - $scope.updateGridQuantity() - updates the total size of picture cards that the grid can by currentTab.
-    */
-
-
-    $scope.checkOrientation = function () {
-
-        var gridSizeTemp = $global.gridSizeStatic;
-        if (window.orientation) {
-            //production
-            if (window.orientation == ORIENTATION_TOP || window.orientation == ORIENTATION_BOTTOM) {
-                $global.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
-                $scope.$apply();
-            } else if (window.orientation == ORIENTATION_LEFT || window.orientation == ORIENTATION_RIGHT) {
-                $global.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
-                $scope.$apply();
-            }
-        } else {
-            //development
-            if (screen.orientation.type == "portrait-primary") {
-                $global.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
-                $scope.$apply();
-            } else if (screen.orientation.type == "landscape-primary") {
-                $global.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
-                $scope.$apply();
-            }
-        }
-    }
-
-    $scope.updateGridQuantity = function () {
-        if ($global.currentTab != "main") {
-            $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
-        } else {
-            if ($global.mainPageNo == 0) {
-                $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1];
-            } else {
-                $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
-            }
-        }
-    }
-
-
-    /*
-    -- App Setting Initilizer and Updater Functions
-    Initilize and updates the $scope variables that will be used in view
-
-    */
     var setSettings = function () {
         $scope.pageText1 = otsimo.kv.pageText1;
         $scope.pageText2 = otsimo.kv.pageText2;
@@ -183,14 +125,9 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         $global.changeGridSize(x, y);
         $global.changeInterval(1);
         $scope.changeCurrentTab("main");
-        $scope.checkOrientation();
+        $global.checkOrientation();
     }
 
-    window.addEventListener("orientationchange", function () {
-        // Announce the new orientation number
-        // console.log(screen.orientation.type);
-        $scope.checkOrientation();
-    }, false);
 });
 
 aacApp.controller('otsControlHeader', function ($scope, $global) {
@@ -203,9 +140,9 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     $scope.goHome = function () {
         $scope.changeCurrentTab("main");
         $global.currentGroup = "";
-        $scope.currentDerivable = "";
+        $global.currentDerivable = "";
         $global.mainPageNo = 0;
-        $scope.updateGridQuantity();
+        $global.updateGridQuantity();
     }
 
     $scope.quitGame = function () {
@@ -275,7 +212,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
     $scope.groupClick = function (slug) {
         $global.currentGroup = slug;
         $scope.changeCurrentTab("group");
-        $scope.updateGridQuantity();
+        $global.updateGridQuantity();
 
         otsimo.customevent("app:group", { "group_slug": slug });
     }
@@ -283,22 +220,22 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
     $scope.goBack = function () {
         $scope.changeCurrentTab("main");
         $global.currentGroup = "";
-        $scope.updateGridQuantity();
+        $global.updateGridQuantity();
     }
 
     $scope.goNextGroup = function () {
         $global.groupPageNo++;
-        $scope.updateGridQuantity();
+        $global.updateGridQuantity();
     }
 
     $scope.goNextMain = function () {
         $global.mainPageNo++;
-        $scope.updateGridQuantity();
+        $global.updateGridQuantity();
     }
 
     $scope.goPrevMain = function () {
         $global.mainPageNo--;
-        $scope.updateGridQuantity();
+        $global.updateGridQuantity();
     }
 
 
@@ -344,7 +281,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         if (deriveData[0]) {
             wordTouchTimer = setTimeout(function () {
                 document.getElementById("derivableCover").style.display = "block";
-                $scope.currentDerivable = sytitle;
+                $global.currentDerivable = sytitle;
                 otsimo.customevent("app:derive", { "derivative": slug });
                 $scope.derivableSymbolData = deriveData;
                 $scope.changeCurrentTab("derivable");
@@ -395,12 +332,52 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
     }
 
 
+    $global.updateGridQuantity = function () {
+        if ($global.currentTab != "main") {
+            $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
+        } else {
+            if ($global.mainPageNo == 0) {
+                $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1];
+            } else {
+                $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
+            }
+        }
+    }
+
     $global.changeGridSize = function (gridX, gridY) {
         $global.gridSize = [gridX, gridY];
         $global.gridSizeStatic = [gridX, gridY];
         $global.gridQuantity = gridX * gridY;
     };
 
+    $global.checkOrientation = function () {
+
+        var gridSizeTemp = $global.gridSizeStatic;
+        if (window.orientation) {
+            //production
+            if (window.orientation == ORIENTATION_TOP || window.orientation == ORIENTATION_BOTTOM) {
+                $global.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+                $scope.$apply();
+            } else if (window.orientation == ORIENTATION_LEFT || window.orientation == ORIENTATION_RIGHT) {
+                $global.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+                $scope.$apply();
+            }
+        } else {
+            //development
+            if (screen.orientation.type == "portrait-primary") {
+                $global.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
+                $scope.$apply();
+            } else if (screen.orientation.type == "landscape-primary") {
+                $global.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
+                $scope.$apply();
+            }
+        }
+    }
+    window.addEventListener("orientationchange", function () {
+        // Announce the new orientation number
+        // console.log(screen.orientation.type);
+        $global.checkOrientation();
+    }, false);
 
 });
 

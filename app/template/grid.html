@@ -57,8 +57,8 @@
         <div class="gridText">Go Back</div>
       </div>
       <div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-touchend="wordTouchEnd(symbol)"
-       ng-repeat="symbol in groupSymbolData | filter: global.currentGroup track by symbol.title"
-       ng-if="groupPageNo * global.gridQuantity < $index && $index < (groupPageNo + 1) * global.gridQuantity">
+       ng-repeat="symbol in groupSymbolData | filter: global.currentGroup track by $index"
+       ng-if="global.groupPageNo * global.gridQuantity < $index && $index < (global.groupPageNo + 1) * global.gridQuantity">
         <img src="symbols/{{symbol.slug}}.svg">
         <div class="gridText">{{symbol.title}}</div>
       </div>
