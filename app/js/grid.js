@@ -76,14 +76,13 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
       currentlyHolding = wordObj.title;
       if(wordObj.class=="derive"){
         wordTouchTimer = setTimeout(function () {
-            //document.getElementById("derivableCover").style.display = "block";
             $global.currentDerivable = wordObj.slug;
             otsimo.customevent("app:derive", { "derivative": wordObj.slug });
             $global.changeCurrentTab("derivable");
             $scope.$apply();
         }, 300);
       }
-      
+
     }
 
     $scope.wordTouchEnd = function (wordObj) {
