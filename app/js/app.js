@@ -23,10 +23,8 @@ aacApp.factory('$global', function(){
           gridSize: [0,0],
           gridSizeStatic: [0,0],
           gridQuantity: 0,
-          mainPageNo: 0,
-          groupPageNo: 0,
-          groupMaxPageNo: 0,
-          mainMaxPageNo: 0
+          PageNo: 0,
+          MaxPageNo: 0
         };
     });
 

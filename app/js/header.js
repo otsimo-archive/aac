@@ -48,9 +48,12 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
             $global.currentPage = $global.pageText4;
             $global.isHome = 0;
         }
-
-        $global.currentTab = tabExp;
-        $global.updateTab(tabExp);
+        if(tabExp != "recent"){
+          $global.currentTab = "main";
+        }else{
+          $global.currentTab = "recent";
+        }
+        $global.changeTab(tabExp);
     };
 
 });
