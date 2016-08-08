@@ -79,7 +79,7 @@
       </div>
 
       <div class="recentPhraseHolder">
-        <div class="resPhrase" ng-click="loadRecentPhrase($index)" ng-repeat="phraseRecent in recentPhrases | orderBy:'-time' track by $index" ng-if="phraseRecent.time < timeH && phraseRecent.time > timeL">
+        <div class="resPhrase" ng-click="loadRecentPhrase($index)" ng-repeat="phraseRecent in global.recentPhrases | orderBy:'-time' track by $index" ng-if="phraseRecent.time < timeH && phraseRecent.time > timeL">
           <div class="resPhraseScroll">
             <div class="wordItemRes" ng-repeat="wordRecent in phraseRecent.phrase track by $index">
               <img src="symbols/{{wordRecent.slug}}.svg" />

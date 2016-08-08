@@ -35,47 +35,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     $scope.global = $global;
 
 
-
-    $scope.updateTab = function (tabExp) {
-        if (tabExp == "main") {
-            $global.groupPageNo = 0;
-            $http.get(otsimo.kv.mainJsonPath).then(function (resp) {
-                if (resp.status == 200) {
-                    $scope.mainSymbolData = resp.data.main;
-
-                    calcPageCount(resp.data.main.length);
-                }
-            });
-
-        } else if (tabExp == "derivable") {
-            //do nothing
-        } else if (tabExp == "group") {
-            var lengthFiltered = 0;
-            var i = 0;
-            $http.get("data/symbol.json").then(function (resp) {
-                if (resp.status == 200) {
-                    $scope.groupSymbolData = resp.data.symbols;
-                    calcPageCountGroup(resp.data.symbols.filter(function(s){
-                      return s.group_slug==$global.currentGroup;
-                    }).length);
-
-                }
-            });
-
-        } else if (tabExp == "recent") {
-            $scope.recentPhrases = getHistoryAsArray();
-        }
-    }
-
-    function calcPageCount(len) {
-        $global.mainMaxPageNo = len / $global.gridQuantity;
-    }
-
-    function calcPageCountGroup(len) {
-        $global.groupMaxPageNo = Math.floor(len / $global.gridQuantity);
-    }
-
-
     var setSettings = function () {
         $global.pageText1 = otsimo.kv.pageText1;
         $global.pageText2 = otsimo.kv.pageText2;
@@ -153,7 +112,7 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
         }
 
         $global.currentTab = tabExp;
-        $scope.updateTab(tabExp);
+        $global.updateTab(tabExp);
     };
 
 });
@@ -200,6 +159,46 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global
 });
 
 aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) {
+
+
+    $global.updateTab = function (tabExp) {
+        if (tabExp == "main") {
+            $global.groupPageNo = 0;
+            $http.get(otsimo.kv.mainJsonPath).then(function (resp) {
+                if (resp.status == 200) {
+                    $scope.mainSymbolData = resp.data.main;
+
+                    calcPageCount(resp.data.main.length);
+                }
+            });
+
+        } else if (tabExp == "derivable") {
+            //do nothing
+        } else if (tabExp == "group") {
+            var lengthFiltered = 0;
+            var i = 0;
+            $http.get("data/symbol.json").then(function (resp) {
+                if (resp.status == 200) {
+                    $scope.groupSymbolData = resp.data.symbols;
+                    calcPageCountGroup(resp.data.symbols.filter(function(s){
+                      return s.group_slug==$global.currentGroup;
+                    }).length);
+
+                }
+            });
+
+        } else if (tabExp == "recent") {
+            $global.recentPhrases = getHistoryAsArray();
+        }
+    }
+
+    function calcPageCount(len) {
+        $global.mainMaxPageNo = len / $global.gridQuantity;
+    }
+
+    function calcPageCountGroup(len) {
+        $global.groupMaxPageNo = Math.floor(len / $global.gridQuantity);
+    }
 
 
     /*
