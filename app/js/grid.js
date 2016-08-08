@@ -14,6 +14,8 @@ const PAGE_MAIN = "main";
 const PAGE_GROUP = "group";
 const PAGE_RECENT = "recent";
 
+const CLASS_MAIN="main";
+
 aacApp.directive('grid', function () {
     return {
         templateUrl: 'template/grid.html'
@@ -31,7 +33,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
             symbolQuantity = $global.gridQuantity - 2;
         }
         $scope.mainDataUnpaged = $global.main.filter(function (f) {
-            return (f.parent == "main")
+            return (f.parent == CLASS_MAIN)
         });
         $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo * symbolQuantity, ($global.PageNo + 1) * symbolQuantity);
         $global.MaxPageNo = returnMaxPage();
