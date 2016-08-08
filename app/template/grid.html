@@ -2,12 +2,12 @@
   <div class="grids grid{{global.gridSize[0]}}x{{global.gridSize[1]}}">
     <div ng-switch-when="main">
 
-        <div class="gridItem gridGroup" ng-touchend="goPrevMain()" ng-if="mainPageNo != 0">
+        <div class="gridItem gridGroup" ng-touchend="goPrevMain()" ng-if="global.mainPageNo != 0">
           <img src="symbols/prev.svg">
           <div class="gridText">{{previousText}}</div>
         </div>
 
-        <span ng-repeat="main in mainSymbolData track by $index" ng-if="mainPageNo * global.gridQuantity < $index && $index < (mainPageNo + 1) * global.gridQuantity">
+        <span ng-repeat="main in mainSymbolData track by $index" ng-if="global.mainPageNo * global.gridQuantity < $index && $index < (global.mainPageNo + 1) * global.gridQuantity">
           <div id="word-{{main.slug}}" class="gridItem gridType-{{main.type}}"
             ng-if="main.class == 'word' && main.derive.length > 0" ng-touchstart="wordTouchStart(main.title, main.derive, main.slug)"
             ng-click="clickWord(main)" ng-touchend="wordTouchEnd(main, 1)">
@@ -34,7 +34,7 @@
           </div>
         </span>
 
-        <div class="gridItem gridGroup" ng-touchend="goNextMain()" ng-if="mainMaxPageNo > (mainPageNo + 1)">
+        <div class="gridItem gridGroup" ng-touchend="goNextMain()" ng-if="global.mainMaxPageNo > (global.mainPageNo + 1)">
           <img src="symbols/next.svg">
           <div class="gridText">{{nextText}}</div>
         </div>
@@ -57,12 +57,12 @@
         <div class="gridText">Go Back</div>
       </div>
       <div id="word-{{symbol.slug}}" ng-touchstart="touchWord(symbol.slug)" class="gridItem gridType-{{symbol.type}}" ng-touchend="wordTouchEnd(symbol)"
-       ng-repeat="symbol in groupSymbolData | filter: currentGroup track by symbol.title"
+       ng-repeat="symbol in groupSymbolData | filter: global.currentGroup track by symbol.title"
        ng-if="groupPageNo * global.gridQuantity < $index && $index < (groupPageNo + 1) * global.gridQuantity">
         <img src="symbols/{{symbol.slug}}.svg">
         <div class="gridText">{{symbol.title}}</div>
       </div>
-      <div class="gridItem gridGroup" ng-touchend="goNextGroup()" ng-if="groupMaxPageNo >= (groupPageNo + 1)">
+      <div class="gridItem gridGroup" ng-touchend="goNextGroup()" ng-if="global.groupMaxPageNo >= (groupPageNo + 1)">
         <img src="symbols/next.svg">
         <div class="gridText">Next</div>
       </div>
@@ -70,10 +70,10 @@
     <div ng-switch-when="recent">
       <div class="recentTabs">
         <ul>
-          <li ng-click="changeInterval(1)">{{timeIntervalText1}}</li>
-          <li ng-click="changeInterval(2)">{{timeIntervalText2}}</li>
-          <li ng-click="changeInterval(3)">{{timeIntervalText3}}</li>
-          <li ng-click="changeInterval(4)">{{timeIntervalText4}}</li>
+          <li ng-click="global.changeInterval(1)">{{timeIntervalText1}}</li>
+          <li ng-click="global.changeInterval(2)">{{timeIntervalText2}}</li>
+          <li ng-click="global.changeInterval(3)">{{timeIntervalText3}}</li>
+          <li ng-click="global.changeInterval(4)">{{timeIntervalText4}}</li>
         </ul>
         <div class="clear"></div>
       </div>

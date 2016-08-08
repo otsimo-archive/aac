@@ -21,7 +21,11 @@ aacApp.factory('$global',function(){
           currentPage: "",
           gridSize: [0,0],
           gridSizeStatic: [0,0],
-          gridQuantity: 0
+          gridQuantity: 0,
+          mainPageNo: 0,
+          groupPageNo: 0,
+          groupMaxPageNo: 0,
+          mainMaxPageNo: 0
         };
     });
 
@@ -30,11 +34,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     $scope.global = $global;
 
     //Variable Initialization
-    $scope.mainPageNo = 0;
-    $scope.mainMaxPageNo = 0;
-    $scope.groupPageNo = 0;
-    $scope.groupMaxPageNo = 0;
-    $scope.currentGroup = "";
     $scope.currentDerivable = "";
 
     /*
@@ -47,7 +46,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
             $global.currentPage = $scope.pageText1;
             $global.isHome = 1;
         } else if (tabExp == "group") {
-            $global.currentPage = $scope.pageText2 + capitalize($scope.currentGroup);
+            $global.currentPage = $scope.pageText2 + capitalize($global.currentGroup);
             $global.isHome = 0;
         } else if (tabExp == "derivable") {
             $global.currentPage = $scope.pageText3 + capitalize($scope.currentDerivable);
@@ -64,7 +63,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
     $scope.updateTab = function (tabExp) {
         if (tabExp == "main") {
-            $scope.groupPageNo = 0;
+            $global.groupPageNo = 0;
             $http.get(otsimo.kv.mainJsonPath).then(function (resp) {
                 if (resp.status == 200) {
                     $scope.mainSymbolData = resp.data.main;
@@ -81,16 +80,10 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
             $http.get("data/symbol.json").then(function (resp) {
                 if (resp.status == 200) {
                     $scope.groupSymbolData = resp.data.symbols;
+                    calcPageCountGroup(resp.data.filter(function(s){
+                      return s.group_slug==$global.currentGroup;
+                    }).length);
 
-                    while (resp.data.symbols[i]) {
-                        if (resp.data.symbols[i].group_slug == $scope.currentGroup) {
-                            lengthFiltered++;
-                        }
-
-                        i++;
-                    }
-
-                    calcPageCountGroup(lengthFiltered);
                 }
             });
 
@@ -102,36 +95,11 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
 
     function calcPageCount(len) {
-        $scope.mainMaxPageNo = len / $global.gridQuantity;
+        $global.mainMaxPageNo = len / $global.gridQuantity;
     }
 
     function calcPageCountGroup(len) {
-        $scope.groupMaxPageNo = Math.floor(len / $global.gridQuantity);
-    }
-
-
-
-
-    $scope.changeInterval = function (val) {
-        var timeH;
-        var timeC = returnTime();
-        var timeL;
-        if (val == 1) {
-            timeH = timeC;
-            timeL = timeC - 1000 * 60 * 30;
-        } else if (val == 2) {
-            timeH = timeC - 1000 * 60 * 30;
-            timeL = timeC - 1000 * 60 * 60 * 24;
-        } else if (val == 3) {
-            timeH = timeC - 1000 * 60 * 30 * 24;
-            timeL = timeC - 1000 * 60 * 60 * 24 * 2;
-        } else if (val == 4) {
-            timeH = timeC - 1000 * 60 * 30 * 24 * 2;
-            timeL = timeC - 1000 * 60 * 60 * 24 * 7;
-        }
-        $scope.timeH = timeH;
-        $scope.timeL = timeL;
-        otsimo.customevent("app:time_interval", { "recent_time_interval": val });
+        $global.groupMaxPageNo = Math.floor(len / $global.gridQuantity);
     }
 
 
@@ -145,11 +113,6 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     - $scope.updateGridQuantity() - updates the total size of picture cards that the grid can by currentTab.
     */
 
-    $scope.changeGridSize = function (gridX, gridY) {
-        $global.gridSize = [gridX, gridY];
-        $global.gridSizeStatic = [gridX, gridY];
-        $global.gridQuantity = gridX * gridY;
-    };
 
     $scope.checkOrientation = function () {
 
@@ -179,7 +142,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         if ($global.currentTab != "main") {
             $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
         } else {
-            if ($scope.mainPageNo == 0) {
+            if ($global.mainPageNo == 0) {
                 $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1];
             } else {
                 $global.gridQuantity = $global.gridSize[0] * $global.gridSize[1] - 1;
@@ -217,8 +180,8 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
     runApp = function logic(x, y) {
         setSettings();
-        $scope.changeGridSize(x, y);
-        $scope.changeInterval(1);
+        $global.changeGridSize(x, y);
+        $global.changeInterval(1);
         $scope.changeCurrentTab("main");
         $scope.checkOrientation();
     }
@@ -234,14 +197,14 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
 
     $scope.openRecent = function () {
         $scope.changeCurrentTab("recent");
-        $scope.changeInterval(1);
+        $global.changeInterval(1);
     }
 
     $scope.goHome = function () {
         $scope.changeCurrentTab("main");
-        $scope.currentGroup = "";
+        $global.currentGroup = "";
         $scope.currentDerivable = "";
-        $scope.mainPageNo = 0;
+        $global.mainPageNo = 0;
         $scope.updateGridQuantity();
     }
 
@@ -310,7 +273,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
     */
 
     $scope.groupClick = function (slug) {
-        $scope.currentGroup = slug;
+        $global.currentGroup = slug;
         $scope.changeCurrentTab("group");
         $scope.updateGridQuantity();
 
@@ -319,22 +282,22 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
 
     $scope.goBack = function () {
         $scope.changeCurrentTab("main");
-        $scope.currentGroup = "";
+        $global.currentGroup = "";
         $scope.updateGridQuantity();
     }
 
     $scope.goNextGroup = function () {
-        $scope.groupPageNo++;
+        $global.groupPageNo++;
         $scope.updateGridQuantity();
     }
 
     $scope.goNextMain = function () {
-        $scope.mainPageNo++;
+        $global.mainPageNo++;
         $scope.updateGridQuantity();
     }
 
     $scope.goPrevMain = function () {
-        $scope.mainPageNo--;
+        $global.mainPageNo--;
         $scope.updateGridQuantity();
     }
 
@@ -409,6 +372,34 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         $global.currentPhrase = $global.currentPhrase.concat(phrase2Add);
     }
 
+    $global.changeInterval = function (val) {
+        var timeH;
+        var timeC = returnTime();
+        var timeL;
+        if (val == 1) {
+            timeH = timeC;
+            timeL = timeC - 1000 * 60 * 30;
+        } else if (val == 2) {
+            timeH = timeC - 1000 * 60 * 30;
+            timeL = timeC - 1000 * 60 * 60 * 24;
+        } else if (val == 3) {
+            timeH = timeC - 1000 * 60 * 30 * 24;
+            timeL = timeC - 1000 * 60 * 60 * 24 * 2;
+        } else if (val == 4) {
+            timeH = timeC - 1000 * 60 * 30 * 24 * 2;
+            timeL = timeC - 1000 * 60 * 60 * 24 * 7;
+        }
+        $scope.timeH = timeH;
+        $scope.timeL = timeL;
+        otsimo.customevent("app:time_interval", { "recent_time_interval": val });
+    }
+
+
+    $global.changeGridSize = function (gridX, gridY) {
+        $global.gridSize = [gridX, gridY];
+        $global.gridSizeStatic = [gridX, gridY];
+        $global.gridQuantity = gridX * gridY;
+    };
 
 
 });
