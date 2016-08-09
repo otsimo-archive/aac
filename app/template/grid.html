@@ -12,21 +12,13 @@
           <div class="gridText">{{backText}}</div>
         </div>
 
-        <div class="gridTemplate">
-            <span ng-repeat="main in mainData track by $index">
-              <div id="item-{{main.slug}}-{{$index}}" class="gridItem gridType-{{main.type}}" ng-touchstart="wordTouchStart(main, $index)" ng-touchend="wordTouchEnd(main, $index)">
-                <img src="symbols/{{main.slug}}.svg">
-                <div class="gridText">{{main.title}}</div>
-                <div class="derivable" ng-if="main.class=='derive'"></div>
-              </div>
-            </span>
-        </div>
+        <symbol></symbol>
 
         <div class="gridItem gridGroup" ng-touchend="goNextMain()" ng-if="global.MaxPageNo != global.PageNo">
           <img src="symbols/next.svg">
           <div class="gridText">{{nextText}}</div>
         </div>
     </div>
-    <div ng-switch-when="recent" ng-controller="otsControlRecent" recent></div>
+    <div ng-switch-when="recent" recent></div>
   </div>
 </div>
