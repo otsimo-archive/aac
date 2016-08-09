@@ -101,7 +101,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
 
     var wordTouchTimer;
     var currentlyHolding;
-    $scope.wordTouchStart = function (wordObj) {
+    $scope.wordTouchStart = function (wordObj, index) {
         currentlyHolding = wordObj.title;
         if (wordObj.class == "derive") {
             wordTouchTimer = setTimeout(function () {
@@ -111,10 +111,10 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
                 $scope.$apply();
             }, 300);
         }
-
+        clickAnimStart(wordObj, index);
     }
 
-    $scope.wordTouchEnd = function (wordObj) {
+    $scope.wordTouchEnd = function (wordObj, index) {
         clearTimeout(wordTouchTimer);
         if (wordObj.class == "group") {
             $global.currentGroup = wordObj.slug;
@@ -124,8 +124,20 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
                 $scope.clickWord(wordObj);
             }
         }
+
+        clickAnimEnd(wordObj, index);
     }
 
+
+    var clickAnimStart = function(word, index) {
+      var elem = document.getElementById("item-"+word.slug+"-"+index);
+      elem.className = elem.className + " gridItemClick";
+    }
+
+    var clickAnimEnd = function(word, index) {
+      var elem = document.getElementById("item-"+word.slug+"-"+index);
+      elem.className = elem.className.replace(" gridItemClick", "");
+    }
 
     $scope.clickWord = function (wordObj) {
         $scope.add2Phrase(wordObj);

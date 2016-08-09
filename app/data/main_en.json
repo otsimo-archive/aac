@@ -9,7 +9,7 @@
         },
         {
             "title": "me",
-            "slug": "i",
+            "slug": "you",
             "type": "noun",
             "class" : "word",
             "parent": "i"
@@ -37,7 +37,7 @@
         },
         {
             "title": "us",
-            "slug": "equal",
+            "slug": "apple",
             "type": "noun",
             "class" : "word",
             "parent": "equal"
