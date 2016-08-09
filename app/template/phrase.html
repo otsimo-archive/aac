@@ -1,4 +1,4 @@
-<div class="phraseHolder">
+<div ng-controller="otsControlPhrase" class="phraseHolder">
   <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" ng-click="submitPhrase()">
     <div class="currentPhraseScroll">
       <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index" ng-if="word.title">
