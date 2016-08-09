@@ -34,6 +34,11 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
           if (wordObj.class == "group") {
               $global.currentGroup = wordObj.slug;
               $global.changeCurrentTab(PAGE_GROUP);
+              /*
+              Category animation killing in touchEnd:
+              */
+              clickAnimStop();
+              
           } else {
               if (currentlyHolding == wordObj.title && wordObj.class != "group") {
                   $scope.clickWord(wordObj);
@@ -55,6 +60,7 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
         elem.className = elem.className.replace(" gridItemClick", "");
       }
 
+      /* */
       var clickAnimStop = function(){
         var elem = document.getElementById("item-" + $scope.currentAnimIndex)
         elem.className = elem.className.replace(" gridItemClick", "") + " transitionKill";
