@@ -1,6 +1,6 @@
 <div ng-controller="otsControlSymbol" class="gridTemplate">
     <span ng-repeat="main in mainData track by $index">
-      <div id="item-{{main.slug}}-{{$index}}" class="gridItem {{main.style}}" ng-touchstart="wordTouchStart(main, $index)" ng-touchend="wordTouchEnd(main, $index)">
+      <div id="item-{{$index}}" class="gridItem {{main.style}}" ng-touchstart="wordTouchStart(main, $index)" ng-touchend="wordTouchEnd(main, $index)">
         <img src="symbols/{{main.slug}}.svg">
         <div class="gridText">{{main.title}}</div>
         <div class="derivable" ng-if="main.class=='derive'"></div>

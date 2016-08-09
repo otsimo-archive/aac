@@ -23,9 +23,10 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
                   otsimo.customevent("app:derive", { "derivative": wordObj.slug });
                   $global.changeCurrentTab(PAGE_DERIVABLE);
                   $scope.$apply();
+                  clickAnimStop();
               }, 300);
           }
-          clickAnimStart(wordObj, index);
+          clickAnimStart(index);
       }
 
       $scope.wordTouchEnd = function (wordObj, index) {
@@ -39,18 +40,27 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
               }
           }
 
-          clickAnimEnd(wordObj, index);
+          clickAnimEnd(index);
       }
 
 
-      var clickAnimStart = function(word, index) {
-        var elem = document.getElementById("item-"+word.slug+"-"+index);
+      var clickAnimStart = function(index) {
+        var elem = document.getElementById("item-"+index);
         elem.className = elem.className + " gridItemClick";
+        $scope.currentAnimIndex = index;
       }
 
-      var clickAnimEnd = function(word, index) {
-        var elem = document.getElementById("item-"+word.slug+"-"+index);
+      var clickAnimEnd = function(index) {
+        var elem = document.getElementById("item-"+index);
         elem.className = elem.className.replace(" gridItemClick", "");
+      }
+
+      var clickAnimStop = function(){
+        var elem = document.getElementById("item-" + $scope.currentAnimIndex)
+        elem.className = elem.className.replace(" gridItemClick", "") + " transitionKill";
+        setTimeout(function(){
+          elem.className = elem.className.replace(" transitionKill", "");
+        }, 101);
       }
 
       $scope.clickWord = function (wordObj) {

@@ -115,6 +115,9 @@ body {
   box-shadow:0px 0px 15px 0px rgba(0,0,0,0.01);
   transform:scale(0.9);
 }
+.transitionKill { transition:0ms all !important; }
+
+
 .gridGroup { border:2px solid #333; }
 .gridItem img{
     width:100%;

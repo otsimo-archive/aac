@@ -71,7 +71,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
         if (t) {
             t();
         } else {
-            console.error(tabExp, " unknown tab")
+            console.error(tabExp, " unknown tab");
         }
     }
     var sliceArray = function(symbolQuantity){
