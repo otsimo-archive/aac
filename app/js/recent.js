@@ -9,6 +9,7 @@ aacApp.directive('recent', function () {
         templateUrl: 'template/recent.html'
     };
 });
+
 aacApp.controller('otsControlRecent', function ($scope, $global) {
     $scope.loadRecentPhrase = function (index) {
         var phraseHistory = getHistoryAsArray();

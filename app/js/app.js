@@ -29,6 +29,8 @@ aacApp.factory('$global', function () {
     };
 });
 
+
+
 aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $global) {
 
     $scope.global = $global;
