@@ -155,18 +155,21 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
         var timeH;
         var timeC = returnTime();
         var timeL;
+        const halfHour = 1000 * 60 * 30;
+        const oneDay = halfHour * 2 * 24;
+        const oneWeek = oneDay * 7;
         if (val == 1) {
             timeH = timeC;
-            timeL = timeC - 1000 * 60 * 30;
+            timeL = timeC - halfHour;
         } else if (val == 2) {
-            timeH = timeC - 1000 * 60 * 30;
-            timeL = timeC - 1000 * 60 * 60 * 24;
+            timeH = timeC - halfHour;
+            timeL = timeC - oneDay * 24;
         } else if (val == 3) {
-            timeH = timeC - 1000 * 60 * 30 * 24;
-            timeL = timeC - 1000 * 60 * 60 * 24 * 2;
+            timeH = timeC - oneDay;
+            timeL = timeC - oneDay * 2;
         } else if (val == 4) {
-            timeH = timeC - 1000 * 60 * 30 * 24 * 2;
-            timeL = timeC - 1000 * 60 * 60 * 24 * 7;
+            timeH = timeC - oneDay * 2;
+            timeL = timeC - oneWeek;
         }
         $scope.timeH = timeH;
         $scope.timeL = timeL;
