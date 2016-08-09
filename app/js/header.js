@@ -1,3 +1,8 @@
+/*
+  -- header.js
+  Directive and controller for header in the app;
+
+*/
 
 aacApp.directive('header', function () {
     return {

@@ -4,6 +4,7 @@
   Like returnTime(), capitalize() etc.
 
 */
+
 document.ontouchmove = function(event){
     event.preventDefault();
 }

@@ -1,3 +1,9 @@
+/*
+  -- recent.js
+  Directive and controller for phrase history in the app;
+  
+*/
+
 aacApp.directive('recent', function () {
     return {
         templateUrl: 'template/recent.html'

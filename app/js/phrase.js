@@ -1,3 +1,8 @@
+/*
+  -- phrase.js
+  Directive and controller for phrase building block (under header);
+
+*/
 
 aacApp.directive('phrase', function () {
     return {

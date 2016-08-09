@@ -1,7 +1,7 @@
 /*
   -- app.js
   Main JS file
-  Angular modules and controllers is located here
+  Main Controller and $global service is located here
 
 */
 

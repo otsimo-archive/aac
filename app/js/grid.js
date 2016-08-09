@@ -1,3 +1,9 @@
+/*
+  -- grid.js
+  Directive and controller for grids and the grid elements;
+
+*/
+
 aacApp.factory('$symbol', function ($http, $global) {
     var main;
     $http.get("data/main_en.json").then(function (resp) {
