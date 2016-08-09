@@ -41,8 +41,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
         $scope.mainDataUnpaged = $global.main.filter(function (f) {
             return (f.parent == CLASS_MAIN)
         });
-        $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo * symbolQuantity, ($global.PageNo + 1) * symbolQuantity);
-        $global.MaxPageNo = returnMaxPage();
+        sliceArray(symbolQuantity);
     }
 
     $scope.tabs[PAGE_DERIVABLE] = function () {
@@ -50,9 +49,8 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
         var symbolQuantity = $global.gridQuantity - 2;
         $scope.mainDataUnpaged = $global.main.filter(function (f) {
             return (f.parent == $global.currentDerivable)
-        })
-        $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo * symbolQuantity, ($global.PageNo + 1) * symbolQuantity);
-        $global.MaxPageNo = returnMaxPage();
+        });
+        sliceArray(symbolQuantity);
     }
 
     $scope.tabs[PAGE_GROUP] = function () {
@@ -61,9 +59,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
         $scope.mainDataUnpaged = $global.main.filter(function (f) {
             return (f.parent == $global.currentGroup)
         });
-        console.log($scope.mainDataUnpaged.length);
-        $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo * symbolQuantity, ($global.PageNo + 1) * symbolQuantity);
-        $global.MaxPageNo = returnMaxPage();
+        sliceArray(symbolQuantity);
     }
 
     $scope.tabs[PAGE_RECENT] = function () {
@@ -78,7 +74,19 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
             console.error(tabExp, " unknown tab")
         }
     }
+    var sliceArray = function(symbolQuantity){
+      $scope.mainData = $scope.mainDataUnpaged.slice($global.PageNo * symbolQuantity, ($global.PageNo + 1) * symbolQuantity).map(mapStyle);
+      $global.MaxPageNo = returnMaxPage();
+    }
 
+    var mapStyle = function(symbol){
+        if(symbol.class == "group"){
+          symbol.style = "gridGroup";
+        }else{
+          symbol.style = "gridType-"+symbol.type;
+        }
+        return symbol;
+    }
     var returnMaxPage = function () {
         return parseInt($scope.mainDataUnpaged.length / $global.gridQuantity);
     }
