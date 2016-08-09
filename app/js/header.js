@@ -14,7 +14,6 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
 
     $scope.openRecent = function () {
         $global.changeCurrentTab(PAGE_RECENT);
-        $global.changeInterval(1);
     }
 
     $scope.goHome = function () {
