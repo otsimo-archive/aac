@@ -20,7 +20,6 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
         $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
         $global.currentDerivable = "";
-        $global.mainPageNo = 0;
         $global.updateGridQuantity();
     }
 

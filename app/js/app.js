@@ -11,10 +11,11 @@ const ORIENTATION_BOTTOM = 180;
 const ORIENTATION_LEFT = 90;
 const ORIENTATION_RIGHT = -90;
 
+
 var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
 
 aacApp.factory('$global', function () {
-    return {
+    var global = {
         currentPhrase: [],
         isHome: 1,
         currentTab: "",
@@ -23,10 +24,10 @@ aacApp.factory('$global', function () {
         currentGroup: "",
         gridSize: [0, 0],
         gridSizeStatic: [0, 0],
-        gridQuantity: 0,
-        PageNo: 0,
-        MaxPageNo: 0
+        gridQuantity: 0
     };
+
+    return global;
 });
 
 

@@ -2,19 +2,19 @@
   <div class="grids grid{{global.gridSize[0]}}x{{global.gridSize[1]}}">
 
     <div ng-switch-when="main">
-        <div class="gridItem gridGroup" ng-touchend="goPrevMain()" ng-if="global.PageNo !== 0">
+        <div class="gridItem gridGroup" ng-touchend="goPrevMain()" ng-if="PageNo !== 0">
           <img src="symbols/prev.svg">
           <div class="gridText">{{previousText}}</div>
         </div>
 
-        <div class="gridItem gridGroup" ng-touchend="goBack()" ng-if="global.isHome === 0 ">
+        <div class="gridItem gridGroup" ng-touchend="goBack()" ng-if="global.isHome === 0">
           <img src="symbols/prev.svg">
           <div class="gridText">{{backText}}</div>
         </div>
 
         <symbol></symbol>
 
-        <div class="gridItem gridGroup" ng-touchend="goNextMain()" ng-if="global.MaxPageNo != global.PageNo">
+        <div class="gridItem gridGroup" ng-touchend="goNextMain()" ng-if="MaxPageNo != PageNo">
           <img src="symbols/next.svg">
           <div class="gridText">{{nextText}}</div>
         </div>

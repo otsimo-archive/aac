@@ -23,6 +23,7 @@
     "exclude": [],
     "settings": "settings.json",
     "kv_path": "data",
+    "capabilities": ["sandbox","tts"],
     "metadata": [
         {
             "language": "en",

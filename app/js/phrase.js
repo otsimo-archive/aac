@@ -11,6 +11,7 @@ aacApp.directive('phrase', function () {
 });
 
 aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global) {
+    
     $scope.removeLastWord = function () {
         $global.currentPhrase.pop();
     }

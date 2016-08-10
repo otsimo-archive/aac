@@ -70,15 +70,10 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
       }
 
       $scope.clickWord = function (wordObj) {
-          $scope.add2Phrase(wordObj);
+          $global.currentPhrase.push(wordObj);
           updateCurrentPhraseScroll();
           otsimo.tts.speak(wordObj.title);
           otsimo.customevent("app:word", { "word": wordObj.title, "grid_x": $global.gridSize[0], "grid_y": $global.gridSize[1], "grid_xy": $global.gridSize[0] + "x" + $global.gridSize[1] });
-      }
-
-      $scope.add2Phrase = function (obj) {
-          console.log("add2Phrase", $global.currentPhrase, obj);
-          $global.currentPhrase.push(obj);
       }
 
 });

@@ -14,7 +14,7 @@ aacApp.controller('otsControlRecent', function ($scope, $global) {
     $scope.loadRecentPhrase = function (index) {
         var phraseHistory = getHistoryAsArray();
         var phrase2Add = phraseHistory[phraseHistory.length - (index + 1)].phrase;
-        $global.currentPhrase = $global.currentPhrase.concat(phrase2Add);
+        $global.currentPhrase = $global.currentPhrase.concat(phrase2Add); 
     }
 
     $scope.changeInterval = function (val) {
@@ -29,7 +29,7 @@ aacApp.controller('otsControlRecent', function ($scope, $global) {
             timeL = timeC - halfHour;
         } else if (val == 2) {
             timeH = timeC - halfHour;
-            timeL = timeC - oneDay * 24;
+            timeL = timeC - oneDay;
         } else if (val == 3) {
             timeH = timeC - oneDay;
             timeL = timeC - oneDay * 2;
