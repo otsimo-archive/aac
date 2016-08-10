@@ -12,7 +12,7 @@ aacApp.directive('recent', function () {
 
 aacApp.controller('otsControlRecent', function ($scope, $global) {
     $scope.loadRecentPhrase = function (index) {
-        var phraseHistory = getHistoryAsArray();
+        var phraseHistory = $scope.recentPhrasesList;
         var phrase2Add = phraseHistory[phraseHistory.length - (index + 1)].phrase;
         $global.currentPhrase = $global.currentPhrase.concat(phrase2Add); 
     }
@@ -37,8 +37,9 @@ aacApp.controller('otsControlRecent', function ($scope, $global) {
             timeH = timeC - oneDay * 2;
             timeL = timeC - oneWeek;
         }
-        $scope.timeH = timeH;
-        $scope.timeL = timeL;
+        $scope.recentPhrasesList = $global.recentPhrases.filter(function(phraseRecent){
+            return phraseRecent.time < timeH && phraseRecent.time > timeL;
+         });
         otsimo.customevent("app:time_interval", { "recent_time_interval": val });
     }
 
