@@ -55,7 +55,9 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         document.getElementsByClassName("header")[0].style.background = $scope.headerColor;
         document.body.style.fontSize = $scope.generalFont;
         otsimo.tts.setVoice(otsimo.kv.voiceId);
-
+        if(otsimo.capabilities.indexOf("tts") == -1){
+          document.getElementById("outdated").style.display = "block";
+        }
     }
 
     runApp = function logic(x, y) {

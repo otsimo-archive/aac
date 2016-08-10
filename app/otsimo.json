@@ -1,6 +1,6 @@
 {
     "unique_name": "aac",
-    "version": "0.0.35",
+    "version": "0.0.43",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [
@@ -23,7 +23,10 @@
     "exclude": [],
     "settings": "settings.json",
     "kv_path": "data",
-    "capabilities": ["sandbox","tts"],
+    "capabilities": [
+        "sandbox",
+        "tts"
+    ],
     "metadata": [
         {
             "language": "en",
