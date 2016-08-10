@@ -32,7 +32,8 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
 
     $scope.PageNo = 0;
     $scope.MaxPageNo = 0;
-    
+    var prevPageNo = 0;
+
     $scope.tabs = {};
 
     $scope.tabs[PAGE_MAIN] = function () {
@@ -49,6 +50,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
     }
 
     $scope.tabs[PAGE_DERIVABLE] = function () {
+        prevPageNo = $scope.PageNo;
         $scope.PageNo = 0;
         var symbolQuantity = $global.gridQuantity - 2;
         $scope.mainDataUnpaged = $global.main.filter(function (f) {
@@ -58,6 +60,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
     }
 
     $scope.tabs[PAGE_GROUP] = function () {
+        prevPageNo = $scope.PageNo;
         $scope.PageNo = 0;
         var symbolQuantity = $global.gridQuantity - 2;
         $scope.mainDataUnpaged = $global.main.filter(function (f) {
@@ -81,6 +84,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
     var sliceArray = function(symbolQuantity){
       $scope.mainData = $scope.mainDataUnpaged.slice($scope.PageNo * symbolQuantity, ($scope.PageNo + 1) * symbolQuantity).map(mapStyle);
       $scope.MaxPageNo = returnMaxPage();
+      console.log("slice:"+ $scope.PageNo + "," + parseInt($scope.PageNo + 1));
     }
 
     var mapStyle = function(symbol){
@@ -97,8 +101,10 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
 
 
     $scope.goBack = function () {
+        $scope.PageNo = prevPageNo;
         $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
+        $global.currentDerivable = "";
     }
 
     $scope.goNextMain = function () {
