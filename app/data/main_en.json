@@ -4,294 +4,2240 @@
             "title": "i",
             "slug": "i",
             "type": "noun",
-            "class" : "derive",
+            "class": "derive",
             "parent": "main"
         },
         {
-            "title": "me",
-            "slug": "you",
+            "title": "we",
+            "slug": "we",
             "type": "noun",
-            "class" : "word",
+            "class": "word",
             "parent": "i"
         },
         {
-            "title": "us",
-            "slug": "i",
+            "title": "they",
+            "slug": "they",
             "type": "noun",
-            "class" : "word",
+            "class": "word",
             "parent": "i"
+        },
+        {
+            "title": "it",
+            "slug": "it",
+            "type": "noun",
+            "class": "word",
+            "parent": "i"
+        },
+        {
+            "title": "you",
+            "slug": "you",
+            "type": "noun",
+            "class": "derive",
+            "parent": "main"
+        },
+        {
+            "title": "yours",
+            "slug": "yours",
+            "type": "noun",
+            "class": "word",
+            "parent": "you"
+        },
+        {
+            "title": "yourself",
+            "slug": "yourself",
+            "type": "noun",
+            "class": "word",
+            "parent": "you"
         },
         {
             "title": "is",
-            "slug": "equal",
+            "slug": "is",
             "type": "noun",
-            "class" : "derive",
+            "class": "derive",
             "parent": "main"
         },
         {
+            "title": "am",
+            "slug": "am",
+            "type": "noun",
+            "class": "word",
+            "parent": "is"
+        },
+        {
+            "title": "me",
+            "slug": "me",
+            "type": "noun",
+            "class": "word",
+            "parent": "is"
+        },
+        {
+            "title": "u",
+            "slug": "u",
+            "type": "noun",
+            "class": "word",
+            "parent": "is"
+        },
+        {
             "title": "are",
-            "slug": "equal",
+            "slug": "are",
             "type": "noun",
-            "class" : "word",
-            "parent": "equal"
+            "class": "word",
+            "parent": "is"
         },
         {
-            "title": "us",
-            "slug": "apple",
+            "title": "not",
+            "slug": "not",
             "type": "noun",
-            "class" : "word",
-            "parent": "equal"
+            "class": "word",
+            "parent": "main"
         },
         {
-            "title": "big",
-            "slug": "big",
+            "title": "all done",
+            "slug": "all-done",
             "type": "noun",
-            "class" : "word",
+            "class": "word",
+            "parent": "main"
+        },
+        {
+            "title": "do",
+            "slug": "do",
+            "type": "noun",
+            "class": "word",
+            "parent": "main"
+        },
+        {
+            "title": "go",
+            "slug": "go",
+            "type": "noun",
+            "class": "word",
             "parent": "main"
         },
         {
             "title": "want",
             "slug": "want",
             "type": "noun",
-            "class" : "word",
+            "class": "word",
             "parent": "main"
         },
         {
             "title": "like",
             "slug": "like",
-            "type": "verb",
-            "class" : "word",
+            "type": "noun",
+            "class": "word",
             "parent": "main"
         },
         {
-            "title": "not",
-            "slug": "not",
-            "type": "adjective",
-            "class" : "word",
+            "title": "get",
+            "slug": "get",
+            "type": "noun",
+            "class": "word",
             "parent": "main"
+        },
+        {
+            "title": "make",
+            "slug": "make",
+            "type": "noun",
+            "class": "word",
+            "parent": "main"
+        },
+        {
+            "title": "have",
+            "slug": "have",
+            "type": "noun",
+            "class": "word",
+            "parent": "main"
+        },
+        {
+            "title": "chat",
+            "slug": "chat",
+            "type": "noun",
+            "class": "group",
+            "parent": "main"
+        },
+        {
+            "title": "yes",
+            "slug": "yes",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "maybe",
+            "slug": "maybe",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "no",
+            "slug": "no",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "hello",
+            "slug": "hello",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "good bye",
+            "slug": "good-bye",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "please",
+            "slug": "please",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "thank you",
+            "slug": "thank-you",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "you're welcome",
+            "slug": "youre-welcome",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "excuse me",
+            "slug": "excuse-me",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "ready",
+            "slug": "ready",
+            "type": "noun",
+            "class": "word",
+            "parent": "chat"
+        },
+        {
+            "title": "people",
+            "slug": "people",
+            "type": "noun",
+            "class": "group",
+            "parent": "main"
+        },
+        {
+            "title": "mom",
+            "slug": "mom",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "dad",
+            "slug": "dad",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "brother",
+            "slug": "brother",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "sister",
+            "slug": "sister",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "friend",
+            "slug": "friend",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "teacher",
+            "slug": "teacher",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "things",
+            "slug": "things",
+            "type": "noun",
+            "class": "group",
+            "parent": "main"
+        },
+        {
+            "title": "something",
+            "slug": "something",
+            "type": "noun",
+            "class": "word",
+            "parent": "things"
+        },
+        {
+            "title": "nothing",
+            "slug": "nothing",
+            "type": "noun",
+            "class": "word",
+            "parent": "things"
+        },
+        {
+            "title": "stuff",
+            "slug": "stuff",
+            "type": "noun",
+            "class": "word",
+            "parent": "things"
+        },
+        {
+            "title": "part",
+            "slug": "part",
+            "type": "noun",
+            "class": "word",
+            "parent": "things"
         },
         {
             "title": "more",
             "slug": "more",
-            "type": "verb",
-            "class" : "word",
+            "type": "noun",
+            "class": "word",
+            "parent": "things"
+        },
+        {
+            "title": "piece",
+            "slug": "piece",
+            "type": "noun",
+            "class": "word",
+            "parent": "things"
+        },
+        {
+            "title": "thing",
+            "slug": "thing",
+            "type": "noun",
+            "class": "word",
+            "parent": "things"
+        },
+        {
+            "title": "places",
+            "slug": "places",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "you",
-            "slug": "you",
-            "type": "verb",
-            "class" : "word",
+            "title": "inside",
+            "slug": "inside",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "outside",
+            "slug": "outside",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "home",
+            "slug": "home",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "place",
+            "slug": "place",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "school",
+            "slug": "school",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "apartment",
+            "slug": "apartment",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "bathroom",
+            "slug": "bathroom",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "bus",
+            "slug": "bus",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "cafeteria",
+            "slug": "cafeteria",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "car",
+            "slug": "car",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "classroom",
+            "slug": "classroom",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "living room",
+            "slug": "living-room",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "mall",
+            "slug": "mall",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "park",
+            "slug": "park",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "party",
+            "slug": "party",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "playground",
+            "slug": "playground",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "restaurant",
+            "slug": "restaurant",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "store",
+            "slug": "store",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "therapy",
+            "slug": "therapy",
+            "type": "noun",
+            "class": "word",
+            "parent": "places"
+        },
+        {
+            "title": "activities",
+            "slug": "activities",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "it",
-            "slug": "it",
-            "type": "verb",
-            "class" : "word",
+            "title": "sports",
+            "slug": "sports",
+            "type": "noun",
+            "class": "group",
+            "parent": "activities"
+        },
+        {
+            "title": "football",
+            "slug": "football",
+            "type": "noun",
+            "class": "word",
+            "parent": "sports"
+        },
+        {
+            "title": "basketball",
+            "slug": "basketball",
+            "type": "noun",
+            "class": "word",
+            "parent": "sports"
+        },
+        {
+            "title": "tennis",
+            "slug": "tennis",
+            "type": "noun",
+            "class": "word",
+            "parent": "sports"
+        },
+        {
+            "title": "running",
+            "slug": "running",
+            "type": "noun",
+            "class": "word",
+            "parent": "sports"
+        },
+        {
+            "title": "art",
+            "slug": "art",
+            "type": "noun",
+            "class": "group",
+            "parent": "activities"
+        },
+        {
+            "title": "drawing",
+            "slug": "drawing",
+            "type": "noun",
+            "class": "word",
+            "parent": "art"
+        },
+        {
+            "title": "painting",
+            "slug": "painting",
+            "type": "noun",
+            "class": "word",
+            "parent": "art"
+        },
+        {
+            "title": "singing",
+            "slug": "singing",
+            "type": "noun",
+            "class": "word",
+            "parent": "art"
+        },
+        {
+            "title": "playing",
+            "slug": "playing",
+            "type": "noun",
+            "class": "word",
+            "parent": "art"
+        },
+        {
+            "title": "guitar",
+            "slug": "guitar",
+            "type": "noun",
+            "class": "word",
+            "parent": "art"
+        },
+        {
+            "title": "piano",
+            "slug": "piano",
+            "type": "noun",
+            "class": "word",
+            "parent": "art"
+        },
+        {
+            "title": "food",
+            "slug": "food",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "clean",
-            "slug": "clean",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "title": "food",
+            "slug": "food",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
         },
         {
-            "title": "dry",
-            "slug": "dry",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "title": "breakfast",
+            "slug": "breakfast",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
         },
         {
-            "title": "very",
-            "slug": "very",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "title": "lunch",
+            "slug": "lunch",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
         },
         {
-            "title": "less",
-            "slug": "less",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "title": "snack",
+            "slug": "snack",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
         },
         {
-            "title": "Enough",
-            "slug": "enough",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "title": "dinner",
+            "slug": "dinner",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
         },
         {
-            "title": "all done",
-            "slug": "all-done",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "title": "drink",
+            "slug": "drink",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
         },
         {
-            "title": "first",
-            "slug": "first",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "title": "water",
+            "slug": "water",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
         },
         {
-            "title": "full",
-            "slug": "full",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "title": "dessert",
+            "slug": "dessert",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "fruit",
+            "slug": "fruit",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "vegetable",
+            "slug": "vegetable",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "candy",
+            "slug": "candy",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "banana",
+            "slug": "banana",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "candy",
+            "slug": "candy",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "cereal",
+            "slug": "cereal",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "chicken nuggets",
+            "slug": "chicken-nuggets",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "chips",
+            "slug": "chips",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "cookie",
+            "slug": "cookie",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "egg",
+            "slug": "egg",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "french fries",
+            "slug": "french-fries",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "hamburger",
+            "slug": "hamburger",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "juice",
+            "slug": "juice",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "ketchup",
+            "slug": "ketchup",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "macaroni",
+            "slug": "macaroni",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "pizza",
+            "slug": "pizza",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
+        },
+        {
+            "title": "sandwich",
+            "slug": "sandwich",
+            "type": "noun",
+            "class": "word",
+            "parent": "food"
         },
         {
             "title": "fun",
             "slug": "fun",
-            "type": "verb",
-            "class" : "word",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
+        },
+        {
+            "title": "color",
+            "slug": "color",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "go for a walk",
+            "slug": "go-for a walk",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "listen to music",
+            "slug": "listen-to music",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "play catch",
+            "slug": "play-catch",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "play outside",
+            "slug": "play-outside",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "read",
+            "slug": "read",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "swing",
+            "slug": "swing",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "book",
+            "slug": "book",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "computer",
+            "slug": "computer",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "game",
+            "slug": "game",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "headphones",
+            "slug": "headphones",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "legos",
+            "slug": "legos",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "magazine",
+            "slug": "magazine",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "play doh",
+            "slug": "play-doh",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "tablet",
+            "slug": "tablet",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "tramboline",
+            "slug": "tramboline",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "tv",
+            "slug": "tv",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "video game",
+            "slug": "video-game",
+            "type": "noun",
+            "class": "word",
+            "parent": "fun"
+        },
+        {
+            "title": "help",
+            "slug": "help",
+            "type": "noun",
+            "class": "group",
+            "parent": "main"
+        },
+        {
+            "title": "help",
+            "slug": "help",
+            "type": "noun",
+            "class": "word",
+            "parent": "help"
+        },
+        {
+            "title": "bathroom",
+            "slug": "bathroom",
+            "type": "noun",
+            "class": "word",
+            "parent": "help"
+        },
+        {
+            "title": "sick",
+            "slug": "sick",
+            "type": "noun",
+            "class": "word",
+            "parent": "help"
+        },
+        {
+            "title": "personal care",
+            "slug": "personal-care",
+            "type": "noun",
+            "class": "word",
+            "parent": "help"
+        },
+        {
+            "title": "body",
+            "slug": "body",
+            "type": "noun",
+            "class": "word",
+            "parent": "help"
+        },
+        {
+            "title": "start over",
+            "slug": "start-over",
+            "type": "noun",
+            "class": "word",
+            "parent": "help"
+        },
+        {
+            "title": "call",
+            "slug": "call",
+            "type": "noun",
+            "class": "word",
+            "parent": "help"
+        },
+        {
+            "title": "feeling",
+            "slug": "feeling",
+            "type": "noun",
+            "class": "group",
+            "parent": "main"
+        },
+        {
+            "title": "feel",
+            "slug": "feel",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "love",
+            "slug": "love",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "hate",
+            "slug": "hate",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "afraid",
+            "slug": "afraid",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "angry",
+            "slug": "angry",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "bored",
+            "slug": "bored",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "excited",
+            "slug": "excited",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "frustrated",
+            "slug": "frustrated",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
         },
         {
             "title": "happy",
             "slug": "happy",
-            "type": "verb",
-            "class" : "word",
-            "parent": "main"
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "hungry",
+            "slug": "hungry",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "hurt",
+            "slug": "hurt",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "lonely",
+            "slug": "lonely",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "mean",
+            "slug": "mean",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
         },
         {
             "title": "sad",
             "slug": "sad",
-            "type": "verb",
-            "class" : "word",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "sick",
+            "slug": "sick",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "silly",
+            "slug": "silly",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "sorry",
+            "slug": "sorry",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "thirsty",
+            "slug": "thirsty",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "tired",
+            "slug": "tired",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "anxious",
+            "slug": "anxious",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "aware",
+            "slug": "aware",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "busy",
+            "slug": "busy",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "confused",
+            "slug": "confused",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "scared",
+            "slug": "scared",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "embarrassed",
+            "slug": "embarrassed",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "jealous",
+            "slug": "jealous",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "lost",
+            "slug": "lost",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "relaxed",
+            "slug": "relaxed",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "depressed",
+            "slug": "depressed",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "shy",
+            "slug": "shy",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "upset",
+            "slug": "upset",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "worried",
+            "slug": "worried",
+            "type": "noun",
+            "class": "word",
+            "parent": "feeling"
+        },
+        {
+            "title": "actions",
+            "slug": "actions",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "Colors",
-            "slug": "color",
-            "class" : "group",
+            "title": "can",
+            "slug": "can",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "come",
+            "slug": "come",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "eat",
+            "slug": "eat",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "get",
+            "slug": "get",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "have",
+            "slug": "have",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "help",
+            "slug": "help",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "like",
+            "slug": "like",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "make",
+            "slug": "make",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "need",
+            "slug": "need",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "open",
+            "slug": "open",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "put",
+            "slug": "put",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "see",
+            "slug": "see",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "stop",
+            "slug": "stop",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "ask",
+            "slug": "ask",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "call",
+            "slug": "call",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "explain",
+            "slug": "explain",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "happen",
+            "slug": "happen",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "let",
+            "slug": "let",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "meet",
+            "slug": "meet",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "read",
+            "slug": "read",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "say",
+            "slug": "say",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "show",
+            "slug": "show",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "sing",
+            "slug": "sing",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "speak",
+            "slug": "speak",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "talk",
+            "slug": "talk",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "teach",
+            "slug": "teach",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "tease",
+            "slug": "tease",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "thank",
+            "slug": "thank",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "whisper",
+            "slug": "whisper",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "write",
+            "slug": "write",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "yell",
+            "slug": "yell",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "answer",
+            "slug": "answer",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "cheat",
+            "slug": "cheat",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "cheer",
+            "slug": "cheer",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "describe",
+            "slug": "describe",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "erase",
+            "slug": "erase",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "flatter",
+            "slug": "flatter",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "fool",
+            "slug": "fool",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "gossip",
+            "slug": "gossip",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "invite",
+            "slug": "invite",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "joke",
+            "slug": "joke",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "question",
+            "slug": "question",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "scream",
+            "slug": "scream",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "sign",
+            "slug": "sign",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "spell",
+            "slug": "spell",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "type",
+            "slug": "type",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "wave",
+            "slug": "wave",
+            "type": "noun",
+            "class": "word",
+            "parent": "actions"
+        },
+        {
+            "title": "describe",
+            "slug": "describe",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "Feelings",
-            "slug": "feelings",
-            "class" : "group",
+            "title": "all",
+            "slug": "all",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "big",
+            "slug": "big",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "different",
+            "slug": "different",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "first",
+            "slug": "first",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "full",
+            "slug": "full",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "fun",
+            "slug": "fun",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "good",
+            "slug": "good",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "long",
+            "slug": "long",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "new",
+            "slug": "new",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "now",
+            "slug": "now",
+            "type": "noun",
+            "class": "word",
+            "parent": "describe"
+        },
+        {
+            "title": "colors",
+            "slug": "colors",
+            "type": "noun",
+            "class": "group",
+            "parent": "describe"
+        },
+        {
+            "title": "dark",
+            "slug": "dark",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "light",
+            "slug": "light",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "red",
+            "slug": "red",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "yellow",
+            "slug": "yellow",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "blue",
+            "slug": "blue",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "green",
+            "slug": "green",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "orange",
+            "slug": "orange",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "pink",
+            "slug": "pink",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "blue",
+            "slug": "blue",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "green",
+            "slug": "green",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "orange",
+            "slug": "orange",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "pink",
+            "slug": "pink",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "purple",
+            "slug": "purple",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "brown",
+            "slug": "brown",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "black",
+            "slug": "black",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "white",
+            "slug": "white",
+            "type": "noun",
+            "class": "word",
+            "parent": "colors"
+        },
+        {
+            "title": "time",
+            "slug": "time",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "Food",
-            "slug": "food",
-            "class" : "group",
+            "title": "time",
+            "slug": "time",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "today",
+            "slug": "today",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "when",
+            "slug": "when",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "tonight",
+            "slug": "tonight",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "tomorrow",
+            "slug": "tomorrow",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "yesterday",
+            "slug": "yesterday",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "day",
+            "slug": "day",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "week",
+            "slug": "week",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "weekend",
+            "slug": "weekend",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "month",
+            "slug": "month",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "year",
+            "slug": "year",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "hour",
+            "slug": "hour",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "minute",
+            "slug": "minute",
+            "type": "noun",
+            "class": "word",
+            "parent": "time"
+        },
+        {
+            "title": "questions",
+            "slug": "questions",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "Places",
-            "slug": "places",
-            "class" : "group",
+            "title": "where",
+            "slug": "where",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "who",
+            "slug": "who",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "when",
+            "slug": "when",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "why",
+            "slug": "why",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "how",
+            "slug": "how",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "which",
+            "slug": "which",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "how many",
+            "slug": "how-many",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "how much",
+            "slug": "how-much",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "how long",
+            "slug": "how-long",
+            "type": "noun",
+            "class": "word",
+            "parent": "questions"
+        },
+        {
+            "title": "little words",
+            "slug": "little-words",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "Feelings",
-            "slug": "feelings",
-            "class" : "group",
+            "title": "don't",
+            "slug": "dont",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "to",
+            "slug": "to",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "on",
+            "slug": "on",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "all",
+            "slug": "all",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "this",
+            "slug": "this",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "for",
+            "slug": "for",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "here",
+            "slug": "here",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "up",
+            "slug": "up",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "some",
+            "slug": "some",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "that",
+            "slug": "that",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "of",
+            "slug": "of",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "in",
+            "slug": "in",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "out",
+            "slug": "out",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "and",
+            "slug": "and",
+            "type": "noun",
+            "class": "word",
+            "parent": "little-words"
+        },
+        {
+            "title": "numbers",
+            "slug": "numbers",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "Food",
-            "slug": "food",
-            "class" : "group",
+            "title": "0",
+            "slug": "0",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "1",
+            "slug": "1",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "2",
+            "slug": "2",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "3",
+            "slug": "3",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "4",
+            "slug": "4",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "5",
+            "slug": "5",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "6",
+            "slug": "6",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "7",
+            "slug": "7",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "8",
+            "slug": "8",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "9",
+            "slug": "9",
+            "type": "noun",
+            "class": "word",
+            "parent": "numbers"
+        },
+        {
+            "title": "schools",
+            "slug": "schools",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "Places",
-            "slug": "places",
-            "class" : "group",
+            "title": "absent",
+            "slug": "absent",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "school",
+            "slug": "school",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "backpack",
+            "slug": "backpack",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "bulletin board",
+            "slug": "bulletin-board",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "calendar",
+            "slug": "calendar",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "homework",
+            "slug": "homework",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "lunch box",
+            "slug": "lunch-box",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "test",
+            "slug": "test",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "white board",
+            "slug": "white-board",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "worksheet",
+            "slug": "worksheet",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "rules",
+            "slug": "rules",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "school holiday",
+            "slug": "school-holiday",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "schedule",
+            "slug": "schedule",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "math",
+            "slug": "math",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "science",
+            "slug": "science",
+            "type": "noun",
+            "class": "word",
+            "parent": "schools"
+        },
+        {
+            "title": "religion",
+            "slug": "religion",
+            "type": "noun",
+            "class": "group",
             "parent": "main"
         },
         {
-            "title": "Feelings",
-            "slug": "feelings",
-            "class" : "group",
-            "parent": "main"
+            "title": "god",
+            "slug": "god",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Food",
-            "slug": "food",
-            "class" : "group",
-            "parent": "main"
+            "title": "religion",
+            "slug": "religion",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Places",
-            "slug": "places",
-            "class" : "group",
-            "parent": "main"
+            "title": "pray",
+            "slug": "pray",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Feelings",
-            "slug": "feelings",
-            "class" : "group",
-            "parent": "main"
+            "title": "holy",
+            "slug": "holy",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Food",
-            "slug": "food",
-            "class" : "group",
-            "parent": "main"
+            "title": "buddhist",
+            "slug": "buddhist",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Places",
-            "slug": "places",
-            "class" : "group",
-            "parent": "main"
+            "title": "christian",
+            "slug": "christian",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Feelings",
-            "slug": "feelings",
-            "class" : "group",
-            "parent": "main"
+            "title": "catholic",
+            "slug": "catholic",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Food",
-            "slug": "food",
-            "class" : "group",
-            "parent": "main"
+            "title": "hindu",
+            "slug": "hindu",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Apple",
-            "slug": "apple",
-            "class" : "word",
-            "parent": "food"
+            "title": "jewish",
+            "slug": "jewish",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Potatoes",
-            "slug": "potatoes",
-            "class" : "word",
-            "parent": "food"
+            "title": "muslim",
+            "slug": "muslim",
+            "type": "noun",
+            "class": "word",
+            "parent": "religion"
         },
         {
-            "title": "Bread",
-            "slug": "bread",
-            "class" : "word",
-            "parent": "food"
-        },
-        {
-            "title": "Places",
-            "slug": "places",
-            "class" : "group",
-            "parent": "main"
-        },
-        {
-            "title": "Feelings",
-            "slug": "feelings",
-            "class" : "group",
-            "parent": "main"
-        },
-        {
-            "title": "Actions",
-            "slug": "action",
-            "class" : "group",
+            "title": "",
+            "slug": "",
+            "type": "noun",
+            "class": "word",
             "parent": "main"
         }
     ]

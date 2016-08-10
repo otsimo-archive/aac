@@ -84,7 +84,6 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
     var sliceArray = function(symbolQuantity){
       $scope.mainData = $scope.mainDataUnpaged.slice($scope.PageNo * symbolQuantity, ($scope.PageNo + 1) * symbolQuantity).map(mapStyle);
       $scope.MaxPageNo = returnMaxPage();
-      console.log("slice:"+ $scope.PageNo + "," + parseInt($scope.PageNo + 1));
     }
 
     var mapStyle = function(symbol){

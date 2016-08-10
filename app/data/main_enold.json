@@ -1,0 +1,298 @@
+{
+    "symbols": [
+        {
+            "title": "i",
+            "slug": "i",
+            "type": "noun",
+            "class" : "derive",
+            "parent": "main"
+        },
+        {
+            "title": "me",
+            "slug": "you",
+            "type": "noun",
+            "class" : "word",
+            "parent": "i"
+        },
+        {
+            "title": "us",
+            "slug": "i",
+            "type": "noun",
+            "class" : "word",
+            "parent": "i"
+        },
+        {
+            "title": "is",
+            "slug": "equal",
+            "type": "noun",
+            "class" : "derive",
+            "parent": "main"
+        },
+        {
+            "title": "are",
+            "slug": "equal",
+            "type": "noun",
+            "class" : "word",
+            "parent": "equal"
+        },
+        {
+            "title": "us",
+            "slug": "apple",
+            "type": "noun",
+            "class" : "word",
+            "parent": "equal"
+        },
+        {
+            "title": "big",
+            "slug": "big",
+            "type": "noun",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "want",
+            "slug": "want",
+            "type": "noun",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "like",
+            "slug": "like",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "not",
+            "slug": "not",
+            "type": "adjective",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "more",
+            "slug": "more",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "you",
+            "slug": "you",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "it",
+            "slug": "it",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "clean",
+            "slug": "clean",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "dry",
+            "slug": "dry",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "very",
+            "slug": "very",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "less",
+            "slug": "less",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "Enough",
+            "slug": "enough",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "all done",
+            "slug": "all-done",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "first",
+            "slug": "first",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "full",
+            "slug": "full",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "fun",
+            "slug": "fun",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "happy",
+            "slug": "happy",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "sad",
+            "slug": "sad",
+            "type": "verb",
+            "class" : "word",
+            "parent": "main"
+        },
+        {
+            "title": "Colors",
+            "slug": "color",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Feelings",
+            "slug": "feelings",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Food",
+            "slug": "food",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Places",
+            "slug": "places",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Feelings",
+            "slug": "feelings",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Food",
+            "slug": "food",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Places",
+            "slug": "places",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Feelings",
+            "slug": "feelings",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Food",
+            "slug": "food",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Places",
+            "slug": "places",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Feelings",
+            "slug": "feelings",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Food",
+            "slug": "food",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Places",
+            "slug": "places",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Feelings",
+            "slug": "feelings",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Food",
+            "slug": "food",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Apple",
+            "slug": "apple",
+            "class" : "word",
+            "parent": "food"
+        },
+        {
+            "title": "Potatoes",
+            "slug": "potatoes",
+            "class" : "word",
+            "parent": "food"
+        },
+        {
+            "title": "Bread",
+            "slug": "bread",
+            "class" : "word",
+            "parent": "food"
+        },
+        {
+            "title": "Places",
+            "slug": "places",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Feelings",
+            "slug": "feelings",
+            "class" : "group",
+            "parent": "main"
+        },
+        {
+            "title": "Actions",
+            "slug": "action",
+            "class" : "group",
+            "parent": "main"
+        }
+    ]
+}
