@@ -113,19 +113,19 @@ body {
   background:#fff;
   border-radius:8px;
   transform:scale(1);
-  transition:100ms all;
+  transition:100ms transform;
   box-shadow:0px 0px 0px 0px rgba(0,0,0,0.01);
-  overflow:hidden;
+  overflow: hidden;
   position:relative;
 }
 .gridItemClick {
   box-shadow:0px 0px 15px 0px rgba(0,0,0,0.01);
   transform:scale(0.9);
 }
-.transitionKill { transition:0ms all !important; }
+.transitionKill { transition:0ms transform !important; }
 
 
-.gridGroup { border:2px solid #333; }
+.gridNavigation { border:2px solid #333; }
 .gridItem img{
     width:100%;
     height: calc(100% - 38px);
@@ -138,7 +138,7 @@ body {
   text-transform:capitalize;
   padding-top:10px;
   border-top:1px solid #eee;
-  height:70px; overflow:hidden;
+  height:22px; overflow:hidden;
 }
 
 .gridType-noun { border-color:#5d8dcc; }
@@ -159,6 +159,11 @@ body {
 .gridType-interjection .derivable { background:#cc5d9f; }
 
 .derivable { position:absolute; right:-20px; top:-20px; width:40px; height:40px;transform:rotateZ(45deg); }
+.group { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:5px; border:2px solid #333; border-bottom:0px; top:-9px;
+border-radius:6px 6px 0px 0px; background:#fff; }
+
+.gridGroup { border:2px solid #333; padding-top:5px; margin-top:10px !important; overflow: visible !important; }
+.gridGroup img { margin-top:5px; }
 
 
 .grid2x2 .gridItem { width:calc(100% / 2 - 34px); height:calc(100% / 2 - 34px); }
