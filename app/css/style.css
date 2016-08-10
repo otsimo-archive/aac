@@ -159,7 +159,7 @@ body {
 .gridType-interjection .derivable { background:#cc5d9f; }
 
 .derivable { position:absolute; right:-20px; top:-20px; width:40px; height:40px;transform:rotateZ(45deg); }
-.group { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:3px; border:2px solid #666; border-bottom:0px; top:-7px;
+.group { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:3px; border:2px solid #555; border-bottom:0px; top:-7px;
 border-radius:6px 6px 0px 0px; background:#fff; }
 .group2 { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:3px; border:2px solid #666; border-bottom:0px; top:-7px;
 border-radius:6px 6px 0px 0px; background:#fff;  }
