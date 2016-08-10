@@ -21,9 +21,9 @@ gulp.task('build', () => {
       'i18n:prod',
       'symbols:prod',
       'version:prod',
-      'template:prod'
-    ],
-    'html:prod'
+      'template:prod',
+      'html:prod'
+    ]
   );
 });
 
