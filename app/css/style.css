@@ -159,10 +159,12 @@ body {
 .gridType-interjection .derivable { background:#cc5d9f; }
 
 .derivable { position:absolute; right:-20px; top:-20px; width:40px; height:40px;transform:rotateZ(45deg); }
-.group { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:5px; border:2px solid #333; border-bottom:0px; top:-9px;
+.group { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:3px; border:2px solid #666; border-bottom:0px; top:-7px;
 border-radius:6px 6px 0px 0px; background:#fff; }
+.group2 { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:3px; border:2px solid #666; border-bottom:0px; top:-7px;
+border-radius:6px 6px 0px 0px; background:#fff;  }
 
-.gridGroup { border:2px solid #333; padding-top:5px; margin-top:10px !important; overflow: visible !important; }
+.gridGroup { border:2px solid #333; padding-top:3px; margin-top:12px !important; overflow: visible !important; }
 .gridGroup img { margin-top:5px; }
 
 
