@@ -7,7 +7,7 @@
           <div class="gridText">{{previousText}}</div>
         </div>
 
-        <div class="gridItem gridNavigation" ng-touchend="goBack()" ng-if="global.isHome === 0">
+        <div class="gridItem gridNavigation" ng-touchend="goBack()" ng-if="global.isHome === 0 && PageNo === 0">
           <img src="symbols/prev.svg">
           <div class="gridText">{{backText}}</div>
         </div>

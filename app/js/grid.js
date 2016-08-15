@@ -110,14 +110,23 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, 
 
     $scope.goNextMain = function () {
         $scope.PageNo++;
-        $global.changeTab(PAGE_MAIN);
+        updateGridSlicing();
     }
 
     $scope.goPrevMain = function () {
         $scope.PageNo--;
-        $global.changeTab(PAGE_MAIN);
-    }
+        updateGridSlicing();
+      }
 
+      function updateGridSlicing(){
+        var sliceAmount;
+        if($global.currentTab == PAGE_MAIN && $scope.PageNo == 0){
+          sliceAmount = $global.gridQuantity - 1;
+        }else{
+          sliceAmount = $global.gridQuantity - 2;
+        }
+        sliceArray(sliceAmount);
+      }
 
 
     $global.updateGridQuantity = function () {
