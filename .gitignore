@@ -25,6 +25,8 @@ coverage
 
 dist
 app/symbols
+spec
+.vscode
 
 # Dependency directories
 node_modules
@@ -36,4 +38,3 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 typings
-

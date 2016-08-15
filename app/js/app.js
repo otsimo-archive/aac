@@ -65,6 +65,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         $global.changeGridSize(x, y);
         $global.changeCurrentTab(PAGE_MAIN);
         $global.checkOrientation();
+
     }
 
 });
