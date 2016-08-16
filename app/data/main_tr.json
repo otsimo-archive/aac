@@ -57,6 +57,34 @@
             "parent": "sen"
         },
         {
+            "title": "o",
+            "slug": "o",
+            "type": "noun",
+            "class": "derive",
+            "parent": "main"
+        },
+        {
+            "title": "onlar",
+            "slug": "onlar",
+            "type": "noun",
+            "class": "word",
+            "parent": "o"
+        },
+        {
+            "title": "ona",
+            "slug": "ona",
+            "type": "noun",
+            "class": "word",
+            "parent": "o"
+        },
+        {
+            "title": "onlarla",
+            "slug": "onlarla",
+            "type": "noun",
+            "class": "word",
+            "parent": "o"
+        },
+        {
             "title": "değil",
             "slug": "değil",
             "type": "noun",
@@ -64,36 +92,36 @@
             "parent": "main"
         },
         {
-            "title": "i̇stemek",
-            "slug": "i̇stemek",
+            "title": "istiyorum",
+            "slug": "istiyorum",
             "type": "noun",
             "class": "word",
             "parent": "main"
         },
         {
-            "title": "gitmek",
-            "slug": "gitmek",
+            "title": "gidiyorum",
+            "slug": "gidiyorum",
             "type": "noun",
             "class": "word",
             "parent": "main"
         },
         {
-            "title": "yapmak",
-            "slug": "yapmak",
+            "title": "yapıyorum",
+            "slug": "yapıyorum",
             "type": "noun",
             "class": "word",
             "parent": "main"
         },
         {
-            "title": "sevmek",
-            "slug": "sevmek",
+            "title": "seviyorum",
+            "slug": "seviyorum",
             "type": "noun",
             "class": "word",
             "parent": "main"
         },
         {
-            "title": "genel konuşma",
-            "slug": "genel-konuşma",
+            "title": "sohbet",
+            "slug": "sohbet",
             "type": "noun",
             "class": "group",
             "parent": "main"
@@ -103,88 +131,88 @@
             "slug": "tamam",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "evet",
             "slug": "evet",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "hayır",
             "slug": "hayır",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "merhaba",
             "slug": "merhaba",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "lütfen",
             "slug": "lütfen",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "özür dilerim",
             "slug": "özür-dilerim",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
-            "title": "i̇yi geceler",
-            "slug": "i̇yi-geceler",
+            "title": "iyi geceler",
+            "slug": "iyi-geceler",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "günaydın",
             "slug": "günaydın",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "seni seviyorum",
             "slug": "seni-seviyorum",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "teşekkür ederim",
             "slug": "teşekkür-ederim",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "güle güle",
             "slug": "güle-güle",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
             "title": "doğum günün kutlu olsun",
             "slug": "doğum-günün-kutlu-olsun",
             "type": "noun",
             "class": "word",
-            "parent": "genel-konuşma"
+            "parent": "sohbet"
         },
         {
-            "title": "i̇nsanlar",
-            "slug": "i̇nsanlar",
+            "title": "insanlar",
+            "slug": "insanlar",
             "type": "noun",
             "class": "group",
             "parent": "main"
@@ -194,130 +222,130 @@
             "slug": "ablam",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "adam",
             "slug": "adam",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "ağabeyim",
             "slug": "ağabeyim",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "amcam",
             "slug": "amcam",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "anneannem",
             "slug": "anneannem",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "annem",
             "slug": "annem",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "arkadaşım",
             "slug": "arkadaşım",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "babaannem",
             "slug": "babaannem",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "babam",
             "slug": "babam",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "bebek",
             "slug": "bebek",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "ben",
             "slug": "ben",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "çocuk",
             "slug": "çocuk",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "dayım",
             "slug": "dayım",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "dedem",
             "slug": "dedem",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "halam",
             "slug": "halam",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "kadın",
             "slug": "kadın",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "kardeşim",
             "slug": "kardeşim",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
             "title": "teyzem",
             "slug": "teyzem",
             "type": "noun",
             "class": "word",
-            "parent": "i̇nsanlar"
+            "parent": "insanlar"
         },
         {
-            "title": "eşyalarım",
-            "slug": "eşyalarım",
+            "title": "eşyalar",
+            "slug": "eşyalar",
             "type": "noun",
             "class": "group",
             "parent": "main"
@@ -327,179 +355,179 @@
             "slug": "diş-macunu",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "çanta",
             "slug": "çanta",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "defter",
             "slug": "defter",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "cep telefonu",
             "slug": "cep-telefonu",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "bıçak",
             "slug": "bıçak",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "diş fırçası",
             "slug": "diş-fırçası",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "gözlük",
             "slug": "gözlük",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "ayna",
             "slug": "ayna",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "çatal",
             "slug": "çatal",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "boya",
             "slug": "boya",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "bardak",
             "slug": "bardak",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "anahtar",
             "slug": "anahtar",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "havlu",
             "slug": "havlu",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
-            "title": "i̇laç",
-            "slug": "i̇laç",
+            "title": "ilaç",
+            "slug": "ilaç",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "kalem",
             "slug": "kalem",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "kaşık",
             "slug": "kaşık",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "kitap",
             "slug": "kitap",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "kulaklık",
             "slug": "kulaklık",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "sabun",
             "slug": "sabun",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "şampuan",
             "slug": "şampuan",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "şemsiye",
             "slug": "şemsiye",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "tabak",
             "slug": "tabak",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "tarak",
             "slug": "tarak",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "yastık",
             "slug": "yastık",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
             "title": "yorgan",
             "slug": "yorgan",
             "type": "noun",
             "class": "word",
-            "parent": "eşyalarım"
+            "parent": "eşyalar"
         },
         {
-            "title": "vücudum",
-            "slug": "vücudum",
+            "title": "vücut",
+            "slug": "vücut",
             "type": "noun",
             "class": "group",
             "parent": "main"
@@ -509,140 +537,133 @@
             "slug": "kafa",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "diz",
             "slug": "diz",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "el",
             "slug": "el",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "diş",
             "slug": "diş",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "burun",
             "slug": "burun",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "göz",
             "slug": "göz",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "karın",
             "slug": "karın",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "ayak",
             "slug": "ayak",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "dudak",
             "slug": "dudak",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "dil",
             "slug": "dil",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "bacak",
             "slug": "bacak",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "ağız",
             "slug": "ağız",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "kol",
             "slug": "kol",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "kulak",
             "slug": "kulak",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "omuz",
             "slug": "omuz",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "parmak",
             "slug": "parmak",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "saç",
             "slug": "saç",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
-        },
-        {
-            "title": "sırt",
-            "slug": "sırt",
-            "type": "noun",
-            "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "tırnak",
             "slug": "tırnak",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "yanak",
             "slug": "yanak",
             "type": "noun",
             "class": "word",
-            "parent": "vücudum"
+            "parent": "vücut"
         },
         {
             "title": "duygular",
@@ -939,8 +960,8 @@
             "parent": "aktiviteler"
         },
         {
-            "title": "televizyon i̇zliyorum",
-            "slug": "televizyon-i̇zliyorum",
+            "title": "televizyon izliyorum",
+            "slug": "televizyon-izliyorum",
             "type": "noun",
             "class": "word",
             "parent": "aktiviteler"
@@ -981,92 +1002,302 @@
             "parent": "main"
         },
         {
-            "title": "okumak",
-            "slug": "okumak",
+            "title": "okuyorum",
+            "slug": "okuyorum",
             "type": "noun",
-            "class": "word",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "i̇stememek",
-            "slug": "i̇stememek",
+            "title": "okuyorsun",
+            "slug": "okuyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "okuyorum"
+        },
+        {
+            "title": "okuyor",
+            "slug": "okuyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "okuyorum"
+        },
+        {
+            "title": "konuşuyorum",
+            "slug": "konuşuyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "konuşmak",
-            "slug": "konuşmak",
+            "title": "konuşuyorsun",
+            "slug": "konuşuyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "konuşuyorum"
+        },
+        {
+            "title": "konuşuyor",
+            "slug": "konuşuyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "konuşuyorum"
+        },
+        {
+            "title": "gülüyorum",
+            "slug": "gülüyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "i̇stemek",
-            "slug": "i̇stemek",
+            "title": "gülüyorsun",
+            "slug": "gülüyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "gülüyorum"
+        },
+        {
+            "title": "gülüyor",
+            "slug": "gülüyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "gülüyorum"
+        },
+        {
+            "title": "kullanıyorum",
+            "slug": "kullanıyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "gülmek",
-            "slug": "gülmek",
+            "title": "kullanıyorsun",
+            "slug": "kullanıyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "kullanıyorum"
+        },
+        {
+            "title": "kullanıyor",
+            "slug": "kullanıyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "kullanıyorum"
+        },
+        {
+            "title": "içiyorum",
+            "slug": "içiyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "kullanmak",
-            "slug": "kullanmak",
+            "title": "içiyorsun",
+            "slug": "içiyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "içiyorum"
+        },
+        {
+            "title": "içiyor",
+            "slug": "içiyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "içiyorum"
+        },
+        {
+            "title": "oynuyorum",
+            "slug": "oynuyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "oynamak",
-            "slug": "oynamak",
+            "title": "oynuyorsun",
+            "slug": "oynuyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "oynuyorum"
+        },
+        {
+            "title": "oynuyor",
+            "slug": "oynuyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "oynuyorum"
+        },
+        {
+            "title": "giyiyorum",
+            "slug": "giyiyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "giymek",
-            "slug": "giymek",
+            "title": "giyiyorsun",
+            "slug": "giyiyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "giyiyorum"
+        },
+        {
+            "title": "giyiyor",
+            "slug": "giyiyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "giyiyorum"
+        },
+        {
+            "title": "kesiyorum",
+            "slug": "kesiyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "kesmek",
-            "slug": "kesmek",
+            "title": "kesiyorsun",
+            "slug": "kesiyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "kesiyorum"
+        },
+        {
+            "title": "kesiyor",
+            "slug": "kesiyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "kesiyorum"
+        },
+        {
+            "title": "içiyorum",
+            "slug": "içiyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "i̇çmek",
-            "slug": "i̇çmek",
+            "title": "içiyorsun",
+            "slug": "içiyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "içiyorum"
+        },
+        {
+            "title": "içiyor",
+            "slug": "içiyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "içiyorum"
+        },
+        {
+            "title": "görüyorum",
+            "slug": "görüyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "görmek",
-            "slug": "görmek",
+            "title": "görüyorsun",
+            "slug": "görüyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "görüyorum"
+        },
+        {
+            "title": "görüyor",
+            "slug": "görüyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "görüyorum"
+        },
+        {
+            "title": "alıyorum",
+            "slug": "alıyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "al",
-            "slug": "al",
+            "title": "alıyorsun",
+            "slug": "alıyorsun",
             "type": "noun",
             "class": "word",
+            "parent": "alıyorum"
+        },
+        {
+            "title": "alıyor",
+            "slug": "alıyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "alıyorum"
+        },
+        {
+            "title": "seviyorum",
+            "slug": "seviyorum",
+            "type": "noun",
+            "class": "derive",
             "parent": "fiiller"
         },
         {
-            "title": "sevmek",
-            "slug": "sevmek",
+            "title": "seviyorsun",
+            "slug": "seviyorsun",
+            "type": "noun",
+            "class": "word",
+            "parent": "seviyorum"
+        },
+        {
+            "title": "seviyor",
+            "slug": "seviyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "seviyorum"
+        },
+        {
+            "title": "yazıyorum",
+            "slug": "yazıyorum",
+            "type": "noun",
+            "class": "derive",
+            "parent": "fiiller"
+        },
+        {
+            "title": "yazıyorsun",
+            "slug": "yazıyorsun",
+            "type": "noun",
+            "class": "word",
+            "parent": "yazıyorum"
+        },
+        {
+            "title": "yazıyor",
+            "slug": "yazıyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "yazıyorum"
+        },
+        {
+            "title": "yiyorum",
+            "slug": "yiyorum",
+            "type": "noun",
+            "class": "derive",
+            "parent": "fiiller"
+        },
+        {
+            "title": "yiyorsun",
+            "slug": "yiyorsun",
+            "type": "noun",
+            "class": "word",
+            "parent": "yiyorum"
+        },
+        {
+            "title": "yiyor",
+            "slug": "yiyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "yiyorum"
+        },
+        {
+            "title": "yok",
+            "slug": "yok",
             "type": "noun",
             "class": "word",
             "parent": "fiiller"
@@ -1086,29 +1317,8 @@
             "parent": "fiiller"
         },
         {
-            "title": "yapmak",
-            "slug": "yapmak",
-            "type": "noun",
-            "class": "word",
-            "parent": "fiiller"
-        },
-        {
-            "title": "yazmak",
-            "slug": "yazmak",
-            "type": "noun",
-            "class": "word",
-            "parent": "fiiller"
-        },
-        {
-            "title": "yemek",
-            "slug": "yemek",
-            "type": "noun",
-            "class": "word",
-            "parent": "fiiller"
-        },
-        {
-            "title": "yok",
-            "slug": "yok",
+            "title": "yap",
+            "slug": "yap",
             "type": "noun",
             "class": "word",
             "parent": "fiiller"
@@ -1219,8 +1429,8 @@
             "parent": "yiyecekler"
         },
         {
-            "title": "ispanak",
-            "slug": "ispanak",
+            "title": "ıspanak",
+            "slug": "ıspanak",
             "type": "noun",
             "class": "word",
             "parent": "yiyecekler"
@@ -1457,8 +1667,8 @@
             "parent": "yiyecekler"
         },
         {
-            "title": "i̇çecekler",
-            "slug": "i̇çecekler",
+            "title": "içecekler",
+            "slug": "içecekler",
             "type": "noun",
             "class": "group",
             "parent": "main"
@@ -1468,84 +1678,84 @@
             "slug": "ayran",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "çay",
             "slug": "çay",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "fanta",
             "slug": "fanta",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "gazoz",
             "slug": "gazoz",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
-            "title": "i̇cetea",
-            "slug": "i̇cetea",
+            "title": "icetea",
+            "slug": "icetea",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "kahve",
             "slug": "kahve",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "kola",
             "slug": "kola",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "limonata",
             "slug": "limonata",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "portakal suyu",
             "slug": "portakal-suyu",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "su",
             "slug": "su",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "süt",
             "slug": "süt",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "vişne suyu",
             "slug": "vişne-suyu",
             "type": "noun",
             "class": "word",
-            "parent": "i̇çecekler"
+            "parent": "içecekler"
         },
         {
             "title": "giyisiler",
@@ -1674,15 +1884,8 @@
             "parent": "giyisiler"
         },
         {
-            "title": "t",
-            "slug": "t",
-            "type": "noun",
-            "class": "word",
-            "parent": "giyisiler"
-        },
-        {
-            "title": "oyuncaklarım",
-            "slug": "oyuncaklarım",
+            "title": "oyuncaklar",
+            "slug": "oyuncaklar",
             "type": "noun",
             "class": "group",
             "parent": "main"
@@ -1692,112 +1895,112 @@
             "slug": "yapboz",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "gitar",
             "slug": "gitar",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "ayı",
             "slug": "ayı",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "bebek",
             "slug": "bebek",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "davul",
             "slug": "davul",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "org",
             "slug": "org",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "flüt",
             "slug": "flüt",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "küp",
             "slug": "küp",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "baloncuk",
             "slug": "baloncuk",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "hamur",
             "slug": "hamur",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "lego",
             "slug": "lego",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "top",
             "slug": "top",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "balon",
             "slug": "balon",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "bilgisayar",
             "slug": "bilgisayar",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "araba",
             "slug": "araba",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "boya",
             "slug": "boya",
             "type": "noun",
             "class": "word",
-            "parent": "oyuncaklarım"
+            "parent": "oyuncaklar"
         },
         {
             "title": "evim",
@@ -1984,13 +2187,6 @@
         {
             "title": "otobüs",
             "slug": "otobüs",
-            "type": "noun",
-            "class": "word",
-            "parent": "taşıtlar"
-        },
-        {
-            "title": "i̇tfaiye arabası",
-            "slug": "i̇tfaiye-arabası",
             "type": "noun",
             "class": "word",
             "parent": "taşıtlar"
@@ -2227,8 +2423,8 @@
             "parent": "hayvanlar"
         },
         {
-            "title": "i̇nek",
-            "slug": "i̇nek",
+            "title": "inek",
+            "slug": "inek",
             "type": "noun",
             "class": "word",
             "parent": "hayvanlar"
@@ -2808,13 +3004,6 @@
             "parent": "sayılar"
         },
         {
-            "title": "10",
-            "slug": "10",
-            "type": "noun",
-            "class": "word",
-            "parent": "sayılar"
-        },
-        {
             "title": "dilbilgisi",
             "slug": "dilbilgisi",
             "type": "noun",
@@ -2824,13 +3013,6 @@
         {
             "title": "ve",
             "slug": "ve",
-            "type": "noun",
-            "class": "word",
-            "parent": "dilbilgisi"
-        },
-        {
-            "title": "sonra",
-            "slug": "sonra",
             "type": "noun",
             "class": "word",
             "parent": "dilbilgisi"
@@ -2871,8 +3053,8 @@
             "parent": "dilbilgisi"
         },
         {
-            "title": "i̇le",
-            "slug": "i̇le",
+            "title": "ile",
+            "slug": "ile",
             "type": "noun",
             "class": "word",
             "parent": "dilbilgisi"

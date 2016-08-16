@@ -64,7 +64,11 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
     }
 
     var sliceArray = function(symbolQuantity){
-      $scope.mainData = $scope.mainDataUnpaged.slice($scope.PageNo * symbolQuantity, ($scope.PageNo + 1) * symbolQuantity).map(mapStyle);
+      if($global.isHome == 1 && $scope.PageNo != 0){
+        $scope.mainData = $scope.mainDataUnpaged.slice(parseInt($scope.PageNo * symbolQuantity + 1), parseInt(($scope.PageNo + 1) * symbolQuantity + 1)).map(mapStyle);
+      }else{
+        $scope.mainData = $scope.mainDataUnpaged.slice($scope.PageNo * symbolQuantity, ($scope.PageNo + 1) * symbolQuantity).map(mapStyle);
+      }
       $scope.MaxPageNo = returnMaxPage();
     }
 
@@ -77,7 +81,11 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         return symbol;
     }
     var returnMaxPage = function () {
-          return Math.ceil(parseFloat($scope.mainDataUnpaged.length / $global.gridQuantity));
+          var maxC = Math.ceil($scope.mainDataUnpaged.length / $global.gridQuantity);
+          if($global.isHome === 0){
+              maxC--;
+          }
+          return maxC;
     }
 
 
