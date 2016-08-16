@@ -1,3 +1,9 @@
+/*
+  - font.css
+  Used to initilize the font used in app.
+  Contains latin and latin-extended version of the titillium web open source font.
+*/
+
 /* latin-ext */
 @font-face {
   font-family: 'Titillium Web';
