@@ -17,7 +17,7 @@ var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
 aacApp.factory('$global', function () {
     var global = {
         currentPhrase: [],
-        main: [],
+        mainArray: [],
         isHome: 1,
         currentTab: "",
         currentPage: "",
@@ -65,7 +65,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         setSettings();
         $global.changeGridSize(x, y);
 
-          $http.get("data/main_tr.json").then(function (resp) {
+          $http.get(otsimo.kv.jsonPath).then(function (resp) {
               $global.mainArray = resp.data.symbols;
               $global.changeCurrentTab(PAGE_MAIN);
           });

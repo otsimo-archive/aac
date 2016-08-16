@@ -38,8 +38,6 @@
     "backText": "Go Back",
     "completeChangesText": "Complete Changes",
     "headerColor": "#3a3e4a",
-    "mainJsonPath": "data/main_en.json",
-    "symbolJsonPath": "data/symbol_en.json",
-    "groupJsonPath": "data/group_en.json",
+    "jsonPath": "data/main_en.json",
     "voiceId": "com.apple.ttsbundle.Samantha-compact"
 }
