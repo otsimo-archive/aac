@@ -35,7 +35,6 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
         $global.changeCurrentTab(PAGE_MAIN);
     }
 
-
     $global.changeCurrentTab = function (tabExp) {
 
         if (tabExp == "main") {

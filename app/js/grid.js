@@ -17,7 +17,7 @@ aacApp.directive('grid', function () {
     };
 });
 
-aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) {
+aacApp.controller('otsControlGrid', function ($scope, $global) {
 
     $scope.PageNo = 0;
     $scope.MaxPageNo = 0;
@@ -72,6 +72,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
             console.error(tabExp, " unknown tab");
         }
     }
+
     var sliceArray = function(symbolQuantity){
       $scope.mainData = $scope.mainDataUnpaged.slice($scope.PageNo * symbolQuantity, ($scope.PageNo + 1) * symbolQuantity).map(mapStyle);
       $scope.MaxPageNo = returnMaxPage();
@@ -168,9 +169,8 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
             }
         }
     }
+    
     window.addEventListener("orientationchange", function () {
-        // Announce the new orientation number
-        // console.log(screen.orientation.type);
         $global.checkOrientation();
     }, false);
 });

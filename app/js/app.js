@@ -1,8 +1,11 @@
 /*
   -- app.js
   Main JS file
-  Main Controller and $global service is located here
-
+  Main Controller and $global service is located here.
+  - Global service has global variables that any controller that injects the $global.
+  - setSettings() makes one time setting update before app is loaded.
+  - runApp() function is called after otsimo.run() is initilized.
+  
 */
 
 var runApp = null;
