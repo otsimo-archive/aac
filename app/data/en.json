@@ -1,8 +1,6 @@
 {
     "settings/gridsize/title": "Picture Grid Size",
     "settings/gridsize/description": "The grid size of the picture panel",
-    "settings/gridsize/keys/grid-2x2/title": "2x2 Size",
-    "settings/gridsize/keys/grid-2x2/description": "2x2 Size",
     "settings/gridsize/keys/grid-3x2/title": "3x2 Size",
     "settings/gridsize/keys/grid-3x2/description": "3x2 Size",
     "settings/gridsize/keys/grid-3x3/title": "3x3 Size",

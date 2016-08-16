@@ -1,8 +1,6 @@
 {
     "settings/gridsize/title": "Resim Izgarası Boyutu",
     "settings/gridsize/description": "Resim panelinin ızgara boyutu",
-    "settings/gridsize/keys/grid-2x2/title": "2x2 Boyutu",
-    "settings/gridsize/keys/grid-2x2/description": "2x2 Boyutu",
     "settings/gridsize/keys/grid-3x2/title": "3x2 Boyutu",
     "settings/gridsize/keys/grid-3x2/description": "3x2 Boyutu",
     "settings/gridsize/keys/grid-3x3/title": "3x3 Boyutu",

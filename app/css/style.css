@@ -169,8 +169,6 @@ border-radius:6px 6px 0px 0px; background:#fff;  }
 .gridGroup { border:2px solid #333; padding-top:3px; margin-top:12px !important; overflow: visible !important; }
 .gridGroup img { margin-top:5px; }
 
-
-.grid2x2 .gridItem { width:calc(100% / 2 - 34px); height:calc(100% / 2 - 34px); }
 .grid3x2 .gridItem { width:calc(100% / 3 - 34px); height:calc(100% / 2 - 34px); }
 .grid2x3 .gridItem { width:calc(100% / 2 - 34px); height:calc(100% / 3 - 34px); }
 .grid3x3 .gridItem { width:calc(100% / 3 - 34px); height:calc(100% / 3 - 34px); }
