@@ -1,7 +1,7 @@
 /*
   - style.css
   General css file for styling UI elements.
-  
+
 */
 
 body {
@@ -110,7 +110,7 @@ body {
   overflow:hidden;
   overflow-y:scroll;
 }
-.gridNoAnim .gridItem img{ opacity:1; transition:69ms opacity, 69ms transform; transform:scale(1); }
+.gridNoAnim .gridItem img{ opacity:1; transition:100ms opacity, 100ms transform; transform:scale(1); }
 .gridSlicingAnim .gridItem img { opacity:0 !important; transform:scale(0.9); }
 
 .gridItem {

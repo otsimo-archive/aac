@@ -125,7 +125,7 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         document.getElementById("gridHolder").className = "gridHolder gridSlicingAnim";
         setTimeout(function(){
           elemGridHolder.className = "gridHolder gridNoAnim";
-        },69);
+        },200);
     }
 
     $global.updateGridQuantity = function () {
@@ -169,7 +169,7 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
             }
         }
     }
-    
+
     window.addEventListener("orientationchange", function () {
         $global.checkOrientation();
     }, false);
