@@ -4,19 +4,6 @@
 
 */
 
-  aacApp.factory('$symbol', function ($http, $global) {
-      var main;
-        $http.get("data/main_tr.json").then(function (resp) {
-            $global.main = resp.data.symbols;
-        });
-        console.log(otsimo.kv.mainJsonPath);
-
-
-      return {
-          main: 1
-      };
-  });
-
 const PAGE_DERIVABLE = "derivable";
 const PAGE_MAIN = "main";
 const PAGE_GROUP = "group";
@@ -30,7 +17,7 @@ aacApp.directive('grid', function () {
     };
 });
 
-aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global, $symbol) {
+aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) {
 
     $scope.PageNo = 0;
     $scope.MaxPageNo = 0;

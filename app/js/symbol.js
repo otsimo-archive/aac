@@ -11,7 +11,7 @@ aacApp.directive('symbol', function () {
 });
 
 
-aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global, $symbol) {
+aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global) {
 
       var wordTouchTimer;
       var currentlyHolding;
@@ -38,7 +38,7 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
               Category animation killing in touchEnd:
               */
               clickAnimStop();
-              
+
           } else {
               if (currentlyHolding == wordObj.title && wordObj.class != "group") {
                   $scope.clickWord(wordObj);
