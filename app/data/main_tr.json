@@ -177,7 +177,7 @@
         },
         {
             "title": "doğum günün kutlu olsun",
-            "slug": "doğum-günün kutlu olsun",
+            "slug": "doğum-günün-kutlu-olsun",
             "type": "noun",
             "class": "word",
             "parent": "genel-konuşma"
@@ -2508,7 +2508,7 @@
         },
         {
             "title": "kaç tane var",
-            "slug": "kaç-tane var",
+            "slug": "kaç-tane-var",
             "type": "noun",
             "class": "word",
             "parent": "sorular"
