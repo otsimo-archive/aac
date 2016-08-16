@@ -2808,6 +2808,13 @@
             "parent": "sayılar"
         },
         {
+            "title": "10",
+            "slug": "10",
+            "type": "noun",
+            "class": "word",
+            "parent": "sayılar"
+        },
+        {
             "title": "dilbilgisi",
             "slug": "dilbilgisi",
             "type": "noun",

@@ -26,38 +26,28 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
     $scope.tabs = {};
 
     $scope.tabs[PAGE_MAIN] = function () {
-        var symbolQuantity = 0;
-        if ($scope.PageNo === 0) {
-            symbolQuantity = $global.gridQuantity - 1;
-        } else {
-            symbolQuantity = $global.gridQuantity - 2;
-        }
         $scope.mainDataUnpaged = $global.mainArray.filter(function (f) {
             return (f.parent == CLASS_MAIN)
         });
-        sliceArray(symbolQuantity);
+        updateGridSlicing();
     }
 
     $scope.tabs[PAGE_DERIVABLE] = function () {
         prevPageNo = $scope.PageNo;
         $scope.PageNo = 0;
-        var symbolQuantity = $global.gridQuantity - 2;
         $scope.mainDataUnpaged = $global.mainArray.filter(function (f) {
             return (f.parent == $global.currentDerivable)
         });
-        sliceArray(symbolQuantity);
-        animateSlicing();
+        updateGridSlicing();
     }
 
     $scope.tabs[PAGE_GROUP] = function () {
         prevPageNo = $scope.PageNo;
         $scope.PageNo = 0;
-        var symbolQuantity = $global.gridQuantity - 2;
         $scope.mainDataUnpaged = $global.mainArray.filter(function (f) {
             return (f.parent == $global.currentGroup)
         });
-        sliceArray(symbolQuantity);
-        animateSlicing();
+        updateGridSlicing();
     }
 
     $scope.tabs[PAGE_RECENT] = function () {
@@ -87,7 +77,7 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         return symbol;
     }
     var returnMaxPage = function () {
-        return parseInt($scope.mainDataUnpaged.length / $global.gridQuantity);
+          return Math.ceil(parseFloat($scope.mainDataUnpaged.length / $global.gridQuantity));
     }
 
 

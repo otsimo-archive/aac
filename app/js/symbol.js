@@ -1,7 +1,7 @@
 /*
   -- symbol.js
   Directive and controller for symbol elements in the grid;
-
+  Touch-start, touch-end and animation functions.
 */
 
 aacApp.directive('symbol', function () {
@@ -60,7 +60,6 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
         elem.className = elem.className.replace(" gridItemClick", "");
       }
 
-      /* */
       var clickAnimStop = function(){
         var elem = document.getElementById("item-" + $scope.currentAnimIndex)
         elem.className = elem.className.replace(" gridItemClick", "") + " transitionKill";
