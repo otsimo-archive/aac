@@ -11,7 +11,7 @@ aacApp.directive('phrase', function () {
 });
 
 aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global) {
-    
+
     $scope.removeLastWord = function () {
         $global.currentPhrase.pop();
     }
@@ -37,7 +37,7 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global
 
     var bstouchTimer;
     $scope.bsTouchStart = function () {
-        document.getElementById("bs").style.color = "red";
+        document.getElementById("bs").style.color = otsimo.kv.removeHoldColor;
         bstouchTimer = setTimeout(function () {
             $global.currentPhrase.splice(0, $global.currentPhrase.length);
             $scope.$apply();
@@ -45,7 +45,7 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global
     }
 
     $scope.bsTouchEnd = function () {
-        document.getElementById("bs").style.color = "#444";
+        document.getElementById("bs").style.color = otsimo.kv.removeNormalColor;
         clearTimeout(bstouchTimer);
     }
 

@@ -36,6 +36,8 @@
     "backText": "Geri Dön",
     "completeChangesText": "Değişiklikleri Kaydet",
     "headerColor": "#3a3e4a",
+    "removeHoldColor": "#ff0000",
+    "removeNormalColor": "#444444",
     "jsonPath": "data/main_tr.json",
     "voiceId": "com.apple.ttsbundle.Yelda-compact"
 }
