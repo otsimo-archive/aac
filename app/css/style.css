@@ -104,8 +104,8 @@ body {
   overflow:hidden;
   overflow-y:scroll;
 }
-.gridNoAnim .gridItem img{ opacity:1; transition:200ms opacity; }
-.gridSlicingAnim .gridItem img { opacity:0 !important; }
+.gridNoAnim .gridItem img{ opacity:1; transition:69ms opacity, 69ms transform; transform:scale(1); }
+.gridSlicingAnim .gridItem img { opacity:0 !important; transform:scale(0.9); }
 
 .gridItem {
   float:left;

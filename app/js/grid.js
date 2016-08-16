@@ -46,6 +46,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
             return (f.parent == $global.currentDerivable)
         });
         sliceArray(symbolQuantity);
+        animateSlicing();
     }
 
     $scope.tabs[PAGE_GROUP] = function () {
@@ -56,6 +57,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
             return (f.parent == $global.currentGroup)
         });
         sliceArray(symbolQuantity);
+        animateSlicing();
     }
 
     $scope.tabs[PAGE_RECENT] = function () {
@@ -93,29 +95,28 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
         $global.currentDerivable = "";
-        animateSlicing();
+        updateGridSlicing();
     }
 
     $scope.goNextMain = function () {
         $scope.PageNo++;
-        animateSlicing();
         updateGridSlicing();
     }
 
     $scope.goPrevMain = function () {
         $scope.PageNo--;
-        animateSlicing();
         updateGridSlicing();
       }
 
       function updateGridSlicing(){
         var sliceAmount;
-        if($global.currentTab == PAGE_MAIN && $scope.PageNo == 0){
+        if($global.isHome == 1 && $scope.PageNo == 0){
           sliceAmount = $global.gridQuantity - 1;
         }else{
           sliceAmount = $global.gridQuantity - 2;
         }
         sliceArray(sliceAmount);
+        animateSlicing();
       }
 
     function animateSlicing(){
@@ -123,7 +124,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         document.getElementById("gridHolder").className = "gridHolder gridSlicingAnim";
         setTimeout(function(){
           elemGridHolder.className = "gridHolder gridNoAnim";
-        },200);
+        },69);
     }
 
     $global.updateGridQuantity = function () {
