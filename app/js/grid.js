@@ -32,7 +32,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         } else {
             symbolQuantity = $global.gridQuantity - 2;
         }
-        $scope.mainDataUnpaged = $global.main.filter(function (f) {
+        $scope.mainDataUnpaged = $global.mainArray.filter(function (f) {
             return (f.parent == CLASS_MAIN)
         });
         sliceArray(symbolQuantity);
@@ -42,7 +42,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         prevPageNo = $scope.PageNo;
         $scope.PageNo = 0;
         var symbolQuantity = $global.gridQuantity - 2;
-        $scope.mainDataUnpaged = $global.main.filter(function (f) {
+        $scope.mainDataUnpaged = $global.mainArray.filter(function (f) {
             return (f.parent == $global.currentDerivable)
         });
         sliceArray(symbolQuantity);
@@ -52,7 +52,7 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         prevPageNo = $scope.PageNo;
         $scope.PageNo = 0;
         var symbolQuantity = $global.gridQuantity - 2;
-        $scope.mainDataUnpaged = $global.main.filter(function (f) {
+        $scope.mainDataUnpaged = $global.mainArray.filter(function (f) {
             return (f.parent == $global.currentGroup)
         });
         sliceArray(symbolQuantity);
@@ -93,15 +93,18 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
         $global.currentDerivable = "";
+        animateSlicing();
     }
 
     $scope.goNextMain = function () {
         $scope.PageNo++;
+        animateSlicing();
         updateGridSlicing();
     }
 
     $scope.goPrevMain = function () {
         $scope.PageNo--;
+        animateSlicing();
         updateGridSlicing();
       }
 
@@ -115,6 +118,13 @@ aacApp.controller('otsControlGrid', function ($scope, $http, $timeout, $global) 
         sliceArray(sliceAmount);
       }
 
+    function animateSlicing(){
+      var elemGridHolder = document.getElementById("gridHolder");
+        document.getElementById("gridHolder").className = "gridHolder gridSlicingAnim";
+        setTimeout(function(){
+          elemGridHolder.className = "gridHolder gridNoAnim";
+        },200);
+    }
 
     $global.updateGridQuantity = function () {
         if ($global.currentTab != PAGE_MAIN) {

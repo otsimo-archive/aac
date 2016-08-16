@@ -64,11 +64,12 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
     runApp = function logic(x, y) {
         setSettings();
         $global.changeGridSize(x, y);
-        $http.get(otsimo.kv.mainJsonPath).then(function (resp) {
-            $global.main = resp.data.symbols;
-            console.log($global.main);
-            $global.changeCurrentTab(PAGE_MAIN);
-        });
+
+          $http.get("data/main_tr.json").then(function (resp) {
+              $global.mainArray = resp.data.symbols;
+              $global.changeCurrentTab(PAGE_MAIN);
+          });
+
         $global.checkOrientation();
     }
 
