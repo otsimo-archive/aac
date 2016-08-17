@@ -146,7 +146,12 @@ body {
   text-transform:capitalize;
   padding-top:10px;
   border-top:1px solid #eee;
-  height:22px; overflow:hidden;
+  height:30px; overflow:hidden;
+}
+
+.gridTextLong {
+  padding-top:3px !important;
+  height:33px !important; 
 }
 
 .gridType-noun { border-color:#5d8dcc; }
