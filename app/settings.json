@@ -7,7 +7,7 @@
         "gridsize": {
           "id": "gridsize",
           "type": "string",
-          "default": "grid-5x3",
+          "default": "grid-6x4",
           "enum": [
               "grid-2x2",
               "grid-3x2",
