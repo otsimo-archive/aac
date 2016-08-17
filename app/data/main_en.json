@@ -274,6 +274,34 @@
             "parent": "people"
         },
         {
+            "title": "grandma",
+            "slug": "grandma",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "grandpa",
+            "slug": "grandpa",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "uncle",
+            "slug": "uncle",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
+            "title": "aunt",
+            "slug": "aunt",
+            "type": "noun",
+            "class": "word",
+            "parent": "people"
+        },
+        {
             "title": "things",
             "slug": "things",
             "type": "noun",
