@@ -70,6 +70,9 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         $scope.mainData = $scope.mainDataUnpaged.slice($scope.PageNo * symbolQuantity, ($scope.PageNo + 1) * symbolQuantity).map(mapStyle);
       }
       $scope.MaxPageNo = returnMaxPage();
+      console.log("MAX: "+ $scope.MaxPageNo);
+      console.log("CUR: "+ $scope.PageNo);
+
     }
 
     var mapStyle = function(symbol){
@@ -81,11 +84,7 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         return symbol;
     }
     var returnMaxPage = function () {
-          var maxC = Math.ceil($scope.mainDataUnpaged.length / $global.gridQuantity);
-          if($global.isHome === 0){
-              maxC--;
-          }
-          return maxC;
+          return maxC = Math.ceil($scope.mainDataUnpaged.length / $global.gridQuantity + 0.0001) - 1;
     }
 
 
