@@ -39,10 +39,16 @@ otsimo.onSettingsChanged(function (settings, sound) {
 otsimo.run(function () {
     if (!otsimo.isWKWebView) {
         otsimo.tts.setDriver(responsiveVoiceDriver);
-        otsimo.tts.setVoice("UK English Female");
+        if(otsimo.child.language == "tr"){
+          otsimo.tts.setVoice("Turkish Female");
+        }else if(otsimo.child.language == "en"){
+          otsimo.tts.setVoice("US English Female");
+        }else{
+          console.log("This language for development is not recognized.");
+        }
     }
 
     var otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
     var otsGridXY = otsGridSize.split("x");
-    runApp(6, 4);
+    runApp(otsGridXY[0], otsGridXY[1]);
 });
