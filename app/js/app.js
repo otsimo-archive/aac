@@ -5,7 +5,7 @@
   - Global service has global variables that any controller that injects the $global.
   - setSettings() makes one time setting update before app is loaded.
   - runApp() function is called after otsimo.run() is initilized.
-  
+
 */
 
 var runApp = null;
@@ -45,6 +45,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         $global.pageText2 = otsimo.kv.pageText2;
         $global.pageText3 = otsimo.kv.pageText3;
         $global.pageText4 = otsimo.kv.pageText4;
+        $global.language = otsimo.child.language;
         $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
         $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
         $scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
