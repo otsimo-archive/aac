@@ -13,7 +13,7 @@
     <div class="resPhrase" ng-click="loadRecentPhrase($index)" ng-repeat="phraseRecent in recentPhrasesList | orderBy:'-time' track by $index">
       <div class="resPhraseScroll">
         <div class="wordItemRes" ng-repeat="wordRecent in phraseRecent.phrase track by $index">
-          <img src="symbols/{{global.language}}/{{wordRecent.slug}}.svg" />
+          <img ng-src="symbols/{{global.language}}/{{wordRecent.slug}}.svg" />
           <div class="wordText">{{wordRecent.title}}</div>
         </div>
       </div>

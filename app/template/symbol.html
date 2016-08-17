@@ -1,7 +1,7 @@
 <div ng-controller="otsControlSymbol" class="gridTemplate">
     <span ng-repeat="main in mainData track by $index">
       <div id="item-{{$index}}" class="gridItem {{main.style}}" ng-touchstart="wordTouchStart(main, $index)" ng-touchend="wordTouchEnd(main, $index)">
-        <img src="symbols/{{global.language}}/{{main.slug}}.svg">
+        <img ng-src="symbols/{{global.language}}/{{main.slug}}.svg">
           <div ng-if="main.title.length > 13" class="gridText gridTextLong">{{main.title}}</div>
           <div ng-if="main.title.length <= 13" class="gridText">{{main.title}}</div>
         <div class="derivable" ng-if="main.class=='derive'"></div>

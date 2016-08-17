@@ -1,10 +1,12 @@
 <div ng-controller="otsControlPhrase" class="phraseHolder">
   <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" ng-click="submitPhrase()">
     <div class="currentPhraseScroll">
-      <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index" ng-if="word.title">
-        <img src="symbols/{{global.language}}/{{word.slug}}.svg" />
-        <div class="wordText">{{word.title}}</div>
-      </div>
+      <span ng-if="global.currentPhrase.length > 0">
+        <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index">
+          <img ng-src="symbols/{{global.language}}/{{word.slug}}.svg" />
+          <div class="wordText">{{word.title}}</div>
+        </div>
+      </span>
     </div>
   </div>
   <div ng-click="removeLastWord()" ng-touchstart="bsTouchStart()" ng-touchend="bsTouchEnd()" class="backspace">
