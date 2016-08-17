@@ -21,7 +21,16 @@ gulp.task('img:prod', function () {
 
 // Copy all static svg
 gulp.task('symbols:prod', function () {
-    return gulp.src([config.paths.src.symbols])
+
+    gulp.src([config.paths.src.symbols_tr])
+        .pipe(gulp.dest(config.paths.builds.prod.symbols+"tr"))
+        .on('error', util.log);
+
+    gulp.src([config.paths.src.symbols_en])
+        .pipe(gulp.dest(config.paths.builds.prod.symbols+"en"))
+        .on('error', util.log);
+
+    gulp.src([config.paths.src.symbols])
         .pipe(gulp.dest(config.paths.builds.prod.symbols))
         .on('error', util.log);
 });

@@ -59,7 +59,7 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         if (t) {
             t();
         } else {
-            console.error(tabExp, " unknown tab");
+            console.error(tabExp, ": Unknown Tab");
         }
     }
 
@@ -70,8 +70,6 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         $scope.mainData = $scope.mainDataUnpaged.slice($scope.PageNo * symbolQuantity, ($scope.PageNo + 1) * symbolQuantity).map(mapStyle);
       }
       $scope.MaxPageNo = returnMaxPage();
-      console.log("MAX: "+ $scope.MaxPageNo);
-      console.log("CUR: "+ $scope.PageNo);
 
     }
 
