@@ -202,10 +202,42 @@ border-radius:6px 6px 0px 0px; background:#fff;  }
   overflow: visible !important;
   padding-bottom:1px !important;
 }
+
 .grid10x7 .group, .grid10x7 .group2, .grid7x10 .group, .grid7x10 .group2 {
   height:2px !important;
   top:-5px !important;
 }
+
+.grid11x9 .gridGroup, .grid9x11 .gridGroup {
+  padding-top:0px !important;
+  margin-top:3px !important;
+  overflow: visible !important;
+  padding-bottom:0px !important;
+}
+.grid11x9 .group, .grid11x9 .group {
+  height:2px;
+  top:-6px !important;
+}
+
+.grid11x9 .group2, .grid11x9 .group2 {display:none }
+
+.grid11x9 img, .grid9x11 img {
+height: calc(100% - 30px);
+margin-top:3px;
+}
+
+.grid10x7 img, .grid10x7 img {
+height: calc(100% - 32px);
+}
+
+.grid10x7 .derivable,
+.grid7x10 .derivable,
+.grid11x9 .derivable,
+.grid9x11 .derivable {
+  width:35px; height:35px;
+}
+
+
 
 .grid3x2 .gridItem { width:calc(100% / 3 - 34px); height:calc(100% / 2 - 34px); }
 .grid2x3 .gridItem { width:calc(100% / 2 - 34px); height:calc(100% / 3 - 34px); }
