@@ -151,7 +151,7 @@ body {
 
 .gridTextLong {
   padding-top:3px !important;
-  height:33px !important; 
+  height:33px !important;
 }
 
 .gridType-noun { border-color:#5d8dcc; }
@@ -177,8 +177,35 @@ border-radius:6px 6px 0px 0px; background:#fff; }
 .group2 { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:3px; border:2px solid #666; border-bottom:0px; top:-7px;
 border-radius:6px 6px 0px 0px; background:#fff;  }
 
-.gridGroup { border:2px solid #333; padding-top:3px; margin-top:12px !important; overflow: visible !important; }
+.gridGroup {
+    border:2px solid #333;
+    padding-top:5px !important;
+    margin-top:15px !important;
+    overflow: visible !important;
+    padding-bottom:5px !important;
+  }
 .gridGroup img { margin-top:5px; }
+.grid8x5 .gridGroup, .grid5x8 .gridGroup {
+  padding-top:3px !important;
+  margin-top:8px !important;
+  overflow: visible !important;
+  padding-bottom:3px !important;
+}
+.grid8x5 .group, .grid8x5 .group2, .grid5x8 .group, .grid5x8 .group2 {
+  height:2px !important;
+  top:-6px !important;
+}
+
+.grid10x7 .gridGroup, .grid7x10 .gridGroup {
+  padding-top:2px !important;
+  margin-top:5px !important;
+  overflow: visible !important;
+  padding-bottom:1px !important;
+}
+.grid10x7 .group, .grid10x7 .group2, .grid7x10 .group, .grid7x10 .group2 {
+  height:2px !important;
+  top:-5px !important;
+}
 
 .grid3x2 .gridItem { width:calc(100% / 3 - 34px); height:calc(100% / 2 - 34px); }
 .grid2x3 .gridItem { width:calc(100% / 2 - 34px); height:calc(100% / 3 - 34px); }
