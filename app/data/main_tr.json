@@ -1086,13 +1086,6 @@
             "parent": "kullanıyorum"
         },
         {
-            "title": "içiyorum",
-            "slug": "içiyorum",
-            "type": "noun",
-            "class": "derive",
-            "parent": "fiiller"
-        },
-        {
             "title": "içiyorsun",
             "slug": "içiyorsun",
             "type": "noun",
