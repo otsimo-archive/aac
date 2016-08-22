@@ -22,6 +22,8 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
     $scope.PageNo = 0;
     $scope.MaxPageNo = 0;
     var prevPageNo = 0;
+    var prevGroupStack = [];
+    var prevDerivableStack = [];
 
     $scope.tabs = {};
 
@@ -34,6 +36,9 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
 
     $scope.tabs[PAGE_DERIVABLE] = function () {
         prevPageNo = $scope.PageNo;
+        if(prevDerivableStack[prevDerivableStack.length - 1] != $global.currentDerivable){
+          prevDerivableStack.push($global.currentDerivable);
+        }
         $scope.PageNo = 0;
         $scope.mainDataUnpaged = $global.mainArray.filter(function (f) {
             return (f.parent == $global.currentDerivable)
@@ -43,6 +48,9 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
 
     $scope.tabs[PAGE_GROUP] = function () {
         prevPageNo = $scope.PageNo;
+        if(prevGroupStack[prevGroupStack.length - 1] != $global.currentGroup){
+          prevGroupStack.push($global.currentGroup);
+        }
         $scope.PageNo = 0;
         $scope.mainDataUnpaged = $global.mainArray.filter(function (f) {
             return (f.parent == $global.currentGroup)
@@ -87,10 +95,23 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
 
 
     $scope.goBack = function () {
+      prevGroupStack.pop();
         $scope.PageNo = prevPageNo;
-        $global.changeCurrentTab(PAGE_MAIN);
-        $global.currentGroup = "";
-        $global.currentDerivable = "";
+        var prevGroup = prevGroupStack[prevGroupStack.length - 1];
+        var prevDerivable = prevDerivableStack[prevDerivableStack.length - 1];
+
+        if(prevGroup){
+          $global.currentGroup = prevGroup;
+          $global.changeCurrentTab(PAGE_GROUP);
+        }else if(prevDerivable){
+          $global.currentDerivable = prevDerivable;
+          $global.changeCurrentTab(PAGE_DERIVABLE);
+        }else{
+          $global.currentGroup = "";
+          $global.currentDerivable = "";
+          $global.changeCurrentTab(PAGE_MAIN);
+        }
+
         updateGridSlicing();
     }
 
