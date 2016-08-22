@@ -141,15 +141,15 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         $global.gridQuantity = gridX * gridY;
     };
 
-    $global.checkOrientation = function () {
+    $global.checkOrientation = function (orientation) {
 
         var gridSizeTemp = $global.gridSizeStatic;
-        if (window.orientation) {
+        if (orientation) {
             //production
-            if (window.orientation == ORIENTATION_TOP || window.orientation == ORIENTATION_BOTTOM) {
+            if (orientation == "landscape" || orientation == "upside-down") {
                 $global.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
                 $scope.$apply();
-            } else if (window.orientation == ORIENTATION_LEFT || window.orientation == ORIENTATION_RIGHT) {
+            } else if (orientation == "portrait-left" || orientation == "portrait-right") {
                 $global.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
                 $scope.$apply();
             }
@@ -165,7 +165,14 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         }
     }
 
+    //production orientation Listender
+    otsimo.onResolutionChanged(function(width, height, orientation){
+      $global.checkOrientation(orientation);
+    });
+
+    //development orientation Listender
     window.addEventListener("orientationchange", function () {
-        $global.checkOrientation();
+     $global.checkOrientation();
     }, false);
+
 });
