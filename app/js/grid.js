@@ -142,14 +142,14 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
     };
 
     $global.checkOrientation = function (orientation) {
-
+      console.log("orientation: "+ orientation);
         var gridSizeTemp = $global.gridSizeStatic;
         if (orientation) {
             //production
-            if (orientation == "landscape" || orientation == "upside-down") {
+            if (orientation == "portrait" || orientation == "upside-down") {
                 $global.gridSize = [gridSizeTemp[1], gridSizeTemp[0]];
                 $scope.$apply();
-            } else if (orientation == "portrait-left" || orientation == "portrait-right") {
+            } else if (orientation == "landscape-left" || orientation == "landscape-right") {
                 $global.gridSize = [gridSizeTemp[0], gridSizeTemp[1]];
                 $scope.$apply();
             }

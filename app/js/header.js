@@ -24,6 +24,11 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.quitGame = function () {
+      var backIconElem = document.getElementById("bIcon");
+      backIconElem.className = "backIcon backIconHovered";
+      setTimeout(function(){
+        backIconElem.className = "backIcon";
+      },300);
         if ($global.isHome == 1) {
             otsimo.quitgame();
         } else {
