@@ -35,6 +35,16 @@ function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function deviceType(){
+  var type;
+  if(window.innerWidth + window.innerHeight < 1500){
+    type = "phone";
+  }else{
+    type = "tablet";
+  }
+  return type;
+}
+
 /*
 var statusSettings = 0;
 
