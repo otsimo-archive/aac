@@ -1,14 +1,13 @@
 {
     "unique_name": "aac",
-    "version": "0.0.70",
+    "version": "0.1.77",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [
         "en"
     ],
     "supported_orientations": [
-        "landscape",
-        "portrait"
+        "all"
     ],
     "default_language": "en",
     "developer_name": "Otsimo",
