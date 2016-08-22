@@ -115,6 +115,15 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
         animateSlicing();
       }
 
+      $global.go2FirstPage = function(){
+        $scope.PageNo = 0;
+        updateGridSlicing();
+      }
+
+      $global.getPage = function(){
+        return $scope.PageNo;
+      }
+
     function animateSlicing(){
       var elemGridHolder = document.getElementById("gridHolder");
         document.getElementById("gridHolder").className = "gridHolder gridSlicingAnim";

@@ -17,10 +17,15 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.goHome = function () {
+        if($global.currentTab != PAGE_MAIN){
         $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
         $global.currentDerivable = "";
         $global.updateGridQuantity();
+        }
+        if($global.getPage() > 0){
+        $global.go2FirstPage();
+        }
     }
 
     $scope.quitGame = function () {
@@ -37,7 +42,9 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.openGrid = function () {
+      if($global.currentTab != PAGE_MAIN){
         $global.changeCurrentTab(PAGE_MAIN);
+      }
     }
 
     $global.changeCurrentTab = function (tabExp) {
