@@ -17,14 +17,12 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.goHome = function () {
-        if($global.currentTab != PAGE_MAIN){
+        if($global.currentTab != PAGE_MAIN || $global.getPage() != 0 || $global.currentGroup || $global.currentDerivable){
         $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
         $global.currentDerivable = "";
-        $global.updateGridQuantity();
-        }
-        if($global.getPage() > 0){
         $global.go2FirstPage();
+        $global.updateGridQuantity();
         }
     }
 
@@ -34,7 +32,7 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
       setTimeout(function(){
         backIconElem.className = "backIcon";
       },300);
-        if ($global.isHome == 1) {
+        if ($global.isHome == 1 && $global.getPage() < 0) {
             otsimo.quitgame();
         } else {
             $scope.goHome();
