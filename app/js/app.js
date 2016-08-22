@@ -62,6 +62,11 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
     runApp = function logic(x, y) {
         setSettings();
+        if(deviceType() == "phone"){
+          if(x > 6){ x = 6; }
+          if(y > 4){ y = 4; }
+        }
+
         $global.changeGridSize(x, y);
 
           $http.get(otsimo.kv.jsonPath).then(function (resp) {
