@@ -32,7 +32,7 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
       setTimeout(function(){
         backIconElem.className = "backIcon";
       },300);
-        if ($global.isHome == 1 && $global.getPage() < 0) {
+        if ($global.isHome == 1) {
             otsimo.quitgame();
         } else {
             $scope.goHome();
