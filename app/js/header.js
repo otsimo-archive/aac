@@ -18,6 +18,9 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
 
     $scope.goHome = function () {
         if($global.currentTab != PAGE_MAIN || $global.getPage() != 0 || $global.currentGroup || $global.currentDerivable){
+
+        animIconTouch("hIcon");
+
         $global.changeCurrentTab(PAGE_MAIN);
         $global.currentGroup = "";
         $global.currentDerivable = "";
@@ -27,11 +30,9 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.quitGame = function () {
-      var backIconElem = document.getElementById("bIcon");
-      backIconElem.className = "backIcon backIconHovered";
-      setTimeout(function(){
-        backIconElem.className = "backIcon";
-      },300);
+
+              animIconTouch("bIcon");
+
         if ($global.isHome == 1) {
             otsimo.quitgame();
         } else {
@@ -41,8 +42,18 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
 
     $scope.openGrid = function () {
       if($global.currentTab != PAGE_MAIN){
+
+        animIconTouch("gIcon");
         $global.changeCurrentTab(PAGE_MAIN);
       }
+    }
+
+    function animIconTouch(iconId){
+      var IconElem = document.getElementById(iconId);
+      IconElem.className = "material-icons iconOpacity";
+      setTimeout(function(){
+        IconElem.className = "material-icons";
+      },300);
     }
 
     $global.changeCurrentTab = function (tabExp) {
@@ -64,6 +75,7 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
           $global.currentTab = "main";
         }else{
           $global.currentTab = "recent";
+          animIconTouch("rIcon");
         }
         $global.changeTab(tabExp);
     };

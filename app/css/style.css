@@ -54,7 +54,7 @@ body {
   transition:200ms all;
 }
 
-.headerIcons i:hover {
+.iconOpacity {
   background:rgba(255,255,255,0.1);
 }
 
