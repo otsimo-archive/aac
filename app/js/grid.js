@@ -96,10 +96,11 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
 
     $scope.goBack = function () {
       prevGroupStack.pop();
+      prevDerivableStack.pop();
         $scope.PageNo = prevPageNo;
         var prevGroup = prevGroupStack[prevGroupStack.length - 1];
         var prevDerivable = prevDerivableStack[prevDerivableStack.length - 1];
-
+        console.log("prevDerivable: "+ prevDerivable);
         if(prevGroup){
           $global.currentGroup = prevGroup;
           $global.changeCurrentTab(PAGE_GROUP);

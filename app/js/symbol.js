@@ -17,34 +17,35 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
       var currentlyHolding;
       $scope.wordTouchStart = function (wordObj, index) {
           currentlyHolding = wordObj.title;
-          if (wordObj.class == "derive") {
               wordTouchTimer = setTimeout(function () {
+
+                if (wordObj.class == "derive") {
                   $global.currentDerivable = wordObj.slug;
                   otsimo.customevent("app:derive", { "derivative": wordObj.slug });
                   $global.changeCurrentTab(PAGE_DERIVABLE);
+                }else if(wordObj.class == "group") {
+                  $global.currentGroup = wordObj.slug;
+                  $global.changeCurrentTab(PAGE_GROUP);
+                  /*
+                  Category animation killing in touchEnd:
+                  */
+                }
                   $scope.$apply();
                   clickAnimStop();
               }, 300);
-          }
+
           clickAnimStart(index);
       }
 
       $scope.wordTouchEnd = function (wordObj, index) {
           clearTimeout(wordTouchTimer);
-          if (wordObj.class == "group") {
-              $global.currentGroup = wordObj.slug;
-              $global.changeCurrentTab(PAGE_GROUP);
-              /*
-              Category animation killing in touchEnd:
-              */
-              clickAnimStop();
-
-          } else {
               if (currentlyHolding == wordObj.title && wordObj.class != "group") {
                   $scope.clickWord(wordObj);
               }
-          }
-
+              if(wordObj.class=="group"){
+                  $global.currentGroup = wordObj.slug;
+                  $global.changeCurrentTab(PAGE_GROUP);
+              }
           clickAnimEnd(index);
       }
 
