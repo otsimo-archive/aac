@@ -9,11 +9,6 @@
 */
 
 var runApp = null;
-const ORIENTATION_TOP = 0;
-const ORIENTATION_BOTTOM = 180;
-const ORIENTATION_LEFT = 90;
-const ORIENTATION_RIGHT = -90;
-
 
 var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
 
