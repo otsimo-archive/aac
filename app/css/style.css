@@ -70,7 +70,7 @@ body {
   transition:200ms all;
 }
 
-.backIcon i:hover {
+.backIconHovered {
   background:rgba(255,255,255,0.1);
 }
 .backIcon, .headerIcons {
