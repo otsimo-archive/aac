@@ -11,7 +11,7 @@
 <form autocompete="off">
   <div class="inputCarrier">
     <input id="typeInput" type="text"
-           ng-keypress="enterSubmit($event)"
+           ng-keydown="enterSubmit($event)"
            placeholder="{{global.startTyping}}"
            ng-focus="showKeyboardFocused()"
            ng-blur="hideKeyboard()"
