@@ -12,7 +12,6 @@ aacApp.directive('keyboard', function () {
 
 aacApp.controller('otsControlKeyboard', function ($scope, $global) {
 
-  var winCurrent = window.innerHeight;
   $scope.showKeyboard = function(){
     document.getElementById("typeInput").focus();
 
@@ -23,6 +22,8 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     }, 200);
   }
 
+$scope.$watch('$viewContentLoaded', function(){
   $scope.showKeyboard();
+ });
 
 });

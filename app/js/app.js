@@ -68,6 +68,8 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
           if(x > 6){ x = 6; }
           if(y > 4){ y = 4; }
         }
+        /*Preload keyboard*/
+        $global.changeCurrentTab("keyboard");
 
         $global.changeGridSize(x, y);
 
