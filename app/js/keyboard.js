@@ -41,6 +41,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
         var inputWord = {};
         inputWord.title = typeInput.value.toLowerCase();
         inputWord.slug = typeInput.value.toLowerCase().replace(" ", "-");
+        inputWord.slugExist = !$global.checkWordInDB(inputWord.slug);
         $global.currentPhrase.push(inputWord);
         updateCurrentPhraseScroll();
         otsimo.tts.speak(inputWord.title);

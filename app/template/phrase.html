@@ -3,8 +3,13 @@
     <div class="currentPhraseScroll">
       <span ng-if="global.currentPhrase.length > 0">
         <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index">
-          <img ng-src="symbols/{{global.language}}/{{word.slug}}.svg" />
-          <div class="wordText">{{word.title}}</div>
+          <span ng-if="!word.slugExist">
+              <img ng-src="symbols/{{global.language}}/{{word.slug}}.svg" />
+              <div class="wordText">{{word.title}}</div>
+          </span>
+          <span ng-if="word.slugExist">
+              <div class="wordTextSolo">{{word.title}}</div>
+          </span>
         </div>
       </span>
     </div>

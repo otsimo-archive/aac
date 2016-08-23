@@ -310,6 +310,14 @@ margin:2px;}
             height: 30px;
             overflow: hidden;
           }
+.wordTextSolo {
+            text-align:center;
+            font-weight:bold;
+            font-size: 1.45em;
+            line-height: 110px;
+            text-transform: capitalize;
+            overflow: hidden;
+          }
 
 .wordItemRes { float:left; height:120px; padding:10px; text-align:center; }
 .wordItemRes img { height:calc(100% - 40px);}
