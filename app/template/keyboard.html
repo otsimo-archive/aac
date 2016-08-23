@@ -8,8 +8,10 @@ KEYBOARD DENEME
            placeholder="{{global.startTyping}}"
            ng-focus="showKeyboardFocused()"
            ng-blur="hideKeyboard()"
-           autocapitalize="none"
-           autocomplete="off"/>
+           autocomplete="off"
+           autocorrect="off"
+           autocapitalize="off"
+           spellcheck="false"/>
     <i ng-click="submitCurrentInput()" class="material-icons">check_circle</i>
   </div>
 </div>
