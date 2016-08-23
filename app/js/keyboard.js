@@ -38,8 +38,8 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
   $scope.submitCurrentInput = function(){
       var typeInput = document.getElementById("typeInput");
       var inputWord = {};
-      inputWord.title = typeInput.value;
-      inputWord.slug = typeInput.value.replace(" ", "-");
+      inputWord.title = typeInput.value.toLowerCase();
+      inputWord.slug = typeInput.value.toLowerCase().replace(" ", "-");
       console.log("inputWord:"+ inputWord);
       $global.currentPhrase.push(inputWord);
       updateCurrentPhraseScroll();
