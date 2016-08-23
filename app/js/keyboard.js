@@ -61,7 +61,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
         if(typeInput.value.length > 1){
           suggestWordsByInput(typeInput.value);
         }
-      },1);
+      },100);
     }
   }
 
@@ -70,6 +70,8 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     wordObj2Push.title = wordSlug.replace("-", " ");
     wordObj2Push.slug = wordSlug;
     $global.currentPhrase.push(wordObj2Push);
+
+    document.getElementById("typeInput").value = "";
   }
 
   var recognizeWord = function(word){
