@@ -2,6 +2,7 @@
 <div ng-controller="otsControlKeyboard" >
 KEYBOARD DENEME
 
+<form autocompete="off">
   <div class="inputCarrier">
     <input id="typeInput" type="text"
            ng-keypress="enterSubmit($event)"
@@ -14,4 +15,5 @@ KEYBOARD DENEME
            spellcheck="false"/>
     <i ng-click="submitCurrentInput()" class="material-icons">check_circle</i>
   </div>
+</form>
 </div>
