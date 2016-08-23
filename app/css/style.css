@@ -382,6 +382,10 @@ margin:2px;}
 .inputCarrier input { border:0px; width:calc(100% - 100px); height:70px; font-size:2em; position: absolute; float:left;}
 .inputCarrier i { float:right; line-height:70px; font-size: 2.66em; padding:0px 26px; }
 
+.suggestions { height:60px; }
+.suggestedWord { float:left; height:100px; padding:10px; text-align:center;  }
+.suggestedWord img { height:calc(100% - 40px);}
+
 @media all and (max-width:800px) and (max-height:800px){
   .header { height:40px; font-size:0.8em; }
   .header .headerTitle {  line-height:40px; }
