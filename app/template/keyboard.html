@@ -1,7 +1,7 @@
 <div ng-controller="otsControlKeyboard" >
 
   <div class="suggestions">
-    <div class="suggestedWord" ng-repeat="suggestionWord in suggestionList"
+    <div class="suggestedWord" ng-repeat="suggestionWord in suggestionList track by $index"
          ng-click="clickSuggestion(suggestionWord)">
       <img ng-src="symbols/{{global.language}}/{{suggestionWord}}.svg" />
       <div class="wordText">{{suggestionWord.replace("-", " ")}}</div>

@@ -63,7 +63,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
         }else{
           $scope.suggestionList = [];
         }
-      },200);
+      },10);
     }
   }
 
