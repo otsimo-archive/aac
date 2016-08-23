@@ -15,7 +15,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
   $scope.showKeyboard = function(){
     document.getElementById("typeInput").focus();
     document.body.scrollTop = document.documentElement.scrollTop = 0;
-    
+
     $scope.showKeyboardFocused();
   };
 
@@ -55,11 +55,28 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
   $scope.enterSubmit = function($event){
     if($event.keyCode == 13){
       $scope.submitCurrentInput();
+    }else{
+      var typeInput = document.getElementById("typeInput");
+      setTimeout(function(){
+        if(typeInput.value.length > 1){
+          suggestWordsByInput(typeInput.value);
+        }
+      },1);
     }
   }
 
   var recognizeWord = function(word){
-    console.log(word);
+    // this function can be better!
+    var splittedUnrecognizedWord = word.split(" ");
+    splittedUnrecognizedWord.forEach(function(wordPiece){
+      if(wordPiece){
+        var wordObj2Push = {};
+        wordObj2Push.title = wordPiece;
+        wordObj2Push.slug = wordPiece;
+        wordObj2Push.slugExist = !$global.checkWordInDB(wordObj2Push.slug);
+        $global.currentPhrase.push(wordObj2Push);
+      }
+    });
   }
 
 
