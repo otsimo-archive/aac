@@ -35,6 +35,25 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
       document.body.style.height = "100%";
   };
 
+  $scope.submitCurrentInput = function(){
+      var typeInput = document.getElementById("typeInput");
+      var inputWord = {};
+      inputWord.title = typeInput.value;
+      inputWord.slug = typeInput.value.replace(" ", "-");
+      console.log("inputWord:"+ inputWord);
+      $global.currentPhrase.push(inputWord);
+      updateCurrentPhraseScroll();
+      otsimo.tts.speak(inputWord.title);
+      typeInput.value = "";
+  };
+
+  $scope.enterSubmit = function($event){
+    if($event.keyCode == 13){
+      $scope.submitCurrentInput();
+    }
+  }
+
+
 $scope.$watch('$viewContentLoaded', function(){
   $scope.showKeyboard();
  });
