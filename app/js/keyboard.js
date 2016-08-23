@@ -12,10 +12,13 @@ aacApp.directive('keyboard', function () {
 
 aacApp.controller('otsControlKeyboard', function ($scope, $global) {
   var winCurrent = window.innerHeight;
-  $scope.fnc = function(){
+  $scope.showKeyboard = function(){
+    document.getElemenyById("typeInput").focus();
+
     setTimeout(function(){
-      console.log(parseInt(winCurrent - window.innerHeight)+'px');
-    }, 2000);
+      document.body.style.height = parseInt(window.innerHeight)+'px';
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }, 200);
   }
 
 });
