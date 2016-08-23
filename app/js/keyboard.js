@@ -15,12 +15,8 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
   $scope.showKeyboard = function(){
     document.getElementById("typeInput").focus();
     document.body.scrollTop = document.documentElement.scrollTop = 0;
-
-    setTimeout(function(){
-      document.body.style.height = parseInt(window.innerHeight)+'px';
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
-      console.log("virtual keyboard opened!");
-    }, 300);
+    
+    $scope.showKeyboardFocused();
   };
 
   $scope.showKeyboardFocused = function(){
