@@ -79,6 +79,12 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     });
   }
 
+  var suggestWordsByInput = function(searchLetter){
+    $scope.suggestionList = $global.mainSlugArray.filter(function(word){
+      return word.substring(0, searchLetter.length) == searchLetter;
+    });
+  }
+
 
 $scope.$watch('$viewContentLoaded', function(){
   $scope.showKeyboard();
