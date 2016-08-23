@@ -4,10 +4,10 @@
   Like returnTime(), capitalize() etc.
 
 */
-
+/*
 document.ontouchmove = function(event){
     event.preventDefault();
-}
+}*/
 
 if ('addEventListener' in document) {
     document.addEventListener('DOMContentLoaded', function() {
