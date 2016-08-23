@@ -72,6 +72,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     $global.currentPhrase.push(wordObj2Push);
 
     document.getElementById("typeInput").value = "";
+    suggestWordsByInput(, 1);
   }
 
   var recognizeWord = function(word){
@@ -88,11 +89,15 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     });
   }
 
-  var suggestWordsByInput = function(searchLetter){
+  var suggestWordsByInput = function(searchLetter, c){
+    if(c){
+      $scope.suggestionList = [];
+    }else{
     $scope.suggestionList = $global.mainSlugArray.filter(function(word){
       return word.substring(0, searchLetter.length) == searchLetter;
     });
     $scope.$apply();
+    }
   }
 
 
