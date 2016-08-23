@@ -53,11 +53,8 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
     }
 
     $scope.openKeyboard = function () {
-      if($global.currentTab != PAGE_KEYBOARD){
-
         animIconTouch("kIcon");
         $global.changeCurrentTab(PAGE_KEYBOARD);
-      }
     }
 
     function animIconTouch(iconId){
