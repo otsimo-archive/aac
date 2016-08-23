@@ -44,6 +44,9 @@ function deviceType(){
   }
   return type;
 }
+Array.prototype.contains = function(obj) {
+    return this.indexOf(obj) > -1;
+};
 
 /*
 var statusSettings = 0;

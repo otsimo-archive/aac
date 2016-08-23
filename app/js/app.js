@@ -16,6 +16,7 @@ aacApp.factory('$global', function () {
     var global = {
         currentPhrase: [],
         mainArray: [],
+        mainSlugArray: [],
         isHome: 1,
         currentTab: "",
         currentPage: "",
@@ -75,6 +76,9 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
 
           $http.get(otsimo.kv.jsonPath).then(function (resp) {
               $global.mainArray = resp.data.symbols;
+              $global.mainArray.forEach(function(obj){
+                $global.mainSlugArray.push(obj.slug);
+              });
               $global.changeCurrentTab(PAGE_MAIN);
           });
 
