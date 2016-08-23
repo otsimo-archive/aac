@@ -41,6 +41,7 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
         $global.pageText3 = otsimo.kv.pageText3;
         $global.pageText4 = otsimo.kv.pageText4;
         $global.pageText5 = otsimo.kv.pageText5;
+        $global.startTyping = otsimo.kv.startTyping;
         $global.language = otsimo.child.language;
         $scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
         $scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;

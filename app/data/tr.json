@@ -35,6 +35,7 @@
     "previousText": "Önceki",
     "nextText": "Sonraki",
     "backText": "Geri Dön",
+    "startTyping": "Yazmaya başla...",
     "completeChangesText": "Değişiklikleri Kaydet",
     "headerColor": "#3a3e4a",
     "removeHoldColor": "#ff0000",

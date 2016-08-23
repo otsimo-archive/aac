@@ -35,6 +35,7 @@
     "previousText": "Previous",
     "nextText": "Next",
     "backText": "Go Back",
+    "startTyping": "Start typing...",
     "completeChangesText": "Complete Changes",
     "headerColor": "#3a3e4a",
     "removeHoldColor": "#ff0000",

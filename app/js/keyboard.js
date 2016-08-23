@@ -11,14 +11,18 @@ aacApp.directive('keyboard', function () {
 });
 
 aacApp.controller('otsControlKeyboard', function ($scope, $global) {
+
   var winCurrent = window.innerHeight;
   $scope.showKeyboard = function(){
-    document.getElemenyById("typeInput").focus();
+    document.getElementById("typeInput").focus();
 
     setTimeout(function(){
       document.body.style.height = parseInt(window.innerHeight)+'px';
       document.body.scrollTop = document.documentElement.scrollTop = 0;
+      console.log("virtual keyboard opened!");
     }, 200);
   }
+
+  $scope.showKeyboard();
 
 });
