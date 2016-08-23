@@ -41,8 +41,15 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
         var inputWord = {};
         inputWord.title = typeInput.value.toLowerCase();
         inputWord.slug = typeInput.value.toLowerCase().replace(" ", "-");
-        inputWord.slugExist = !$global.checkWordInDB(inputWord.slug);
-        $global.currentPhrase.push(inputWord);
+        var checkExist = $global.checkWordInDB(inputWord.slug);
+        inputWord.slugExist = !checkExist;
+
+        if(inputWord.title.contains(" ") && !checkExist){
+          recognizeWord(inputWord.title);
+        }else{
+          $global.currentPhrase.push(inputWord);
+        }
+
         updateCurrentPhraseScroll();
         otsimo.tts.speak(inputWord.title);
         typeInput.value = "";
@@ -53,6 +60,10 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     if($event.keyCode == 13){
       $scope.submitCurrentInput();
     }
+  }
+
+  var recognizeWord = function(word){
+    console.log(word);
   }
 
 
