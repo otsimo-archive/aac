@@ -37,14 +37,16 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
 
   $scope.submitCurrentInput = function(){
       var typeInput = document.getElementById("typeInput");
-      var inputWord = {};
-      inputWord.title = typeInput.value.toLowerCase();
-      inputWord.slug = typeInput.value.toLowerCase().replace(" ", "-");
-      console.log("inputWord:"+ inputWord);
-      $global.currentPhrase.push(inputWord);
-      updateCurrentPhraseScroll();
-      otsimo.tts.speak(inputWord.title);
-      typeInput.value = "";
+      if(typeInput.value){
+        var inputWord = {};
+        inputWord.title = typeInput.value.toLowerCase();
+        inputWord.slug = typeInput.value.toLowerCase().replace(" ", "-");
+        console.log("inputWord:"+ inputWord);
+        $global.currentPhrase.push(inputWord);
+        updateCurrentPhraseScroll();
+        otsimo.tts.speak(inputWord.title);
+        typeInput.value = "";
+      }
   };
 
   $scope.enterSubmit = function($event){
