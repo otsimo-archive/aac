@@ -35,7 +35,7 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
       backIconElem.className = "backIcon backIconHovered";
       setTimeout(function(){
         backIconElem.className = "backIcon";
-      },300); 
+      },300);
 
         if ($global.isHome == 1) {
             otsimo.quitgame();
@@ -49,6 +49,14 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
 
         animIconTouch("gIcon");
         $global.changeCurrentTab(PAGE_MAIN);
+      }
+    }
+
+    $scope.openKeyboard = function () {
+      if($global.currentTab != PAGE_KEYBOARD){
+
+        animIconTouch("kIcon");
+        $global.changeCurrentTab(PAGE_KEYBOARD);
       }
     }
 
@@ -74,12 +82,17 @@ aacApp.controller('otsControlHeader', function ($scope, $global) {
         } else if (tabExp == "recent") {
             $global.currentPage = $global.pageText4;
             $global.isHome = 0;
+        } else if (tabExp == "keyboard") {
+            $global.currentPage = $global.pageText5;
+            $global.isHome = 0;
         }
-        if(tabExp != "recent"){
-          $global.currentTab = "main";
-        }else{
+        if(tabExp == "recent"){
           $global.currentTab = "recent";
           animIconTouch("rIcon");
+        }else  if(tabExp == "keyboard"){
+          $global.currentTab = "keyboard";
+        }else{
+          $global.currentTab = "main";
         }
         $global.changeTab(tabExp);
     };

@@ -8,6 +8,7 @@ const PAGE_DERIVABLE = "derivable";
 const PAGE_MAIN = "main";
 const PAGE_GROUP = "group";
 const PAGE_RECENT = "recent";
+const PAGE_KEYBOARD = "keyboard";
 
 const CLASS_MAIN="main";
 
@@ -60,6 +61,10 @@ aacApp.controller('otsControlGrid', function ($scope, $global) {
 
     $scope.tabs[PAGE_RECENT] = function () {
         $global.recentPhrases = getHistoryAsArray();
+    }
+
+    $scope.tabs[PAGE_KEYBOARD] = function () {
+      //CHill
     }
 
     $global.changeTab = function (tabExp) {
