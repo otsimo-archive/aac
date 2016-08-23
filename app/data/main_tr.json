@@ -95,28 +95,70 @@
             "title": "istiyorum",
             "slug": "istiyorum",
             "type": "noun",
-            "class": "word",
+            "class": "derive",
             "parent": "main"
+        },
+        {
+            "title": "istiyorsun",
+            "slug": "istiyorsun",
+            "type": "noun",
+            "class": "word",
+            "parent": "istiyorum"
+        },
+        {
+            "title": "istiyor",
+            "slug": "istiyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "istiyorum"
         },
         {
             "title": "gidiyorum",
             "slug": "gidiyorum",
             "type": "noun",
-            "class": "word",
+            "class": "derive",
             "parent": "main"
+        },
+        {
+            "title": "gidiyorsun",
+            "slug": "gidiyorsun",
+            "type": "noun",
+            "class": "word",
+            "parent": "gidiyorum"
+        },
+        {
+            "title": "gidiyor",
+            "slug": "gidiyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "gidiyorum"
         },
         {
             "title": "yapıyorum",
             "slug": "yapıyorum",
             "type": "noun",
-            "class": "word",
+            "class": "derive",
             "parent": "main"
+        },
+        {
+            "title": "yapıyorsun",
+            "slug": "yapıyorsun",
+            "type": "noun",
+            "class": "word",
+            "parent": "yapıyorum"
+        },
+        {
+            "title": "yapıyor",
+            "slug": "yapıyor",
+            "type": "noun",
+            "class": "word",
+            "parent": "yapıyorum"
         },
         {
             "title": "seviyorum",
             "slug": "seviyorum",
             "type": "noun",
-            "class": "word",
+            "class": "derive",
             "parent": "main"
         },
         {
@@ -1168,20 +1210,6 @@
             "type": "noun",
             "class": "derive",
             "parent": "fiiller"
-        },
-        {
-            "title": "içiyorsun",
-            "slug": "içiyorsun",
-            "type": "noun",
-            "class": "word",
-            "parent": "içiyorum"
-        },
-        {
-            "title": "içiyor",
-            "slug": "içiyor",
-            "type": "noun",
-            "class": "word",
-            "parent": "içiyorum"
         },
         {
             "title": "görüyorum",
