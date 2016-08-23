@@ -3,6 +3,7 @@
 KEYBOARD DENEME
 
   <div class="inputCarrier">
-    <input id="typeInput" type="text" placeholder = "{{global.startTyping}}"/>
+    <input id="typeInput" type="text" placeholder = "{{global.startTyping}}" ng-focus="showKeyboardFocused()" ng-blur="hideKeyboard()"/>
+    <i class="material-icons">check_circle</i>
   </div>
 </div>
