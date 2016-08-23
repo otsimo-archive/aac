@@ -65,6 +65,13 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     }
   }
 
+  $scope.clickSuggestion = function(wordSlug){
+    var wordObj2Push = {};
+    wordObj2Push.title = wordSlug.replace("-", " ");
+    wordObj2Push.slug = wordSlug;
+    $global.currentPhrase.push(wordObj2Push);
+  }
+
   var recognizeWord = function(word){
     // this function can be better!
     var splittedUnrecognizedWord = word.split(" ");
@@ -83,6 +90,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     $scope.suggestionList = $global.mainSlugArray.filter(function(word){
       return word.substring(0, searchLetter.length) == searchLetter;
     });
+    $scope.$apply();
   }
 
 
