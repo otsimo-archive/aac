@@ -17,6 +17,7 @@ aacApp.factory('$global', function () {
         currentPhrase: [],
         mainArray: [],
         mainSlugArray: [],
+        mainSlugMap: [],
         isHome: 1,
         currentTab: "",
         currentPage: "",
@@ -77,10 +78,14 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
           $http.get(otsimo.kv.jsonPath).then(function (resp) {
               $global.mainArray = resp.data.symbols;
               $global.mainArray.forEach(function(obj){
+
+                $global.mainSlugMap[obj.slug] = obj.slug;
+
                 $global.mainSlugArray.push(obj.slug);
                 if(obj.synonym.length > 0){
                   obj.synonym.forEach(function(syn){
                     $global.mainSlugArray.push(syn);
+                    $global.mainSlugMap[syn] = obj.slug;
                   });
                 }
               });
