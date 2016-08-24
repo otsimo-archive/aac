@@ -2,15 +2,21 @@
   <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" ng-click="submitPhrase()">
     <div class="currentPhraseScroll">
       <span ng-if="global.currentPhrase.length > 0">
-        <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index">
-          <span ng-if="!word.slugExist">
-              <img ng-src="symbols/{{global.language}}/{{global.getValidSlug(word.slug)}}.svg" />
-              <div class="wordText">{{word.title}}</div>
-          </span>
-          <span ng-if="word.slugExist">
-              <div class="wordTextSolo">{{word.title}}</div>
-          </span>
+        <!--current Phrase View Old -->
+        <div class="sortableCarrier" data-as-sortable="phraseReorderLogic" data-ng-model="global.currentPhrase">
+          <div class="wordItem" ng-repeat="word in global.currentPhrase" data-as-sortable-item>
+            <span data-as-sortable-item-handle>
+              <span ng-if="!word.slugExist">
+                  <img ng-src="symbols/{{global.language}}/{{global.getValidSlug(word.slug)}}.svg"/>
+                  <div class="wordText">{{word.title}}</div>
+              </span>
+              <span ng-if="word.slugExist">
+                  <div class="wordTextSolo">{{word.title}}</div>
+              </span>
+            </span>
+          </div>
         </div>
+        <!---->
       </span>
     </div>
   </div>

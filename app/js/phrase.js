@@ -12,6 +12,14 @@ aacApp.directive('phrase', function () {
 
 aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global) {
 
+  $scope.phraseReorderLogic = {
+    //restrict move across columns. move only within column.
+    accept: function (sourceItemHandleScope, destSortableScope) {
+        return 1;
+    }
+  };
+
+
     $scope.removeLastWord = function () {
         $global.currentPhrase.pop();
     }
@@ -50,7 +58,6 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global
     }
 
     $global.getValidSlug = function(slug){
-      console.log("checking this slug");
       return $global.mainSlugMap[slug];
     }
 
