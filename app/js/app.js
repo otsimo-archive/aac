@@ -78,6 +78,11 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
               $global.mainArray = resp.data.symbols;
               $global.mainArray.forEach(function(obj){
                 $global.mainSlugArray.push(obj.slug);
+                if(obj.synonym.length > 0){
+                  obj.synonym.forEach(function(syn){
+                    $global.mainSlugArray.push(syn);
+                  });
+                }
               });
               $global.changeCurrentTab(PAGE_MAIN);
           });
