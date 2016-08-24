@@ -1,0 +1,28 @@
+/*
+  - reorder.css
+  Used to style the reorder module at the phrase template.
+*/
+
+.as-sortable-item, .as-sortable-placeholder {
+    float:left;
+}
+
+.as-sortable-item {
+    float:left;
+}
+
+.as-sortable-item-handle {
+}
+
+.as-sortable-placeholder {
+    border: 1px dashed darkgrey;
+    box-sizing: border-box;
+    background-color: #dbdbdb;
+}
+
+.as-sortable-drag {
+    opacity: .8;
+}
+
+.as-sortable-hidden {
+}
