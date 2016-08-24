@@ -4,7 +4,7 @@
       <span ng-if="global.currentPhrase.length > 0">
         <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index">
           <span ng-if="!word.slugExist">
-              <img ng-src="symbols/{{global.language}}/{{word.slug}}.svg" />
+              <img ng-src="symbols/{{global.language}}/{{global.getValidSlug(word.slug)}}.svg" />
               <div class="wordText">{{word.title}}</div>
           </span>
           <span ng-if="word.slugExist">
