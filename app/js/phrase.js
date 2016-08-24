@@ -49,5 +49,10 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global
         clearTimeout(bstouchTimer);
     }
 
+    $global.getValidSlug = function(slug){
+      console.log("checking this slug");
+      return $global.mainSlugMap[slug];
+    }
+
 
 });

@@ -101,10 +101,6 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     $scope.$apply();
   }
 
-$global.getValidSlug = function(slug){
-  console.log("checking this slug");
-  return $global.mainSlugMap[slug];
-}
 
 $scope.$watch('$viewContentLoaded', function(){
   $scope.showKeyboard();
