@@ -10,7 +10,7 @@
 
 var runApp = null;
 
-var aacApp = angular.module("otsPescGeneral", ["ngTouch"]);
+var aacApp = angular.module("otsPescGeneral", ["ngTouch", "as.sortable"]);
 
 aacApp.factory('$global', function () {
     var global = {
