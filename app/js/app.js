@@ -93,6 +93,13 @@ aacApp.controller('otsControlGeneral', function ($scope, $http, $timeout, $globa
               $global.changeCurrentTab(PAGE_MAIN);
           });
 
+          // First time orientation check -Production-
+        if(otsimo.width < otsimo.height){
+            $global.checkOrientation("portrait");
+        }else{
+          $global.checkOrientation("landscape-left");
+        }
+        // First time orientation check -Development-
         $global.checkOrientation();
     }
 
