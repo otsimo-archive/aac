@@ -2013,63 +2013,63 @@
         "slug": "1",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["one"],
         "parent": "numbers"
     }, {
         "title": "2",
         "slug": "2",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["two"],
         "parent": "numbers"
     }, {
         "title": "3",
         "slug": "3",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["three"],
         "parent": "numbers"
     }, {
         "title": "4",
         "slug": "4",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["four"],
         "parent": "numbers"
     }, {
         "title": "5",
         "slug": "5",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["five"],
         "parent": "numbers"
     }, {
         "title": "6",
         "slug": "6",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["six"],
         "parent": "numbers"
     }, {
         "title": "7",
         "slug": "7",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["seven"],
         "parent": "numbers"
     }, {
         "title": "8",
         "slug": "8",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["eight"],
         "parent": "numbers"
     }, {
         "title": "9",
         "slug": "9",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["nine"],
         "parent": "numbers"
     }, {
         "title": "schools",

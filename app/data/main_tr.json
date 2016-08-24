@@ -2965,63 +2965,63 @@
         "slug": "1",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["bir"],
         "parent": "sayılar"
     }, {
         "title": "2",
         "slug": "2",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["iki"],
         "parent": "sayılar"
     }, {
         "title": "3",
         "slug": "3",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["üç"],
         "parent": "sayılar"
     }, {
         "title": "4",
         "slug": "4",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["dört"],
         "parent": "sayılar"
     }, {
         "title": "5",
         "slug": "5",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["beş"],
         "parent": "sayılar"
     }, {
         "title": "6",
         "slug": "6",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["altı"],
         "parent": "sayılar"
     }, {
         "title": "7",
         "slug": "7",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["yedi"],
         "parent": "sayılar"
     }, {
         "title": "8",
         "slug": "8",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["sekiz"],
         "parent": "sayılar"
     }, {
         "title": "9",
         "slug": "9",
         "type": "noun",
         "class": "word",
-        "synonym": [],
+        "synonym": ["dokuz"],
         "parent": "sayılar"
     }, {
         "title": "dilbilgisi",
