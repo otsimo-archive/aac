@@ -384,16 +384,23 @@ margin:2px;}
   .grid5x4 .gridItem { width:calc(100% / 5 - 18px); height:calc(100% / 4 - 18px); }
   .grid4x5 .gridItem { width:calc(100% / 4 - 18px); height:calc(100% / 5 - 18px); }
   .grid6x4 .gridItem { width:calc(100% / 6 - 18px); height:calc(100% / 4 - 18px); }
-  .grid6x4 .gridText { font-size:0.94em; }
+  .grid6x4 .gridText { font-size:0.85em;  padding-top:6px; }
   .grid4x6 .gridItem { width:calc(100% / 4 - 18px); height:calc(100% / 6 - 18px); }
-  .grid4x6 .gridText { font-size:0.94em; }
+  .grid4x6 .gridText { font-size:0.85em; padding-top:6px; }
   .grid6x5 .gridItem { width:calc(100% / 6 - 18px); height:calc(100% / 5 - 18px); }
   .grid5x6 .gridItem { width:calc(100% / 5 - 18px); height:calc(100% / 6 - 18px); }
-  .grid6x5 .gridText { font-size:0.94em; }
-  .grid5x6 .gridText { font-size:0.94em; }
+  .grid6x5 .gridText { font-size:0.85em;  padding-top:6px; }
+  .grid5x6 .gridText { font-size:0.85em;  padding-top:6px;  }
 
   .group { display:none; }
   .group2 { display:none; }
+
+  .gridTextLong {
+    padding-top:3px !important;
+    height:33px !important;
+    font-size:0.7em !important;
+    line-height:1em !important;
+  }
 
   .gridGroup {
       border:2px dotted #333;
