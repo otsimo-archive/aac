@@ -18,6 +18,7 @@ aacApp.factory('$global', function () {
         mainArray: [],
         mainSlugArray: [],
         mainSlugMap: [],
+        phraseIndex: 1;
         isHome: 1,
         currentTab: "",
         currentPage: "",
