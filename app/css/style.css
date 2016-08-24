@@ -394,6 +394,7 @@ margin:2px;}
   .wordItemRes { height:80px; padding:0px 10px; padding-top:5px; }
   .backspace i{ height:80px; line-height:80px !important; font-size:2.22em;}
   .backspace{ height:80px; margin-right:18px;}
+  .wordTextSolo {height:70px; line-height:70px }
   .currentPhrase { height:80px; }
   .gridHolder { height:calc(100% - 121px);}
   .resPhrase { height:80px; }
