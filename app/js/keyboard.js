@@ -55,6 +55,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
   $scope.enterSubmit = function($event){
     if($event.keyCode == 13){
       $scope.submitCurrentInput();
+      $scope.suggestionList = [];
     }else{
       var typeInput = document.getElementById("typeInput");
       setTimeout(function(){
@@ -92,7 +93,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
   }
 
   var suggestWordsByInput = function(searchLetter){
-      searchLetter = searchLetter.replace(" ", "-")
+      searchLetter = searchLetter.replace(" ", "-");
     $scope.suggestionList = $global.mainSlugArray.filter(function(word){
       return word.substring(0, searchLetter.length) == searchLetter;
     });
