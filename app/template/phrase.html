@@ -4,7 +4,7 @@
       <span ng-if="global.currentPhrase.length > 0">
         <!--current Phrase View Old -->
         <div class="sortableCarrier" data-as-sortable="phraseReorderLogic" data-ng-model="global.currentPhrase">
-          <div class="wordItem" ng-repeat="word in global.currentPhrase" data-as-sortable-item>
+          <div class="wordItem" ng-repeat="word in global.currentPhrase track by UniqueTracking($index, word.slug)" data-as-sortable-item>
             <span data-as-sortable-item-handle>
               <span ng-if="!word.slugExist">
                   <img ng-src="symbols/{{global.language}}/{{global.getValidSlug(word.slug)}}.svg"/>

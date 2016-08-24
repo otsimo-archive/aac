@@ -44,6 +44,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
         if(inputWord.title.contains(" ") && !checkExist){
           recognizeWord(inputWord.title);
         }else{
+          inputWord.phraseIndex = $global.phraseIndex++;
           $global.currentPhrase.push(inputWord);
         }
 
@@ -73,6 +74,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     var wordObj2Push = {};
     wordObj2Push.title = wordSlug.replace("-", " ");
     wordObj2Push.slug = wordSlug;
+    wordObj2Push.phraseIndex = $global.phraseIndex++;
     $global.currentPhrase.push(wordObj2Push);
 
     document.getElementById("typeInput").value = "";
@@ -88,6 +90,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
         wordObj2Push.title = wordPiece;
         wordObj2Push.slug = wordPiece;
         wordObj2Push.slugExist = !$global.checkWordInDB(wordObj2Push.slug);
+        wordObj2Push.phraseIndex = $global.phraseIndex++;
         $global.currentPhrase.push(wordObj2Push);
       }
     });

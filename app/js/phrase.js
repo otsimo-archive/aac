@@ -16,9 +16,13 @@ aacApp.controller('otsControlPhrase', function ($scope, $http, $timeout, $global
     //restrict move across columns. move only within column.
     accept: function (sourceItemHandleScope, destSortableScope) {
         return 1;
-    }
+    },
+    allowDuplicates: true
   };
 
+  $scope.UniqueTracking = function(index, id){
+      return index + id
+  }
 
     $scope.removeLastWord = function () {
         $global.currentPhrase.pop();

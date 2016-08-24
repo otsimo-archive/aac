@@ -70,7 +70,6 @@ aacApp.controller('otsControlSymbol', function ($scope, $http, $timeout, $global
       }
 
       $scope.clickWord = function (wordObj) {
-
           wordObj.time = $global.phraseIndex++;
           $global.currentPhrase.push(wordObj);
           updateCurrentPhraseScroll();
