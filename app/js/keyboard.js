@@ -20,6 +20,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
   };
 
   $scope.showKeyboardFocused = function(){
+    document.getElementById("typeInput").removeAttribute('readonly');
       setTimeout(function(){
         document.body.style.height = parseInt(window.innerHeight)+'px';
         document.body.scrollTop = document.documentElement.scrollTop = 0;
