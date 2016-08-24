@@ -96,6 +96,7 @@ aacApp.controller('otsControlKeyboard', function ($scope, $global) {
     $scope.suggestionList = $global.mainSlugArray.filter(function(word){
       return word.substring(0, searchLetter.length) == searchLetter;
     });
+    $scope.suggestionList.sort(sortByLength);
     $scope.$apply();
   }
 

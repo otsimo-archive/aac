@@ -52,6 +52,16 @@ String.prototype.contains = function(it) {
     return this.indexOf(it) != -1;
 };
 
+function sortByLength(a, b) {
+  if (a.length > b.length) {
+    return 1;
+  }
+  if (a.length < b.length) {
+    return -1;
+  }
+  return 0;
+}
+
 /*
 var statusSettings = 0;
 
