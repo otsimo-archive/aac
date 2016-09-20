@@ -1,8 +1,16 @@
 'use strict'
 const path = require('path');
-
+const isTravis = !!process.env.TRAVIS
 module.exports = function (config) {
   let sourcePath = './app'
+  let cr = null
+  let browsers = ['Chrome']
+  if (isTravis) {
+    cr = {
+      type: 'text'
+    }
+    browsers = ['Chrome_travis_ci'];
+  }
   config.set({
     basePath: '.',
     files: [
@@ -52,28 +60,22 @@ module.exports = function (config) {
         ]
       }
     },
+    coverageReporter: cr,
     autoWatch: true,
     frameworks: ['jasmine'],
-    browsers: ['Chrome'],
+    browsers: browsers,
     plugins: [
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-jasmine',
       'karma-webpack',
       'karma-coverage',
-    ]
-  });
-  let configuration = {
-    // other things
+    ],
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
         flags: ['--no-sandbox']
       }
-    },
-  };
-  if (process.env.TRAVIS) {
-    configuration.browsers = ['Chrome_travis_ci'];
-  }
-  config.set(configuration);
+    }
+  });
 }
