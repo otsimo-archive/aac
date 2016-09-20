@@ -1,0 +1,15 @@
+<div ng-controller="phrase-controller as phrase" class="phraseHolder">
+  <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" ng-click="phrase.submitPhrase()">
+    <div class="currentPhraseScroll">
+      <span ng-if="global.currentPhrase.length > 0">
+        <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index">
+          <img ng-src="{{global.symbolPath}}/{{word.slug}}.svg" />
+          <div class="wordText">{{word.title}}</div>
+        </div>
+      </span>
+    </div>
+  </div>
+  <div ng-click="phrase.removeLastWord()" ng-touchstart="phrase.bsTouchStart()" ng-touchend="phrase.bsTouchEnd()" class="backspace">
+    <i id="bs" class="material-icons">backspace</i>
+  </div>
+</div>
