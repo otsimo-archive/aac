@@ -1,0 +1,46 @@
+{
+    "symbols": [
+        {
+            "title": "i",
+            "slug": "i",
+            "type": "noun",
+            "class": "derive",
+            "parent": "main"
+        },
+        {
+            "title": "we",
+            "slug": "we",
+            "type": "noun",
+            "class": "word",
+            "parent": "i"
+        },
+        {
+            "title": "they",
+            "slug": "they",
+            "type": "noun",
+            "class": "word",
+            "parent": "i"
+        },
+        {
+            "title": "it",
+            "slug": "it",
+            "type": "noun",
+            "class": "word",
+            "parent": "i"
+        },
+        {
+            "title": "you",
+            "slug": "you",
+            "type": "noun",
+            "class": "derive",
+            "parent": "main"
+        },
+        {
+            "title": "it",
+            "slug": "it",
+            "type": "noun",
+            "class": "word",
+            "parent": "you"
+        }
+    ]
+}

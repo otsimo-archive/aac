@@ -1,40 +1,12 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 6
-    },
-    "ecmaFeatures": {
-        "blockBindings": true
-    },
-    "rules": {
-        "indent": [
-            0
-        ],
-        "linebreak-style": [
-            2,
-            "unix"
-        ],
-        "semi": [
-            0,
-            "never"
-        ],
-        "no-console": [
-            0
-        ],
-        "no-undef": [
-            0
-        ],
-        "no-unused-vars": [
-            0
-        ]
-    },
     "env": {
         "browser": true,
-        "es6": false
+        "es6": true
     },
     "globals": {
         "otsimo": true,
         "angular": true,
         "responsiveVoice": true
     },
-    "extends": "eslint:recommended"
+    "extends": "airbnb"
 }

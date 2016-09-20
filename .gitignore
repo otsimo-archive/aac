@@ -24,9 +24,11 @@ coverage
 .lock-wscript
 
 dist
-app/symbols
 spec
 .vscode
+app/symbols/en
+app/symbols/tr
+out
 
 # Dependency directories
 node_modules

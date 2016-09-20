@@ -1,0 +1,24 @@
+<div id="gridHolder" ng-controller="grid-controller as grid" class="gridHolder gridNoAnim" ng-switch="global.currentTab">
+    <div class="grids grid{{global.gridSize[0]}}x{{global.gridSize[1]}}">
+
+        <div ng-switch-when="main">
+            <div class="gridItem gridNavigation" ng-touchend="grid.goPrevMain()" ng-if="pageNo !== 0">
+                <img src="symbols/prev.svg">
+                <div class="gridText">{{previousText}}</div>
+            </div>
+
+            <div class="gridItem gridNavigation" ng-touchend="grid.goBack()" ng-if="global.isHome === 0 && pageNo === 0">
+                <img src="symbols/prev.svg">
+                <div class="gridText">{{backText}}</div>
+            </div>
+
+            <div symbol></div>
+
+            <div class="gridItem gridNavigation" ng-touchend="grid.goNextMain()" ng-if="maxPageNo != pageNo">
+                <img src="symbols/next.svg">
+                <div class="gridText">{{nextText}}</div>
+            </div>
+        </div>
+        <div ng-switch-when="recent" recent></div>
+    </div>
+</div>

@@ -53,16 +53,16 @@ interface TTS {
 }
 
 declare namespace otsimo {
-    var debug: boolean;
-    var sound: boolean;
-    var child: Child;
-    var width: number;
-    var height: number;
-    var settings: Settings;
-    var iOS: boolean;
-    var manifest: Manifest;
-    var kv: KeyValue;
-    var tts: TTS;
+    let debug: boolean;
+    let sound: boolean;
+    let child: Child;
+    let width: number;
+    let height: number;
+    let settings: Settings;
+    let iOS: boolean;
+    let manifest: Manifest;
+    let kv: KeyValue;
+    let tts: TTS;
 
     function quitgame(): void;
 
