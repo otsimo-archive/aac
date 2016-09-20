@@ -8,6 +8,7 @@
     "server": "webpack-dev-server --port 3001 --host 0.0.0.0",
     "start": "npm run server",
     "test": "karma start karma.conf.js",
+    "test-travis": "karma start karma.conf.js --single-run",
     "lint": "eslint app",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",

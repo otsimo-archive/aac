@@ -9,7 +9,7 @@ install:
 - npm install eslint
 - npm install
 script:
-- npm test
+- npm run test-travis 
 notifications:
   email: false
   slack:
