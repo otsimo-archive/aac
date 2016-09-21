@@ -147,3 +147,5 @@ export default class AppController {
   }
 
 }
+// Service Dependency Injection
+AppController.$inject = ['$scope', '$global', '$http', 'TTSManager'];

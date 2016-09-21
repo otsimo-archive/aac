@@ -129,3 +129,6 @@ export default class HeaderController {
     }
   }
 }
+
+// Service Dependency Injection
+HeaderController.$inject = ['$scope', '$global', '$timeout'];

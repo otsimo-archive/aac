@@ -235,12 +235,12 @@ export default class GridController {
     let y = this.global.gridSize[1];
     let gridQuantity;
     if (this.global.currentTab !== CONSTANT.TAB_MAIN) {
-      gridQuantity = x * y - 1;
+      gridQuantity = (x * y) - 1;
     } else {
       if (this.$scope.pageNo === 0) {
         gridQuantity = x * y;
       } else {
-        gridQuantity = x * y - 1;
+        gridQuantity = (x * y) - 1;
       }
     }
     this.global.gridQuantity = gridQuantity;
@@ -296,3 +296,5 @@ export default class GridController {
     this.global.gridSize = theGridSize;
   }
 }
+// Service Dependency Injection
+GridController.$inject = ['$scope', '$global', '$timeout'];

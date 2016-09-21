@@ -121,3 +121,6 @@ export default class SymbolController {
     this.events.appWord(wordObj.title, this.$scope.global.gridSize[0], this.$scope.global.gridSize[1]);
   }
 }
+
+// Service Dependency Injection
+SymbolController.$inject = ['$scope', '$http', '$timeout', '$global', 'EventManager', 'TTSManager'];

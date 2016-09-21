@@ -83,3 +83,6 @@ export default class RecentController {
     this.events.appInterval(val);
   }
 }
+
+// Service Dependency Injection
+RecentController.$inject = ['$scope', '$global', 'EventManager', 'LSManager'];

@@ -86,3 +86,6 @@ export default class PhraseController {
     this.$timeout.cancel(this.bstouchTimer);
   }
 }
+
+// Service Dependency Injection
+PhraseController.$inject = ['$scope', '$global', '$timeout', 'EventManager', 'TTSManager', 'LSManager'];
