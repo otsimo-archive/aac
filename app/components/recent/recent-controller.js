@@ -5,7 +5,7 @@ import { returnTime } from 'js/utils';
  * @export
  * @class RecentController
  */
-export class RecentController {
+export default class RecentController {
   /**
    * Creates an instance of RecentController.
    *

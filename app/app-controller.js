@@ -4,7 +4,7 @@ import * as CONSTANT from './js/constants';
  *
  * @class AppController
  */
-export class AppController {
+export default class AppController {
   /**
    * Creates an instance of AppController.
    *

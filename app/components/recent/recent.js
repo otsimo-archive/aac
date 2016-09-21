@@ -1,5 +1,5 @@
 import angular from 'angular';
-import { RecentController } from './recent-controller'
+import RecentController from './recent-controller'
 
 let recentModule = angular.module('aacApp.recent', []);
 

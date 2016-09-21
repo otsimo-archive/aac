@@ -2,7 +2,7 @@ import angular from 'angular'
 
 import recentModule from 'components/recent/recent'
 import symbolModule from 'components/symbol/symbol'
-import { GridController } from './grid-controller'
+import GridController from './grid-controller'
 
 let gridModule = angular.module('aacApp.grid', [
   recentModule.name,

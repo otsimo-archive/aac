@@ -1,5 +1,5 @@
 import angular from 'angular';
-import { HeaderController } from './header-controller';
+import HeaderController from './header-controller';
 
 let headerModule = angular.module('aacApp.header', []);
 

@@ -1,5 +1,5 @@
 import angular from 'angular';
-import { PhraseController } from './phrase-controller'
+import PhraseController from './phrase-controller'
 
 let phraseModule = angular.module('aacApp.phrase', []);
 

@@ -6,7 +6,7 @@ import * as CONSTANT from '../../js/constants';
  * @export
  * @class SymbolController
  */
-export class SymbolController {
+export default class SymbolController {
   /**
    * Creates an instance of SymbolController.
    *

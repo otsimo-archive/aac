@@ -4,7 +4,7 @@ import * as CONSTANT from '../../js/constants';
  *
  * @class GridController
  */
-export class GridController {
+export default class GridController {
   /**
    * Creates an instance of GridController.
    *

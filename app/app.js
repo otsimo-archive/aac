@@ -4,7 +4,7 @@ import headerModule from 'components/header/header'
 import phraseModule from 'components/phrase/phrase'
 import gridModule from 'components/grid/grid'
 
-import { AppController } from './app-controller'
+import AppController from './app-controller'
 import Global from 'services/global'
 import EventManager from 'services/event'
 import TTSManager from 'services/tts'

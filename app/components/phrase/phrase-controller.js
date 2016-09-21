@@ -3,7 +3,7 @@
  * @export
  * @class PhraseController
  */
-export class PhraseController {
+export default class PhraseController {
   /**
    * Creates an instance of PhraseController.
    *

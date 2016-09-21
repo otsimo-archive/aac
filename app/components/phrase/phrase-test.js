@@ -1,6 +1,6 @@
 /* eslint-env jasmine */
 import { module, inject } from 'mocks';
-import { PhraseController } from './phrase-controller';
+import PhraseController from './phrase-controller';
 import { GridController } from '../grid/grid-controller';
 import phrase from './phrase';
 import * as CONSTANT from '../../js/constants';

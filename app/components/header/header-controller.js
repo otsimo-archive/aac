@@ -7,7 +7,7 @@ import * as CONSTANT from '../../js/constants'
  * @export
  * @class HeaderController
  */
-export class HeaderController {
+export default class HeaderController {
   /**
    * Creates an instance of HeaderController.
    *

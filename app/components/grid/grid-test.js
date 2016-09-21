@@ -1,7 +1,7 @@
 /* eslint-env jasmine */
 import { module, inject } from 'mocks';
-import { GridController } from './grid-controller';
-import { HeaderController } from '../header/header-controller';
+import GridController from './grid-controller';
+import HeaderController from '../header/header-controller';
 import grid from './grid'
 import * as CONSTANT from '../../js/constants';
 import Global from '../../services/global';

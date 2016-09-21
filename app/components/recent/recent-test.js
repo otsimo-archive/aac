@@ -1,6 +1,6 @@
 /* eslint-env jasmine */
 import { module, inject } from 'mocks';
-import { RecentController } from './recent-controller';
+import RecentController from './recent-controller';
 import recentModule from './recent';
 import * as CONSTANT from '../../js/constants';
 import Global from '../../services/global';

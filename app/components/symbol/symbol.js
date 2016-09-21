@@ -1,5 +1,5 @@
 import angular from 'angular';
-import { SymbolController } from './symbol-controller';
+import SymbolController from './symbol-controller';
 
 let symbolModule = angular.module('aacApp.symbol', []);
 

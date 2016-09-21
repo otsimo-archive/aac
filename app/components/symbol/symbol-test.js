@@ -1,8 +1,8 @@
 /* eslint-env jasmine */
 import { module, inject } from 'mocks';
-import { SymbolController } from './symbol-controller';
-import { GridController } from '../grid/grid-controller';
-import { HeaderController } from '../header/header-controller';
+import SymbolController from './symbol-controller';
+import GridController from '../grid/grid-controller';
+import HeaderController from '../header/header-controller';
 import * as CONSTANT from '../../js/constants';
 import symbolModule from './symbol';
 import Global from '../../services/global';
@@ -21,7 +21,7 @@ describe('aacApp.symbol module', () => {
 
   beforeEach(() => {
     g = new Global();
-    g.changeTab = function () { }
+    g.changeTab = function () {}
     g.currentPhrase = [
       {
         title: 'firstSymbol',
@@ -32,10 +32,10 @@ describe('aacApp.symbol module', () => {
         slug: 'secondSymbol'
       }
     ];
-    tts = { speak: function () { } };
+    tts = { speak: function () {} };
     event = {
-      appDerive: function () { },
-      appWord: function () { }
+      appDerive: function () {},
+      appWord: function () {}
     };
     symbolCtrl = $controller(SymbolController, { $scope: {}, $global: g, $timeout: $timeout, TTSManager: tts, EventManager: event });
     $controller(HeaderController, { $scope: {}, $global: g });
