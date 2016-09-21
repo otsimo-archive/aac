@@ -10,7 +10,7 @@
     <div class="inputCarrier">
       <input id="typeInput" type="text"
              ng-keydown="keyboard.enterSubmit($event)"
-             placeholder="asdasd"
+             placeholder="{{startTyping}}"
              ng-focus="keyboard.showKeyboardFocused()"
              ng-blur="keyboard.hideKeyboard()"
              autocomplete="off"

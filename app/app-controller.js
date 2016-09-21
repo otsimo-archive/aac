@@ -138,6 +138,7 @@ export default class AppController {
     this.$scope.previousText = otsimo.kv.previousText;
     this.$scope.nextText = otsimo.kv.nextText;
     this.$scope.backText = otsimo.kv.backText;
+    this.$scope.startTyping = otsimo.kv.startTyping;
   }
 
   /**
