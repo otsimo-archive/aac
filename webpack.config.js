@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
 let outputPath = path.resolve(__dirname, 'dist')
 let sourcePath = path.resolve(__dirname, 'app')
@@ -40,13 +41,25 @@ module.exports = {
   },
   devServer: {
     progress: true,
-    contentBase: outputPath,
+    TTSManager contentBase: outputPath,
     outputPath: outputPath
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor'],
       minChunks: Infinity
+    }),
+    new webpackUglifyJsPlugin({
+      cacheFolder: path.resolve(__dirname, 'public/cached_uglify/'),
+      debug: true,
+      minimize: true,
+      sourceMap: false,
+      output: {
+        comments: false
+      },
+      compressor: {
+        warnings: false
+      }
     }),
     new CopyWebpackPlugin([
       {
