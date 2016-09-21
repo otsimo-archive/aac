@@ -8,10 +8,10 @@ export default class Global {
     this.currentPhrase = [];
     this.mainArray = [];
     this.isHome = 1;
-    this.currentTab = "";
-    this.currentPage = "";
-    this.currentDerivable = "";
-    this.currentGroup = "";
+    this.currentTab = '';
+    this.currentPage = '';
+    this.currentDerivable = '';
+    this.currentGroup = '';
     this.gridSize = [0, 0];
     this.gridSizeStatic = [0, 0];
     this.gridQuantity = 0;

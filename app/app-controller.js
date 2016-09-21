@@ -46,13 +46,13 @@ export class AppController {
    */
   runApp() {
     // Get grid size X and Y from otsimo settings object.
-    let otsGridSize = otsimo.settings.gridsize.split("grid-")[1];
-    let otsGridXY = otsGridSize.split("x");
+    let otsGridSize = otsimo.settings.gridsize.split('grid-')[1];
+    let otsGridXY = otsGridSize.split('x');
     let x = otsGridXY[0];
     let y = otsGridXY[1];
     // Check if the device is a phone
     // Limit the grid size to 6x4
-    if (deviceType() == "phone") {
+    if (deviceType() == 'phone') {
       if (x > 6) { x = 6; }
       if (y > 4) { y = 4; }
     }
@@ -74,7 +74,7 @@ export class AppController {
     // Colors & styles
     this.$scope.headerColor = otsimo.kv.headerColor;
     this.$scope.generalFont = otsimo.kv.generalFont;
-    document.getElementById("header")
+    document.getElementById('header')
       .style.background = this.$scope.headerColor;
     document.body.style.fontSize = this.$scope.generalFont;
 
@@ -112,9 +112,9 @@ export class AppController {
    *
    */
   checkCapabilities() {
-    if (otsimo.capabilities.indexOf("tts") == -1) {
-      document.getElementById("outdated")
-        .style.display = "block";
+    if (otsimo.capabilities.indexOf('tts') == -1) {
+      document.getElementById('outdated')
+        .style.display = 'block';
     }
   }
 

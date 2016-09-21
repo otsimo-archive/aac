@@ -43,6 +43,6 @@ if ('addEventListener' in document) {
 }
 
 if (!localStorage.phraseHistory) {
-  console.log("LS: not yet initilized, firstTime load.");
-  localStorage.phraseHistory = "[]";
+  console.log('LS: not yet initilized, firstTime load.');
+  localStorage.phraseHistory = '[]';
 }

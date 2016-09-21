@@ -11,12 +11,12 @@ export default class TTSManager {
       } else {
         let responsiveVoiceDriver = new ResponsiveVoiceDriver();
         otsimo.tts.setDriver(responsiveVoiceDriver);
-        if (otsimo.child.language == "tr") {
-          otsimo.tts.setVoice("Turkish Female");
-        } else if (otsimo.child.language == "en") {
-          otsimo.tts.setVoice("US English Female");
+        if (otsimo.child.language == 'tr') {
+          otsimo.tts.setVoice('Turkish Female');
+        } else if (otsimo.child.language == 'en') {
+          otsimo.tts.setVoice('US English Female');
         } else {
-          console.log("This language for development is not recognized.");
+          console.log('This language for development is not recognized.');
         }
       }
     }
@@ -49,7 +49,7 @@ class ResponsiveVoiceDriver {
   }
 
   getVoice() {
-    return ""
+    return ''
   }
 
   voiceList() {
