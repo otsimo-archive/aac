@@ -3,13 +3,14 @@
   General css file for styling UI elements.
 
 */
-
 body {
   font-family: 'Titillium Web', sans-serif;
   font-size:18px;
+  position:relative;
   color:#555;padding:0px; margin:0px;
   margin:0;height:100%;overflow:hidden !important;
   user-select:none;
+  overflow:hidden;
   -webkit-user-select:none;
   /* -webkit-touch-callout: none; */
   /* -webkit-user-drag: none; */
@@ -30,7 +31,6 @@ body {
   position:relative; z-index:999;
   width:100%;
 }
-
 .headerTitle {
   line-height:60px;
   padding:0px 20px;
@@ -140,7 +140,7 @@ body {
 }
 .gridItem .gridText {
   text-align:center;
-  font-weight:bold;
+  font-weight:normal;
   font-size:1em;
   line-height:16px;
   text-transform:capitalize;
@@ -309,6 +309,14 @@ margin:2px;}
             height: 30px;
             overflow: hidden;
           }
+.wordTextSolo {
+            text-align:center;
+            font-weight:bold;
+            font-size: 1.45em;
+            line-height: 110px;
+            text-transform: capitalize;
+            overflow: hidden;
+          }
 
 .wordItemRes { float:left; height:120px; padding:10px; text-align:center; }
 .wordItemRes img { height:calc(100% - 40px);}
@@ -358,21 +366,23 @@ margin:2px;}
 .settingHeader { border-bottom:1px solid #eee; padding:10px; }
 .settingHeader i { position:relative; top:5px;  margin-right:5px; margin-left:7px;}
 .settingList li { list-style:none; padding:10px 15px; }
+
 /* Keyboard */
 
 .inputCarrier {
+  background-color: #fff;
   position:absolute;
   bottom:0px; left:0px;
   width:100%;
   height:70px;
   box-shadow:0px 0px 12px 0px rgba(0,0,0,0.1);
 }
-.inputCarrier input { border:0px; width:100%; height:70px; font-size:2em; }
+.inputCarrier input { border:0px; width:calc(100% - 100px); height:70px; font-size:2em; position: absolute; float:left;}
+.inputCarrier i { float:right; line-height:70px; font-size: 2.66em; padding:0px 26px; }
 
 .suggestions { height:100px; overflow: hidden; }
 .suggestedWord { float:left; height:100px; padding:10px; text-align:center;  }
 .suggestedWord img { height:calc(100% - 40px);}
-
 
 @media all and (max-width:800px) and (max-height:800px){
   .header { height:40px; font-size:0.8em; }
@@ -383,6 +393,7 @@ margin:2px;}
   .wordItemRes { height:80px; padding:0px 10px; padding-top:5px; }
   .backspace i{ height:80px; line-height:80px !important; font-size:2.22em;}
   .backspace{ height:80px; margin-right:18px;}
+  .wordTextSolo {height:70px; line-height:70px }
   .currentPhrase { height:80px; }
   .gridHolder { height:calc(100% - 121px);}
   .resPhrase { height:80px; }
@@ -427,6 +438,14 @@ margin:2px;}
     .gridGroup img{ margin-top:0px; }
 
   .gridItem img{ height: calc(100% - 23px); }
+
+
+  .inputCarrier {
+    height:50px;
+  }
+  .inputCarrier input { width:calc(100% - 70px); height:50px; font-size:1.5em; }
+  .inputCarrier i { line-height:50px; font-size: 2em; padding:0px 15px; }
+
 }
 
 @media all and (max-width:500px){
