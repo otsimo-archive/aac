@@ -7,6 +7,7 @@ export default class Global {
   constructor() {
     this.currentPhrase = [];
     this.mainArray = [];
+    this.mainSlugArray = [];
     this.isHome = 1;
     this.currentTab = '';
     this.currentPage = '';

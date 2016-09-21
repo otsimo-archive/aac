@@ -100,9 +100,12 @@ export default class AppController {
         this.$http.get(symbolDataPath)
           .success(resp => {
             global.mainArray = resp.symbols;
+            global.mainArray.forEach(obj => {
+              global.mainSlugArray.push(obj.slug);
+            });
             global.changeCurrentTab(CONSTANT.TAB_MAIN);
           })
-          .error(console.error)
+          .error(console.error);
       })
       .error(console.error);
   }
