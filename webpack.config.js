@@ -41,7 +41,7 @@ module.exports = {
   },
   devServer: {
     progress: true,
-    TTSManager contentBase: outputPath,
+    contentBase: outputPath,
     outputPath: outputPath
   },
   plugins: [
