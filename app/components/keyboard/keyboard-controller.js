@@ -139,7 +139,7 @@ export default class KeyboardController {
    * Recognizes the string given by the current word package.
    */
   recognizeWord(word) {
-    // this function can be better!
+    // this function can be better algorithmicly!
     let splittedUnrecognizedWord = word.split(" ");
     splittedUnrecognizedWord.forEach((wordPiece) => {
       if (wordPiece) {
@@ -161,14 +161,16 @@ export default class KeyboardController {
     if (this.suggestionList.length > 0) {
       this.suggestionList.sort(sortByLength);
     }
-    // $scope.$apply();
+    this.$scope.$apply();
   }
-
 
   checkWordInDB(word) {
     return this.$scope.global.mainSlugArray.contains(word);
   }
 
+  getValidSlug(slug) {
+    return this.$scope.global.mainSlugArray[slug];
+  }
 
 }
 
