@@ -55,7 +55,7 @@ export class HeaderController {
         this.$scope.global.isHome = 0;
       }
 
-      if (tabExp != CONSTANT.TAB_RECENT) {
+      if (tabExp !== CONSTANT.TAB_RECENT) {
         this.$scope.global.currentTab = CONSTANT.TAB_MAIN;
         this.$scope.global.changeTab(tabExp);
       } else {
@@ -78,7 +78,7 @@ export class HeaderController {
      */
   goHome() {
 
-      if (this.$scope.global.currentTab != CONSTANT.TAB_MAIN || this.$scope.global.getPage() != 0 || this.$scope.global.currentGroup || this.$scope.global.currentDerivable) {
+      if (this.$scope.global.currentTab !== CONSTANT.TAB_MAIN || this.$scope.global.getPage() !== 0 || this.$scope.global.currentGroup || this.$scope.global.currentDerivable) {
         // Animate Home Icon
         this.animIconTouch('hIcon');
 
@@ -93,7 +93,7 @@ export class HeaderController {
      * Opens the grid page
      */
   openGrid() {
-      if (this.$scope.global.currentTab != CONSTANT.TAB_MAIN) {
+      if (this.$scope.global.currentTab !== CONSTANT.TAB_MAIN) {
         // Animate Grid Icon
         this.animIconTouch('gIcon');
         this.$scope.global.changeCurrentTab(CONSTANT.TAB_MAIN);

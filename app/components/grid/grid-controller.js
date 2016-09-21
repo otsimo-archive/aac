@@ -77,13 +77,13 @@ export class GridController {
     switch (tab) {
     case CONSTANT.TAB_DERIVABLE:
       let currentD = this.global.currentDerivable;
-      if (this.prevDerivableStack[this.prevDerivableStack.length - 1] != currentD) {
+      if (this.prevDerivableStack[this.prevDerivableStack.length - 1] !== currentD) {
         this.prevDerivableStack.push(currentD);
       }
       break;
     case CONSTANT.TAB_GROUP:
       let currentG = this.global.currentGroup;
-      if (this.prevGroupStack[this.prevGroupStack.length - 1] != currentG) {
+      if (this.prevGroupStack[this.prevGroupStack.length - 1] !== currentG) {
         this.prevGroupStack.push(currentG);
       }
       break;
@@ -96,7 +96,7 @@ export class GridController {
    * @param {number} symbolQuantity
    */
   sliceArray(symbolQuantity) {
-    if (this.global.isHome === 1 && this.$scope.pageNo != 0) {
+    if (this.global.isHome === 1 && this.$scope.pageNo !== 0) {
       this.$scope.mainData = this.$scope.mainDataUnpaged.slice(parseInt(this.$scope.pageNo * symbolQuantity + 1), parseInt((this.$scope.pageNo + 1) * symbolQuantity + 1))
         .map(this.mapStyle);
     } else {
@@ -170,7 +170,7 @@ export class GridController {
      * In current symbol array.
      */
   goPrevMain() {
-      if (this.$scope.pageNo != 0) {
+      if (this.$scope.pageNo !== 0) {
         this.$scope.pageNo--;
       }
       this.updateGridSlicing();
@@ -234,7 +234,7 @@ export class GridController {
     let x = this.global.gridSize[0];
     let y = this.global.gridSize[1];
     let gridQuantity;
-    if (this.global.currentTab != CONSTANT.TAB_MAIN) {
+    if (this.global.currentTab !== CONSTANT.TAB_MAIN) {
       gridQuantity = x * y - 1;
     } else {
       if (this.$scope.pageNo === 0) {
@@ -280,7 +280,7 @@ export class GridController {
       }
     } else {
       // In development
-      if (typeof screen.orientation != 'undefined') {
+      if (typeof screen.orientation !== undefined) {
         if (screen.orientation.type === CONSTANT.PORTRAIT_PRIMARY) {
           theGridSize = [y, x];
           this.$scope.$apply();

@@ -34,7 +34,7 @@ export default class LSManager {
     if (tempHistoryArr.length > 0) {
       stringifyLast = JSON.stringify(tempHistoryArr[tempHistoryArr.length - 1].phrase);
     }
-    if (stringifyLast != JSON.stringify(arrPhrase)) {
+    if (stringifyLast !== JSON.stringify(arrPhrase)) {
       let obj2Push = {};
       obj2Push.phrase = arrPhrase;
       obj2Push.time = returnTime();

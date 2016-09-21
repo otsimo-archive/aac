@@ -8,5 +8,10 @@
         "angular": true,
         "responsiveVoice": true
     },
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+      "func-names": "off",
+      "no-console": "off",
+      "class-methods-use-this": "off"
+    }
 }

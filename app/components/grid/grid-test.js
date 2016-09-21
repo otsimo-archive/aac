@@ -197,7 +197,7 @@ describe('aacApp.grid module', () => {
     });
 
 
-    it('should update the gridQuantity relative to grid size (x*y - 1) for main and pageNo != 0', () => {
+    it('should update the gridQuantity relative to grid size (x*y - 1) for main and pageNo !== 0', () => {
       g.mainArray = generateSymbol(300, 1, 1, 1);
       gridCtrl = $controller(GridController, { $scope: {}, $global: g, $timeout: $timeout, TTSManager: tts, EventManager: event, LSManager: ls });
       //Set a grid size;
@@ -236,7 +236,7 @@ describe('aacApp.grid module', () => {
       });
     });
 
-    it('should update the gridQuantity relative to grid size (x*y - 1) for main, derivable and group when pageNo != 0', () => {
+    it('should update the gridQuantity relative to grid size (x*y - 1) for main, derivable and group when pageNo !== 0', () => {
       g.mainArray = generateSymbol(300, 1, 1, 1);
       gridCtrl = $controller(GridController, { $scope: {}, $global: g, $timeout: $timeout, TTSManager: tts, EventManager: event, LSManager: ls });
       //Set a grid size;

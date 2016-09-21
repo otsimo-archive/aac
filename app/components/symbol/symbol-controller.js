@@ -64,7 +64,7 @@ export class SymbolController {
    */
   wordTouchEnd(wordObj, index) {
     this.$timeout.cancel(this.wordTouchTimer);
-    if (this.currentlyHolding === wordObj.title && wordObj.class != CONSTANT.CLASS_GROUP) {
+    if (this.currentlyHolding === wordObj.title && wordObj.class !== CONSTANT.CLASS_GROUP) {
       this.clickWord(wordObj);
     }
     if (wordObj.class === 'group') {
