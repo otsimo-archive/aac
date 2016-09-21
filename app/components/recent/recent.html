@@ -13,8 +13,13 @@
     <div class="resPhrase" ng-click="recent.loadRecentPhrase($index)" ng-repeat="phraseRecent in recentPhrasesList | orderBy:'-time' track by $index">
       <div class="resPhraseScroll">
         <div class="wordItemRes" ng-repeat="wordRecent in phraseRecent.phrase track by $index">
-          <img ng-src="{{global.symbolPath}}/{{wordRecent.slug}}.svg" />
-          <div class="wordText">{{wordRecent.title}}</div>
+          <span ng-if="!wordRecent.slugExist">
+              <img ng-src="{{global.symbolPath}}/{{wordRecent.slug}}.svg" />
+              <div class="wordText">{{wordRecent.title}}</div>
+          </span>
+          <span ng-if="wordRecent.slugExist">
+              <div class="wordTextSolo">{{wordRecent.title}}</div>
+          </span>
         </div>
       </div>
     </div>
