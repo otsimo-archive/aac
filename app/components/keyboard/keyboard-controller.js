@@ -31,4 +31,4 @@ export default class KeyboardController {
 }
 
 // Service Dependency Injection
-RecentController.$inject = ['$scope', '$global'];
+KeyboardController.$inject = ['$scope', '$global'];

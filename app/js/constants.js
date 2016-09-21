@@ -11,6 +11,7 @@ export const TAB_MAIN = 'main';
 export const TAB_DERIVABLE = 'derivable';
 export const TAB_GROUP = 'group';
 export const TAB_RECENT = 'recent';
+export const TAB_KEYBOARD = 'keyboard';
 
 export const PORTRAIT = 'portrait';
 export const PORTRAIT_PRIMARY = 'portrait-primary';

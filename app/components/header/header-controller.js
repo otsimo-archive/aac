@@ -41,34 +41,38 @@ export default class HeaderController {
    * @param {string} tabExp - new tab name
    */
   changeCurrentTab(tabExp) {
-      if (tabExp === CONSTANT.TAB_MAIN) {
-        this.$scope.global.currentPage = this.$scope.pageText1;
-        this.$scope.global.isHome = 1;
-      } else if (tabExp === CONSTANT.TAB_GROUP) {
-        this.$scope.global.currentPage = this.$scope.pageText2 + capitalize(this.$scope.global.currentGroup);
-        this.$scope.global.isHome = 0;
-      } else if (tabExp === CONSTANT.TAB_DERIVABLE) {
-        this.$scope.global.currentPage = this.$scope.pageText3 + capitalize(this.$scope.global.currentDerivable);
-        this.$scope.global.isHome = 0;
-      } else if (tabExp === CONSTANT.TAB_RECENT) {
-        this.$scope.global.currentPage = this.$scope.pageText4;
-        this.$scope.global.isHome = 0;
-      }
-
-      if (tabExp !== CONSTANT.TAB_RECENT) {
-        this.$scope.global.currentTab = CONSTANT.TAB_MAIN;
-        this.$scope.global.changeTab(tabExp);
-      } else {
-        this.$scope.global.currentTab = CONSTANT.TAB_RECENT;
-        // Animate Recent Icon
-        this.animIconTouch('rIcon');
-      }
+    if (tabExp === CONSTANT.TAB_MAIN) {
+      this.$scope.global.currentPage = this.$scope.pageText1;
+      this.$scope.global.isHome = 1;
+    } else if (tabExp === CONSTANT.TAB_GROUP) {
+      this.$scope.global.currentPage = this.$scope.pageText2 + capitalize(this.$scope.global.currentGroup);
+      this.$scope.global.isHome = 0;
+    } else if (tabExp === CONSTANT.TAB_DERIVABLE) {
+      this.$scope.global.currentPage = this.$scope.pageText3 + capitalize(this.$scope.global.currentDerivable);
+      this.$scope.global.isHome = 0;
+    } else if (tabExp === CONSTANT.TAB_RECENT) {
+      this.$scope.global.currentPage = this.$scope.pageText4;
+      this.$scope.global.isHome = 0;
+    } else if (tabExp === CONSTANT.TAB_KEYBOARD) {
+      this.$scope.global.currentPage = this.$scope.pageText5;
+      this.$scope.global.isHome = 0;
     }
-    /**
-     * Opens recent tab.
-     */
+
+    if (tabExp === CONSTANT.TAB_RECENT || tabExp === CONSTANT.TAB_KEYBOARD) {
+      this.$scope.global.currentTab = tabExp;
+    } else {
+      this.$scope.global.currentTab = CONSTANT.TAB_MAIN;
+      this.$scope.global.changeTab(tabExp);
+    }
+  }
+
+  /**
+   * Opens recent tab.
+   */
   openRecent() {
       this.changeCurrentTab(CONSTANT.TAB_RECENT);
+      // Animate Recent Icon
+      this.animIconTouch('rIcon');
     }
     /**
      * Initilize Going the entrance screen when;
@@ -97,6 +101,16 @@ export default class HeaderController {
         // Animate Grid Icon
         this.animIconTouch('gIcon');
         this.$scope.global.changeCurrentTab(CONSTANT.TAB_MAIN);
+      }
+    }
+    /**
+     * Opens the keyboard page
+     */
+  openKeyboard() {
+      if (this.$scope.global.currentTab !== CONSTANT.TAB_KEYBOARD) {
+        // Animate Grid Icon
+        this.animIconTouch('kIcon');
+        this.$scope.global.changeCurrentTab(CONSTANT.TAB_KEYBOARD);
       }
     }
     /**

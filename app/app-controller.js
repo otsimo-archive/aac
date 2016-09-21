@@ -127,6 +127,7 @@ export default class AppController {
     this.$scope.pageText2 = otsimo.kv.pageText2;
     this.$scope.pageText3 = otsimo.kv.pageText3;
     this.$scope.pageText4 = otsimo.kv.pageText4;
+    this.$scope.pageText5 = otsimo.kv.pageText5;
     this.$scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
     this.$scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
     this.$scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
