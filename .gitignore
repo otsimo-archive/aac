@@ -29,6 +29,7 @@ spec
 app/symbols/en
 app/symbols/tr
 out
+public
 
 # Dependency directories
 node_modules
