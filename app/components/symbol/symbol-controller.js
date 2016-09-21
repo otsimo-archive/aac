@@ -40,11 +40,11 @@ export class SymbolController {
   wordTouchStart(wordObj, index) {
     this.currentlyHolding = wordObj.title;
     this.wordTouchTimer = this.$timeout(() => {
-      if (wordObj.class == CONSTANT.CLASS_DERIVABLE) {
+      if (wordObj.class === CONSTANT.CLASS_DERIVABLE) {
         this.$scope.global.currentDerivable = wordObj.slug;
         this.events.appDerive(wordObj.slug);
         this.$scope.global.changeCurrentTab(CONSTANT.TAB_DERIVABLE);
-      } else if (wordObj.class == CONSTANT.CLASS_GROUP) {
+      } else if (wordObj.class === CONSTANT.CLASS_GROUP) {
         this.$scope.global.currentGroup = wordObj.slug;
         this.$scope.global.changeCurrentTab(CONSTANT.TAB_GROUP);
         /*
@@ -64,10 +64,10 @@ export class SymbolController {
    */
   wordTouchEnd(wordObj, index) {
     this.$timeout.cancel(this.wordTouchTimer);
-    if (this.currentlyHolding == wordObj.title && wordObj.class != CONSTANT.CLASS_GROUP) {
+    if (this.currentlyHolding === wordObj.title && wordObj.class != CONSTANT.CLASS_GROUP) {
       this.clickWord(wordObj);
     }
-    if (wordObj.class == 'group') {
+    if (wordObj.class === 'group') {
       this.$scope.global.currentGroup = wordObj.slug;
       this.$scope.global.changeCurrentTab(CONSTANT.TAB_GROUP);
     }

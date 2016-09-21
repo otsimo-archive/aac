@@ -63,16 +63,16 @@ export class RecentController {
     const halfHour = 1000 * 60 * 30;
     const oneDay = halfHour * 2 * 24;
     const oneWeek = oneDay * 7;
-    if (val == 1) {
+    if (val === 1) {
       timeH = timeC;
       timeL = timeC - halfHour;
-    } else if (val == 2) {
+    } else if (val === 2) {
       timeH = timeC - halfHour;
       timeL = timeC - oneDay;
-    } else if (val == 3) {
+    } else if (val === 3) {
       timeH = timeC - oneDay;
       timeL = timeC - oneDay * 2;
-    } else if (val == 4) {
+    } else if (val === 4) {
       timeH = timeC - oneDay * 2;
       timeL = timeC - oneWeek;
     }

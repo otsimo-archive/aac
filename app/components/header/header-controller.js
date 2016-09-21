@@ -41,16 +41,16 @@ export class HeaderController {
    * @param {string} tabExp - new tab name
    */
   changeCurrentTab(tabExp) {
-      if (tabExp == CONSTANT.TAB_MAIN) {
+      if (tabExp === CONSTANT.TAB_MAIN) {
         this.$scope.global.currentPage = this.$scope.pageText1;
         this.$scope.global.isHome = 1;
-      } else if (tabExp == CONSTANT.TAB_GROUP) {
+      } else if (tabExp === CONSTANT.TAB_GROUP) {
         this.$scope.global.currentPage = this.$scope.pageText2 + capitalize(this.$scope.global.currentGroup);
         this.$scope.global.isHome = 0;
-      } else if (tabExp == CONSTANT.TAB_DERIVABLE) {
+      } else if (tabExp === CONSTANT.TAB_DERIVABLE) {
         this.$scope.global.currentPage = this.$scope.pageText3 + capitalize(this.$scope.global.currentDerivable);
         this.$scope.global.isHome = 0;
-      } else if (tabExp == CONSTANT.TAB_RECENT) {
+      } else if (tabExp === CONSTANT.TAB_RECENT) {
         this.$scope.global.currentPage = this.$scope.pageText4;
         this.$scope.global.isHome = 0;
       }
@@ -110,7 +110,7 @@ export class HeaderController {
         backIconElem.className = 'backIcon backIconHovered';
         this.$timeout(() => backIconElem.className = 'backIcon', 300);
       }
-      if (this.$scope.global.isHome == 1) {
+      if (this.$scope.global.isHome === 1) {
         otsimo.quitgame();
       } else {
         this.goHome();

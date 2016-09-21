@@ -51,19 +51,19 @@ export class GridController {
       let mArray = this.global.mainArray;
       switch (tabExp) {
       case CONSTANT.TAB_MAIN:
-        this.$scope.mainDataUnpaged = mArray.filter((f) => f.parent == CONSTANT.CLASS_MAIN);
+        this.$scope.mainDataUnpaged = mArray.filter((f) => f.parent === CONSTANT.CLASS_MAIN);
         break;
       case CONSTANT.TAB_DERIVABLE:
         this.prevPageNo = this.$scope.pageNo;
         this.pushNavigationHistory(CONSTANT.TAB_DERIVABLE);
         this.$scope.pageNo = 0;
-        this.$scope.mainDataUnpaged = mArray.filter(f => f.parent == this.global.currentDerivable);
+        this.$scope.mainDataUnpaged = mArray.filter(f => f.parent === this.global.currentDerivable);
         break;
       case CONSTANT.TAB_GROUP:
         this.prevPageNo = this.$scope.pageNo;
         this.pushNavigationHistory(CONSTANT.TAB_GROUP);
         this.$scope.pageNo = 0;
-        this.$scope.mainDataUnpaged = mArray.filter(f => f.parent == this.global.currentGroup);
+        this.$scope.mainDataUnpaged = mArray.filter(f => f.parent === this.global.currentGroup);
         break;
       }
       this.updateGridSlicing();
@@ -96,7 +96,7 @@ export class GridController {
    * @param {number} symbolQuantity
    */
   sliceArray(symbolQuantity) {
-    if (this.global.isHome == 1 && this.$scope.pageNo != 0) {
+    if (this.global.isHome === 1 && this.$scope.pageNo != 0) {
       this.$scope.mainData = this.$scope.mainDataUnpaged.slice(parseInt(this.$scope.pageNo * symbolQuantity + 1), parseInt((this.$scope.pageNo + 1) * symbolQuantity + 1))
         .map(this.mapStyle);
     } else {
@@ -114,7 +114,7 @@ export class GridController {
    * @returns {Object} the symbol object
    */
   mapStyle(symb) {
-    if (symb.class == CONSTANT.CLASS_GROUP) {
+    if (symb.class === CONSTANT.CLASS_GROUP) {
       symb.style = 'gridGroup';
     } else {
       symb.style = 'gridType-' + symb.type;
@@ -181,7 +181,7 @@ export class GridController {
      */
   updateGridSlicing() {
     let sliceAmount;
-    if (this.global.isHome == 1 && this.$scope.pageNo == 0) {
+    if (this.global.isHome === 1 && this.$scope.pageNo === 0) {
       sliceAmount = this.global.gridQuantity - 1;
     } else {
       sliceAmount = this.global.gridQuantity - 2;
@@ -237,7 +237,7 @@ export class GridController {
     if (this.global.currentTab != CONSTANT.TAB_MAIN) {
       gridQuantity = x * y - 1;
     } else {
-      if (this.$scope.pageNo == 0) {
+      if (this.$scope.pageNo === 0) {
         gridQuantity = x * y;
       } else {
         gridQuantity = x * y - 1;
@@ -271,20 +271,20 @@ export class GridController {
     let theGridSize;
     if (orientation) {
       // In production
-      if (orientation == CONSTANT.PORTRAIT || orientation == CONSTANT.UPSIDE_DOWN) {
+      if (orientation === CONSTANT.PORTRAIT || orientation === CONSTANT.UPSIDE_DOWN) {
         theGridSize = [y, x];
         this.$scope.$apply();
-      } else if (orientation == CONSTANT.LANDSCAPE_LEFT || orientation == CONSTANT.LANDSCAPE_RIGHT) {
+      } else if (orientation === CONSTANT.LANDSCAPE_LEFT || orientation === CONSTANT.LANDSCAPE_RIGHT) {
         theGridSize = [x, y];
         this.$scope.$apply();
       }
     } else {
       // In development
       if (typeof screen.orientation != 'undefined') {
-        if (screen.orientation.type == CONSTANT.PORTRAIT_PRIMARY) {
+        if (screen.orientation.type === CONSTANT.PORTRAIT_PRIMARY) {
           theGridSize = [y, x];
           this.$scope.$apply();
-        } else if (screen.orientation.type == CONSTANT.LANDSCAPE_PRIMARY) {
+        } else if (screen.orientation.type === CONSTANT.LANDSCAPE_PRIMARY) {
           theGridSize = [x, y];
           this.$scope.$apply();
         }

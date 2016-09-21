@@ -10,9 +10,9 @@ import TTSManager from '../../services/tts';
 import LSManager from '../../services/localstorage';
 
 function setLocalStorageDataSet(set) {
-  if (set == 'full') {
+  if (set === 'full') {
     localStorage.phraseHistory = JSON.stringify(generatePhraseHistory(10));
-  } else if (set == 'empty') {
+  } else if (set === 'empty') {
     localStorage.phraseHistory = '';
   }
 }

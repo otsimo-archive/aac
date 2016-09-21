@@ -138,8 +138,8 @@ describe('aacApp.grid module', () => {
       gridCtrl = $controller(GridController, { $scope: {}, $global: g, $timeout: $timeout, TTSManager: tts, EventManager: event, LSManager: ls });
       let mainArray = gridCtrl.$scope.global.mainArray;
       mainArray.forEach((w) => {
-        if (w.class == CONSTANT.CLASS_DERIVABLE) {
-          expect(mainArray.filter((s) => s.parent == w.title)
+        if (w.class === CONSTANT.CLASS_DERIVABLE) {
+          expect(mainArray.filter((s) => s.parent === w.title)
               .length)
             .toBeGreaterThan(-1);
         }
@@ -151,8 +151,8 @@ describe('aacApp.grid module', () => {
       gridCtrl = $controller(GridController, { $scope: {}, $global: g, $timeout: $timeout, TTSManager: tts, EventManager: event, LSManager: ls });
       let mainArray = gridCtrl.$scope.global.mainArray;
       mainArray.forEach((w) => {
-        if (w.class == CONSTANT.CLASS_GROUP) {
-          expect(mainArray.filter((s) => s.parent == w.title)
+        if (w.class === CONSTANT.CLASS_GROUP) {
+          expect(mainArray.filter((s) => s.parent === w.title)
               .length)
             .toBeGreaterThan(-1);
         }
@@ -528,18 +528,18 @@ describe('aacApp.grid module', () => {
       possibleTabs.forEach(t => {
         let arrParents = [];
         gridCtrl.$scope.global.mainArray
-          .filter(a => a.class == t)
+          .filter(a => a.class === t)
           .forEach(p => {
             arrParents.push(p.slug);
           });
         arrParents.forEach(parent => {
           let filteredArr;
-          if (t == CONSTANT.TAB_DERIVABLE) {
+          if (t === CONSTANT.TAB_DERIVABLE) {
             gridCtrl.$scope.global.currentDerivable = parent;
-          } else if (t == CONSTANT.TAB_GROUP) {
+          } else if (t === CONSTANT.TAB_GROUP) {
             gridCtrl.$scope.global.currentGroup = parent;
           }
-          filteredArr = gridCtrl.$scope.global.mainArray.filter(fa => fa.parent == parent);
+          filteredArr = gridCtrl.$scope.global.mainArray.filter(fa => fa.parent === parent);
           gridCtrl.changeTab(t);
           expect(gridCtrl.$scope.mainDataUnpaged.length)
             .toBeGreaterThan(-1);

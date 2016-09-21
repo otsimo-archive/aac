@@ -52,7 +52,7 @@ export class AppController {
     let y = otsGridXY[1];
     // Check if the device is a phone
     // Limit the grid size to 6x4
-    if (deviceType() == 'phone') {
+    if (deviceType() === 'phone') {
       if (x > 6) { x = 6; }
       if (y > 4) { y = 4; }
     }
@@ -112,7 +112,7 @@ export class AppController {
    *
    */
   checkCapabilities() {
-    if (otsimo.capabilities.indexOf('tts') == -1) {
+    if (otsimo.capabilities.indexOf('tts') === -1) {
       document.getElementById('outdated')
         .style.display = 'block';
     }
