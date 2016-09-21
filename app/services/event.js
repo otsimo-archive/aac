@@ -9,21 +9,21 @@ export default class EventManager {
    * @param {string} currentPhrase
    */
   appPhrase(currentPhrase) {
-      otsimo.customevent('app:phrase', { 'phrase': currentPhrase });
+      otsimo.customevent('app:phrase', { phrase: currentPhrase });
     }
     /**
      * Custom Event: Sends the time interval changes in the recent tab
      * @param {number} timeInterval
      */
   appInterval(timeInterval) {
-      otsimo.customevent('app:time_interval', { 'recent_time_interval': timeInterval });
+      otsimo.customevent('app:time_interval', { recent_time_interval: timeInterval });
     }
     /**
      * Custom Event: Sends the derivable word when user holds on one.
      * @param {string} derived
      */
   appDerive(derived) {
-      otsimo.customevent('app:derive', { 'derivative': derived });
+      otsimo.customevent('app:derive', { derivative: derived });
     }
     /**
      * Custom Event: Sends a word that added to current pharase list
@@ -32,6 +32,6 @@ export default class EventManager {
      * @param {number} y grid width
      */
   appWord(word, x, y) {
-    otsimo.customevent('app:word', { 'word': word, 'grid_x': x, 'grid_y': y, 'grid_xy': x + 'x' + y });
+    otsimo.customevent('app:word', { word: word, grid_x: x, grid_y: y, grid_xy: x + 'x' + y });
   }
 }

@@ -20,7 +20,7 @@ export function returnTime() {
  */
 export function updateCurrentPhraseScroll() {
   return setTimeout(function () {
-    let element = document.getElementById("cPhrase");
+    let element = document.getElementById('cPhrase');
     if (element) {
       element.scrollLeft = element.scrollWidth - window.innerWidth;
     }
@@ -54,9 +54,9 @@ export function deviceType(w, h) {
   }
 
   if (total < 1500) {
-    type = "phone";
+    type = 'phone';
   } else {
-    type = "tablet";
+    type = 'tablet';
   }
   return type;
 }
