@@ -1,4 +1,5 @@
 import angular from 'angular'
+import ngsortable from 'ng-sortable'
 
 import headerModule from 'components/header/header'
 import phraseModule from 'components/phrase/phrase'
@@ -15,7 +16,8 @@ let aacApp = angular
     headerModule.name,
     phraseModule.name,
     gridModule.name,
-    'ngTouch'
+    'ngTouch',
+    'as.sortable'
   ]);
 aacApp.factory('$global', () => new Global());
 aacApp.factory('EventManager', () => new EventManager());

@@ -23,6 +23,9 @@ export default class PhraseController {
       this.ls = LSManager;
       // Initilize variables for controller.
       this.bstouchTimer = null;
+      this.dragListener = {
+        allowDuplicates: true
+      }
 
       // Call controllerInit
       this.controllerInit();
@@ -43,27 +46,26 @@ export default class PhraseController {
    * Submit - Save to History - Play the current phrase.
    */
   submitPhrase() {
-    if (this.$scope.global.currentPhrase.length > 0) {
-      let i = 0;
-      let currentPhraseString = '';
-      this.$scope.currentPhraseTransition = 'cpTransition';
-      this.ls.addPhrase2History(this.$scope.global.currentPhrase);
+      if (this.$scope.global.currentPhrase.length > 0) {
+        let i = 0;
+        let currentPhraseString = '';
+        this.$scope.currentPhraseTransition = 'cpTransition';
+        this.ls.addPhrase2History(this.$scope.global.currentPhrase);
 
-      this.$timeout(() => this.$scope.currentPhraseTransition = '', 300);
-      while (i < this.$scope.global.currentPhrase.length) {
-        currentPhraseString = currentPhraseString + this.$scope.global.currentPhrase[i].title + ' ';
-        i++;
+        this.$timeout(() => this.$scope.currentPhraseTransition = '', 300);
+        while (i < this.$scope.global.currentPhrase.length) {
+          currentPhraseString = currentPhraseString + this.$scope.global.currentPhrase[i].title + ' ';
+          i++;
+        }
+        //Send phrase as a string to otsimo.tts with spaces between words.
+        this.tts.speak(currentPhraseString);
+        this.events.appPhrase(currentPhraseString);
       }
-      //Send phrase as a string to otsimo.tts with spaces between words.
-      this.tts.speak(currentPhraseString);
-      this.events.appPhrase(currentPhraseString);
     }
-  }
-
-  /**
-   * TouchStart function for backspace button.
-   * Check backspace hold action in 500 m-secs.
-   */
+    /**
+     * TouchStart function for backspace button.
+     * Check backspace hold action in 500 m-secs.
+     */
   bsTouchStart() {
     let bsElem = document.getElementById('bs');
     if (bsElem) {
