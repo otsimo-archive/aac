@@ -1,4 +1,4 @@
-import { returnTime } from 'js/utils';
+import { returnTime, updateCurrentPhraseScroll } from 'js/utils';
 
 /**
  * KeyboardController
@@ -11,13 +11,16 @@ export default class KeyboardController {
    *
    * @param {any} $scope
    * @param {any} $global
+   * @param {any} $timeout
+   * @param {TTSManager} TTSManager
    *
    * @memberOf RecentController
    */
-  constructor($scope, $global, $timeout) {
+  constructor($scope, $global, $timeout, TTSManager) {
     this.$scope = $scope;
     this.$scope.global = $global;
     this.$timeout = $timeout;
+    this.tts = TTSManager;
     this.fastTypeTimer = null;
     // Initilize variables for controller.
 
@@ -90,9 +93,8 @@ export default class KeyboardController {
         inputWord.phraseIndex = this.phraseIndex++;
         this.$scope.global.currentPhrase.push(inputWord);
       }
-
-      // updateCurrentPhraseScroll(); || utils
-      //otsimo.tts.speak(inputWord.title); || manager
+      updateCurrentPhraseScroll();
+      this.tts.speak(inputWord.title);
       typeInput.value = "";
     }
   }
@@ -179,4 +181,4 @@ export default class KeyboardController {
 }
 
 // Service Dependency Injection
-KeyboardController.$inject = ['$scope', '$global', '$timeout'];
+KeyboardController.$inject = ['$scope', '$global', '$timeout', 'TTSManager'];
