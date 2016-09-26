@@ -23,6 +23,7 @@ export default class KeyboardController {
     this.tts = TTSManager;
     this.event = EventManager;
     this.fastTypeTimer = null;
+    this.suggestions = false;
     // Initilize variables for controller.
 
     // Call controllerInit
@@ -121,10 +122,27 @@ export default class KeyboardController {
             this.suggestWordsByInput(typeInput.value);
           } else {
             this.suggestionList = [];
+            this.suggestions = false;
           }
         }, 300);
       }
     }
+  }
+
+  /**
+   * Handles, creates the data to set suggestions by,
+   * current keyboard input.
+   */
+  suggestWordsByInput(searchLetter) {
+    this.suggestions = true;
+    searchLetter = searchLetter.replace(" ", "-");
+    this.suggestionList = this.$scope.global.mainSlugArray.filter((word) => {
+      return word.substring(0, searchLetter.length) == searchLetter;
+    });
+    if (this.suggestionList.length > 0) {
+      this.suggestionList.sort(sortByLength);
+    }
+    //this.$scope.$apply();
   }
 
   /**
@@ -142,6 +160,7 @@ export default class KeyboardController {
       document.getElementById("typeInput").value = "";
     }
     this.suggestionList = [];
+    this.suggestions = false;
   }
 
   /**
@@ -160,17 +179,6 @@ export default class KeyboardController {
         this.$scope.global.currentPhrase.push(wordObj2Push);
       }
     });
-  }
-
-  suggestWordsByInput(searchLetter) {
-    searchLetter = searchLetter.replace(" ", "-");
-    this.suggestionList = this.$scope.global.mainSlugArray.filter((word) => {
-      return word.substring(0, searchLetter.length) == searchLetter;
-    });
-    if (this.suggestionList.length > 0) {
-      this.suggestionList.sort(sortByLength);
-    }
-    this.$scope.$apply();
   }
 
   checkWordInDB(word) {
