@@ -1,15 +1,17 @@
 <div ng-controller="phrase-controller as phrase" class="phraseHolder">
-  <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" ng-click="phrase.submitPhrase()">
+  <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}"  data-as-sortable="phrase.dragListener" data-ng-model="global.currentPhrase" ng-click="phrase.submitPhrase()">
     <div class="currentPhraseScroll">
       <span ng-if="global.currentPhrase.length > 0">
-        <div class="wordItem" ng-repeat="word in global.currentPhrase track by $index">
-          <span ng-if="!word.slugExist">
+        <div class="wordItem" data-ng-repeat="word in global.currentPhrase track by ($index + word.slug)" data-as-sortable-item>
+          <div data-as-sortable-item-handle>
+            <span ng-if="!word.slugExist">
               <img ng-src="{{global.symbolPath}}/{{word.slug}}.svg" />
               <div class="wordText">{{word.title}}</div>
-          </span>
-          <span ng-if="word.slugExist">
+            </span>
+            <span ng-if="word.slugExist">
               <div class="wordTextSolo">{{word.title}}</div>
-          </span>
+            </span>
+          </div>
         </div>
       </span>
     </div>
