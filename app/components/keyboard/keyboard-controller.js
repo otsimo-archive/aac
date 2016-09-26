@@ -18,7 +18,7 @@ export default class KeyboardController {
     this.$scope = $scope;
     this.$scope.global = $global;
     this.$timeout = $timeout;
-
+    this.fastTypeTimer = null;
     // Initilize variables for controller.
 
     // Call controllerInit
@@ -107,13 +107,17 @@ export default class KeyboardController {
     } else {
       let typeInput = document.getElementById("typeInput");
       if (typeInput) {
-        this.$timeout(() => {
+        // If there is a timeout, clear it.
+        if (this.fastTypeTimer) {
+          this.$timeout.cancel(this.fastTypeTimer);
+        }
+        this.fastTypeTimer = this.$timeout(() => {
           if (typeInput.value.length > 1) {
             this.suggestWordsByInput(typeInput.value);
           } else {
             this.suggestionList = [];
           }
-        }, 10);
+        }, 300);
       }
     }
   }
