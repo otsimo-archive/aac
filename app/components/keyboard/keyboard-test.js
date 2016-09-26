@@ -181,4 +181,13 @@ describe('aacApp.keyboard module', () => {
       expect(cp[cp.length - 1].title).toBe("cxz");
     });
   });
+
+  describe('submitCurrentInput', () => {
+    it('should empty the current input', () => {
+      let inp = document.createElement("input");
+      document.body.innerHTML = document.body.innerHTML + '<input id="typeInput" value="asd"/>';
+      keyboardCtrl.submitCurrentInput();
+      expect(document.getElementById("typeInput").value.length).toBe(0);
+    });
+  });
 });

@@ -84,8 +84,8 @@ export default class KeyboardController {
     let typeInput = document.getElementById("typeInput");
     if (typeInput.value) {
       let inputWord = {};
-      inputWord.title = typeInput.value.toLowerCase();
-      inputWord.slug = typeInput.value.toLowerCase().replace(" ", "-");
+      inputWord.title = typeInput.value.toLocaleLowerCase();
+      inputWord.slug = typeInput.value.toLocaleLowerCase().replace(" ", "-");
       let checkExist = this.checkWordInDB(inputWord.slug);
       inputWord.slugExist = !checkExist;
 
