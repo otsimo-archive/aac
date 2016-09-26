@@ -146,4 +146,16 @@ describe('aacApp.keyboard module', () => {
       expect(keyboardCtrl.checkWordInDB("adasdasdasd")).toBe(false);
     });
   });
+
+  describe('clickSuggestion', () => {
+    it('should push the clicked word object to the currentPhrase', () => {
+      keyboardCtrl.clickSuggestion("dummy1");
+      expect(keyboardCtrl.$scope.global.currentPhrase[0].title).toBe("dummy1");
+      keyboardCtrl.clickSuggestion("dummy2");
+      keyboardCtrl.clickSuggestion("dummy3");
+      expect(keyboardCtrl.$scope.global.currentPhrase.length).toBe(3);
+      expect(keyboardCtrl.$scope.global.currentPhrase[1].title).toBe("dummy2");
+      expect(keyboardCtrl.$scope.global.currentPhrase[2].title).toBe("dummy3");
+    });
+  });
 });
