@@ -164,7 +164,8 @@ export default class KeyboardController {
   }
 
   /**
-   * Recognizes the string given by the current word package.
+   * Recognizes the string given by the current word package before pushing.
+   * Then pushes the pieces indivicually.
    */
   recognizeWord(word) {
     // this function can be better algorithmicly!
@@ -181,10 +182,16 @@ export default class KeyboardController {
     });
   }
 
+  /**
+   * Checks if the given word in the mainSlugArray
+   */
   checkWordInDB(word) {
     return this.$scope.global.mainSlugArray.contains(word);
   }
 
+  /**
+   * Comparission function for .sort() prototype.
+   */
   sortByLength(a, b) {
     if (a.length > b.length) {
       return 1;
