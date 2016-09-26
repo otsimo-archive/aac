@@ -40,6 +40,15 @@ function generateSymbol(length, normal, derivable, group) {
   return symbArray;
 }
 
+Array.prototype.contains = function (obj) {
+  return this.indexOf(obj) > -1;
+};
+
+String.prototype.contains = function (it) {
+  return this.indexOf(it) != -1;
+};
+
+
 describe('aacApp.keyboard module', () => {
   beforeEach(module(keyboard.name));
   let $controller, $timeout;
@@ -54,7 +63,8 @@ describe('aacApp.keyboard module', () => {
   beforeEach(() => {
     g = new Global();
     event = {
-      appPhrase: function () {}
+      appPhrase: function () {},
+      appWord: function () {}
     };
     tts = {
       speak: function () {}
@@ -96,5 +106,36 @@ describe('aacApp.keyboard module', () => {
       keyboardCtrl.$timeout.flush();
       expect(keyboardCtrl.suggestionList.length).toBe(0);
     });
+    it('should submit the current input when keycode is 13 (enter)', () => {
+      keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
+      let ev = {};
+      ev.keyCode = 13; // enter
+      let inp = document.createElement("input");
+      document.body.innerHTML = document.body.innerHTML + '<input id="typeInput" value="asd"/>';
+      keyboardCtrl.enterSubmit(ev);
+      expect(document.getElementById('typeInput').value.length).toBe(0);
+    });
   });
+
+
+  describe('suggestWordsByInput', () => {
+    it('should set suggestionList by filtering given substring in mainSlugArray', () => {
+      keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
+      keyboardCtrl.$scope.global.mainSlugArray = ['dummy1', 'dummy2', "abdummy3"];
+      keyboardCtrl.suggestWordsByInput("ab");
+      expect(keyboardCtrl.suggestionList.length).toBe(1);
+      expect(keyboardCtrl.suggestionList[0]).toBe("abdummy3")
+      keyboardCtrl.suggestWordsByInput("dummy");
+      expect(keyboardCtrl.suggestionList.length).toBe(2);
+    });
+    it('should set suggestionList by sorting words from short to long', () => {
+      keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
+      keyboardCtrl.$scope.global.mainSlugArray = ['dummy333', 'dummy4444', "dummy1", "dummy22", "dummy55555"];
+      keyboardCtrl.suggestWordsByInput("dummy");
+      expect(keyboardCtrl.suggestionList.length).toBe(5);
+      expect(keyboardCtrl.suggestionList[0]).toBe("dummy1");
+      expect(keyboardCtrl.suggestionList[keyboardCtrl.suggestionList.length - 1]).toBe("dummy55555");
+    });
+  });
+
 });
