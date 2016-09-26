@@ -1,5 +1,5 @@
 import angular from 'angular';
-import keyboardController from './keyboard-controller'
+import KeyboardController from './keyboard-controller'
 
 let keyboardModule = angular.module('aacApp.keyboard', []);
 
@@ -9,6 +9,6 @@ keyboardModule.directive('keyboard', function () {
   };
 });
 
-keyboardModule.controller('keyboard-controller', keyboardController);
+keyboardModule.controller('keyboard-controller', KeyboardController);
 
 export default keyboardModule;
