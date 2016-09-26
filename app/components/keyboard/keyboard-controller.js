@@ -16,11 +16,12 @@ export default class KeyboardController {
    *
    * @memberOf RecentController
    */
-  constructor($scope, $global, $timeout, TTSManager) {
+  constructor($scope, $global, $timeout, EventManager, TTSManager) {
     this.$scope = $scope;
     this.$scope.global = $global;
     this.$timeout = $timeout;
     this.tts = TTSManager;
+    this.event = EventManager;
     this.fastTypeTimer = null;
     // Initilize variables for controller.
 
@@ -95,6 +96,8 @@ export default class KeyboardController {
       }
       updateCurrentPhraseScroll();
       this.tts.speak(inputWord.title);
+      let gs = this.$scope.global.gridSize;
+      this.event.appWord(inputWord.title, gs[0], gs[1]);
       typeInput.value = "";
     }
   }
@@ -181,4 +184,4 @@ export default class KeyboardController {
 }
 
 // Service Dependency Injection
-KeyboardController.$inject = ['$scope', '$global', '$timeout', 'TTSManager'];
+KeyboardController.$inject = ['$scope', '$global', '$timeout', 'EventManager', 'TTSManager'];
