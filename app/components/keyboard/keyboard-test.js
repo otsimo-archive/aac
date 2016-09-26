@@ -138,4 +138,12 @@ describe('aacApp.keyboard module', () => {
     });
   });
 
+  describe('checkWordInDB', () => {
+    it('should check if a word is in the db (mainSlugArray)', () => {
+      keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
+      keyboardCtrl.$scope.global.mainSlugArray = ['dummy1', 'dummy2', "abdummy3"];
+      expect(keyboardCtrl.checkWordInDB("dummy1")).toBe(true);
+      expect(keyboardCtrl.checkWordInDB("adasdasdasd")).toBe(false);
+    });
+  });
 });
