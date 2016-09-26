@@ -135,6 +135,7 @@ export default class KeyboardController {
    */
   suggestWordsByInput(searchLetter) {
     this.suggestions = true;
+    searchLetter = searchLetter.toLocaleLowerCase();
     searchLetter = searchLetter.replace(" ", "-");
     this.suggestionList = this.$scope.global.mainSlugArray.filter((word) => {
       return word.substring(0, searchLetter.length) == searchLetter;
@@ -142,7 +143,6 @@ export default class KeyboardController {
     if (this.suggestionList.length > 0) {
       this.suggestionList.sort(this.sortByLength);
     }
-    //this.$scope.$apply();
   }
 
   /**
@@ -183,10 +183,6 @@ export default class KeyboardController {
 
   checkWordInDB(word) {
     return this.$scope.global.mainSlugArray.contains(word);
-  }
-
-  getValidSlug(slug) {
-    return this.$scope.global.mainSlugArray[slug];
   }
 
   sortByLength(a, b) {
