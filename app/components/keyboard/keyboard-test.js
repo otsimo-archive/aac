@@ -158,4 +158,27 @@ describe('aacApp.keyboard module', () => {
       expect(keyboardCtrl.$scope.global.currentPhrase[2].title).toBe("dummy3");
     });
   });
+
+  describe('sortByLength', () => {
+    it('should compare given 2 input text-s length', () => {
+      expect(keyboardCtrl.sortByLength("dummy1", "dummy22")).toBe(-1);
+      expect(keyboardCtrl.sortByLength("dummy11", "dummy22")).toBe(0);
+      expect(keyboardCtrl.sortByLength("dummy11", "dummy2")).toBe(1);
+    });
+  });
+
+  describe('recognizeWord', () => {
+    it('should recognize the given string by white spaces and push', () => {
+      keyboardCtrl.recognizeWord("asd qwe zxc");
+      let cp = keyboardCtrl.$scope.global.currentPhrase;
+      expect(cp[cp.length - 3].title).toBe("asd");
+      expect(cp[cp.length - 2].title).toBe("qwe");
+      expect(cp[cp.length - 1].title).toBe("zxc");
+      keyboardCtrl.$scope.global.mainSlugArray = ['dsa', 'ewq', "cxz"];
+      keyboardCtrl.recognizeWord("dsa ewq cxz");
+      expect(cp[cp.length - 3].title).toBe("dsa");
+      expect(cp[cp.length - 2].title).toBe("ewq");
+      expect(cp[cp.length - 1].title).toBe("cxz");
+    });
+  });
 });
