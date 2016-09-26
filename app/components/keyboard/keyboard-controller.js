@@ -140,7 +140,7 @@ export default class KeyboardController {
       return word.substring(0, searchLetter.length) == searchLetter;
     });
     if (this.suggestionList.length > 0) {
-      this.suggestionList.sort(sortByLength);
+      this.suggestionList.sort(this.sortByLength);
     }
     //this.$scope.$apply();
   }
@@ -187,6 +187,16 @@ export default class KeyboardController {
 
   getValidSlug(slug) {
     return this.$scope.global.mainSlugArray[slug];
+  }
+
+  sortByLength(a, b) {
+    if (a.length > b.length) {
+      return 1;
+    }
+    if (a.length < b.length) {
+      return -1;
+    }
+    return 0;
   }
 
 }
