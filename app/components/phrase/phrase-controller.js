@@ -24,7 +24,7 @@ export default class PhraseController {
       // Initilize variables for controller.
       this.bstouchTimer = null;
       this.dragListener = {
-        allowDuplicates: true
+        allowDuplicates: true,
       }
 
       // Call controllerInit
@@ -39,12 +39,11 @@ export default class PhraseController {
    * Remove Last Word from the current phrase.
    */
   removeLastWord() {
-    this.$scope.global.currentPhrase.pop();
-  }
-
-  /**
-   * Submit - Save to History - Play the current phrase.
-   */
+      this.$scope.global.currentPhrase.pop();
+    }
+    /**
+     * Submit - Save to History - Play the current phrase.
+     */
   submitPhrase() {
       if (this.$scope.global.currentPhrase.length > 0) {
         let i = 0;
