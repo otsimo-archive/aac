@@ -264,7 +264,6 @@ export default class GridController {
    * @param {string} orientation Orientation name
    */
   checkOrientation(orientation) {
-    console.log('Orientation Changed: ' + orientation);
     let gridSizeTemp = this.global.gridSizeStatic;
     let x = gridSizeTemp[0];
     let y = gridSizeTemp[1];
@@ -273,27 +272,24 @@ export default class GridController {
       // In production
       if (orientation === CONSTANT.PORTRAIT || orientation === CONSTANT.UPSIDE_DOWN) {
         theGridSize = [y, x];
-        this.$scope.$apply();
       } else if (orientation === CONSTANT.LANDSCAPE_LEFT || orientation === CONSTANT.LANDSCAPE_RIGHT) {
         theGridSize = [x, y];
-        this.$scope.$apply();
       }
     } else {
       // In development
+      console.log('Orientation Changed: ' + screen.orientation.type);
       if (typeof screen.orientation !== undefined) {
         if (screen.orientation.type === CONSTANT.PORTRAIT_PRIMARY) {
           theGridSize = [y, x];
-          this.$scope.$apply();
         } else if (screen.orientation.type === CONSTANT.LANDSCAPE_PRIMARY) {
           theGridSize = [x, y];
-          this.$scope.$apply();
         }
       } else {
         theGridSize = [x, y];
-        this.$scope.$apply();
       }
     }
     this.global.gridSize = theGridSize;
+    this.$scope.$apply();
   }
 }
 // Service Dependency Injection

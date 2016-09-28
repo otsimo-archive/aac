@@ -33,12 +33,11 @@ export default class AppController {
       this.checkCapabilities();
       this.setSettings();
       this.runApp();
-
-      // Listen the changes on the resolution and
-      // orientation from the device.
-      this.resolutionListener();
-
     });
+
+    // Listen the changes on the resolution and
+    // orientation from the device.
+    this.resolutionListener();
   }
 
   /**
@@ -58,8 +57,12 @@ export default class AppController {
     }
     // Set grid size and check device orientation.
     this.$scope.global.changeGridSize(x, y);
-    this.$scope.global.checkOrientation();
 
+    if (otsimo.width < otsimo.height) {
+      this.$scope.global.checkOrientation("portrait");
+    } else {
+      this.$scope.global.checkOrientation("landscape-left");
+    }
     // Load symbol data to global array variable.
     this.loadSymbols();
   }
@@ -147,7 +150,11 @@ export default class AppController {
    */
   resolutionListener() {
     otsimo.onResolutionChanged((width, height, orientation) => {
-      this.$scope.global.checkOrientation(orientation);
+      if (width < height) {
+        this.$scope.global.checkOrientation("portrait");
+      } else {
+        this.$scope.global.checkOrientation("landscape-left");
+      }
     });
   }
 
