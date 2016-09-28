@@ -38,11 +38,6 @@ module.exports = {
       sourcePath
     ]
   },
-  devServer: {
-    progress: true,
-    contentBase: outputPath,
-    outputPath: outputPath
-  },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor'],

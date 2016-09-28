@@ -4,7 +4,7 @@
   "description": "Otsimo symbol based AAC",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress",
-    "staging": "sh publish.sh staging",
+    "staging": "node version.js; sh publish.sh staging",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --port 3001 --host 0.0.0.0",
     "start": "npm run server",
@@ -44,6 +44,7 @@
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
+    "fs": "0.0.1-security",
     "isparta-loader": "^2.0.0",
     "jasmine-core": "^2.4.1",
     "jasmine-jquery": "^2.1.1",
