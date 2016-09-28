@@ -119,8 +119,7 @@ export default class AppController {
    */
   checkCapabilities() {
     if (otsimo.capabilities.indexOf('tts') === -1) {
-      document.getElementById('outdated')
-        .style.display = 'block';
+      document.getElementById('outdated').style.display = 'block';
     }
   }
 
@@ -151,9 +150,9 @@ export default class AppController {
   resolutionListener() {
     otsimo.onResolutionChanged((width, height, orientation) => {
       if (width < height) {
-        this.$scope.global.checkOrientation("portrait");
+        this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
       } else {
-        this.$scope.global.checkOrientation("landscape-left");
+        this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
       }
     });
   }
