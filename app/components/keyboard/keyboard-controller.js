@@ -58,7 +58,6 @@ export default class KeyboardController {
   showKeyboardFocused() {
     let typeInput = document.getElementById("typeInput");
     if (typeInput) {
-      typeInput.removeAttribute('readonly');
       document.body.style.height = (parseInt(window.innerHeight) / 2) + 'px';
       document.body.scrollTop = document.documentElement.scrollTop = 0;
       this.$timeout(() => {

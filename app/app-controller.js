@@ -57,12 +57,12 @@ export default class AppController {
     }
     // Set grid size and check device orientation.
     this.$scope.global.changeGridSize(x, y);
-
     if (otsimo.width < otsimo.height) {
-      this.$scope.global.checkOrientation("portrait");
+      this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
     } else {
-      this.$scope.global.checkOrientation("landscape-left");
+      this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
     }
+
     // Load symbol data to global array variable.
     this.loadSymbols();
   }
