@@ -280,7 +280,7 @@ export default class GridController {
       }
     } else {
       // In development
-      if (typeof screen.orientation !== undefined) {
+      if (typeof screen.orientation !== 'undefined') {
         if (screen.orientation.type === CONSTANT.PORTRAIT_PRIMARY) {
           theGridSize = [y, x];
           this.$scope.$apply();

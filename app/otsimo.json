@@ -1,10 +1,11 @@
 {
     "unique_name": "aac",
-    "version": "0.1.289",
+    "version": "1.0.1",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [
-        "en"
+        "en",
+        "tr"
     ],
     "supported_orientations": [
         "all"
