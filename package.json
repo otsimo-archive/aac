@@ -4,6 +4,7 @@
   "description": "Otsimo symbol based AAC",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress",
+    "staging": "node version.js; svgo -f app/symbols/en; svgo -f app/symbols/tr; sh publish.sh staging",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --port 3001 --host 0.0.0.0",
     "start": "npm run server",
@@ -56,6 +57,7 @@
     "ng-annotate-webpack-plugin": "^0.1.3",
     "protractor": "^4.0.0",
     "standard": "^7.1.2",
+    "svgo": "^0.7.1",
     "webpack": "2.1.0-beta.19",
     "webpack-dev-server": "2.1.0-beta.0"
   },

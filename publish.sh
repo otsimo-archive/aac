@@ -7,8 +7,8 @@ if [ "$1" = "login" ];then
     exit
 fi
 
-gulp build
-cd dist/prod
+npm run build
+cd dist
 gversion=$(jq .version --raw-output otsimo.json)
 gname=$(jq .unique_name --raw-output otsimo.json)
 
