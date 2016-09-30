@@ -40,14 +40,14 @@
             ],
             "logo": "i18n/en/logo_en_450x300.png",
             "icon": "i18n/en/icon_en_512.png",
-            "images": [],
+            "images": ["i18n/en/ss1_en_1024x768.png", "i18n/en/ss2_en_1024x768.png", "i18n/en/ss3_en_1024x768.png"],
             "assets": []
         },
         {
             "language": "tr",
             "visible_name": "Otsimo AAC",
             "summary": "Otizmli çocuklar için cümle oluşturma uygulaması",
-            "description": "Otsimo AAC, konuşamakta zorluk çeken otizmli çocukların, ekrandaki kelimelere dokunarak cümle oluşturmasını sağlayan bir uygulamasdır. Otsimo AAC, resim değiş-tokuş iletişim sistemini kullanır.",
+            "description": "Otsimo AAC, konuşmakta zorluk çeken otizmli çocukların, ekrandaki kelimelere dokunarak cümle oluşturmasını sağlayan bir uygulamasdır. Otsimo AAC, resim değiş-tokuş iletişim sistemini kullanır.",
             "keywords": [
                 "aac",
                 "pecs",
@@ -56,7 +56,7 @@
             ],
             "logo": "i18n/tr/logo_tr_450x300.png",
             "icon": "i18n/tr/icon_tr_512.png",
-            "images": [],
+            "images": ["i18n/tr/ss1_tr_1024x768.png", "i18n/tr/ss2_tr_1024x768.png", "i18n/tr/ss3_tr_1024x768.png"],
             "assets": []
         }
     ]
