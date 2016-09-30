@@ -1,6 +1,6 @@
 {
     "unique_name": "aac",
-    "version": "0.1.288",
+    "version": "0.1.289",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [
@@ -40,7 +40,11 @@
             ],
             "logo": "i18n/en/logo_en_450x300.png",
             "icon": "i18n/en/icon_en_512.png",
-            "images": ["i18n/en/ss1_en_1024x768.png", "i18n/en/ss2_en_1024x768.png", "i18n/en/ss3_en_1024x768.png"],
+            "images": [
+                "i18n/en/ss1_en_1024x768.png",
+                "i18n/en/ss2_en_1024x768.png",
+                "i18n/en/ss3_en_1024x768.png"
+            ],
             "assets": []
         },
         {
@@ -56,7 +60,11 @@
             ],
             "logo": "i18n/tr/logo_tr_450x300.png",
             "icon": "i18n/tr/icon_tr_512.png",
-            "images": ["i18n/tr/ss1_tr_1024x768.png", "i18n/tr/ss2_tr_1024x768.png", "i18n/tr/ss3_tr_1024x768.png"],
+            "images": [
+                "i18n/tr/ss1_tr_1024x768.png",
+                "i18n/tr/ss2_tr_1024x768.png",
+                "i18n/tr/ss3_tr_1024x768.png"
+            ],
             "assets": []
         }
     ]
