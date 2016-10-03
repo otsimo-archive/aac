@@ -297,9 +297,14 @@ export default class GridController {
     let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
     let cp = this.$scope.global.currentPhrase;
     if (cp.length > 0 && wo2p.type == "verb") {
-      let cpt = cp[0].title;
-      if (cpt == "ben" || cpt == "sen" || cpt == "o") {
-        wo2p.title = turkishConjunctor(wo2p.title, "simZam", cp[0].title);
+      let i = cp.length;
+      while (i > 0) {
+        let cpt = cp[i - 1].title;
+        if (cpt == "ben" || cpt == "sen" || cpt == "o") {
+          wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
+          break;
+        }
+        i--;
       }
     }
     this.$scope.global.currentPhrase.push(wo2p);
