@@ -153,6 +153,9 @@ export default class KeyboardController {
     let wordObj2Push = {};
     wordObj2Push.title = wordSlug.replace("-", " ");
     wordObj2Push.slug = wordSlug;
+    if (this.isVerb(wordSlug)) {
+      wordObj2Push.type = "verb";
+    }
     wordObj2Push.phraseIndex = this.phraseIndex++;
     this.$scope.global.pushToCurrentPhrase(wordObj2Push);
 
@@ -188,6 +191,24 @@ export default class KeyboardController {
    */
   checkWordInDB(word) {
     return this.$scope.global.mainSlugArray.contains(word);
+  }
+
+  /**
+   * Checks if the given word is a verb.
+   */
+  isVerb(word) {
+    let words = this.$scope.global.mainArray.filter((w) => {
+      return w.slug == word;
+    });
+    if (words.length > 0) {
+      if (words[0].type == "verb") {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
   /**
