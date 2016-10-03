@@ -40,6 +40,7 @@ export default class GridController {
     this.global.checkOrientation = this.checkOrientation.bind(this);
     this.global.changeGridSize = this.changeGridSize.bind(this);
     this.global.updateGridQuantity = this.updateGridQuantity.bind(this);
+    this.global.pushToCurrentPhrase = this.pushToCurrentPhrase.bind(this);
   }
 
   /**
@@ -289,6 +290,10 @@ export default class GridController {
     }
     this.global.gridSize = theGridSize;
     this.$scope.$apply();
+  }
+
+  pushToCurrentPhrase(wordObj2Push) {
+    this.$scope.global.currentPhrase.push(wordObj2Push);
   }
 }
 // Service Dependency Injection

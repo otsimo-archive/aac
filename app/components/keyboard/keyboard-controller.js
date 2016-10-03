@@ -94,7 +94,7 @@ export default class KeyboardController {
         this.recognizeWord(inputWord.title);
       } else {
         inputWord.phraseIndex = this.phraseIndex++;
-        this.$scope.global.currentPhrase.push(inputWord);
+        this.$scope.global.pushToCurrentPhrase(inputWord);
       }
       updateCurrentPhraseScroll();
       this.tts.speak(inputWord.title);
@@ -154,7 +154,7 @@ export default class KeyboardController {
     wordObj2Push.title = wordSlug.replace("-", " ");
     wordObj2Push.slug = wordSlug;
     wordObj2Push.phraseIndex = this.phraseIndex++;
-    this.$scope.global.currentPhrase.push(wordObj2Push);
+    this.$scope.global.pushToCurrentPhrase(wordObj2Push);
 
     let typeInput = document.getElementById("typeInput");
     if (typeInput) {
@@ -178,7 +178,7 @@ export default class KeyboardController {
         wordObj2Push.slug = wordPiece;
         wordObj2Push.slugExist = !this.checkWordInDB(wordObj2Push.slug);
         wordObj2Push.phraseIndex = this.phraseIndex++;
-        this.$scope.global.currentPhrase.push(wordObj2Push);
+        this.$scope.global.pushToCurrentPhrase(wordObj2Push);
       }
     });
   }

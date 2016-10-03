@@ -1,3 +1,4 @@
+import turkishConjunctor from '../../js/fiil';
 import { updateCurrentPhraseScroll } from '../../js/utils';
 import * as CONSTANT from '../../js/constants';
 
@@ -115,7 +116,7 @@ export default class SymbolController {
    * @param {Object} wordObj
    */
   clickWord(wordObj) {
-    this.$scope.global.currentPhrase.push(wordObj);
+    this.$scope.global.pushToCurrentPhrase(wordObj);
     updateCurrentPhraseScroll();
     this.tts.speak(wordObj.title);
     this.events.appWord(wordObj.title, this.$scope.global.gridSize[0], this.$scope.global.gridSize[1]);
