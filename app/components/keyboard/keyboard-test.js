@@ -193,4 +193,21 @@ describe('aacApp.keyboard module', () => {
       expect(document.getElementById("typeInput").value.length).toBe(0);
     });
   });
+  describe('isVerb', () => {
+    it('should check the type of the word if its verb or not', () => {
+      keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
+      keyboardCtrl.$scope.global.mainArray = [{
+        title: "asd",
+        slug: "asd",
+        type: "verb"
+      }, {
+        title: "qwe",
+        slug: "qwe",
+        type: "noun"
+      }];
+      expect(keyboardCtrl.isVerb("asd")).toBe(true);
+      expect(keyboardCtrl.isVerb("qwe")).toBe(false);
+    });
+  });
+
 });
