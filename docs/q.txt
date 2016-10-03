@@ -1,7 +1,0 @@
-services like $scope, $global, $http are facilitated to use by controller functions wth;
-
-this.$http = $http;
-
-is there a better way?
-
------
