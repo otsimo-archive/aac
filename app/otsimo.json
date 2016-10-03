@@ -1,10 +1,6 @@
 {
     "unique_name": "aac",
-<<<<<<< HEAD
     "version": "1.0.30",
-=======
-    "version": "1.0.1",
->>>>>>> master
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [

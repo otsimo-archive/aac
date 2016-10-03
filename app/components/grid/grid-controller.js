@@ -277,12 +277,7 @@ export default class GridController {
       }
     } else {
       // In development
-<<<<<<< HEAD
-      console.log('Orientation Changed: ' + screen.orientation.type);
-      if (typeof screen.orientation !== undefined) {
-=======
       if (typeof screen.orientation !== 'undefined') {
->>>>>>> master
         if (screen.orientation.type === CONSTANT.PORTRAIT_PRIMARY) {
           theGridSize = [y, x];
         } else if (screen.orientation.type === CONSTANT.LANDSCAPE_PRIMARY) {
