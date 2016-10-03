@@ -1,4 +1,3 @@
-import turkishConjunctor from '../../js/fiil';
 import { updateCurrentPhraseScroll } from '../../js/utils';
 import * as CONSTANT from '../../js/constants';
 

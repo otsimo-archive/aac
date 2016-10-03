@@ -1,3 +1,4 @@
+import { turkishConjunctor } from '../../js/fiil';
 import * as CONSTANT from '../../js/constants';
 
 /**
@@ -293,7 +294,15 @@ export default class GridController {
   }
 
   pushToCurrentPhrase(wordObj2Push) {
-    this.$scope.global.currentPhrase.push(wordObj2Push);
+    let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
+    let cp = this.$scope.global.currentPhrase;
+    if (cp.length > 0 && wo2p.type == "verb") {
+      let cpt = cp[0].title;
+      if (cpt == "ben" || cpt == "sen" || cpt == "o") {
+        wo2p.title = turkishConjunctor(wo2p.title, "simZam", cp[0].title);
+      }
+    }
+    this.$scope.global.currentPhrase.push(wo2p);
   }
 }
 // Service Dependency Injection

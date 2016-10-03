@@ -4,12 +4,8 @@
   "description": "Otsimo symbol based AAC",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress",
-<<<<<<< HEAD
-    "staging": "node version.js; svgo -f app/symbols/en; svgo -f app/symbols/tr; sh publish.sh staging",
-=======
     "staging": "node version.js; svgo -f app/symbols/en/images; svgo -f app/symbols/tr/images; sh publish.sh staging",
     "publish": "node version.js; svgo -f app/symbols/en/images; svgo -f app/symbols/tr/images; sh publish.sh",
->>>>>>> master
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --port 3001 --host 0.0.0.0",
     "start": "npm run server",
