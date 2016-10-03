@@ -61,6 +61,9 @@ describe('aacApp.symbol module', () => {
       appDerive: function () {},
       appWord: function () {}
     };
+    g.pushToCurrentPhrase = function (obj) {
+      symbolCtrl.$scope.global.currentPhrase.push(obj);
+    }
     symbolCtrl = $controller(SymbolController, { $scope: {}, $global: g, $timeout: $timeout, TTSManager: tts, EventManager: event });
     $controller(HeaderController, { $scope: {}, $global: g });
   });

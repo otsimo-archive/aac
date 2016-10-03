@@ -62,6 +62,9 @@ describe('aacApp.keyboard module', () => {
 
   beforeEach(() => {
     g = new Global();
+    g.pushToCurrentPhrase = function (obj) {
+      keyboardCtrl.$scope.global.currentPhrase.push(obj);
+    }
     event = {
       appPhrase: function () {},
       appWord: function () {}

@@ -64,6 +64,9 @@ describe('aacApp.grid module', () => {
     ls = new LSManager();
     g = new Global();
     g.changeCurrentTab = function () {}
+    g.pushToCurrentPhrase = function (obj) {
+      gridCtrl.$scope.global.currentPhrase.push(obj);
+    }
   });
 
   describe('grid controller', () => {

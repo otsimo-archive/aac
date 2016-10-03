@@ -21,6 +21,9 @@ describe('aacApp.header module', () => {
     g = new Global();
     g.changeTab = function () {}
     ls = new LSManager();
+    g.pushToCurrentPhrase = function (obj) {
+      headerCtrl.$scope.global.currentPhrase.push(obj);
+    }
     headerCtrl = $controller(HeaderController, { $scope: {}, $global: g });
     $controller(GridController, { $scope: {}, $global: g, LSManager: ls });
   });

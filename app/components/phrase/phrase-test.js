@@ -86,6 +86,9 @@ describe('aacApp.phrase module', () => {
       speak: function () {}
     };
     ls = new LSManager();
+    g.pushToCurrentPhrase = function (obj) {
+      phraseCtrl.$scope.global.currentPhrase.push(obj);
+    }
     g.changeTab = function () {}
       //$controller(dependentController, {$scope:{},$global:g});
   });
