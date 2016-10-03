@@ -8,6 +8,8 @@ export default class Global {
     this.currentPhrase = [];
     this.mainArray = [];
     this.mainSlugArray = [];
+    this.mainSlugMap = [];
+    this.phraseIndex = 1;
     this.isHome = 1;
     this.currentTab = '';
     this.currentPage = '';
