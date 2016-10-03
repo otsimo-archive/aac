@@ -1,3 +1,4 @@
+import { turkishConjunctor } from './js/fiil';
 import { deviceType } from './js/utils';
 import * as CONSTANT from './js/constants';
 /**
@@ -105,6 +106,14 @@ export default class AppController {
             global.mainArray = resp.symbols;
             global.mainArray.forEach(obj => {
               global.mainSlugArray.push(obj.slug);
+              global.mainSlugMap[obj.slug] = obj.slug;
+              if (obj.type == "verb" && otsimo.child.language == "tr") {
+                let possessors = ["ben", "sen", "o"];
+                possessors.forEach((p) => {
+                  let syn = turkishConjunctor(obj.slug, "simZam", p);
+                  global.mainSlugMap[syn] = obj.slug;
+                });
+              }
             });
             global.changeCurrentTab(CONSTANT.TAB_MAIN);
           })
