@@ -122,9 +122,9 @@ describe('aacApp.keyboard module', () => {
 
 
   describe('suggestWordsByInput', () => {
-    it('should set suggestionList by filtering given substring in mainSlugArray', () => {
+    it('should set suggestionList by filtering given substring in extendedSlugArray', () => {
       keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
-      keyboardCtrl.$scope.global.mainSlugArray = ['dummy1', 'dummy2', "abdummy3"];
+      keyboardCtrl.$scope.global.extendedSlugArray = ['dummy1', 'dummy2', "abdummy3"];
       keyboardCtrl.suggestWordsByInput("ab");
       expect(keyboardCtrl.suggestionList.length).toBe(1);
       expect(keyboardCtrl.suggestionList[0]).toBe("abdummy3")
@@ -133,7 +133,7 @@ describe('aacApp.keyboard module', () => {
     });
     it('should set suggestionList by sorting words from short to long', () => {
       keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
-      keyboardCtrl.$scope.global.mainSlugArray = ['dummy333', 'dummy4444', "dummy1", "dummy22", "dummy55555"];
+      keyboardCtrl.$scope.global.extendedSlugArray = ['dummy333', 'dummy4444', "dummy1", "dummy22", "dummy55555"];
       keyboardCtrl.suggestWordsByInput("dummy");
       expect(keyboardCtrl.suggestionList.length).toBe(5);
       expect(keyboardCtrl.suggestionList[0]).toBe("dummy1");
@@ -144,11 +144,8 @@ describe('aacApp.keyboard module', () => {
   describe('checkWordInDB', () => {
     it('should check if a word is in the db (mainSlugArray)', () => {
       keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
-      keyboardCtrl.$scope.global.mainSlugArray = ['dummy1', 'dummy2', "abdummy3"];
+      keyboardCtrl.$scope.global.extendedSlugArray = ['dummy1', 'dummy2', "abdummy3"];
       // Set the array in the slug map
-      keyboardCtrl.$scope.global.mainSlugArray.forEach((a) => {
-        keyboardCtrl.$scope.global.mainSlugMap[a] = a;
-      });
       expect(keyboardCtrl.checkWordInDB("dummy1")).toBe(true);
       expect(keyboardCtrl.checkWordInDB("adasdasdasd")).toBe(false);
     });
