@@ -145,6 +145,10 @@ describe('aacApp.keyboard module', () => {
     it('should check if a word is in the db (mainSlugArray)', () => {
       keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
       keyboardCtrl.$scope.global.mainSlugArray = ['dummy1', 'dummy2', "abdummy3"];
+      // Set the array in the slug map
+      keyboardCtrl.$scope.global.mainSlugArray.forEach((a) => {
+        keyboardCtrl.$scope.global.mainSlugMap[a] = a;
+      });
       expect(keyboardCtrl.checkWordInDB("dummy1")).toBe(true);
       expect(keyboardCtrl.checkWordInDB("adasdasdasd")).toBe(false);
     });
