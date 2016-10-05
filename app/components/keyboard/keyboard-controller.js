@@ -142,6 +142,7 @@ export default class KeyboardController {
       return word.substring(0, searchLetter.length) == searchLetter;
     });
     if (this.suggestionList.length > 0) {
+      this.suggestionList = this.suggestionList.filter((it, i, ar) => ar.indexOf(it) === i);
       this.suggestionList.sort(this.sortByLength);
     }
   }
