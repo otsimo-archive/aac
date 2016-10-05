@@ -9,6 +9,7 @@ export default class Global {
     this.mainArray = [];
     this.extendedArray = [];
     this.extendedSlugArray = [];
+    this.extendedSlugMap = [];
     this.phraseIndex = 1;
     this.isHome = 1;
     this.currentTab = '';

@@ -152,7 +152,7 @@ export default class KeyboardController {
   clickSuggestion(wordSlug) {
     let wordObj2Push = {};
     wordObj2Push.title = wordSlug.replace("-", " ");
-    wordObj2Push.slug = wordSlug;
+    wordObj2Push.slug = this.$scope.global.extendedSlugMap[wordSlug];
     if (this.isVerb(wordSlug)) {
       wordObj2Push.type = "verb";
     }
@@ -215,7 +215,7 @@ export default class KeyboardController {
    * Turn suggested word into its slug
    */
   slugSuggest(suggestWord) {
-    return suggestWord.replace(" ", "-");
+    return this.$scope.global.extendedSlugMap[suggestWord];
   }
 
   /**

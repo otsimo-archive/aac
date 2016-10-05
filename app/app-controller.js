@@ -122,12 +122,14 @@ export default class AppController {
       global.mainArray.forEach(objMirror => {
         obj = JSON.parse(JSON.stringify(objMirror));
         global.extendedArray.push(obj);
+        global.extendedSlugMap[obj.title] = obj.slug;
         // Extend synonyms
         if (obj.synonym.length) {
           obj.synonym.forEach(s => {
             obj.title = s;
             let pushObj = JSON.parse(JSON.stringify(obj));
             global.extendedArray.push(pushObj);
+            global.extendedSlugMap[pushObj.title] = obj.slug;
           });
         }
         // Extend conjuncted
@@ -137,6 +139,7 @@ export default class AppController {
             obj.title = turkishConjunctor(obj.slug, "simZam", p);
             let pushObj = JSON.parse(JSON.stringify(obj));
             global.extendedArray.push(pushObj);
+            global.extendedSlugMap[pushObj.title] = obj.slug;
           });
         }
       });
