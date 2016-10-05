@@ -190,7 +190,8 @@ export default class KeyboardController {
    * Checks if the given word in the mainSlugArray
    */
   checkWordInDB(word) {
-    return this.$scope.global.mainSlugArray.contains(word);
+    let possibleSlug = this.$scope.global.mainSlugMap[word];
+    return this.$scope.global.mainSlugArray.contains(possibleSlug);
   }
 
   /**
