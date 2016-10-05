@@ -2,8 +2,8 @@
     <div class="suggestions">
       <div class="suggestedWord" ng-repeat="suggestionWord in keyboard.suggestionList track by $index"
            ng-click="keyboard.clickSuggestion(suggestionWord)">
-        <img ng-src="{{global.symbolPath}}/{{suggestionWord}}.svg" />
-        <div class="wordText">{{suggestionWord.replace("-", " ")}}</div>
+        <img ng-src="{{global.symbolPath}}/{{keyboard.slugSuggest(suggestionWord)}}.svg" />
+        <div class="wordText">{{suggestionWord}}</div>
       </div>
     </div>
 

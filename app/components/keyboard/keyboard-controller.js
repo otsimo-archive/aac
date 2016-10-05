@@ -138,7 +138,7 @@ export default class KeyboardController {
     this.suggestions = true;
     searchLetter = searchLetter.toLocaleLowerCase();
     searchLetter = searchLetter.replace(" ", "-");
-    this.suggestionList = this.$scope.global.mainSlugArray.filter((word) => {
+    this.suggestionList = this.$scope.global.extendedSlugArray.filter((word) => {
       return word.substring(0, searchLetter.length) == searchLetter;
     });
     if (this.suggestionList.length > 0) {
@@ -190,8 +190,7 @@ export default class KeyboardController {
    * Checks if the given word in the mainSlugArray
    */
   checkWordInDB(word) {
-    let possibleSlug = this.$scope.global.mainSlugMap[word];
-    return this.$scope.global.mainSlugArray.contains(possibleSlug);
+    return this.$scope.global.extendedSlugArray.contains(word);
   }
 
   /**
@@ -210,6 +209,13 @@ export default class KeyboardController {
     } else {
       return false;
     }
+  }
+
+  /**
+   * Turn suggested word into its slug
+   */
+  slugSuggest(suggestWord) {
+    return suggestWord.replace(" ", "-");
   }
 
   /**
