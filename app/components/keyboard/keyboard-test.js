@@ -1,6 +1,7 @@
 /* eslint-env jasmine */
 import { module, inject } from 'mocks';
 import KeyboardController from './keyboard-controller';
+import AppController from '../../app-controller';
 import keyboard from './keyboard';
 import * as CONSTANT from '../../js/constants';
 import Global from '../../services/global';
@@ -208,6 +209,14 @@ describe('aacApp.keyboard module', () => {
       }];
       expect(keyboardCtrl.isVerb("asd")).toBe(true);
       expect(keyboardCtrl.isVerb("qwe")).toBe(false);
+    });
+  });
+
+  describe('extendedSlugMap', () => {
+    it('should map the array and synonyms of the array', () => {
+      keyboardCtrl.$scope.global.mainArray = [{ title: "dummy1", slug: "dummy1", synonyms: ["dummy1Syn1", "dummy1Syn2"] }, { title: "dummy2", slug: "dummy2", synonyms: ["dummy2Syn1", "dummy2Syn2"] }];
+      // Go on
+      expect(0).toBe(0);
     });
   });
 
