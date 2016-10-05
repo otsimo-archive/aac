@@ -7,8 +7,8 @@ export default class Global {
   constructor() {
     this.currentPhrase = [];
     this.mainArray = [];
-    this.mainSlugArray = [];
-    this.mainSlugMap = [];
+    this.extendedArray = [];
+    this.extendedSlugArray = [];
     this.phraseIndex = 1;
     this.isHome = 1;
     this.currentTab = '';

@@ -104,22 +104,46 @@ export default class AppController {
         this.$http.get(symbolDataPath)
           .success(resp => {
             global.mainArray = resp.symbols;
-            global.mainArray.forEach(obj => {
-              global.mainSlugArray.push(obj.slug);
-              global.mainSlugMap[obj.slug] = obj.slug;
-              if (obj.type == "verb" && otsimo.child.language == "tr") {
-                let possessors = ["ben", "sen", "o"];
-                possessors.forEach((p) => {
-                  let syn = turkishConjunctor(obj.slug, "simZam", p);
-                  global.mainSlugMap[syn] = obj.slug;
-                });
-              }
-            });
+            this.initExtendedSymbols();
             global.changeCurrentTab(CONSTANT.TAB_MAIN);
           })
           .error(console.error);
       })
       .error(console.error);
+  }
+
+  /**
+   * Initilizes the extended symbol array for phrase view.
+   *
+   */
+  initExtendedSymbols(obj) {
+    let global = this.$scope.global;
+    if (global.mainArray) {
+      global.mainArray.forEach(objMirror => {
+        obj = JSON.parse(JSON.stringify(objMirror));
+        global.extendedArray.push(obj);
+        // Extend synonyms
+        if (obj.synonym.length) {
+          obj.synonym.forEach(s => {
+            obj.title = s;
+            let pushObj = JSON.parse(JSON.stringify(obj));
+            global.extendedArray.push(pushObj);
+          });
+        }
+        // Extend conjuncted
+        if (obj.type == "verb" && otsimo.child.language == "tr") {
+          let possessors = ["ben", "sen", "o"];
+          possessors.forEach(p => {
+            obj.title = turkishConjunctor(obj.slug, "simZam", p);
+            let pushObj = JSON.parse(JSON.stringify(obj));
+            global.extendedArray.push(pushObj);
+          });
+        }
+      });
+    }
+    global.extendedArray.forEach(ext => {
+      global.extendedSlugArray.push(ext.title);
+    });
   }
 
   /**
@@ -168,4 +192,4 @@ export default class AppController {
 
 }
 // Service Dependency Injection
-AppController.$inject = ['$scope', '$global', '$http', 'TTSManager'];
+AppController.$inject = ['$scope', '$global', '$http', 'TTSManager'];;
