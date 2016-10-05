@@ -116,11 +116,11 @@ export default class AppController {
    * Initilizes the extended symbol array for phrase view.
    *
    */
-  initExtendedSymbols(obj) {
+  initExtendedSymbols() {
     let global = this.$scope.global;
     if (global.mainArray) {
       global.mainArray.forEach(objMirror => {
-        obj = JSON.parse(JSON.stringify(objMirror));
+        let obj = JSON.parse(JSON.stringify(objMirror));
         global.extendedArray.push(obj);
         global.extendedSlugMap[obj.title] = obj.slug;
         // Extend synonyms
