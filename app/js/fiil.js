@@ -338,5 +338,9 @@ function addPossessive(verb, possessor, cekimEki) {
 }
 
 export function turkishConjunctor(fiil, cekimEki, possessor) {
-  return addPossessive(fiilCek(fiil, cekimEki), possessor, cekimEki);
+  if (possessor) {
+    return addPossessive(fiilCek(fiil, cekimEki), possessor, cekimEki);
+  } else {
+    return fiilCek(fiil, cekimEki);
+  }
 }
