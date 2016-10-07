@@ -9,7 +9,6 @@ import Global from 'services/global';
 import EventManager from 'services/event';
 import TTSManager from 'services/tts';
 import LSManager from 'services/localstorage';
-import OtsimoHandler from 'services/otsimo-handler';
 
 function randomString(len, charSet) {
   charSet = charSet || 'abcdefghijklmnopqrstuvwxyz';
@@ -55,8 +54,9 @@ String.prototype.contains = function (it) {
 describe('aacApp.main module', () => {
   beforeEach(module("aacApp"));
   let $controller, $timeout;
-  let keyboardCtrl;
-  let g, event, tts, ls;
+  let appCtrl;
+  let g, event, tts, ls, ots;
+
   beforeEach(inject((_$controller_, _$timeout_) => {
     // The injector unwraps the underscores (_) from around the parameter names when matching
     $controller = _$controller_;
@@ -78,13 +78,20 @@ describe('aacApp.main module', () => {
     ls = new LSManager();
     g.changeTab = function () {}
       //$controller(dependentController, {$scope:{},$global:g});
+    ots = {
+      init: function () {
+        return {
+          run: function () {},
+          onResolutionChanged: function () {}
+        }
+      }
+    };
   });
 
   describe('app controller', () => {
     it('should be defined', () => {
-      // appCtrl = $controller(AppController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
-      // expect(appCtrl).toBeDefined();
-      expect(0).toBe(0);
+      appCtrl = $controller(AppController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts, OtsimoHandler: ots });
+      expect(appCtrl).toBeDefined();
     });
   });
 });
