@@ -143,10 +143,13 @@ export default class AppController {
           if (lang == "tr") {
             let possessors = ["ben", "sen", "o"];
             possessors.forEach(p => {
-              obj.title = turkishConjunctor(obj.slug, "simZam", p);
-              let pushObj = JSON.parse(JSON.stringify(obj));
-              global.extendedArray.push(pushObj);
-              global.extendedSlugMap[pushObj.title] = obj.slug;
+              CONSTANT.CONJTYPE["tr"].forEach(c => {
+                obj.title = turkishConjunctor(obj.slug, c, p);
+                console.log(obj);
+                let pushObj = JSON.parse(JSON.stringify(obj));
+                global.extendedArray.push(pushObj);
+                global.extendedSlugMap[pushObj.title] = obj.slug;
+              });
             });
           } else if (lang == "en") {
             //Set english verb conjunction.

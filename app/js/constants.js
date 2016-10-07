@@ -19,3 +19,7 @@ export const UPSIDE_DOWN = 'upside-down';
 export const LANDSCAPE_PRIMARY = 'landscape-primary';
 export const LANDSCAPE_LEFT = 'landscape-left';
 export const LANDSCAPE_RIGHT = 'landspace-right';
+export const CONJTYPE = {
+  tr: ["gorGecZam", "ogrGecZam", "simZam", "gelZam", "genZam", "gerKip", "dilKip", "istKip", "emrKip"],
+  en: []
+}
