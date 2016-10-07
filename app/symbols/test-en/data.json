@@ -5,42 +5,48 @@
             "slug": "i",
             "type": "noun",
             "class": "derive",
-            "parent": "main"
+            "parent": "main",
+            "synonym": []
         },
         {
             "title": "we",
             "slug": "we",
             "type": "noun",
             "class": "word",
-            "parent": "i"
+            "parent": "i",
+            "synonym": []
         },
         {
             "title": "they",
             "slug": "they",
             "type": "noun",
             "class": "word",
-            "parent": "i"
+            "parent": "i",
+            "synonym": []
         },
         {
             "title": "it",
             "slug": "it",
             "type": "noun",
             "class": "word",
-            "parent": "i"
+            "parent": "i",
+            "synonym": []
         },
         {
             "title": "you",
             "slug": "you",
             "type": "noun",
             "class": "derive",
-            "parent": "main"
+            "parent": "main",
+            "synonym": []
         },
         {
             "title": "it",
             "slug": "it",
             "type": "noun",
             "class": "word",
-            "parent": "you"
+            "parent": "you",
+            "synonym": []
         }
     ]
 }
