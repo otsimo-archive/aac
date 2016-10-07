@@ -125,7 +125,7 @@ describe('aacApp.keyboard module', () => {
   describe('suggestWordsByInput', () => {
     it('should set suggestionList by filtering given substring in extendedSlugArray', () => {
       keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
-      keyboardCtrl.$scope.global.extendedSlugArray = ['dummy1', 'dummy2', "abdummy3"];
+      keyboardCtrl.$scope.global.extendedTitleArray = ['dummy1', 'dummy2', "abdummy3"];
       keyboardCtrl.suggestWordsByInput("ab");
       expect(keyboardCtrl.suggestionList.length).toBe(1);
       expect(keyboardCtrl.suggestionList[0]).toBe("abdummy3")
@@ -134,7 +134,7 @@ describe('aacApp.keyboard module', () => {
     });
     it('should set suggestionList by sorting words from short to long', () => {
       keyboardCtrl = $controller(KeyboardController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts });
-      keyboardCtrl.$scope.global.extendedSlugArray = ['dummy333', 'dummy4444', "dummy1", "dummy22", "dummy55555"];
+      keyboardCtrl.$scope.global.extendedTitleArray = ['dummy333', 'dummy4444', "dummy1", "dummy22", "dummy55555"];
       keyboardCtrl.suggestWordsByInput("dummy");
       expect(keyboardCtrl.suggestionList.length).toBe(5);
       expect(keyboardCtrl.suggestionList[0]).toBe("dummy1");

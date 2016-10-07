@@ -191,7 +191,6 @@ export default class KeyboardController {
    * Checks if the given word in the mainSlugArray
    */
   checkWordInDB(word) {
-    console.log(word);
     return this.$scope.global.extendedSlugArray.contains(word);
   }
 
@@ -199,7 +198,7 @@ export default class KeyboardController {
    * Checks if the given word is a verb.
    */
   isVerb(word) {
-    let words = this.$scope.global.extendedArray.filter((w) => {
+    let words = this.$scope.global.mainArray.filter((w) => {
       return w.slug == word;
     });
     if (words.length > 0) {
