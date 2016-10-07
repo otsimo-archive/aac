@@ -149,7 +149,8 @@ export default class AppController {
       });
     }
     global.extendedArray.forEach(ext => {
-      global.extendedSlugArray.push(ext.title);
+      global.extendedTitleArray.push(ext.title);
+      global.extendedSlugArray.push(ext.slug);
     });
   }
 

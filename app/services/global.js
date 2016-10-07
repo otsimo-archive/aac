@@ -8,6 +8,7 @@ export default class Global {
     this.currentPhrase = [];
     this.mainArray = [];
     this.extendedArray = [];
+    this.extendedTitleArray = [];
     this.extendedSlugArray = [];
     this.extendedSlugMap = [];
     this.phraseIndex = 1;

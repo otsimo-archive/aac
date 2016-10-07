@@ -86,7 +86,7 @@ export default class KeyboardController {
     if (typeInput.value) {
       let inputWord = {};
       inputWord.title = typeInput.value.toLocaleLowerCase();
-      inputWord.slug = typeInput.value.toLocaleLowerCase().replace(" ", "-");
+      inputWord.slug = this.$scope.global.extendedSlugMap[inputWord.title];
       let checkExist = this.checkWordInDB(inputWord.slug);
       inputWord.slugExist = !checkExist;
 
@@ -138,7 +138,7 @@ export default class KeyboardController {
     this.suggestions = true;
     searchLetter = searchLetter.toLocaleLowerCase();
     searchLetter = searchLetter.replace(" ", "-");
-    this.suggestionList = this.$scope.global.extendedSlugArray.filter((word) => {
+    this.suggestionList = this.$scope.global.extendedTitleArray.filter((word) => {
       return word.substring(0, searchLetter.length) == searchLetter;
     });
     if (this.suggestionList.length > 0) {
@@ -179,7 +179,7 @@ export default class KeyboardController {
       if (wordPiece) {
         let wordObj2Push = {};
         wordObj2Push.title = wordPiece;
-        wordObj2Push.slug = wordPiece;
+        wordObj2Push.slug = this.$scope.global.extendedSlugMap[wordPiece];
         wordObj2Push.slugExist = !this.checkWordInDB(wordObj2Push.slug);
         wordObj2Push.phraseIndex = this.phraseIndex++;
         this.$scope.global.pushToCurrentPhrase(wordObj2Push);
@@ -191,6 +191,7 @@ export default class KeyboardController {
    * Checks if the given word in the mainSlugArray
    */
   checkWordInDB(word) {
+    console.log(word);
     return this.$scope.global.extendedSlugArray.contains(word);
   }
 
@@ -198,7 +199,7 @@ export default class KeyboardController {
    * Checks if the given word is a verb.
    */
   isVerb(word) {
-    let words = this.$scope.global.mainArray.filter((w) => {
+    let words = this.$scope.global.extendedArray.filter((w) => {
       return w.slug == word;
     });
     if (words.length > 0) {
