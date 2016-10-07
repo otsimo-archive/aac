@@ -1,4 +1,5 @@
 import { turkishConjunctor } from './js/fiil';
+import { englishConjunctor } from './js/verb';
 import { deviceType } from './js/utils';
 import * as CONSTANT from './js/constants';
 /**

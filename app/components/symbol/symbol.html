@@ -1,4 +1,10 @@
 <div ng-controller="symbol-controller as symbol" class="gridTemplate">
+  <div id="verbConj">
+    <div ng-repeat="conj in symbol.conjArr track by $index">
+      <div>{{conj}}</div>
+    </div>
+  </div>
+
     <span ng-repeat="main in mainData track by $index">
       <div id="item-{{$index}}" class="gridItem {{main.style}}" ng-touchstart="symbol.wordTouchStart(main, $index)" ng-touchend="symbol.wordTouchEnd(main, $index)">
         <img ng-src="{{global.symbolPath}}/{{main.slug}}.svg">

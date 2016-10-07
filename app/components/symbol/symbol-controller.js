@@ -1,3 +1,5 @@
+import { turkishConjunctor } from '../../js/fiil';
+import { englishConjunctor } from '../../js/verb';
 import { updateCurrentPhraseScroll } from '../../js/utils';
 import * as CONSTANT from '../../js/constants';
 
@@ -50,10 +52,22 @@ export default class SymbolController {
         /*
         Category animation killing in touchEnd:
         */
+      } else if (wordObj.type === "verb") {
+        this.openVerbConjunction(wordObj);
       }
       this.clickAnimStop();
     }, 300);
     this.clickAnimStart(index);
+  }
+
+  openVerbConjunction(wordObj) {
+    let conjType = ["gorGecZam", "ogrGecZam", "simZam", "gelZam", "genZam", "gerKip", "dilKip", "istKip", "emrKip"];
+    this.conjArr = [];
+    conjType.forEach(c => {
+      this.conjArr.push(turkishConjunctor(wordObj.title, c));
+    });
+    document.getElementById("verbConj").style.display = "block";
+    return 1;
   }
 
   /**
@@ -65,7 +79,13 @@ export default class SymbolController {
   wordTouchEnd(wordObj, index) {
     this.$timeout.cancel(this.wordTouchTimer);
     if (this.currentlyHolding === wordObj.title && wordObj.class !== CONSTANT.CLASS_GROUP) {
-      this.clickWord(wordObj);
+      if (wordObj.type == "verb") {
+        if (this.wordTouchTimer.$$state.status == 2) {
+          this.clickWord(wordObj);
+        }
+      } else {
+        this.clickWord(wordObj);
+      }
     }
     if (wordObj.class === 'group') {
       this.$scope.global.currentGroup = wordObj.slug;
