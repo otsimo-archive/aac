@@ -169,7 +169,7 @@ function fiilCek(fiil, cekimEki) {
       if (lastHarf(fiil) == lastSesliHarf(fiil)) {
         return fiil + "r";
       } else {
-        return fiil + lastSesliHarf(fiil) + "r" + "*";
+        return fiil + lastSesliHarf(fiil) + "r";
       }
 
     } //Switch
