@@ -272,7 +272,7 @@ export function addPossessive(verb, possessor, cekimEki) {
     } else if (cekimEki == "simZam") {
       return verb + "sun";
     } else if (cekimEki == "gelZam") {
-      return verb.substring(0, verb.length - 1) + "ğ" + add + "n";
+      return verb + "s" + add + "n";
     } else if (cekimEki == "genZam") {
       return verb + "s" + add + "n";
     } else if (cekimEki == "gerKip") {
