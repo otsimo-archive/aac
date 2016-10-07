@@ -63,16 +63,22 @@ export default class SymbolController {
   openVerbConjunction(wordObj) {
     this.conjArr = [];
     CONSTANT.CONJTYPE["tr"].forEach(c => {
-      this.conjArr.push(turkishConjunctor(wordObj.title, c));
+      let conjable = {
+        title: turkishConjunctor(wordObj.title, c),
+        tence: c
+      };
+      this.conjArr.push(conjable);
     });
     document.getElementById("verbConj").style.display = "block";
     return 1;
   }
 
-  clickConjuncted(wordTitle) {
+  clickConjuncted(wordTitle, tence) {
     let wordObj = {};
     wordObj.title = wordTitle;
     wordObj.slug = this.$scope.global.extendedSlugMap[wordTitle];
+    wordObj.type = "verb";
+    wordObj.tence = tence;
     this.$scope.global.pushToCurrentPhrase(wordObj);
   }
 
