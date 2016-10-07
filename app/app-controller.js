@@ -13,14 +13,16 @@ export default class AppController {
    * @param {any} $global
    * @param {angular.IHttpService} $http
    * @param {TTSManager} TTSManager
+   * @param {any} OtsimoHandler
    *
    * @memberOf AppController
    */
-  constructor($scope, $global, $http, TTSManager) {
+  constructor($scope, $global, $http, TTSManager, OtsimoHandler) {
     this.$scope = $scope;
     this.$scope.global = $global;
     this.$http = $http;
     this.tts = TTSManager;
+    this.otsimo = OtsimoHandler.init();
     // Initilize variables for controller.
 
     // Call controllerInit
@@ -29,7 +31,7 @@ export default class AppController {
 
   controllerInit() {
     // Create or facilitate new functions for $scope or $global service.
-    otsimo.run(() => {
+    this.otsimo.run(() => {
 
       this.checkCapabilities();
       this.setSettings();
@@ -46,7 +48,7 @@ export default class AppController {
    */
   runApp() {
     // Get grid size X and Y from otsimo settings object.
-    let otsGridSize = otsimo.settings.gridsize.split('grid-')[1];
+    let otsGridSize = this.otsimo.settings.gridsize.split('grid-')[1];
     let otsGridXY = otsGridSize.split('x');
     let x = otsGridXY[0];
     let y = otsGridXY[1];
@@ -58,7 +60,7 @@ export default class AppController {
     }
     // Set grid size and check device orientation.
     this.$scope.global.changeGridSize(x, y);
-    if (otsimo.width < otsimo.height) {
+    if (this.otsimo.width < this.otsimo.height) {
       this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
     } else {
       this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
@@ -74,10 +76,10 @@ export default class AppController {
    */
   setSettings() {
 
-    this.$scope.global.language = otsimo.child.language;
+    this.$scope.global.language = this.otsimo.child.language;
     // Colors & styles
-    this.$scope.headerColor = otsimo.kv.headerColor;
-    this.$scope.generalFont = otsimo.kv.generalFont;
+    this.$scope.headerColor = this.otsimo.kv.headerColor;
+    this.$scope.generalFont = this.otsimo.kv.generalFont;
     document.getElementById('header')
       .style.background = this.$scope.headerColor;
     document.body.style.fontSize = this.$scope.generalFont;
@@ -92,14 +94,14 @@ export default class AppController {
    */
   loadSymbols() {
     let global = this.$scope.global;
-    let metadataPath = `${otsimo.kv.symbolPack}/metadata.json`;
+    let metadataPath = `${this.otsimo.kv.symbolPack}/metadata.json`;
     this.$http.get(metadataPath)
       .success((resp) => {
         this.metadata = resp;
-        global.symbolPath = `${otsimo.kv.symbolPack}/${resp.images}`;
+        global.symbolPath = `${this.otsimo.kv.symbolPack}/${resp.images}`;
         this.tts.setVoiceDriver(resp.voiceId);
 
-        let symbolDataPath = `${otsimo.kv.symbolPack}/${resp.data}`
+        let symbolDataPath = `${this.otsimo.kv.symbolPack}/${resp.data}`
 
         this.$http.get(symbolDataPath)
           .success(resp => {
@@ -133,7 +135,7 @@ export default class AppController {
           });
         }
         // Extend conjuncted
-        if (obj.type == "verb" && otsimo.child.language == "tr") {
+        if (obj.type == "verb" && this.otsimo.child.language == "tr") {
           let possessors = ["ben", "sen", "o"];
           possessors.forEach(p => {
             obj.title = turkishConjunctor(obj.slug, "simZam", p);
@@ -154,7 +156,7 @@ export default class AppController {
    *
    */
   checkCapabilities() {
-    if (otsimo.capabilities.indexOf('tts') === -1) {
+    if (this.otsimo.capabilities.indexOf('tts') === -1) {
       document.getElementById('outdated').style.display = 'block';
     }
   }
@@ -164,21 +166,21 @@ export default class AppController {
    *
    */
   setUIText() {
-    this.$scope.pageText1 = otsimo.kv.pageText1;
-    this.$scope.pageText2 = otsimo.kv.pageText2;
-    this.$scope.pageText3 = otsimo.kv.pageText3;
-    this.$scope.pageText4 = otsimo.kv.pageText4;
-    this.$scope.pageText5 = otsimo.kv.pageText5;
-    this.$scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
-    this.$scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
-    this.$scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
-    this.$scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
-    this.$scope.previousText = otsimo.kv.previousText;
-    this.$scope.nextText = otsimo.kv.nextText;
-    this.$scope.backText = otsimo.kv.backText;
-    this.$scope.removeHoldColor = otsimo.kv.removeHoldColor;
-    this.$scope.removeNormalColor = otsimo.kv.removeNormalColor;
-    this.$scope.startTyping = otsimo.kv.startTyping;
+    this.$scope.pageText1 = this.otsimo.kv.pageText1;
+    this.$scope.pageText2 = this.otsimo.kv.pageText2;
+    this.$scope.pageText3 = this.otsimo.kv.pageText3;
+    this.$scope.pageText4 = this.otsimo.kv.pageText4;
+    this.$scope.pageText5 = this.otsimo.kv.pageText5;
+    this.$scope.timeIntervalText1 = this.otsimo.kv.timeIntervalText1;
+    this.$scope.timeIntervalText2 = this.otsimo.kv.timeIntervalText2;
+    this.$scope.timeIntervalText3 = this.otsimo.kv.timeIntervalText3;
+    this.$scope.timeIntervalText4 = this.otsimo.kv.timeIntervalText4;
+    this.$scope.previousText = this.otsimo.kv.previousText;
+    this.$scope.nextText = this.otsimo.kv.nextText;
+    this.$scope.backText = this.otsimo.kv.backText;
+    this.$scope.removeHoldColor = this.otsimo.kv.removeHoldColor;
+    this.$scope.removeNormalColor = this.otsimo.kv.removeNormalColor;
+    this.$scope.startTyping = this.otsimo.kv.startTyping;
   }
 
   /**
@@ -186,7 +188,7 @@ export default class AppController {
    *
    */
   resolutionListener() {
-    otsimo.onResolutionChanged((width, height, orientation) => {
+    this.otsimo.onResolutionChanged((width, height, orientation) => {
       if (width < height) {
         this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
       } else {
@@ -197,4 +199,4 @@ export default class AppController {
 
 }
 // Service Dependency Injection
-AppController.$inject = ['$scope', '$global', '$http', 'TTSManager'];;
+AppController.$inject = ['$scope', '$global', '$http', 'TTSManager', 'OtsimoHandler'];

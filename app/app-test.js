@@ -9,6 +9,7 @@ import Global from 'services/global';
 import EventManager from 'services/event';
 import TTSManager from 'services/tts';
 import LSManager from 'services/localstorage';
+import OtsimoHandler from 'services/otsimo-handler';
 
 function randomString(len, charSet) {
   charSet = charSet || 'abcdefghijklmnopqrstuvwxyz';
