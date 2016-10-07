@@ -82,7 +82,9 @@ describe('aacApp.main module', () => {
       init: function () {
         return {
           run: function () {},
-          onResolutionChanged: function () {}
+          onResolutionChanged: function () {},
+          kv: {},
+          child: {}
         }
       }
     };
@@ -94,4 +96,26 @@ describe('aacApp.main module', () => {
       expect(appCtrl).toBeDefined();
     });
   });
+
+  describe('setUIText', () => {
+    it('should set texts and variables from otsimo to scope', () => {
+      appCtrl = $controller(AppController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts, OtsimoHandler: ots });
+      appCtrl.otsimo.kv.pageText1 = "pagetextmock";
+      appCtrl.setUIText();
+      expect(appCtrl.$scope.pageText1).toBe("pagetextmock");
+    });
+  });
+
+  describe('language', () => {
+    it('should be set!', () => {
+      appCtrl = $controller(AppController, { $scope: {}, $global: g, $timeout: $timeout, EventManager: event, TTSManager: tts, OtsimoHandler: ots });
+      appCtrl.otsimo.child.language = "tr";
+      appCtrl.setSettings();
+      expect(appCtrl.$scope.global.language).toBe("tr");
+      appCtrl.otsimo.child.language = "en";
+      appCtrl.setSettings();
+      expect(appCtrl.$scope.global.language).toBe("en");
+    });
+  });
+
 });

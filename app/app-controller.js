@@ -80,9 +80,11 @@ export default class AppController {
     // Colors & styles
     this.$scope.headerColor = this.otsimo.kv.headerColor;
     this.$scope.generalFont = this.otsimo.kv.generalFont;
-    document.getElementById('header')
-      .style.background = this.$scope.headerColor;
-    document.body.style.fontSize = this.$scope.generalFont;
+    let header = document.getElementById('header');
+    if (header) {
+      header.style.background = this.$scope.headerColor;
+      document.body.style.fontSize = this.$scope.generalFont;
+    }
 
     this.setUIText();
 
