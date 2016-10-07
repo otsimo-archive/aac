@@ -240,7 +240,7 @@ function fiilCek(fiil, cekimEki) {
 }
 
 
-function addPossessive(verb, possessor, cekimEki) {
+export function addPossessive(verb, possessor, cekimEki) {
   let lsh = lastSesliHarf(verb);
   let add = multipleCheck(lsh, ["a", "ı", "o", "u"]) ? "ı" : "i";
   switch (possessor) {

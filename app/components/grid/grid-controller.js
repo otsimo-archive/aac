@@ -1,4 +1,4 @@
-import { turkishConjunctor } from '../../js/fiil';
+import { turkishConjunctor, addPossessive } from '../../js/fiil';
 import { englishConjunctor } from '../../js/verb';
 
 import * as CONSTANT from '../../js/constants';
@@ -304,7 +304,11 @@ export default class GridController {
         while (i > 0) {
           let cpt = cp[i - 1].title;
           if (cpt == "ben" || cpt == "sen" || cpt == "o") {
-            wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
+            if (wordObj2Push.tence) {
+              wo2p.title = addPossessive(wo2p.title, cpt, wordObj2Push.tence);
+            } else {
+              wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
+            }
             break;
           }
           i--;
