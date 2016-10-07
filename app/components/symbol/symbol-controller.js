@@ -70,7 +70,6 @@ export default class SymbolController {
       this.conjArr.push(conjable);
     });
     document.getElementById("verbConj").style.display = "block";
-    return 1;
   }
 
   clickConjuncted(wordTitle, tence) {
@@ -80,6 +79,7 @@ export default class SymbolController {
     wordObj.type = "verb";
     wordObj.tence = tence;
     this.$scope.global.pushToCurrentPhrase(wordObj);
+    document.getElementById("verbConj").style.display = "none";
   }
 
   /**
