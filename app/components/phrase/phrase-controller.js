@@ -68,7 +68,7 @@ export default class PhraseController {
   bsTouchStart() {
     let bsElem = document.getElementById('bs');
     if (bsElem) {
-      bsElem.style.color = otsimo.kv.removeHoldColor;
+      bsElem.style.color = this.$scope.removeHoldColor;
     }
     this.bstouchTimer = this.$timeout(() => {
       this.$scope.global.currentPhrase.splice(0, this.$scope.global.currentPhrase.length);
@@ -82,7 +82,7 @@ export default class PhraseController {
   bsTouchEnd() {
     let bsElem = document.getElementById('bs');
     if (bsElem) {
-      bsElem.style.color = otsimo.kv.removeNormalColor;
+      bsElem.style.color = this.$scope.removeNormalColor;
     }
     this.$timeout.cancel(this.bstouchTimer);
   }
