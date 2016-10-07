@@ -137,14 +137,19 @@ export default class AppController {
           });
         }
         // Extend conjuncted
-        if (obj.type == "verb" && this.otsimo.child.language == "tr") {
-          let possessors = ["ben", "sen", "o"];
-          possessors.forEach(p => {
-            obj.title = turkishConjunctor(obj.slug, "simZam", p);
-            let pushObj = JSON.parse(JSON.stringify(obj));
-            global.extendedArray.push(pushObj);
-            global.extendedSlugMap[pushObj.title] = obj.slug;
-          });
+        if (obj.type == "verb") {
+          let lang = this.$scope.global.language;
+          if (lang == "tr") {
+            let possessors = ["ben", "sen", "o"];
+            possessors.forEach(p => {
+              obj.title = turkishConjunctor(obj.slug, "simZam", p);
+              let pushObj = JSON.parse(JSON.stringify(obj));
+              global.extendedArray.push(pushObj);
+              global.extendedSlugMap[pushObj.title] = obj.slug;
+            });
+          } else if (lang == "en") {
+            //Set english verb conjunction.
+          }
         }
       });
     }

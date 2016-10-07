@@ -1,4 +1,6 @@
 import { turkishConjunctor } from '../../js/fiil';
+import { englishConjunctor } from '../../js/verb';
+
 import * as CONSTANT from '../../js/constants';
 
 /**
@@ -298,13 +300,24 @@ export default class GridController {
     let cp = this.$scope.global.currentPhrase;
     if (cp.length > 0 && wo2p.type == "verb") {
       let i = cp.length;
-      while (i > 0) {
-        let cpt = cp[i - 1].title;
-        if (cpt == "ben" || cpt == "sen" || cpt == "o") {
-          wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
-          break;
+      if (this.$scope.global.language == "tr") {
+        while (i > 0) {
+          let cpt = cp[i - 1].title;
+          if (cpt == "ben" || cpt == "sen" || cpt == "o") {
+            wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
+            break;
+          }
+          i--;
         }
-        i--;
+      } else if (this.$scope.global.language == "en") {
+        while (i > 0) {
+          let cpt = cp[i - 1].title;
+          if (cpt == "i" || cpt == "you" || cpt == "it") {
+            wo2p.title = englishConjunctor(wo2p.title, "preTence", cpt);
+            break;
+          }
+          i--;
+        }
       }
     }
     this.$scope.global.currentPhrase.push(wo2p);
