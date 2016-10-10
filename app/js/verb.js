@@ -52,6 +52,14 @@ function secondFormat(verb) {
 	}
 }
 
+function thirdFormat(verb) {
+	if (vowelCheck(verb[verb.length - 1])) {
+		return verb.substring(0, verb.length - 1) + "ed";
+	} else {
+		return verb + "ed";
+	}
+}
+
 
 function syntaxBeing(poss) {
 	if (poss == "i") {
@@ -100,6 +108,14 @@ function addS(possessor, verb) {
 	}
 }
 
+function haveForm(possessor) {
+	if (possessor == "he" ||  possessor == "she" || possessor == "it") {
+		return "has ";
+	} else {
+		return "have ";
+	}
+}
+
 function verbConj(verb, tence) {
 	switch (tence) {
 		case "simPresTence":
@@ -115,8 +131,11 @@ function verbConj(verb, tence) {
 		case "pastContTence":
 			return addIng(verb);
 		case "futuContTence":
+			return "will be " + addIng(verb);
 		case "presPerfTence":
+			return thirdFormat(verb);
 		case "presPerfContTence":
+			return "been " + addIng(verb);
 	}
 }
 
@@ -128,6 +147,9 @@ export function addPossessiveEn(verb, possessor, tence) {
 			return syntaxBeing(possessor) + verb;
 		case "pastContTence":
 			return pastFormOfBeing(possessor) + verb;
+		case "presPerfTence":
+		case "presPerfContTence":
+			return haveForm(possessor) + verb;
 		default:
 			return verb;
 	}
