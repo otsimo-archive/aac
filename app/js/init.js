@@ -1,5 +1,6 @@
 document.ontouchmove = function(event) {
-	event.preventDefault();
+	//event.preventDefault();
+	// Need to solve this.
 }
 
 if ('addEventListener' in document) {
