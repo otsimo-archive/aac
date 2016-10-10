@@ -59,6 +59,7 @@ function verbConj(verb, tence) {
 		case "simPastTence":
 			return secondFormat(verb);
 		case "simFutuTence":
+
 		case "certFutuTence":
 		case "presContTence":
 		case "pastContTence":
@@ -70,11 +71,21 @@ function verbConj(verb, tence) {
 
 
 function addPossessive(verb, possessor, tence) {
-	if (possessor == "it") {
-		return verb + "s";
-	} else {
-		return verb;
+	switch (tence) {
+		case "simPresTence":
+			if (possessor == "he" ||  possessor == "she" || possessor == "it") {
+				if (vowelCheck(verb[verb.length - 1])) {
+					return verb + "s";
+				} else {
+					return verb + "es";
+				}
+			} else {
+				return verb;
+			}
+		default:
+			return verb;
 	}
+
 }
 
 export function englishConjunctor(verb, tence, possessor) {
