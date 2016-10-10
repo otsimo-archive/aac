@@ -46,29 +46,12 @@ function vowelCheck(vowel) {
 
 function secondFormat(verb) {
 	if (vowelCheck(verb[verb.length - 1])) {
-		return verb + "d";
+		return verb.substring(0, verb.length - 1) + "ed";
 	} else {
 		return verb + "ed";
 	}
 }
 
-function verbConj(verb, tence) {
-	switch (tence) {
-		case "simPresTence":
-			return verb;
-		case "simPastTence":
-			return secondFormat(verb);
-		case "simFutuTence":
-			return "will " + verb;
-		case "certFutuTence":
-			return "going to " + verb;
-		case "presContTence":
-		case "pastContTence":
-		case "futuContTence":
-		case "presPerfTence":
-		case "presPerfContTence":
-	}
-}
 
 function syntaxBeing(poss) {
 	if (poss == "i") {
@@ -83,20 +66,68 @@ function syntaxBeing(poss) {
 
 }
 
+function pastFormOfBeing(poss) {
+	switch (syntaxBeing(poss)) {
+		case "are ":
+			return "were "
+		case "is ":
+		case "am ":
+			return "was ";
+		default:
+			return "";
+	}
+
+}
+
+
+function addIng(verb) {
+	if (vowelCheck(verb[verb.length - 1])) {
+		return verb.substring(0, verb.length - 1) + "ing";
+	} else {
+		return verb + "ing";
+	}
+}
+
+function addS(possessor, verb) {
+	if (possessor == "he" ||  possessor == "she" || possessor == "it") {
+		if (vowelCheck(verb[verb.length - 1])) {
+			return verb + "s";
+		} else {
+			return verb + "es";
+		}
+	} else {
+		return verb;
+	}
+}
+
+function verbConj(verb, tence) {
+	switch (tence) {
+		case "simPresTence":
+			return verb;
+		case "simPastTence":
+			return secondFormat(verb);
+		case "simFutuTence":
+			return "will " + verb;
+		case "certFutuTence":
+			return "going to " + verb;
+		case "presContTence":
+			return addIng(verb);
+		case "pastContTence":
+			return addIng(verb);
+		case "futuContTence":
+		case "presPerfTence":
+		case "presPerfContTence":
+	}
+}
+
 export function addPossessiveEn(verb, possessor, tence) {
 	switch (tence) {
 		case "simPresTence":
-			if (possessor == "he" ||  possessor == "she" || possessor == "it") {
-				if (vowelCheck(verb[verb.length - 1])) {
-					return verb + "s";
-				} else {
-					return verb + "es";
-				}
-			} else {
-				return verb;
-			}
+			return addS(possessor, verb);
 		case "certFutuTence":
 			return syntaxBeing(possessor) + verb;
+		case "pastContTence":
+			return pastFormOfBeing(possessor) + verb;
 		default:
 			return verb;
 	}
