@@ -140,10 +140,10 @@ export default class AppController {
 				// Extend conjuncted
 				if (obj.type == "verb") {
 					let lang = this.$scope.global.language;
+					let possessors = CONSTANT.POSS[lang];
 					if (lang == "tr") {
-						let possessors = ["ben", "sen", "o"];
 						possessors.forEach(p => {
-							CONSTANT.CONJTYPE["tr"].forEach(c => {
+							CONSTANT.CONJTYPE[lang].forEach(c => {
 								obj.title = turkishConjunctor(obj.slug, c, p);
 								let pushObj = JSON.parse(JSON.stringify(obj));
 								global.extendedArray.push(pushObj);
@@ -151,7 +151,15 @@ export default class AppController {
 							});
 						});
 					} else if (lang == "en") {
-						//Set english verb conjunction.
+						//Set english verb conjunction.;
+						possessors.forEach(p => {
+							CONSTANT.CONJTYPE[lang].forEach(c => {
+								obj.title = englishConjunctor(obj.slug, c, p);
+								let pushObj = JSON.parse(JSON.stringify(obj));
+								global.extendedArray.push(pushObj);
+								global.extendedSlugMap[pushObj.title] = obj.slug;
+							});
+						});
 					}
 				}
 			});
