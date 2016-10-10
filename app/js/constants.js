@@ -25,5 +25,5 @@ export const CONJTYPE = {
 }
 export const POSS = {
 	tr: ["ben", "sen", "o"],
-	en: ["i", "you", "he", "she", "it", "they"]
+	en: ["i", "you", "he", "she", "it", "they", ""]
 }
