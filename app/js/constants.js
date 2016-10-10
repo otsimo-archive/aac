@@ -20,9 +20,12 @@ export const LANDSCAPE_PRIMARY = 'landscape-primary';
 export const LANDSCAPE_LEFT = 'landscape-left';
 export const LANDSCAPE_RIGHT = 'landspace-right';
 export const CONJTYPE = {
-	tr: ["gorGecZam", "ogrGecZam", "simZam", "gelZam", "genZam", "gerKip", "dilKip", "istKip", "emrKip"],
-	en: ["simPresTence", "simPastTence", "simFutuTence", "certFutuTence", "presContTence", "pastContTence", "futuContTence", "presPerfTence", "presPerfContTence"]
-}
+		tr: ["gorGecZam", "ogrGecZam", "simZam", "gelZam", "genZam", "gerKip", "dilKip", "istKip", "emrKip"],
+		en: ["simPresTence", "simPastTence", "simFutuTence", "certFutuTence", "presContTence", "presPerfTence", "imperMode", "possibMode", "subjunMode"]
+	}
+	//"pastContTence"
+	//"presPerfContTence"
+	//"futuContTence"
 export const POSS = {
 	tr: ["ben", "sen", "o"],
 	en: ["i", "you", "he", "she", "it", "they", ""]

@@ -34,6 +34,18 @@
   Present Perfect Continuous  - presPerfContTence
   He has been sleeping
   I have been sleeping
+  --
+  Imperative Mode - imperMode
+  He must wear clothes
+  I must wear
+  --
+  Possiblity Mode - possibMode
+  I might come
+  You might come
+  --
+  Subjunctive Mode -- subjunMode
+  I should cook
+  You should cook
 */
 
 function vowelCheck(vowel) {
@@ -136,6 +148,12 @@ function verbConj(verb, tence) {
 			return thirdFormat(verb);
 		case "presPerfContTence":
 			return "been " + addIng(verb);
+		case "imperMode":
+			return "must " + verb;
+		case "possibMode":
+			return "might " + verb;
+		case "subjunMode":
+			return "should " + verb;
 	}
 }
 
