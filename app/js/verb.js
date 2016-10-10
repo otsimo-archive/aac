@@ -59,8 +59,9 @@ function verbConj(verb, tence) {
 		case "simPastTence":
 			return secondFormat(verb);
 		case "simFutuTence":
-
+			return "will " + verb;
 		case "certFutuTence":
+			return "going to " + verb;
 		case "presContTence":
 		case "pastContTence":
 		case "futuContTence":
@@ -69,8 +70,20 @@ function verbConj(verb, tence) {
 	}
 }
 
+function syntaxBeing(poss) {
+	if (poss == "i") {
+		return "am ";
+	} else if (poss == "you" || poss == "we" || poss == "they") {
+		return "are ";
+	} else if (poss == "he" || poss == "she" || poss == "it") {
+		return "is ";
+	} else {
+		return "";
+	}
 
-function addPossessive(verb, possessor, tence) {
+}
+
+export function addPossessiveEn(verb, possessor, tence) {
 	switch (tence) {
 		case "simPresTence":
 			if (possessor == "he" ||  possessor == "she" || possessor == "it") {
@@ -82,6 +95,8 @@ function addPossessive(verb, possessor, tence) {
 			} else {
 				return verb;
 			}
+		case "certFutuTence":
+			return syntaxBeing(possessor) + verb;
 		default:
 			return verb;
 	}
@@ -89,5 +104,5 @@ function addPossessive(verb, possessor, tence) {
 }
 
 export function englishConjunctor(verb, tence, possessor) {
-	return addPossessive(verbConj(verb, tence), possessor, tence);
+	return addPossessiveEn(verbConj(verb, tence), possessor, tence);
 }

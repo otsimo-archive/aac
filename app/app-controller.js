@@ -151,7 +151,7 @@ export default class AppController {
 							});
 						});
 					} else if (lang == "en") {
-						//Set english verb conjunction.;
+						//Set english verb conjunction.
 						possessors.forEach(p => {
 							CONSTANT.CONJTYPE[lang].forEach(c => {
 								obj.title = englishConjunctor(obj.slug, c, p);

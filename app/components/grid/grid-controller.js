@@ -1,5 +1,5 @@
-import { turkishConjunctor, addPossessive } from '../../js/fiil';
-import { englishConjunctor } from '../../js/verb';
+import { turkishConjunctor, addPossessiveTr } from '../../js/fiil';
+import { englishConjunctor, addPossessiveEn } from '../../js/verb';
 
 import * as CONSTANT from '../../js/constants';
 
@@ -298,14 +298,15 @@ export default class GridController {
 	pushToCurrentPhrase(wordObj2Push) {
 		let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
 		let cp = this.$scope.global.currentPhrase;
+		let lang = this.$scope.global.language;
 		if (cp.length > 0 && wo2p.type == "verb") {
 			let i = cp.length;
-			if (this.$scope.global.language == "tr") {
+			if (lang == "tr") {
 				while (i > 0) {
 					let cpt = cp[i - 1].title;
-					if (cpt == "ben" || cpt == "sen" || cpt == "o") {
+					if (CONSTANT.POSS[lang].contains(cpt)) {
 						if (wordObj2Push.tence) {
-							wo2p.title = addPossessive(wo2p.title, cpt, wordObj2Push.tence);
+							wo2p.title = addPossessiveTr(wo2p.title, cpt, wordObj2Push.tence);
 						} else {
 							wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
 						}
@@ -313,11 +314,15 @@ export default class GridController {
 					}
 					i--;
 				}
-			} else if (this.$scope.global.language == "en") {
+			} else if (lang == "en") {
 				while (i > 0) {
 					let cpt = cp[i - 1].title;
-					if (cpt == "i" || cpt == "you" || cpt == "it") {
-						wo2p.title = englishConjunctor(wo2p.title, "preTence", cpt);
+					if (CONSTANT.POSS[lang].contains(cpt)) {
+						if (wordObj2Push.tence) {
+							wo2p.title = addPossessiveEn(wo2p.title, cpt, wordObj2Push.tence);
+						} else {
+							wo2p.title = englishConjunctor(wo2p.title, "simPresTence", cpt);
+						}
 						break;
 					}
 					i--;

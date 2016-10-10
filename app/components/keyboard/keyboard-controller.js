@@ -137,7 +137,7 @@ export default class KeyboardController {
 	suggestWordsByInput(searchLetter) {
 		this.suggestions = true;
 		searchLetter = searchLetter.toLocaleLowerCase();
-		searchLetter = searchLetter.replace(" ", "-");
+		searchLetter = searchLetter.replaceAll(" ", "-");
 		this.suggestionList = this.$scope.global.extendedTitleArray.filter((word) => {
 			return word.substring(0, searchLetter.length) == searchLetter;
 		});

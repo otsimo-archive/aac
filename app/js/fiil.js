@@ -247,7 +247,7 @@ function fiilCek(fiil, cekimEki) {
 }
 
 
-export function addPossessive(verb, possessor, cekimEki) {
+export function addPossessiveTr(verb, possessor, cekimEki) {
 	let lsh = lastSesliHarf(verb);
 	let add = multipleCheck(lsh, ["a", "ı", "o", "u"]) ? "ı" : "i";
 	switch (possessor) {
@@ -346,7 +346,7 @@ export function addPossessive(verb, possessor, cekimEki) {
 
 export function turkishConjunctor(fiil, cekimEki, possessor) {
 	if (possessor) {
-		return addPossessive(fiilCek(fiil, cekimEki), possessor, cekimEki);
+		return addPossessiveTr(fiilCek(fiil, cekimEki), possessor, cekimEki);
 	} else {
 		return fiilCek(fiil, cekimEki);
 	}
