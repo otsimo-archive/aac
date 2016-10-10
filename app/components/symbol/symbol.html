@@ -1,7 +1,9 @@
 <div ng-controller="symbol-controller as symbol" class="gridTemplate">
   <div id="verbConj">
-    <div ng-repeat="conj in symbol.conjArr track by $index">
-      <div ng-click="symbol.clickConjuncted(conj.title, conj.tence)">{{conj.title}} ({{conj.tence}})</div>
+    <div class="verbConjCarrier">
+      <div ng-repeat="conj in symbol.conjArr track by $index" class="conjableItem">
+        <div ng-click="symbol.clickConjuncted(conj.title, conj.tence)">{{conj.title}} ({{conj.tence}})</div>
+      </div>
     </div>
   </div>
 
