@@ -123,8 +123,10 @@ function addS(possessor, verb) {
 function haveForm(possessor) {
 	if (possessor == "he" ||  possessor == "she" || possessor == "it") {
 		return "has ";
-	} else {
+	} else if (possessor == "i" || possessor == "you" || possessor == "we" || "they") {
 		return "have ";
+	} else {
+		return "";
 	}
 }
 
@@ -162,6 +164,7 @@ export function addPossessiveEn(verb, possessor, tence) {
 		case "simPresTence":
 			return addS(possessor, verb);
 		case "certFutuTence":
+		case "presContTence":
 			return syntaxBeing(possessor) + verb;
 		case "pastContTence":
 			return pastFormOfBeing(possessor) + verb;
