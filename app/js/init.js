@@ -1,8 +1,3 @@
-document.ontouchmove = function(event) {
-	// event.preventDefault();
-	// Need to solve this.
-}
-
 if ('addEventListener' in document) {
 	document.addEventListener('DOMContentLoaded', function() {
 		FastClick.attach(document.body);

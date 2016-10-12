@@ -86,8 +86,6 @@ export default class SymbolController {
 	clickConjuncted(wordTitle, tence) {
 		let wordObj = {};
 		wordObj.title = wordTitle;
-		console.log(wordObj.title);
-		console.log(tence);
 		wordObj.slug = this.$scope.global.extendedSlugMap[wordTitle];
 		wordObj.type = "verb";
 		wordObj.tence = tence;

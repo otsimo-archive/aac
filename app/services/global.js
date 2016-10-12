@@ -20,6 +20,6 @@ export default class Global {
 		this.gridSize = [0, 0];
 		this.gridSizeStatic = [0, 0];
 		this.gridQuantity = 0;
-		this.isDraggable = false;
+		this.isDraggable = true;
 	}
 }
