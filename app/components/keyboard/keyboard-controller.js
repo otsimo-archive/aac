@@ -58,10 +58,10 @@ export default class KeyboardController {
 	showKeyboardFocused() {
 		let typeInput = document.getElementById("typeInput");
 		if (typeInput) {
-			document.body.style.height = (parseInt(window.innerHeight) / 2) + 'px';
+			document.getElementById("generalCarrier").style.height = (parseInt(window.innerHeight) / 2) + 'px';
 			document.body.scrollTop = document.documentElement.scrollTop = 0;
 			this.$timeout(() => {
-				document.body.style.height = parseInt(window.innerHeight) + 'px';
+				document.getElementById("generalCarrier").style.height = parseInt(window.innerHeight) + 'px';
 				document.body.scrollTop = document.documentElement.scrollTop = 0;
 				console.log("virtual keyboard opened!");
 			}, 300);
@@ -74,7 +74,7 @@ export default class KeyboardController {
 	hideKeyboard() {
 		let typeInput = document.getElementById("typeInput");
 		if (typeInput) {
-			document.body.style.height = "100%";
+			document.getElementById("generalCarrier").style.height = "100%";
 		}
 	}
 
