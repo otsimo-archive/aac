@@ -1,5 +1,5 @@
 <div ng-controller="symbol-controller as symbol" class="gridTemplate">
-  <div id="verbConj">
+  <div id="verbConj" ng-click="symbol.closeConjMenu()">
     <div class="verbConjCarrier">
       <div ng-repeat="conj in symbol.conjArr track by $index" class="conjableItem">
         <div ng-click="symbol.clickConjuncted(conj.title, conj.tence)">

@@ -91,7 +91,6 @@ export default class SymbolController {
 		wordObj.tence = tence;
 		this.$scope.global.pushToCurrentPhrase(wordObj);
 		this.tts.speak(wordObj.title);
-		document.getElementById("verbConj").style.display = "none";
 	}
 
 	/**
@@ -163,6 +162,13 @@ export default class SymbolController {
 		updateCurrentPhraseScroll();
 		this.tts.speak(wordObj.title);
 		this.events.appWord(wordObj.title, this.$scope.global.gridSize[0], this.$scope.global.gridSize[1]);
+	}
+
+	closeConjMenu() {
+		let verbMenu = document.getElementById("verbConj");
+		if (verbMenu) {
+			verbMenu.style.display = "none";
+		}
 	}
 }
 
