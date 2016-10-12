@@ -267,7 +267,7 @@ export function addPossessiveTr(verb, possessor, cekimEki) {
 			} else if (cekimEki == "dilKip") {
 				return verb + "m";
 			} else if (cekimEki == "istKip") {
-				return verb + "m";
+				return verb + "y" + add + "m";
 			} else if (cekimEki == "emrKip") {
 				return verb;
 			}
@@ -287,7 +287,7 @@ export function addPossessiveTr(verb, possessor, cekimEki) {
 			} else if (cekimEki == "dilKip") {
 				return verb + "n";
 			} else if (cekimEki == "istKip") {
-				return verb + "n";
+				return verb + "s" + add + "n";
 			} else if (cekimEki == "emrKip") {
 				return verb;
 			}
@@ -309,7 +309,7 @@ export function addPossessiveTr(verb, possessor, cekimEki) {
 			} else if (cekimEki == "dilKip") {
 				return verb + "k";
 			} else if (cekimEki == "istKip") {
-				return verb + "k";
+				return verb + "l" + add + "m";
 			} else if (cekimEki == "emrKip") {
 				return verb;
 			}
