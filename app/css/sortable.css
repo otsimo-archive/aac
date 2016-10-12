@@ -7,7 +7,7 @@
 }
 
 @keyframes mymove {
-    0% { transform: rotateZ(-3deg);}
+    0% { transform: rotateZ(-3deg); }
     50% { transform: rotateZ(3deg); }
     100% { transform: rotateZ(-3deg); }
 }
@@ -56,9 +56,9 @@
 }
 
 .as-sortable-item {
-
-  transform: rotateZ(3deg);
+  transform: rotateZ(3deg) scale(1);
   animation: mymove 300ms infinite;
+  transition:300ms all;
 }
 .draggable-true .as-sortable-item {
   transform: none !important;
@@ -69,15 +69,16 @@
 }
 
 .as-sortable-placeholder {
-    box-sizing: border-box;
-    background-color: #eee;
+    background-color: #e1e1e1;
 }
 
 .as-sortable-drag {
     opacity: .8;
 }
-.as-sortable-dragging{
 
+.as-sortable-dragging .as-sortable-item{
+  transform: scale(1.2) !important;
+  animation: none !important;
 }
 
 .as-sortable-hidden {

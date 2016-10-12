@@ -25,7 +25,6 @@ export default class PhraseController {
 			this.bstouchTimer = null;
 			this.phraseTouchTimer = null;
 			this.dragListener = {
-				containment: "#cPhrase",
 				allowDuplicates: true,
 			}
 
