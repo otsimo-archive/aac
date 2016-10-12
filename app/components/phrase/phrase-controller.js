@@ -76,7 +76,9 @@ export default class PhraseController {
 		if (status == 1) {
 			this.activateDraggable();
 		} else if (status == 2) {
-			this.submitPhrase();
+			if (this.$scope.global.isDraggable) {
+				this.submitPhrase();
+			}
 		}
 	}
 	activateDraggable() {
