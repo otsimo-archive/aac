@@ -1,5 +1,9 @@
 <div ng-controller="phrase-controller as phrase" class="phraseHolder">
-  <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" data-as-sortable="phrase.dragListener" is-disabled="global.isDraggable" data-ng-model="global.currentPhrase" ng-click="phrase.submitPhrase()">
+  <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" data-as-sortable="phrase.dragListener"
+        is-disabled="global.isDraggable"
+        data-ng-model="global.currentPhrase"
+        ng-touchstart="phrase.phraseTouchStart()"
+        ng-touchend="phrase.phraseTouchEnd()">
     <div class="currentPhraseScroll">
       <span ng-if="global.currentPhrase.length > 0">
         <div class="wordItem" data-ng-repeat="word in global.currentPhrase track by ($index + word.slug)" data-as-sortable-item>

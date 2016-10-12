@@ -296,40 +296,50 @@ export default class GridController {
 	}
 
 	pushToCurrentPhrase(wordObj2Push) {
-		let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
-		let cp = this.$scope.global.currentPhrase;
-		let lang = this.$scope.global.language;
-		if (cp.length > 0 && wo2p.type == "verb") {
-			let i = cp.length;
-			if (lang == "tr") {
-				while (i > 0) {
-					let cpt = cp[i - 1].title;
-					if (CONSTANT.POSS[lang].contains(cpt)) {
-						if (wordObj2Push.tence) {
-							wo2p.title = addPossessiveTr(wo2p.title, cpt, wordObj2Push.tence);
-						} else {
-							wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
+			let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
+			let cp = this.$scope.global.currentPhrase;
+			let lang = this.$scope.global.language;
+			if (cp.length > 0 && wo2p.type == "verb") {
+				let i = cp.length;
+				if (lang == "tr") {
+					while (i > 0) {
+						let cpt = cp[i - 1].title;
+						if (CONSTANT.POSS[lang].contains(cpt)) {
+							if (wordObj2Push.tence) {
+								wo2p.title = addPossessiveTr(wo2p.title, cpt, wordObj2Push.tence);
+							} else {
+								wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
+							}
+							break;
 						}
-						break;
+						i--;
 					}
-					i--;
-				}
-			} else if (lang == "en") {
-				while (i > 0) {
-					let cpt = cp[i - 1].title;
-					if (CONSTANT.POSS[lang].contains(cpt)) {
-						if (wordObj2Push.tence) {
-							wo2p.title = addPossessiveEn(wo2p.title, cpt, wordObj2Push.tence);
-						} else {
-							wo2p.title = englishConjunctor(wo2p.title, "simPresTence", cpt);
+				} else if (lang == "en") {
+					while (i > 0) {
+						let cpt = cp[i - 1].title;
+						if (CONSTANT.POSS[lang].contains(cpt)) {
+							if (wordObj2Push.tence) {
+								wo2p.title = addPossessiveEn(wo2p.title, cpt, wordObj2Push.tence);
+							} else {
+								wo2p.title = englishConjunctor(wo2p.title, "simPresTence", cpt);
+							}
+							break;
 						}
-						break;
+						i--;
 					}
-					i--;
 				}
 			}
+			this.$scope.global.currentPhrase.push(wo2p);
 		}
-		this.$scope.global.currentPhrase.push(wo2p);
+		/**
+		 * Closes cover on clicking on it!
+		 */
+	clickCover() {
+		let cover = document.getElementById("symbolCover");
+		if (cover) {
+			cover.style.display = "none";
+		}
+		this.$scope.global.isDraggable = true;
 	}
 }
 // Service Dependency Injection

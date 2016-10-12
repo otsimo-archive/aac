@@ -35,6 +35,8 @@ export function capitalize(str) {
 		.toLocaleUpperCase() + str.slice(1);
 }
 
+
+
 /**
  * Find the device the types
  *
