@@ -149,7 +149,6 @@ body {
   line-height:16px;
   text-transform:capitalize;
   padding-top:10px;
-  border-top:1px solid #eee;
   height:30px; overflow:hidden;
 }
 
@@ -309,7 +308,6 @@ margin:2px;}
             line-height: 16px;
             text-transform: capitalize;
             padding-top: 10px;
-            border-top: 1px solid #eee;
             height: 30px;
             overflow: hidden;
           }
