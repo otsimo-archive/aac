@@ -7,9 +7,9 @@
 }
 
 @keyframes mymove {
-    0% { transform: rotateZ(-5deg);}
-    50% { transform: rotateZ(5deg); }
-    100% { transform: rotateZ(-5deg); }
+    0% { transform: rotateZ(-3deg);}
+    50% { transform: rotateZ(3deg); }
+    100% { transform: rotateZ(-3deg); }
 }
 
 .as-sortable-item {
@@ -57,7 +57,7 @@
 
 .as-sortable-item {
 
-  transform: rotateZ(5deg);
+  transform: rotateZ(3deg);
   animation: mymove 300ms infinite;
 }
 .draggable-true .as-sortable-item {
