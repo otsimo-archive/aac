@@ -21,11 +21,12 @@ export const LANDSCAPE_LEFT = 'landscape-left';
 export const LANDSCAPE_RIGHT = 'landspace-right';
 export const CONJTYPE = {
 		tr: ["gorGecZam", "ogrGecZam", "simZam", "gelZam", "genZam", "gerKip", "dilKip", "istKip", "emrKip"],
-		en: ["simPresTence", "simPastTence", "simFutuTence", "certFutuTence", "presContTence", "presPerfTence", "imperMode", "possibMode", "subjunMode"]
+		en: ["simPresTence", "simPastTence", "simFutuTence", "certFutuTence", "presContTence", "ableMode", "imperMode", "possibMode", "subjunMode"]
 	}
 	//"pastContTence"
 	//"presPerfContTence"
 	//"futuContTence"
+	//"presPerfTence"
 export const POSS = {
 	tr: ["ben", "sen", "o"],
 	en: ["i", "you", "he", "she", "it", "they", ""]

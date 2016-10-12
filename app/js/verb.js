@@ -35,6 +35,10 @@
   He has been sleeping
   I have been sleeping
   --
+	Ability - ableMode
+	I can do
+	You can do
+	--
   Imperative Mode - imperMode
   He must wear clothes
   I must wear
@@ -123,7 +127,7 @@ function addS(possessor, verb) {
 function haveForm(possessor) {
 	if (possessor == "he" ||  possessor == "she" || possessor == "it") {
 		return "has ";
-	} else if (possessor == "i" || possessor == "you" || possessor == "we" || "they") {
+	} else if (possessor == "i" || possessor == "you" || possessor == "we" || possessor == "they") {
 		return "have ";
 	} else {
 		return "";
@@ -152,6 +156,8 @@ function verbConj(verb, tence) {
 			return "been " + addIng(verb);
 		case "imperMode":
 			return "must " + verb;
+		case "ableMode":
+			return "can " + verb;
 		case "possibMode":
 			return "might " + verb;
 		case "subjunMode":
@@ -169,6 +175,7 @@ export function addPossessiveEn(verb, possessor, tence) {
 		case "pastContTence":
 			return pastFormOfBeing(possessor) + verb;
 		case "presPerfTence":
+			return haveForm(possessor) + verb;
 		case "presPerfContTence":
 			return haveForm(possessor) + verb;
 		default:
