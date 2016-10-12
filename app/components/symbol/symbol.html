@@ -2,7 +2,9 @@
   <div id="verbConj">
     <div class="verbConjCarrier">
       <div ng-repeat="conj in symbol.conjArr track by $index" class="conjableItem">
-        <div ng-click="symbol.clickConjuncted(conj.title, conj.tence)">{{conj.title}} ({{conj.tence}})</div>
+        <div ng-click="symbol.clickConjuncted(conj.title, conj.tence)">
+          <img src="img/conj.svg"/><br/>
+          {{conj.title}} ({{conj.tence}})</div>
       </div>
     </div>
   </div>
