@@ -6,6 +6,12 @@
     display: block;
 }
 
+@keyframes mymove {
+    0% { transform: rotateZ(-5deg);}
+    50% { transform: rotateZ(5deg); }
+    100% { transform: rotateZ(-5deg); }
+}
+
 .as-sortable-item {
     -ms-touch-action: inital;
     touch-action: inital;
@@ -50,19 +56,28 @@
 }
 
 .as-sortable-item {
+
+  transform: rotateZ(5deg);
+  animation: mymove 300ms infinite;
+}
+.draggable-true .as-sortable-item {
+  transform: none !important;
+  animation: none !important;
 }
 
 .as-sortable-item-handle {
 }
 
 .as-sortable-placeholder {
-    border: 1px dashed #666;
     box-sizing: border-box;
-    background-color: #ddd;
+    background-color: #eee;
 }
 
 .as-sortable-drag {
     opacity: .8;
+}
+.as-sortable-dragging{
+
 }
 
 .as-sortable-hidden {

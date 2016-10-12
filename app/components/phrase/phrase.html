@@ -1,5 +1,5 @@
 <div ng-controller="phrase-controller as phrase" class="phraseHolder">
-  <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}}" data-as-sortable="phrase.dragListener"
+  <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}} draggable-{{global.isDraggable}}" data-as-sortable="phrase.dragListener"
         is-disabled="global.isDraggable"
         data-ng-model="global.currentPhrase"
         ng-touchstart="phrase.phraseTouchStart()"
