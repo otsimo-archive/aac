@@ -19,10 +19,12 @@ export function returnTime() {
  * called after a new word pushed to current phrase
  */
 export function updateCurrentPhraseScroll() {
-	setTimeout(() => {
-		let element = document.getElementById('cPhrase');
-		element.scrollLeft = element.scrollWidth;
-	}, 1);
+	let element = document.getElementById('cPhrase');
+	if (element) {
+		setTimeout(() => {
+			element.scrollLeft = element.scrollWidth;
+		}, 1);
+	}
 }
 
 /**
