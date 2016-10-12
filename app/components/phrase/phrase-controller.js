@@ -24,6 +24,7 @@ export default class PhraseController {
 			// Initilize variables for controller.
 			this.bstouchTimer = null;
 			this.phraseTouchTimer = null;
+			this.beforeTouch = 0;
 			this.dragListener = {
 				allowDuplicates: true,
 			}
@@ -64,23 +65,33 @@ export default class PhraseController {
 	}
 
 	phraseTouchStart() {
+		let cPhrase = document.getElementById("cPhrase");
+		if (cPhrase) {
+			this.beforeTouch = cPhrase.scrollLeft;
+		}
 		this.phraseTouchTimer = this.$timeout(() => {
 			// Start Timer!
 			this.activateDraggable();
-		}, 500);
+		}, 1000);
 	}
 
 	phraseTouchEnd() {
-		this.$timeout.cancel(this.phraseTouchTimer);
-		let status = this.phraseTouchTimer.$$state.status;
-		if (status == 1) {
-			this.activateDraggable();
-		} else if (status == 2) {
-			if (this.$scope.global.isDraggable) {
-				this.submitPhrase();
+		if (this.phraseTouchTimer) {
+			this.$timeout.cancel(this.phraseTouchTimer);
+			let status = this.phraseTouchTimer.$$state.status;
+			if (status == 1) {
+				this.activateDraggable();
+			} else if (status == 2) {
+				if (this.$scope.global.isDraggable) {
+					let cPhrase = document.getElementById("cPhrase");
+					if (this.beforeTouch == cPhrase.scrollLeft) {
+						this.submitPhrase();
+					}
+				}
 			}
 		}
 	}
+
 	activateDraggable() {
 		this.$scope.global.isDraggable = false;
 		let cover = document.getElementById("symbolCover");
