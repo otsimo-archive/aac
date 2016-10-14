@@ -1,6 +1,3 @@
-import { turkishConjunctor, addPossessiveTr } from '../../js/fiil';
-import { englishConjunctor, addPossessiveEn } from '../../js/verb';
-
 import * as CONSTANT from '../../js/constants';
 
 /**
@@ -14,15 +11,17 @@ export default class GridController {
 	 * @param {any} $scope
 	 * @param {any} $global
 	 * @param {any} $timeout
-	 * @param {any} TTSManager
+	 * @param {TTSManager} TTSManager
+	 * @param {ConjunctionManager} ConjunctionManager
 	 *
 	 */
-	constructor($scope, $global, $timeout, TTSManager) {
+	constructor($scope, $global, $timeout, TTSManager, ConjunctionManager) {
 		this.$scope = $scope;
 		this.$scope.global = $global;
 		this.global = $global;
 		this.$timeout = $timeout;
 		this.tts = TTSManager;
+		this.conj = ConjunctionManager;
 
 		// Initilize variables for controller.
 		this.$scope.pageNo = 0;
@@ -308,9 +307,9 @@ export default class GridController {
 						let cpt = cp[i - 1].title;
 						if (CONSTANT.POSS[lang].contains(cpt)) {
 							if (wordObj2Push.tence) {
-								wo2p.title = addPossessiveTr(wo2p.title, cpt, wordObj2Push.tence);
+								wo2p.title = this.conj.addTurkishPoss(wo2p.title, cpt, wordObj2Push.tence);
 							} else {
-								wo2p.title = turkishConjunctor(wo2p.title, "simZam", cpt);
+								wo2p.title = this.conj.conjTurkish(wo2p.title, "simZam", cpt);
 							}
 							break;
 						}
@@ -321,9 +320,9 @@ export default class GridController {
 						let cpt = cp[i - 1].title;
 						if (CONSTANT.POSS[lang].contains(cpt)) {
 							if (wordObj2Push.tence) {
-								wo2p.title = addPossessiveEn(wo2p.title, cpt, wordObj2Push.tence);
+								wo2p.title = this.conj.addEnglishPoss(wo2p.title, cpt, wordObj2Push.tence);
 							} else {
-								wo2p.title = englishConjunctor(wo2p.title, "simPresTence", cpt);
+								wo2p.title = this.conj.conjEnglish(wo2p.title, "simPresTence", cpt);
 							}
 							break;
 						}
@@ -348,4 +347,4 @@ export default class GridController {
 	}
 }
 // Service Dependency Injection
-GridController.$inject = ['$scope', '$global', '$timeout', 'TTSManager'];
+GridController.$inject = ['$scope', '$global', '$timeout', 'TTSManager', 'ConjunctionManager'];
