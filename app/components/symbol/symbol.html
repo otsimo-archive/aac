@@ -1,8 +1,8 @@
 <div ng-controller="symbol-controller as symbol" class="gridTemplate">
-  <div id="verbConj" ng-click="symbol.closeConjMenu()">
+  <div id="verbConj" ng-touchstart="symbol.closeConjMenu()">
     <div class="verbConjCarrier">
       <div ng-repeat="conj in symbol.conjArr track by $index" class="conjableItem">
-        <div ng-click="symbol.clickConjuncted(conj.title, conj.tence)">
+        <div ng-touchstart="symbol.clickConjuncted(conj.title, conj.tence)">
           <img ng-src="img/conj-{{global.language}}/{{conj.tence}}.svg"/><br/>
           {{conj.title}}</div>
       </div>
