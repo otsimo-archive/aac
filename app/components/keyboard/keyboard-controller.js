@@ -69,7 +69,7 @@ export default class KeyboardController {
 				e.stopPropagation();
 				window.scrollTo(0, 0);
 				console.log("virtual keyboard opened!");
-			}, 1000);
+			}, 500);
 		}
 	}
 

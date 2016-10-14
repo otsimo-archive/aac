@@ -14,13 +14,15 @@ export default class GridController {
 	 * @param {any} $scope
 	 * @param {any} $global
 	 * @param {any} $timeout
+	 * @param {any} TTSManager
 	 *
 	 */
-	constructor($scope, $global, $timeout) {
+	constructor($scope, $global, $timeout, TTSManager) {
 		this.$scope = $scope;
 		this.$scope.global = $global;
 		this.global = $global;
 		this.$timeout = $timeout;
+		this.tts = TTSManager;
 
 		// Initilize variables for controller.
 		this.$scope.pageNo = 0;
@@ -295,7 +297,7 @@ export default class GridController {
 		this.$scope.$apply();
 	}
 
-	pushToCurrentPhrase(wordObj2Push) {
+	pushToCurrentPhrase(wordObj2Push, speak) {
 			let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
 			let cp = this.$scope.global.currentPhrase;
 			let lang = this.$scope.global.language;
@@ -330,6 +332,9 @@ export default class GridController {
 				}
 			}
 			this.$scope.global.currentPhrase.push(wo2p);
+			if (speak == true) {
+				this.tts.speak(wo2p.title);
+			}
 		}
 		/**
 		 * Closes cover on clicking on it!
@@ -343,4 +348,4 @@ export default class GridController {
 	}
 }
 // Service Dependency Injection
-GridController.$inject = ['$scope', '$global', '$timeout'];
+GridController.$inject = ['$scope', '$global', '$timeout', 'TTSManager'];

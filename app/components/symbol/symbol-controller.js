@@ -17,16 +17,14 @@ export default class SymbolController {
 	 * @param {any} $timeout
 	 * @param {any} $global
 	 * @param {EventManager} EventManager
-	 * @param {TTSManager} TTSManager
 	 *
 	 * @memberOf SymbolController
 	 */
-	constructor($scope, $http, $timeout, $global, EventManager, TTSManager) {
+	constructor($scope, $http, $timeout, $global, EventManager) {
 		this.$scope = $scope;
 		this.$scope.global = $global;
 		this.$timeout = $timeout;
 		this.events = EventManager;
-		this.tts = TTSManager;
 
 		// Initilize variables for controller.
 		this.wordTouchTimer = null;
@@ -89,8 +87,7 @@ export default class SymbolController {
 		wordObj.slug = this.$scope.global.extendedSlugMap[wordTitle];
 		wordObj.type = "verb";
 		wordObj.tence = tence;
-		this.$scope.global.pushToCurrentPhrase(wordObj);
-		this.tts.speak(wordObj.title);
+		this.$scope.global.pushToCurrentPhrase(wordObj, true);
 	}
 
 	/**
@@ -158,9 +155,8 @@ export default class SymbolController {
 	 * @param {Object} wordObj
 	 */
 	clickWord(wordObj) {
-		this.$scope.global.pushToCurrentPhrase(wordObj);
+		this.$scope.global.pushToCurrentPhrase(wordObj, true);
 		updateCurrentPhraseScroll();
-		this.tts.speak(wordObj.title);
 		this.events.appWord(wordObj.title, this.$scope.global.gridSize[0], this.$scope.global.gridSize[1]);
 	}
 
@@ -173,4 +169,4 @@ export default class SymbolController {
 }
 
 // Service Dependency Injection
-SymbolController.$inject = ['$scope', '$http', '$timeout', '$global', 'EventManager', 'TTSManager'];
+SymbolController.$inject = ['$scope', '$http', '$timeout', '$global', 'EventManager'];
