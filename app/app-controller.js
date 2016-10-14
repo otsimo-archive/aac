@@ -1,5 +1,3 @@
-import { turkishConjunctor } from './js/fiil';
-import { englishConjunctor } from './js/verb';
 import { deviceType } from './js/utils';
 import * as CONSTANT from './js/constants';
 /**
@@ -14,15 +12,17 @@ export default class AppController {
 	 * @param {any} $global
 	 * @param {angular.IHttpService} $http
 	 * @param {TTSManager} TTSManager
-	 * @param {any} OtsimoHandler
+	 * @param {ConjunctionManager} ConjunctionManager
+	 * @param {OtsimoHandler} OtsimoHandler
 	 *
 	 * @memberOf AppController
 	 */
-	constructor($scope, $global, $http, TTSManager, OtsimoHandler) {
+	constructor($scope, $global, $http, TTSManager, ConjunctionManager, OtsimoHandler) {
 		this.$scope = $scope;
 		this.$scope.global = $global;
 		this.$http = $http;
 		this.tts = TTSManager;
+		this.conj = ConjunctionManager;
 		this.otsimo = OtsimoHandler.init();
 		// Initilize variables for controller.
 
@@ -144,7 +144,7 @@ export default class AppController {
 					if (lang == "tr") {
 						possessors.forEach(p => {
 							CONSTANT.CONJTYPE[lang].forEach(c => {
-								obj.title = turkishConjunctor(obj.slug, c, p);
+								obj.title = this.conj.conjTurkish(obj.slug, c, p);
 								let pushObj = JSON.parse(JSON.stringify(obj));
 								global.extendedArray.push(pushObj);
 								global.extendedSlugMap[pushObj.title] = obj.slug;
@@ -154,7 +154,7 @@ export default class AppController {
 						//Set english verb conjunction.
 						possessors.forEach(p => {
 							CONSTANT.CONJTYPE[lang].forEach(c => {
-								obj.title = englishConjunctor(obj.slug, c, p);
+								obj.title = this.conj.conjEnglish(obj.slug, c, p);
 								let pushObj = JSON.parse(JSON.stringify(obj));
 								global.extendedArray.push(pushObj);
 								global.extendedSlugMap[pushObj.title] = obj.slug;
@@ -218,4 +218,4 @@ export default class AppController {
 
 }
 // Service Dependency Injection
-AppController.$inject = ['$scope', '$global', '$http', 'TTSManager', 'OtsimoHandler'];
+AppController.$inject = ['$scope', '$global', '$http', 'TTSManager', 'ConjunctionManager', 'OtsimoHandler'];

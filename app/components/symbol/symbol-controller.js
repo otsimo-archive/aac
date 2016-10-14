@@ -1,5 +1,3 @@
-import { turkishConjunctor } from '../../js/fiil';
-import { englishConjunctor } from '../../js/verb';
 import { updateCurrentPhraseScroll } from '../../js/utils';
 import * as CONSTANT from '../../js/constants';
 
@@ -20,11 +18,12 @@ export default class SymbolController {
 	 *
 	 * @memberOf SymbolController
 	 */
-	constructor($scope, $http, $timeout, $global, EventManager) {
+	constructor($scope, $http, $timeout, $global, EventManager, ConjunctionManager) {
 		this.$scope = $scope;
 		this.$scope.global = $global;
 		this.$timeout = $timeout;
 		this.events = EventManager;
+		this.conj = ConjunctionManager;
 
 		// Initilize variables for controller.
 		this.wordTouchTimer = null;
@@ -64,7 +63,7 @@ export default class SymbolController {
 		if (language == "tr") {
 			CONSTANT.CONJTYPE[language].forEach(c => {
 				let conjable = {
-					title: turkishConjunctor(wordObj.title, c),
+					title: this.conj.conjTurkish(wordObj.title, c),
 					tence: c
 				};
 				this.conjArr.push(conjable);
@@ -72,7 +71,7 @@ export default class SymbolController {
 		} else if (language == "en") {
 			CONSTANT.CONJTYPE[language].forEach(c => {
 				let conjable = {
-					title: englishConjunctor(wordObj.title, c),
+					title: this.conj.conjEnglish(wordObj.title, c),
 					tence: c
 				};
 				this.conjArr.push(conjable);
@@ -169,4 +168,4 @@ export default class SymbolController {
 }
 
 // Service Dependency Injection
-SymbolController.$inject = ['$scope', '$http', '$timeout', '$global', 'EventManager'];
+SymbolController.$inject = ['$scope', '$http', '$timeout', '$global', 'EventManager', 'ConjunctionManager'];
