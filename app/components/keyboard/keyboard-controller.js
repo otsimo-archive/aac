@@ -45,9 +45,7 @@ export default class KeyboardController {
 		let typeInput = document.getElementById("typeInput");
 		if (typeInput) {
 			typeInput.focus();
-			document.body.scrollTop = document.documentElement.scrollTop = 0;
 		}
-		this.showKeyboardFocused();
 	}
 
 	/**
@@ -64,7 +62,7 @@ export default class KeyboardController {
 				document.getElementById("generalCarrier").style.height = parseInt(window.innerHeight) + 'px';
 				document.body.scrollTop = document.documentElement.scrollTop = 0;
 				console.log("virtual keyboard opened!");
-			}, 300);
+			}, 1000);
 		}
 	}
 
