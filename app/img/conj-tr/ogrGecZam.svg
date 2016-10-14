@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.1 (29687) - http://www.bohemiancoding.com/sketch -->
+    <title>conj</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="conj">
+            <g id="Group">
+                <g>
+                    <circle id="Oval" fill="#3C97D3" cx="30" cy="29" r="29"></circle>
+                    <path d="M30,60 C13.458,60 0,46.542 0,30 C0,22.007 3.107,14.486 8.749,8.824 C9.528,8.039 10.796,8.039 11.577,8.818 C12.36,9.598 12.362,10.864 11.583,11.646 C6.693,16.555 4,23.072 4,30 C4,44.337 15.663,56 30,56 C44.337,56 56,44.337 56,30 C56,16.337 45.405,5.101 32,4.076 L32,14.833 C32,15.937 31.104,16.833 30,16.833 C28.896,16.833 28,15.937 28,14.833 L28,2 C28,0.896 28.896,0 30,0 C46.542,0 60,13.458 60,30 C60,46.542 46.542,60 30,60 L30,60 Z" id="Shape" fill="#B1D3EF"></path>
+                    <path d="M20,20.121 L20,20.121 L32.944,29.484 C34.218,30.41 34.363,32.256 33.249,33.37 L33.249,33.37 C32.135,34.484 30.29,34.339 29.363,33.065 L20,20.121 L20,20.121 Z" id="Shape" fill="#B1D3EF"></path>
+                </g>
+                <g transform="translate(38.000000, 37.000000)">
+                    <rect id="Rectangle-path" fill="#6F5580" x="0" y="0.981" width="22" height="22"></rect>
+                    <g id="Group-2" transform="translate(12.986549, 12.558622) rotate(-90.000000) translate(-12.986549, -12.558622) translate(5.986549, 3.558622)" fill="#FFFFFF">
+                        <rect id="Rectangle-path" x="6" y="1.981" width="2" height="16"></rect>
+                        <polygon id="Shape" points="12.293 8.688 7 3.396 1.707 8.688 0.293 7.274 7 0.567 13.707 7.274"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
