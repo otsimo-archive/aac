@@ -8,10 +8,10 @@
     </div>
 
     <div class="inputCarrier">
-      <input id="typeInput" type="text"
+      <input id="typeInput" autofocus type="text"
              ng-keydown="keyboard.enterSubmit($event)"
              placeholder="{{startTyping}}"
-             ng-focus="keyboard.showKeyboardFocused()"
+             ng-focus="keyboard.showKeyboardFocused($event)"
              ng-blur="keyboard.hideKeyboard()"
              autocomplete="off"
              autocorrect="off"

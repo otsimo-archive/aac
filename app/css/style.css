@@ -12,11 +12,14 @@ body {
   user-select:none;
   overflow:hidden;
   -webkit-user-select:none;
+  -webkit-overflow-scrolling: auto; /* Kill touch scrolling */
   /* -webkit-touch-callout: none; */
   /* -webkit-user-drag: none; */
 }
 
-#generalCarrier { position:fixed; width:100%; height:100%; top:0px; left:0px; }
+#generalCarrier { position:fixed; width:100%; height:100%; top:0px !important; left:0px !important;
+  -webkit-overflow-scrolling: auto; /* Kill touch scrolling */
+ }
 
 #outdated {
   width:100%; height:100%; background:#eee; display:none;
