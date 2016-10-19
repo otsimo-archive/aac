@@ -31,18 +31,20 @@ export default class ConjunctionManager {
 		 * Return verb in the given possessor format
 		 * @param {string} verb
 		 * @param {string} poss - Possessor
+		 * @param {string} tence - Tence
 		 *
 		 */
-	addEnglishPoss(verb, poss) {
-			return addPossessiveEn(verb, poss);
+	addEnglishPoss(verb, poss, tence) {
+			return addPossessiveEn(verb, poss, tence);
 		}
 		/**
 		 * Return verb in the given possessor format
 		 * @param {string} verb
 		 * @param {string} poss - Possessor
+		 * @param {string} tence - Tence
 		 *
 		 */
-	addTurkishPoss(verb, poss) {
-		return addPossessiveTr(verb, poss);
+	addTurkishPoss(verb, poss, tence) {
+		return addPossessiveTr(verb, poss, tence);
 	}
 }
