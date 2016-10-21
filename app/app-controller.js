@@ -139,6 +139,7 @@ export default class AppController {
 				}
 				// Extend conjuncted
 				if (obj.type == "verb") {
+					console.log(this.conj.conjNoun("o", "a"));
 					let lang = this.$scope.global.language;
 					let possessors = CONSTANT.POSS[lang];
 					if (lang == "tr") {
@@ -185,21 +186,23 @@ export default class AppController {
 	 *
 	 */
 	setUIText() {
-		this.$scope.pageText1 = this.otsimo.kv.pageText1;
-		this.$scope.pageText2 = this.otsimo.kv.pageText2;
-		this.$scope.pageText3 = this.otsimo.kv.pageText3;
-		this.$scope.pageText4 = this.otsimo.kv.pageText4;
-		this.$scope.pageText5 = this.otsimo.kv.pageText5;
-		this.$scope.timeIntervalText1 = this.otsimo.kv.timeIntervalText1;
-		this.$scope.timeIntervalText2 = this.otsimo.kv.timeIntervalText2;
-		this.$scope.timeIntervalText3 = this.otsimo.kv.timeIntervalText3;
-		this.$scope.timeIntervalText4 = this.otsimo.kv.timeIntervalText4;
-		this.$scope.previousText = this.otsimo.kv.previousText;
-		this.$scope.nextText = this.otsimo.kv.nextText;
-		this.$scope.backText = this.otsimo.kv.backText;
-		this.$scope.removeHoldColor = this.otsimo.kv.removeHoldColor;
-		this.$scope.removeNormalColor = this.otsimo.kv.removeNormalColor;
-		this.$scope.startTyping = this.otsimo.kv.startTyping;
+		let otsKV = this.otsimo.kv;
+		let sc = this.$scope;
+		sc.pageText1 = otsKV.pageText1;
+		sc.pageText2 = otsKV.pageText2;
+		sc.pageText3 = otsKV.pageText3;
+		sc.pageText4 = otsKV.pageText4;
+		sc.pageText5 = otsKV.pageText5;
+		sc.timeIntervalText1 = otsKV.timeIntervalText1;
+		sc.timeIntervalText2 = otsKV.timeIntervalText2;
+		sc.timeIntervalText3 = otsKV.timeIntervalText3;
+		sc.timeIntervalText4 = otsKV.timeIntervalText4;
+		sc.previousText = otsKV.previousText;
+		sc.nextText = otsKV.nextText;
+		sc.backText = otsKV.backText;
+		sc.removeHoldColor = otsKV.removeHoldColor;
+		sc.removeNormalColor = otsKV.removeNormalColor;
+		sc.startTyping = otsKV.startTyping;
 	}
 
 	/**
