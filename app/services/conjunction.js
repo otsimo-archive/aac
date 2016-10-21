@@ -1,6 +1,6 @@
 import { turkishConjunctor, addPossessiveTr } from '../js/fiil';
 import { englishConjunctor, addPossessiveEn } from '../js/verb';
-import { hal } from '../js/haller';
+import { halTr, halEn } from '../js/noun';
 /**
  * ConjunctionManager handles all events
  * @export
@@ -49,12 +49,21 @@ export default class ConjunctionManager {
 			return addPossessiveTr(verb, poss, tence);
 		}
 		/**
-		 * Returns the noun's given from of type
+		 * Returns the noun's given from of type in TR
 		 * @param {string} noun
 		 * @param {string} type - (hal)
 		 *
 		 */
-	conjNoun(noun, type) {
-		return hal(noun, type);
+	conjNounTr(noun, type) {
+			return halTr(noun, type);
+		}
+		/**
+		 * Returns the noun's given from of type in EN
+		 * @param {string} noun
+		 * @param {string} type - (hal)
+		 *
+		 */
+	conjNounEn(noun, type) {
+		return halEn(noun, type);
 	}
 }

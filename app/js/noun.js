@@ -1,4 +1,4 @@
-export function hal(isim, hal) {
+export function halTr(isim, hal) {
 	let iyelik = 'iyelik',
 		iHali = 'i',
 		eHali = 'e',
@@ -32,4 +32,8 @@ export function hal(isim, hal) {
 	}
 
 	return isim + ek;
+}
+
+export function halEn(noun, condition) {
+	return condition ? condition + " " + noun : noun;
 }
