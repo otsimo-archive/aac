@@ -8,7 +8,15 @@
       </div>
     </div>
   </div>
-
+  <div id="nounConj" ng-touchstart="symbol.closeNounConjMenu()">
+    <div class="nounConjCarrier">
+      <div ng-repeat="conj in symbol.nounConjArr track by $index" class="conjableItem">
+        <div ng-touchstart="symbol.clickNounConjuncted(conj.title, conj.condition)">
+          <img ng-src="img/conj-{{global.language}}/{{conj.type}}.svg"/><br/>
+          {{conj.title}}</div>
+      </div>
+    </div>
+  </div>
     <span ng-repeat="main in mainData track by $index">
       <div id="item-{{$index}}" class="gridItem {{main.style}}" ng-touchstart="symbol.wordTouchStart(main, $index)" ng-touchend="symbol.wordTouchEnd(main, $index)">
         <img ng-src="{{global.symbolPath}}/{{main.slug}}.svg">

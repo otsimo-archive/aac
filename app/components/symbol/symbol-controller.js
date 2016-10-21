@@ -51,6 +51,8 @@ export default class SymbolController {
 				*/
 			} else if (wordObj.type === "verb") {
 				this.openVerbConjunction(wordObj);
+			} else if (wordObj.type === "noun") {
+				this.openNounConjunction(wordObj);
 			}
 			this.clickAnimStop();
 		}, 300);
@@ -80,6 +82,29 @@ export default class SymbolController {
 		document.getElementById("verbConj").style.display = "block";
 	}
 
+	openNounConjunction(wordObj) {
+		this.nounConjArr = [];
+		let language = this.$scope.global.language;
+		if (language == "tr") {
+			CONSTANT.NOUN_CONDITION[language].forEach(c => {
+				let conjable = {
+					title: this.conj.conjNounTr(wordObj.title, c),
+					condition: c
+				};
+				this.nounConjArr.push(conjable);
+			});
+		} else if (language == "en") {
+			CONSTANT.NOUN_CONDITION[language].forEach(c => {
+				let conjable = {
+					title: this.conj.conjNounEn(wordObj.title, c),
+					condition: c
+				};
+				this.nounConjArr.push(conjable);
+			});
+		}
+		document.getElementById("nounConj").style.display = "block";
+	}
+
 	clickConjuncted(wordTitle, tence) {
 		let wordObj = {};
 		wordObj.title = wordTitle;
@@ -87,6 +112,29 @@ export default class SymbolController {
 		wordObj.type = "verb";
 		wordObj.tence = tence;
 		this.$scope.global.pushToCurrentPhrase(wordObj, true);
+	}
+
+	clickNounConjuncted(nounTitle, condition) {
+		let wordObj = {};
+		wordObj.title = nounTitle;
+		wordObj.slug = this.$scope.global.extendedSlugMap[nounTitle];
+		wordObj.type = "noun";
+		wordObj.condition = condition;
+		this.$scope.global.pushToCurrentPhrase(wordObj, true);
+	}
+
+	closeConjMenu() {
+		let verbMenu = document.getElementById("verbConj");
+		if (verbMenu) {
+			verbMenu.style.display = "none";
+		}
+	}
+
+	closeNounConjMenu() {
+		let nounMenu = document.getElementById("nounConj");
+		if (nounMenu) {
+			nounMenu.style.display = "none";
+		}
 	}
 
 	/**
@@ -98,7 +146,7 @@ export default class SymbolController {
 	wordTouchEnd(wordObj, index) {
 		this.$timeout.cancel(this.wordTouchTimer);
 		if (this.currentlyHolding === wordObj.title && wordObj.class !== CONSTANT.CLASS_GROUP) {
-			if (wordObj.type == "verb") {
+			if (wordObj.type == "verb" || wordObj.type == "noun") {
 				if (this.wordTouchTimer.$$state.status == 2) {
 					this.clickWord(wordObj);
 				}
@@ -157,13 +205,6 @@ export default class SymbolController {
 		this.$scope.global.pushToCurrentPhrase(wordObj, true);
 		updateCurrentPhraseScroll();
 		this.events.appWord(wordObj.title, this.$scope.global.gridSize[0], this.$scope.global.gridSize[1]);
-	}
-
-	closeConjMenu() {
-		let verbMenu = document.getElementById("verbConj");
-		if (verbMenu) {
-			verbMenu.style.display = "none";
-		}
 	}
 }
 

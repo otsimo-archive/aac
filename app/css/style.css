@@ -356,6 +356,15 @@ margin:2px;}
   background:rgba(255, 255, 255, 0.5);
 }
 
+#nounConj {
+  display:none;
+  position:absolute;
+  top:0px; left:0px;
+  width:100%; height:100%;
+  z-index:99;
+  background:rgba(255, 255, 255, 0.5);
+}
+
 .recentTabs { background:#fafafa; border-bottom:1px solid #ddd; }
 .recentTabs ul { padding:0px; margin:0px; }
 .recentTabs li{
@@ -418,6 +427,22 @@ margin:2px;}
 }
 
 .verbConjCarrier img{
+  width:90px;
+  margin:7px;
+}
+
+.nounConjCarrier {
+  position:relative;
+  width:480px;
+  height:480px;
+  top:calc(50% - 240px);
+  left:calc(50% - 240px);
+  background:#fff;
+  border:2px solid #666;
+  border-radius:5px;
+}
+
+.nounConjCarrier img{
   width:90px;
   margin:7px;
 }
