@@ -13,6 +13,15 @@ const haber = { gorGecZam, ogrGecZam, simZam, gelZam, genZam };
 const dilek = { gerKip, dilKip, istKip, emrKip };
 
 const ek = { haber, dilek };
+const genZamMap = {
+	"gül": "güler",
+	"kullan": "kullanır",
+	"iç": "içer",
+	"giy": "giyer",
+	"gör": "görür",
+	"al": "alır"
+}
+
 
 const sesliHarf = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
 
@@ -170,14 +179,19 @@ function fiilCek(fiil, cekimEki) {
 				- also: add "y" to the verbs ends with a vwl letter
 				before adding addition.
 				*/
-				if (lastHarfPlain(fiil) == "t" && sesliHarf.contains(fiil[fiil.length - 2])) {
-					fiil = fiil.substring(0, fiil.length - 1) + "d";
-				}
-				if (lastHarf(fiil) == lastSesliHarf(fiil)) {
-					return fiil + "r";
+				if (genZamMap[fiil]) {
+					return genZamMap[fiil];
 				} else {
-					return fiil + lastSesliHarf(fiil) + "r";
+					if (lastHarfPlain(fiil) == "t" && sesliHarf.contains(fiil[fiil.length - 2])) {
+						fiil = fiil.substring(0, fiil.length - 1) + "d";
+					}
+					if (lastHarf(fiil) == lastSesliHarf(fiil)) {
+						return fiil + "r";
+					} else {
+						return fiil + lastSesliHarf(fiil) + "r";
+					}
 				}
+
 
 		} //Switch
 		// Haber
