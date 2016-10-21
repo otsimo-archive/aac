@@ -4,6 +4,7 @@
   "description": "Otsimo symbol based AAC",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress",
+    "update-symbols": "node update-symbols.js",
     "staging": "node version.js; svgo -f app/symbols/en/images; svgo -f app/symbols/tr/images; sh publish.sh staging",
     "publish": "node version.js; svgo -f app/symbols/en/images; svgo -f app/symbols/tr/images; sh publish.sh",
     "watch": "npm run build -- --watch",
