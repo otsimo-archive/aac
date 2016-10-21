@@ -20,8 +20,12 @@ export const LANDSCAPE_PRIMARY = 'landscape-primary';
 export const LANDSCAPE_LEFT = 'landscape-left';
 export const LANDSCAPE_RIGHT = 'landspace-right';
 export const CONJTYPE = {
-		tr: ["gorGecZam", "ogrGecZam", "simZam", "gelZam", "genZam", "gerKip", "dilKip", "istKip", "emrKip"],
-		en: ["simPresTence", "simPastTence", "simFutuTence", "certFutuTence", "presContTence", "ableMode", "imperMode", "possibMode", "subjunMode"]
+	tr: ["gorGecZam", "ogrGecZam", "simZam", "gelZam", "genZam", "gerKip", "dilKip", "istKip", "emrKip"],
+	en: ["simPresTence", "simPastTence", "simFutuTence", "certFutuTence", "presContTence", "ableMode", "imperMode", "possibMode", "subjunMode"]
+}
+export const NOUN_CONDITION = {
+		tr: ["e", "i", "de", "den"],
+		en: ["to", "the", "in", "from"]
 	}
 	//"pastContTence"
 	//"presPerfContTence"

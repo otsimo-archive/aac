@@ -137,10 +137,9 @@ export default class AppController {
 						global.extendedSlugMap[pushObj.title] = obj.slug;
 					});
 				}
-				// Extend conjuncted
+				let lang = this.$scope.global.language;
+				// Extend conjuncted verbs
 				if (obj.type == "verb") {
-					console.log(this.conj.conjNoun("o", "a"));
-					let lang = this.$scope.global.language;
 					let possessors = CONSTANT.POSS[lang];
 					if (lang == "tr") {
 						possessors.forEach(p => {
@@ -162,6 +161,19 @@ export default class AppController {
 							});
 						});
 					}
+				}
+				// extend conjuncted nouns
+				if (obj.type == "noun") {
+					CONSTANT.NOUN_CONDITION[lang].forEach(c => {
+						if (lang == "tr") {
+							obj.title = this.conj.conjNounTr(obj.slug, c);
+						} else if (lang == "en") {
+							obj.title = this.conj.conjNounEn(obj.slug, c);
+						}
+						let pushObj = JSON.parse(JSON.stringify(obj));
+						global.extendedArray.push(pushObj);
+						global.extendedSlugMap[pushObj.title] = obj.slug;
+					});
 				}
 			});
 		}
