@@ -1,5 +1,6 @@
 import { deviceType } from './js/utils';
 import * as CONSTANT from './js/constants';
+
 /**
  *
  * @class AppController
@@ -160,15 +161,17 @@ export default class AppController {
 				}
 				// extend conjuncted nouns
 				if (obj.type == "noun") {
-					CONSTANT.NOUN_CONDITION[lang].forEach(c => {
-						if (lang == "tr") {
-							obj.title = this.conj.conjNounTr(obj.slug, c);
-						} else if (lang == "en") {
-							obj.title = this.conj.conjNounEn(obj.slug, c);
-						}
-						let pushObj = JSON.parse(JSON.stringify(obj));
-						global.extendedArray.push(pushObj);
-					});
+					if (CONSTANT.NOUN_CONDITION[lang]) {
+						CONSTANT.NOUN_CONDITION[lang].forEach(c => {
+							if (lang == "tr") {
+								obj.title = this.conj.conjNounTr(obj.slug, c);
+							} else if (lang == "en") {
+								obj.title = this.conj.conjNounEn(obj.slug, c);
+							}
+							let pushObj = JSON.parse(JSON.stringify(obj));
+							global.extendedArray.push(pushObj);
+						});
+					}
 				}
 			});
 		}

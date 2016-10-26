@@ -62,7 +62,7 @@ export default class PhraseController {
 			this.tts.speak(currentPhraseString);
 			this.events.appPhrase(currentPhraseString);
 		}
-		console.log(this.$scope.global.currentPhrase);
+		//console.log(this.$scope.global.currentPhrase);
 	}
 
 	phraseTouchStart() {

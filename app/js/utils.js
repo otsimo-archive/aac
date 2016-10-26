@@ -38,7 +38,6 @@ export function capitalize(str) {
 }
 
 
-
 /**
  * Find the device the types
  *
