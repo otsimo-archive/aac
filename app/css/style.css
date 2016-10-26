@@ -160,12 +160,12 @@ body {
   height:33px !important;
 }
 
-.gridType-noun { border-color:#5d8dcc; }
-.gridType-noun .derivable{ background:#5d8dcc; }
+.gridType-noun { border-color:#cc5e5d; }
+.gridType-noun .derivable{ background:#cc5e5d; }
 .gridType-verb { border-color:#cb5dcc; }
 .gridType-verb .derivable { background:#cb5dcc; }
-.gridType-pronoun { border-color:#cc5e5d; }
-.gridType-pronoun .derivable { background:#cc5e5d; }
+.gridType-pronoun { border-color:#5d8dcc; }
+.gridType-pronoun .derivable { background:#5d8dcc; }
 .gridType-adjective { border-color:#5dcc66; }
 .gridType-adjective .derivable { background:#5dcc66; }
 .gridType-adverb { border-color:#c4cc5d; }
