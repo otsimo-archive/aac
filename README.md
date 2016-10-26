@@ -1,6 +1,6 @@
 # Otsimo AAC SPECS App
 
-An app to compose phrases for kids with autism.
+An app that helps kids with autism to compose phrases.
 
 Otsimo AAC is an application that ables kids with autism who can not speak to compose phrases by tapping on the words. Otsimo AAC uses picture exchange communication system.
 
@@ -41,4 +41,12 @@ to start protractor tests please run:
 
 ```
 npm run protractor
+```
+
+### Update Symbols
+
+to update the symbols:
+
+```
+npm run update-symbols
 ```

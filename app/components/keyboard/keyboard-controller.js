@@ -91,7 +91,12 @@ export default class KeyboardController {
 		if (typeInput.value) {
 			let inputWord = {};
 			inputWord.title = typeInput.value.toLocaleLowerCase();
-			inputWord.slug = this.$scope.global.extendedSlugMap[inputWord.title];
+			let getFromMap = this.$scope.global.extendedSlugMap[inputWord.title];
+			if (getFromMap) {
+				inputWord.slug = getFromMap;
+			} else {
+				inputWord.slug = inputWord.title;
+			}
 			let checkExist = this.checkWordInDB(inputWord.slug);
 			inputWord.slugExist = !checkExist;
 
@@ -187,7 +192,12 @@ export default class KeyboardController {
 			if (wordPiece) {
 				let wordObj2Push = {};
 				wordObj2Push.title = wordPiece;
-				wordObj2Push.slug = this.$scope.global.extendedSlugMap[wordPiece];
+				let getFromMap = this.$scope.global.extendedSlugMap[wordPiece];
+				if (getFromMap) {
+					wordObj2Push.slug = getFromMap;
+				} else {
+					wordObj2Push.slug = wordPiece;
+				}
 				wordObj2Push.slugExist = !this.checkWordInDB(wordObj2Push.slug);
 				wordObj2Push.phraseIndex = this.phraseIndex++;
 				this.$scope.global.pushToCurrentPhrase(wordObj2Push);
