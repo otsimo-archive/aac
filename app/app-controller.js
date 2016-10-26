@@ -127,14 +127,12 @@ export default class AppController {
 			global.mainArray.forEach(objMirror => {
 				let obj = JSON.parse(JSON.stringify(objMirror));
 				global.extendedArray.push(obj);
-				global.extendedSlugMap[obj.title] = obj.slug;
 				// Extend synonyms
 				if (obj.synonym.length) {
 					obj.synonym.forEach(s => {
 						obj.title = s;
 						let pushObj = JSON.parse(JSON.stringify(obj));
 						global.extendedArray.push(pushObj);
-						global.extendedSlugMap[pushObj.title] = obj.slug;
 					});
 				}
 				let lang = this.$scope.global.language;
@@ -147,7 +145,6 @@ export default class AppController {
 								obj.title = this.conj.conjTurkish(obj.slug, c, p);
 								let pushObj = JSON.parse(JSON.stringify(obj));
 								global.extendedArray.push(pushObj);
-								global.extendedSlugMap[pushObj.title] = obj.slug;
 							});
 						});
 					} else if (lang == "en") {
@@ -157,7 +154,6 @@ export default class AppController {
 								obj.title = this.conj.conjEnglish(obj.slug, c, p);
 								let pushObj = JSON.parse(JSON.stringify(obj));
 								global.extendedArray.push(pushObj);
-								global.extendedSlugMap[pushObj.title] = obj.slug;
 							});
 						});
 					}
@@ -172,7 +168,6 @@ export default class AppController {
 						}
 						let pushObj = JSON.parse(JSON.stringify(obj));
 						global.extendedArray.push(pushObj);
-						global.extendedSlugMap[pushObj.title] = obj.slug;
 					});
 				}
 			});
@@ -180,6 +175,7 @@ export default class AppController {
 		global.extendedArray.forEach(ext => {
 			global.extendedTitleArray.push(ext.title);
 			global.extendedSlugArray.push(ext.slug);
+			global.extendedSlugMap[ext.title] = ext.slug;
 		});
 	}
 
