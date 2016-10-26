@@ -16,13 +16,23 @@ export function halTr(isim, hal) {
 		iEkleri['aıeiouöü'.indexOf(sonSesli) + istisna] : // e, de veya den hali ise
 		// Son sesli harf a, ı, o veya u ise ek a (istisna var ise e ), e, i, ö veya ü ise ek e harfi
 		(/[aıou]/.test(sonSesli)) ? istisna ? 'e' : 'a' : 'e';
-
+	var iyelikVarmi = false,
+		sondanIkinciHarf = isim.substr(isim.length - 2, 1);
+	if (sonHarf == "i" || sonHarf == "ı" || sonHarf == "ü" || sonHarf == "u") {
+		if (sondanIkinciHarf == "n" || sondanIkinciHarf == "s") {
+			iyelikVarmi = true;
+		}
+	}
 	if (hal == yalinHali) {
 		return isim;
 	}
 	// Kaynastirma harflerini ekler
 	if (sonHarf == sonSesli) {
-		ek = (hal == iyelik) ? 'n' + ek : (hal == iHali || hal == eHali) ? 'y' + ek : ek
+
+		if (hal == iHali || hal == eHali) {
+			ek = (iyelikVarmi) ? 'n' + ek : 'y' + ek;
+		}
+
 	}
 	// Kok degisimlerini kontrol eder
 	if (hal == iHali || hal == eHali) {
@@ -39,6 +49,9 @@ export function halTr(isim, hal) {
 	}
 	// Harf yumusamalarini kontrol eder
 	if (hal == deHali || hal == denHali) {
+		if (iyelikVarmi) {
+			isim = isim + "n";
+		}
 		ek = (/[fstkçşhp]/.test(sonHarf) ? 't' : 'd') + ek
 	}
 
