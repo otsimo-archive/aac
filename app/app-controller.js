@@ -175,7 +175,8 @@ export default class AppController {
 		global.extendedArray.forEach(ext => {
 			global.extendedTitleArray.push(ext.title);
 			global.extendedSlugArray.push(ext.slug);
-			global.extendedSlugMap[ext.title] = ext.slug;
+			let cleanTitle = ext.title.replaceAll("-", " ");
+			global.extendedSlugMap[cleanTitle] = ext.slug;
 		});
 	}
 
