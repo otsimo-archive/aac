@@ -1,5 +1,6 @@
 export function halTr(isim, hal) {
 	let iyelik = 'iyelik',
+		yalinHali = "",
 		iHali = 'i',
 		eHali = 'e',
 		deHali = 'de',
@@ -16,11 +17,26 @@ export function halTr(isim, hal) {
 		// Son sesli harf a, ı, o veya u ise ek a (istisna var ise e ), e, i, ö veya ü ise ek e harfi
 		(/[aıou]/.test(sonSesli)) ? istisna ? 'e' : 'a' : 'e';
 
+	if (hal == yalinHali) {
+		return isim;
+	}
 	// Kaynastirma harflerini ekler
 	if (sonHarf == sonSesli) {
 		ek = (hal == iyelik) ? 'n' + ek : (hal == iHali || hal == eHali) ? 'y' + ek : ek
 	}
-
+	// Kok degisimlerini kontrol eder
+	if (hal == iHali || hal == eHali) {
+		if ((/[tçkp]/.test(sonHarf))) {
+			isim = isim.substr(0, isim.length - 1);
+			var yumusamisHarfMap = {
+				"t": "d",
+				"ç": "c",
+				"k": "ğ",
+				"p": "b"
+			};
+			isim = isim + yumusamisHarfMap[sonHarf];
+		}
+	}
 	// Harf yumusamalarini kontrol eder
 	if (hal == deHali || hal == denHali) {
 		ek = (/[fstkçşhp]/.test(sonHarf) ? 't' : 'd') + ek
