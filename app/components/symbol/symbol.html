@@ -12,7 +12,8 @@
     <div class="nounConjCarrier">
       <div ng-repeat="conj in symbol.nounConjArr track by $index" class="conjableItem">
         <div ng-touchstart="symbol.clickNounConjuncted(conj.title, conj.condition)">
-          <img ng-src="img/conj-{{global.language}}-noun/{{conj.condition?conj.condition:'simple'}}.svg"/><br/>
+          <img style="height:{{conj.title.length>18?'calc(100% - 85px)':'calc(100% - 65px)'}};"
+               ng-src="img/conj-{{global.language}}-noun/{{conj.condition?conj.condition:'simple'}}.svg"/><br/>
           {{conj.title}}</div>
       </div>
     </div>

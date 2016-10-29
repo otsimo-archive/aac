@@ -178,9 +178,9 @@ body {
 .gridType-interjection .derivable { background:#cc5d9f; }
 
 .derivable { position:absolute; right:-20px; top:-20px; width:40px; height:40px;transform:rotateZ(45deg); }
-.group { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:3px; border:2px solid #555; border-bottom:0px; top:-7px;
+.group { position:absolute; left:5px; width:calc(100% - 14px); height:3px; border:2px solid #555; border-bottom:0px; top:-6px;
 border-radius:6px 6px 0px 0px; background:#fff; }
-.group2 { position:absolute; left:5px; top:0px; width:calc(100% - 14px); height:3px; border:2px solid #666; border-bottom:0px; top:-7px;
+.group2 { position:absolute; left:5px; width:calc(100% - 14px); height:3px; border:2px solid #666; border-bottom:0px; top:-6px;
 border-radius:6px 6px 0px 0px; background:#fff;  }
 
 .gridGroup {
@@ -415,42 +415,27 @@ margin:2px;}
 .suggestedWord { float:left; height:100px; padding:10px; text-align:center;  }
 .suggestedWord img { height:calc(100% - 40px);}
 
-.verbConjCarrier {
+.verbConjCarrier, .nounConjCarrier {
   position:relative;
   width:480px;
   height:480px;
   top:calc(50% - 240px);
   left:calc(50% - 240px);
   background:#fff;
-  border:2px solid #666;
   border-radius:5px;
+  box-shadow:0px 0px 10px 0px rgba(0,0,0,0.7);
 }
 
-.verbConjCarrier img{
-  width:90px;
-  margin:7px;
-}
-
-.nounConjCarrier {
-  position:relative;
-  width:480px;
-  height:480px;
-  top:calc(50% - 240px);
-  left:calc(50% - 240px);
-  background:#fff;
-  border:2px solid #666;
-  border-radius:5px;
-}
-
-.nounConjCarrier img{
-  width:90px;
-  margin:7px;
+.verbConjCarrier img, .nounConjCarrier img{
+  height:calc(100% - 65px);
+  margin:15px;
+  border-radius:10px;
 }
 
 .conjableItem {
-  width:calc(100% / 3 - 4px);
-  height:calc(100% / 3 - 4px);
-  border:2px solid #ddd;
+  width:calc(100% / 3 - 2px);
+  height:calc(100% / 3 - 2px);
+  border:1px solid #ddd;
   float:left;
   text-align:center;
 }
@@ -471,21 +456,21 @@ margin:2px;}
   .recentTabs li{ font-size:0.9em; padding:8px 0px;}
   .gridItem { padding:5px; margin:2px; }
 
-  .grid3x2 .gridItem { width:calc(100% / 3 - 18px); height:calc(100% / 2 - 18px); }
-  .grid2x3 .gridItem { width:calc(100% / 2 - 18px); height:calc(100% / 3 - 18px); }
-  .grid3x3 .gridItem { width:calc(100% / 3 - 18px); height:calc(100% / 3 - 18px); }
-  .grid4x3 .gridItem { width:calc(100% / 4 - 18px); height:calc(100% / 3 - 18px); }
-  .grid3x4 .gridItem { width:calc(100% / 3 - 18px); height:calc(100% / 4 - 18px); }
-  .grid5x3 .gridItem { width:calc(100% / 5 - 18px); height:calc(100% / 3 - 18px); }
-  .grid3x5 .gridItem { width:calc(100% / 3 - 18px); height:calc(100% / 5 - 18px); }
-  .grid5x4 .gridItem { width:calc(100% / 5 - 18px); height:calc(100% / 4 - 18px); }
-  .grid4x5 .gridItem { width:calc(100% / 4 - 18px); height:calc(100% / 5 - 18px); }
-  .grid6x4 .gridItem { width:calc(100% / 6 - 18px); height:calc(100% / 4 - 18px); }
+  .grid3x2 .gridItem { width:calc(100% / 3 - 18px); height:calc(100% / 2 - 19px); }
+  .grid2x3 .gridItem { width:calc(100% / 2 - 18px); height:calc(100% / 3 - 19px); }
+  .grid3x3 .gridItem { width:calc(100% / 3 - 18px); height:calc(100% / 3 - 19px); }
+  .grid4x3 .gridItem { width:calc(100% / 4 - 18px); height:calc(100% / 3 - 19px); }
+  .grid3x4 .gridItem { width:calc(100% / 3 - 18px); height:calc(100% / 4 - 19px); }
+  .grid5x3 .gridItem { width:calc(100% / 5 - 18px); height:calc(100% / 3 - 19px); }
+  .grid3x5 .gridItem { width:calc(100% / 3 - 18px); height:calc(100% / 5 - 19px); }
+  .grid5x4 .gridItem { width:calc(100% / 5 - 18px); height:calc(100% / 4 - 19px); }
+  .grid4x5 .gridItem { width:calc(100% / 4 - 18px); height:calc(100% / 5 - 19px); }
+  .grid6x4 .gridItem { width:calc(100% / 6 - 18px); height:calc(100% / 4 - 19px); }
   .grid6x4 .gridText { font-size:0.85em;  padding-top:6px; }
-  .grid4x6 .gridItem { width:calc(100% / 4 - 18px); height:calc(100% / 6 - 18px); }
+  .grid4x6 .gridItem { width:calc(100% / 4 - 18px); height:calc(100% / 6 - 19px); }
   .grid4x6 .gridText { font-size:0.85em; padding-top:6px; }
-  .grid6x5 .gridItem { width:calc(100% / 6 - 18px); height:calc(100% / 5 - 18px); }
-  .grid5x6 .gridItem { width:calc(100% / 5 - 18px); height:calc(100% / 6 - 18px); }
+  .grid6x5 .gridItem { width:calc(100% / 6 - 18px); height:calc(100% / 5 - 19px); }
+  .grid5x6 .gridItem { width:calc(100% / 5 - 18px); height:calc(100% / 6 - 19px); }
   .grid6x5 .gridText { font-size:0.85em;  padding-top:6px; }
   .grid5x6 .gridText { font-size:0.85em;  padding-top:6px;  }
 
@@ -500,7 +485,7 @@ margin:2px;}
   }
 
   .gridGroup {
-      border:2px dotted #333;
+      border:2px solid #333;
       padding-top:5px !important;
       margin-top:3px !important;
       overflow: hidden !important;
@@ -517,18 +502,16 @@ margin:2px;}
   .inputCarrier input { width:calc(100% - 70px); height:50px; font-size:1.5em; }
   .inputCarrier i { line-height:50px; font-size: 2em; padding:0px 15px; }
 
-
-  .verbConjCarrier {
-    position:relative;
-    width:360px;
-    height:360px;
-    top:calc(50% - 180px);
-    left:calc(50% - 180px);
-    background:#fff;
-    border:2px solid #666;
-    border-radius:5px;
-  }
-
+    .verbConjCarrier, .nounConjCarrier {
+      position:relative;
+      width:360px;
+      height:360px;
+      top:calc(50% - 180px);
+      left:calc(50% - 180px);
+      background:#fff;
+      border:2px solid #666;
+      border-radius:5px;
+    }
 }
 
 @media all and (max-width:500px){
