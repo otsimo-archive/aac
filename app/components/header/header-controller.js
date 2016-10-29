@@ -81,7 +81,10 @@ export default class HeaderController {
 		 * there is a currentGroup or currentDerivable
 		 */
 	goHome() {
-			document.getElementById("generalCarrier").style.height = "100%";
+			let gCarrier = document.getElementById("generalCarrier");
+			if (gCarrier) {
+				gCarrier.style.height = "100%";
+			}
 			if (this.$scope.global.currentTab !== CONSTANT.TAB_MAIN || this.$scope.global.getPage() !== 0 || this.$scope.global.currentGroup || this.$scope.global.currentDerivable) {
 				// Animate Home Icon
 				this.animIconTouch('hIcon');
@@ -97,7 +100,10 @@ export default class HeaderController {
 		 * Opens the grid page
 		 */
 	openGrid() {
-			document.getElementById("generalCarrier").style.height = "100%";
+			let gCarrier = document.getElementById("generalCarrier");
+			if (gCarrier) {
+				gCarrier.style.height = "100%";
+			}
 			if (this.$scope.global.currentTab !== CONSTANT.TAB_MAIN) {
 				// Animate Grid Icon
 				this.animIconTouch('gIcon');
@@ -108,7 +114,10 @@ export default class HeaderController {
 		 * Opens the keyboard page
 		 */
 	openKeyboard() {
-			document.getElementById("generalCarrier").style.height = "2000px";
+			let gCarrier = document.getElementById("generalCarrier");
+			if (gCarrier) {
+				gCarrier.style.height = "2000px";
+			}
 			if (this.$scope.global.currentTab !== CONSTANT.TAB_KEYBOARD) {
 				// Animate Grid Icon
 				this.animIconTouch('kIcon');
