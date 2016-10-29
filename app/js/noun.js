@@ -16,6 +16,42 @@ export function halTr(isim, hal) {
 		iEkleri['aıeiouöü'.indexOf(sonSesli) + istisna] : // e, de veya den hali ise
 		// Son sesli harf a, ı, o veya u ise ek a (istisna var ise e ), e, i, ö veya ü ise ek e harfi
 		(/[aıou]/.test(sonSesli)) ? istisna ? 'e' : 'a' : 'e';
+	if (hal == "bu") {
+		return "bu " + isim;
+	}
+	if (hal == "şu") {
+		return "şu " + isim;
+	}
+	if (hal == "benim") {
+		if ((/[tçkp]/.test(sonHarf))) {
+			isim = isim.substr(0, isim.length - 1);
+			var yumusamisHarfMap = {
+				"t": "d",
+				"ç": "c",
+				"k": "ğ",
+				"p": "b"
+			};
+			isim = isim + yumusamisHarfMap[sonHarf];
+		}
+		let iyelikEk = (sonHarf == sonSesli) ? "m" : (sonSesli == "i" || sonSesli == "e") ? "im" : (sonSesli == "ı" || sonSesli == "a") ? "ım" : (sonSesli == "u" || sonSesli == "o") ? "um" : "üm";
+		return "benim " + isim + iyelikEk;
+	}
+
+	if (hal == "senin") {
+		if ((/[tçkp]/.test(sonHarf))) {
+			isim = isim.substr(0, isim.length - 1);
+			var yumusamisHarfMap = {
+				"t": "d",
+				"ç": "c",
+				"k": "ğ",
+				"p": "b"
+			};
+			isim = isim + yumusamisHarfMap[sonHarf];
+		}
+		let iyelikEk = (sonHarf == sonSesli) ? "n" : (sonSesli == "i" || sonSesli == "e") ? "in" : (sonSesli == "ı" || sonSesli == "a") ? "ın" : (sonSesli == "u" || sonSesli == "o") ? "un" : "ün";
+		return "senin " + isim + iyelikEk;
+	}
+
 	var iyelikVarmi = false,
 		sondanIkinciHarf = isim.substr(isim.length - 2, 1);
 	if (sonHarf == "i" || sonHarf == "ı" || sonHarf == "ü" || sonHarf == "u") {
