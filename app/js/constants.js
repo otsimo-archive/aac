@@ -24,8 +24,8 @@ export const CONJTYPE = {
 	en: ["simPresTence", "simPastTence", "simFutuTence", "certFutuTence", "presContTence", "ableMode", "imperMode", "possibMode", "subjunMode"]
 }
 export const NOUN_CONDITION = {
-		tr: ["", "e", "i", "de", "den"],
-		en: ["", "to", "the", "in", "from"]
+		tr: ["", "e", "i", "de", "den", "bu", "şu", "benim", "senin"],
+		en: ["", "to", "the", "in", "from", "this", "that", "my", "your"]
 	}
 	//"pastContTence"
 	//"presPerfContTence"
