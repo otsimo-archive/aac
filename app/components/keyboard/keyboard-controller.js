@@ -56,15 +56,10 @@ export default class KeyboardController {
 	showKeyboardFocused(e) {
 		let typeInput = document.getElementById("typeInput");
 		if (typeInput) {
-			document.getElementById("generalCarrier").style.height = (parseInt(window.innerHeight) / 2) + 'px';
-			document.body.scrollTop = document.documentElement.scrollTop = 0;
 			e.preventDefault();
 			e.stopPropagation();
-			window.scrollTo(0, 0);
 
 			this.$timeout(() => {
-				document.getElementById("generalCarrier").style.height = parseInt(window.innerHeight) + 'px';
-				document.body.scrollTop = document.documentElement.scrollTop = 0;
 				e.preventDefault();
 				e.stopPropagation();
 				window.scrollTo(0, 0);
