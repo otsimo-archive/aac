@@ -42,17 +42,16 @@ export default class KeyboardController {
 	 * Shows the keyboard
 	 */
 	showKeyboard() {
-		let typeInput = document.getElementById("typeInput");
-		if (typeInput) {
-			typeInput.focus();
+			let typeInput = document.getElementById("typeInput");
+			if (typeInput) {
+				typeInput.focus();
+			}
 		}
-	}
-
-	/**
-	 * Removes readonly from typeInput
-	 * Triggered when type input is
-	 * Walkaround for ios autocorrect
-	 */
+		/**
+		 * Removes readonly from typeInput
+		 * Triggered when type input is
+		 * Walkaround for ios autocorrect
+		 */
 	showKeyboardFocused(e) {
 		let typeInput = document.getElementById("typeInput");
 		if (typeInput) {
