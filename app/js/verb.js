@@ -52,6 +52,26 @@
   You should cook
 */
 
+const verbFormatMap = {
+	"do": ["did", "did"],
+	"go": ["went", "gone"],
+	"get": ["got", "gotten"],
+	"make": ["made", "made"],
+	"have": ["had", "had"],
+	"read": ["read", "read"],
+	"come": ["came", "come"],
+	"eat": ["ate", "eaten"],
+	"see": ["saw", "seen"],
+	"put": ["put", "put"],
+	"let": ["let", "let"],
+	"say": ["said", "said"],
+	"speak": ["spoke", "spoken"],
+	"teach": ["tought", "thought"],
+	"tell": ["told", "told"],
+	"write": ["wrote", "written"]
+}
+
+
 function vowelCheck(vowel) {
 	if (vowel == "a" || vowel == "e" || vowel == "i" || vowel == "o") {
 		return true;
@@ -61,18 +81,27 @@ function vowelCheck(vowel) {
 }
 
 function secondFormat(verb) {
-	if (vowelCheck(verb[verb.length - 1])) {
-		return verb.substring(0, verb.length - 1) + "ed";
+
+	if (verbFormatMap[verb]) {
+		return verbFormatMap[verb][0];
 	} else {
-		return verb + "ed";
+		if (vowelCheck(verb[verb.length - 1])) {
+			return verb.substring(0, verb.length - 1) + "ed";
+		} else {
+			return verb + "ed";
+		}
 	}
 }
 
 function thirdFormat(verb) {
-	if (vowelCheck(verb[verb.length - 1])) {
-		return verb.substring(0, verb.length - 1) + "ed";
+	if (verbFormatMap[verb]) {
+		return verbFormatMap[verb][1];
 	} else {
-		return verb + "ed";
+		if (vowelCheck(verb[verb.length - 1])) {
+			return verb.substring(0, verb.length - 1) + "ed";
+		} else {
+			return verb + "ed";
+		}
 	}
 }
 
