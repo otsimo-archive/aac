@@ -320,7 +320,12 @@ export default class GridController {
 						let cpt = cp[i - 1].title;
 						if (CONSTANT.POSS[lang].contains(cpt)) {
 							if (wordObj2Push.tence) {
-								wo2p.title = this.conj.addEnglishPoss(wo2p.title, cpt, wordObj2Push.tence);
+								let hasIdenifier = true;
+								let cp = this.$scope.global.currentPhrase;
+								if (cp[cp.length - 1].title == "am") {
+									hasIdenifier = false;
+								}
+								wo2p.title = this.conj.addEnglishPoss(wo2p.title, cpt, wordObj2Push.tence, hasIdenifier);
 							} else {
 								wo2p.title = this.conj.conjEnglish(wo2p.title, "simPresTence", cpt);
 							}

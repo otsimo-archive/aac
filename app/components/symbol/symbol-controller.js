@@ -71,6 +71,7 @@ export default class SymbolController {
 				this.conjArr.push(conjable);
 			});
 		} else if (language == "en") {
+
 			CONSTANT.CONJTYPE[language].forEach(c => {
 				let conjable = {
 					title: this.conj.conjEnglish(wordObj.title, c),

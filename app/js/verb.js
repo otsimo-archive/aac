@@ -194,13 +194,13 @@ function verbConj(verb, tence) {
 	}
 }
 
-export function addPossessiveEn(verb, possessor, tence) {
+export function addPossessiveEn(verb, possessor, tence, withIdenifier) {
 	switch (tence) {
 		case "simPresTence":
 			return addS(possessor, verb);
 		case "certFutuTence":
 		case "presContTence":
-			return syntaxBeing(possessor) + verb;
+			return withIdenifier ? syntaxBeing(possessor) : "" + verb;
 		case "pastContTence":
 			return pastFormOfBeing(possessor) + verb;
 		case "presPerfTence":

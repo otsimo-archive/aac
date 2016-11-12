@@ -35,8 +35,8 @@ export default class ConjunctionManager {
 		 * @param {string} tence - Tence
 		 *
 		 */
-	addEnglishPoss(verb, poss, tence) {
-			return addPossessiveEn(verb, poss, tence);
+	addEnglishPoss(verb, poss, tence, identifier) {
+			return addPossessiveEn(verb, poss, tence, identifier);
 		}
 		/**
 		 * Return verb in the given possessor format
