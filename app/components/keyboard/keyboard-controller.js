@@ -75,9 +75,11 @@ export default class KeyboardController {
 	 * Hides the keyboard
 	 */
 	hideKeyboard() {
+		let inpCarrier = document.querySelector(".inputCarrier");
 		let typeInput = document.getElementById("typeInput");
 		if (typeInput) {
 			document.getElementById("generalCarrier").style.height = "100%";
+			inpCarrier.style.top = "0px";
 		}
 	}
 
