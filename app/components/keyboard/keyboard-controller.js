@@ -53,17 +53,21 @@ export default class KeyboardController {
 		 * Walkaround for ios autocorrect
 		 */
 	showKeyboardFocused(e) {
+		let inpCarrier = document.querySelector(".inputCarrier");
 		let typeInput = document.getElementById("typeInput");
 		if (typeInput) {
 			e.preventDefault();
 			e.stopPropagation();
+			let headerHeight = document.getElementById("header").clientHeight;
+			let phHeight = document.querySelector(".phraseHolder").clientHeight;
 
 			this.$timeout(() => {
 				e.preventDefault();
 				e.stopPropagation();
+				inpCarrier.style.top = parseInt(window.innerHeight - (headerHeight + phHeight + 70)) + 'px';
 				window.scrollTo(0, 0);
 				console.log("virtual keyboard opened!");
-			}, 500);
+			}, 300);
 		}
 	}
 
