@@ -61,13 +61,17 @@ export default class KeyboardController {
 			let headerHeight = document.getElementById("header").clientHeight;
 			let phHeight = document.querySelector(".phraseHolder").clientHeight;
 
+			document.addEventListener('touchmove', function(ev) {
+				ev.preventDefault();
+			});
+
 			this.$timeout(() => {
 				e.preventDefault();
 				e.stopPropagation();
 				inpCarrier.style.top = parseInt(window.innerHeight - (headerHeight + phHeight + 70)) + 'px';
 				window.scrollTo(0, 0);
 				console.log("virtual keyboard opened!");
-			}, 300);
+			}, 500);
 		}
 	}
 
