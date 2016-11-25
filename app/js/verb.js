@@ -200,7 +200,7 @@ export function addPossessiveEn(verb, possessor, tence, withIdenifier) {
 			return addS(possessor, verb);
 		case "certFutuTence":
 		case "presContTence":
-			return withIdenifier ? syntaxBeing(possessor) : "" + verb;
+			return (withIdenifier ? syntaxBeing(possessor) : "") + verb;
 		case "pastContTence":
 			return pastFormOfBeing(possessor) + verb;
 		case "presPerfTence":

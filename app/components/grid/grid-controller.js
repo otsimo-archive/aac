@@ -322,7 +322,8 @@ export default class GridController {
 							if (wordObj2Push.tence) {
 								let hasIdenifier = true;
 								let cp = this.$scope.global.currentPhrase;
-								if (cp[cp.length - 1].title == "am") {
+								let idenifier = cp[cp.length - 1].title;
+								if (idenifier == "am" || idenifier == "is" ||  idenifier == "are") {
 									hasIdenifier = false;
 								}
 								wo2p.title = this.conj.addEnglishPoss(wo2p.title, cpt, wordObj2Push.tence, hasIdenifier);
