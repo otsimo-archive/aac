@@ -1,78 +1,78 @@
 {
-    "name": "otsimo-symbol-aac",
-    "version": "0.1.0",
-    "description": "Otsimo symbol based AAC",
-    "scripts": {
-        "build": "NODE_ENV=production webpack --progress",
-        "update-symbols": "node update-symbols.js",
-        "staging": "node version.js; svgo -f app/symbols/en/images; svgo -f app/symbols/tr/images; sh publish.sh staging",
-        "publish": "node version.js; svgo -f app/symbols/en/images; svgo -f app/symbols/tr/images; sh publish.sh",
-        "watch": "npm run build -- --watch",
-        "server": "webpack-dev-server --port 3001 --host 0.0.0.0",
-        "start": "npm run server",
-        "test": "karma start karma.conf.js",
-        "test-travis": "karma start karma.conf.js --single-run",
-        "lint": "eslint app",
-        "update-webdriver": "webdriver-manager update",
-        "preprotractor": "npm run update-webdriver",
-        "protractor": "protractor e2e-tests/protractor.conf.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/otsimo/acc.git"
-    },
-    "keywords": [
-        "otsimo",
-        "aac"
-    ],
-    "author": "Burak Tokak <burak@otsimo.com>",
-    "license": "GPL-3.0",
-    "bugs": {
-        "url": "https://github.com/otsimo/acc/issues"
-    },
-    "homepage": "https://github.com/otsimo/acc/#readme",
-    "standard": {
-        "parser": "babel-eslint"
-    },
-    "devDependencies": {
-        "angular-mocks": "^1.5.7",
-        "babel-core": "^6.11.4",
-        "babel-eslint": "^6.1.2",
-        "babel-loader": "^6.2.4",
-        "babel-preset-es2015": "^6.9.0",
-        "copy-webpack-plugin": "^3.0.1",
-        "eslint": "^3.5.0",
-        "eslint-config-airbnb": "^11.1.0",
-        "eslint-plugin-import": "^1.15.0",
-        "eslint-plugin-jsx-a11y": "^2.2.2",
-        "eslint-plugin-react": "^6.3.0",
-        "fs": "0.0.1-security",
-        "isparta-loader": "^2.0.0",
-        "jasmine-core": "^2.4.1",
-        "jasmine-jquery": "^2.1.1",
-        "karma": "^1.1.1",
-        "karma-chrome-launcher": "^1.0.1",
-        "karma-coverage": "^1.1.1",
-        "karma-firefox-launcher": "^1.0.0",
-        "karma-jasmine": "^1.0.2",
-        "karma-jasmine-jquery": "^0.1.1",
-        "karma-json-fixtures-preprocessor": "0.0.6",
-        "karma-read-json": "^1.1.0",
-        "karma-webpack": "^1.7.0",
-        "ng-annotate-webpack-plugin": "^0.1.3",
-        "protractor": "^4.0.0",
-        "standard": "^7.1.2",
-        "svgo": "^0.7.1",
-        "webpack": "2.1.0-beta.19",
-        "webpack-dev-server": "2.1.0-beta.0",
-        "webpack-uglify-js-plugin": "^1.1.9"
-    },
-    "dependencies": {
-        "angular": "^1.6.0",
-        "angular-touch": "^1.5.8",
-        "fastclick": "^1.0.6",
-        "ng-sortable": "^1.3.6",
-        "ngtouch": "^1.0.1",
-        "otsimo": "^1.2.0"
-    }
+  "name": "otsimo-symbol-aac",
+  "version": "0.1.0",
+  "description": "Otsimo symbol based AAC",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --progress",
+    "update-symbols": "node update-symbols.js",
+    "staging": "node version.js; svgo -f app/symbols/en/images; svgo -f app/symbols/tr/images; sh publish.sh staging",
+    "publish": "node version.js; svgo -f app/symbols/en/images; svgo -f app/symbols/tr/images; sh publish.sh",
+    "watch": "npm run build -- --watch",
+    "server": "webpack-dev-server --port 3001 --host 0.0.0.0",
+    "start": "npm run server",
+    "test": "karma start karma.conf.js",
+    "test-travis": "karma start karma.conf.js --single-run",
+    "lint": "eslint app",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otsimo/acc.git"
+  },
+  "keywords": [
+    "otsimo",
+    "aac"
+  ],
+  "author": "Burak Tokak <burak@otsimo.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/otsimo/acc/issues"
+  },
+  "homepage": "https://github.com/otsimo/acc/#readme",
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.7",
+    "babel-core": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "copy-webpack-plugin": "^3.0.1",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "fs": "0.0.1-security",
+    "isparta-loader": "^2.0.0",
+    "jasmine-core": "^2.4.1",
+    "jasmine-jquery": "^2.1.1",
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-json-fixtures-preprocessor": "0.0.6",
+    "karma-read-json": "^1.1.0",
+    "karma-webpack": "^1.7.0",
+    "ng-annotate-webpack-plugin": "^0.1.3",
+    "protractor": "^4.0.0",
+    "standard": "^7.1.2",
+    "svgo": "^0.7.1",
+    "webpack": "2.1.0-beta.19",
+    "webpack-dev-server": "2.1.0-beta.0",
+    "webpack-uglify-js-plugin": "^1.1.9"
+  },
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-touch": "^1.5.8",
+    "fastclick": "^1.0.6",
+    "ng-sortable": "^1.3.6",
+    "ngtouch": "^1.0.1",
+    "otsimo": "^1.2.0"
+  }
 }

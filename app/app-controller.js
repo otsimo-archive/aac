@@ -106,7 +106,7 @@ export default class AppController {
         let global = this.$scope.global;
         let symbolPackPath = this.otsimo.kv.symbolPack;
         let metadataPath = `${symbolPackPath}/metadata.json`;
-        console.log(symbolPackPath);
+        console.log("Symbol Pack: " + symbolPackPath);
         this.$http.get(metadataPath)
             .then(resp => {
                 this.metadata = resp.data;
