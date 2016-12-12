@@ -108,14 +108,14 @@ export default class AppController {
         this.$http.get(metadataPath)
             .then(resp => {
                 this.metadata = resp;
-                global.symbolPath = `${this.otsimo.kv.symbolPack}/${resp.images}`;
+                global.symbolPath = `${this.otsimo.kv.symbolPack}/${resp.data.images}`;
                 this.tts.setVoiceDriver(resp.voiceId);
 
-                let symbolDataPath = `${this.otsimo.kv.symbolPack}/${resp.data}`
+                let symbolDataPath = `${this.otsimo.kv.symbolPack}/${resp.data.data}`;
 
                 this.$http.get(symbolDataPath)
                     .then(resp => {
-                        global.mainArray = resp.symbols;
+                        global.mainArray = resp.data.symbols;
                         this.initExtendedSymbols();
                         global.changeCurrentTab(CONSTANT.TAB_MAIN);
                     }, err => {
