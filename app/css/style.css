@@ -773,7 +773,8 @@ img {
 .verbConjCarrier, .nounConjCarrier {
     position: relative;
     width: 480px;
-    height: 480px;
+    height: 479px;
+    overflow: hidden;
     top: calc(50% - 240px);
     left: calc(50% - 240px);
     background: #fff;
