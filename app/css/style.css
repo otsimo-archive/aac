@@ -146,6 +146,7 @@ img {
 }
 
 .currentPhrase {
+    position: relative;
     float: left;
     width: calc(100% - 100px);
     height: 130px;

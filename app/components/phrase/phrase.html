@@ -1,26 +1,18 @@
 <div ng-controller="phrase-controller as phrase" class="phraseHolder">
-  <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}} draggable-{{global.isDraggable}}" data-as-sortable="phrase.dragListener"
-        is-disabled="global.isDraggable"
-        data-ng-model="global.currentPhrase"
-        ng-touchstart="phrase.phraseTouchStart()"
-        ng-touchend="phrase.phraseTouchEnd()">
-    <div class="currentPhraseScroll">
-      <span ng-if="global.currentPhrase.length > 0">
+    <div id="cPhrase" class="currentPhrase {{currentPhraseTransition}} draggable-{{global.isDraggable}}" data-as-sortable="phrase.dragListener" is-disabled="global.isDraggable" data-ng-model="global.currentPhrase" ng-touchstart="phrase.phraseTouchStart($event)"
+        ng-touchend="phrase.phraseTouchEnd($event)">
+        <div class="currentPhraseScroll">
+            <span ng-if="global.currentPhrase.length > 0">
         <div class="wordItem" data-ng-repeat="word in global.currentPhrase track by ($index + word.slug)" data-as-sortable-item>
-          <div data-as-sortable-item-handle>
-            <span ng-if="!word.slugExist">
-              <img ng-src="{{global.symbolPath}}/{{word.slug}}.svg" />
-              <div class="wordText">{{word.title}}</div>
-            </span>
-            <span ng-if="word.slugExist">
-              <div class="wordTextSolo">{{word.title}}</div>
-            </span>
-          </div>
+            <div data-as-sortable-item-handle>
+                <span ng-if="!word.slugExist"><img ng-src="{{global.symbolPath}}/{{word.slug}}.svg" /><div class="wordText">{{word.title}}</div></span>
+            <span ng-if="word.slugExist"><div class="wordTextSolo">{{word.title}}</div></span>
         </div>
-      </span>
     </div>
-  </div>
-  <div ng-click="phrase.removeLastWord()" ng-touchstart="phrase.bsTouchStart()" ng-touchend="phrase.bsTouchEnd()" class="backspace">
+    </span>
+</div>
+</div>
+<div ng-click="phrase.removeLastWord()" ng-touchstart="phrase.bsTouchStart()" ng-touchend="phrase.bsTouchEnd()" class="backspace">
     <i id="bs" class="material-icons">backspace</i>
-  </div>
+</div>
 </div>
