@@ -104,14 +104,16 @@ export default class AppController {
      */
     loadSymbols() {
         let global = this.$scope.global;
-        let metadataPath = `${this.otsimo.kv.symbolPack}/metadata.json`;
+        let symbolPackPath = this.otsimo.kv.symbolPack;
+        let metadataPath = `${symbolPackPath}/metadata.json`;
+        console.log(symbolPackPath);
         this.$http.get(metadataPath)
             .then(resp => {
-                this.metadata = resp;
-                global.symbolPath = `${this.otsimo.kv.symbolPack}/${resp.data.images}`;
-                this.tts.setVoiceDriver(resp.voiceId);
+                this.metadata = resp.data;
+                global.symbolPath = `${symbolPackPath}/${resp.data.images}`;
+                this.tts.setVoiceDriver(resp.data.voiceId);
 
-                let symbolDataPath = `${this.otsimo.kv.symbolPack}/${resp.data.data}`;
+                let symbolDataPath = `${symbolPackPath}/${resp.data.data}`;
 
                 this.$http.get(symbolDataPath)
                     .then(resp => {
