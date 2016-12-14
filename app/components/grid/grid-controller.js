@@ -298,10 +298,8 @@ export default class GridController {
 
     pushToCurrentPhrase(wordObj2Push, speak) {
             let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
-            console.log(wo2p);
             let cp = this.$scope.global.currentPhrase;
             let lang = this.$scope.global.language;
-            console.log(wo2p.title);
             if (cp.length > 0) {
                 if (wo2p.type == "verb") {
                     let i = cp.length;
