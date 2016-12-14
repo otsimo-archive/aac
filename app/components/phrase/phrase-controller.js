@@ -26,6 +26,7 @@ export default class PhraseController {
             this.phraseTouchTimer = null;
             this.beforeTouch = 0;
             this.willActivateDraggable = true;
+            this.activatedFirstTime = false;
             this.dragListener = {
                 allowDuplicates: true,
             }
@@ -65,15 +66,17 @@ export default class PhraseController {
         }
     }
 
-    phraseTouchStart(e) {
-        let cPhrase = document.getElementById("cPhrase");
+    phraseTouchStart(e, cp) {
+        let cPhrase = (!cp) ? document.getElementById("cPhrase") : cp;
         if (cPhrase) {
             this.beforeTouch = cPhrase.scrollLeft;
         }
+
         this.phraseTouchTimer = this.$timeout(() => {
             if (Math.abs(this.beforeTouch - cPhrase.scrollLeft) > 20) {
                 this.willActivateDraggable = false;
             } else {
+                this.activatedFirstTime = true;
                 this.activateDraggable();
             }
         }, 1000);
