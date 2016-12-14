@@ -298,41 +298,57 @@ export default class GridController {
 
     pushToCurrentPhrase(wordObj2Push, speak) {
             let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
+            console.log(wo2p);
             let cp = this.$scope.global.currentPhrase;
             let lang = this.$scope.global.language;
-            if (cp.length > 0 && wo2p.type == "verb") {
-                let i = cp.length;
-                if (lang == "tr") {
-                    while (i > 0) {
-                        let cpt = cp[i - 1].title;
-                        if (CONSTANT.POSS[lang].contains(cpt)) {
-                            if (wordObj2Push.tence) {
-                                wo2p.title = this.conj.addTurkishPoss(wo2p.title, cpt, wordObj2Push.tence);
-                            } else {
-                                wo2p.title = this.conj.conjTurkish(wo2p.title, "simZam", cpt);
-                            }
-                            break;
-                        }
-                        i--;
-                    }
-                } else if (lang == "en") {
-                    while (i > 0) {
-                        let cpt = cp[i - 1].title;
-                        if (CONSTANT.POSS[lang].contains(cpt)) {
-                            if (wordObj2Push.tence) {
-                                let hasIdenifier = true;
-                                let cp = this.$scope.global.currentPhrase;
-                                let idenifier = cp[cp.length - 1].title;
-                                if (idenifier == "am" || idenifier == "is" ||  idenifier == "are") {
-                                    hasIdenifier = false;
+            console.log(wo2p.title);
+            if (cp.length > 0) {
+                if (wo2p.type == "verb") {
+                    let i = cp.length;
+                    if (lang == "tr") {
+                        while (i > 0) {
+                            let cpt = cp[i - 1].title;
+                            if (CONSTANT.POSS[lang].contains(cpt)) {
+                                if (wordObj2Push.tence) {
+                                    wo2p.title = this.conj.addTurkishPoss(wo2p.title, cpt, wordObj2Push.tence);
+                                } else {
+                                    wo2p.title = this.conj.conjTurkish(wo2p.title, "simZam", cpt);
                                 }
-                                wo2p.title = this.conj.addEnglishPoss(wo2p.title, cpt, wordObj2Push.tence, hasIdenifier);
-                            } else {
-                                wo2p.title = this.conj.conjEnglish(wo2p.title, "simPresTence", cpt);
+                                break;
                             }
-                            break;
+                            i--;
                         }
-                        i--;
+                    } else if (lang == "en") {
+                        while (i > 0) {
+                            let cpt = cp[i - 1].title;
+                            if (CONSTANT.POSS[lang].contains(cpt)) {
+                                if (wordObj2Push.tence) {
+                                    let hasIdenifier = true;
+                                    let cp = this.$scope.global.currentPhrase;
+                                    let idenifier = cp[cp.length - 1].title;
+                                    if (idenifier == "am" || idenifier == "is" ||  idenifier == "are") {
+                                        hasIdenifier = false;
+                                    }
+                                    wo2p.title = this.conj.addEnglishPoss(wo2p.title, cpt, wordObj2Push.tence, hasIdenifier);
+                                } else {
+                                    wo2p.title = this.conj.conjEnglish(wo2p.title, "simPresTence", cpt);
+                                }
+                                break;
+                            }
+                            i--;
+                        }
+                    }
+                } else {
+                    let pronoun = cp[cp.length - 1].title;
+                    if (pronoun == "i") {
+                        wo2p.title = "am";
+                        wo2p.slug = "am";
+                    } else if (pronoun == "you" || pronoun == "we" || pronoun == "they") {
+                        wo2p.title = "are";
+                        wo2p.slug = "are";
+                    } else if (pronoun == "he" || pronoun == "she" || pronoun == "it") {
+                        wo2p.title = "is";
+                        wo2p.slug = "is";
                     }
                 }
             }
