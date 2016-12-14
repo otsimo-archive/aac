@@ -757,6 +757,7 @@ img {
 
 .suggestions {
     height: 100px;
+    transition: 200ms opacity;
     overflow: hidden;
 }
 
