@@ -186,11 +186,12 @@ export default class AppController {
             });
         }
         global.extendedArray.forEach(ext => {
-            global.extendedTitleArray.push(ext.title);
-            global.extendedSlugArray.push(ext.slug);
             let cleanTitle = ext.title.replaceAll("-", " ");
+            global.extendedTitleArray.push(cleanTitle);
+            global.extendedSlugArray.push(ext.slug);
             global.extendedSlugMap[cleanTitle] = ext.slug;
         });
+
     }
 
     /**
