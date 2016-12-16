@@ -135,7 +135,23 @@ function pastFormOfBeing(poss) {
 }
 
 
+const ingMap = {
+    "swim": "swimming",
+    "get": "getting",
+    "stop": "stopping",
+    "lie": "lying",
+    "die": "dying",
+    "do": "doing",
+    "go": "going",
+    "put": "putting",
+    "see": "seeing",
+    "let": "letting"
+}
+
 function addIng(verb) {
+    if (ingMap[verb]) {
+        return ingMap[verb];
+    }
     if (vowelCheck(verb[verb.length - 1])) {
         return verb.substring(0, verb.length - 1) + "ing";
     } else {
