@@ -293,7 +293,7 @@ export default class GridController {
             }
         }
         this.global.gridSize = theGridSize;
-        //this.$scope.$apply();
+        this.$scope.$apply();
     }
 
     pushToCurrentPhrase(wordObj2Push, speak) {
