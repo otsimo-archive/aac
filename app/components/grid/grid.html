@@ -1,4 +1,5 @@
 <div id="gridHolder" ng-controller="grid-controller as grid" class="gridHolder gridNoAnim" ng-switch="global.currentTab">
+  <div id="symbolCover" ng-click="grid.clickCover()"></div>
     <div class="grids grid{{global.gridSize[0]}}x{{global.gridSize[1]}}">
 
         <div ng-switch-when="main">
@@ -20,5 +21,6 @@
             </div>
         </div>
         <div ng-switch-when="recent" recent></div>
+        <div ng-switch-when="keyboard" keyboard></div>
     </div>
 </div>

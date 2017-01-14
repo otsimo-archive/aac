@@ -5,6 +5,7 @@ const webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
 let outputPath = path.resolve(__dirname, 'dist')
 let sourcePath = path.resolve(__dirname, 'app')
+let initPath = path.resolve(__dirname, 'app', 'js');
 let otsimoPath = path.resolve(__dirname, 'node_modules', 'otsimo')
 let fastClickPath = path.resolve(__dirname, 'node_modules', 'fastclick', 'lib')
 
@@ -64,6 +65,10 @@ module.exports = {
       {
         context: otsimoPath,
         from: 'otsimo.js'
+      },
+      {
+        context: initPath,
+        from: 'init.js'
       },
       {
         from: 'i18n',

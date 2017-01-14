@@ -27,6 +27,8 @@
     "pageText2": "Group Cards Of ",
     "pageText3": "Derivables Of ",
     "pageText4": "Recent Phrases",
+    "pageText5": "Type With Keyboard",
+    "startTyping": "Start Typing...",
     "timeIntervalText1": "Last 30 Min",
     "timeIntervalText2": "Today",
     "timeIntervalText3": "Yesterday",
@@ -38,5 +40,5 @@
     "headerColor": "#3a3e4a",
     "removeHoldColor": "#ff0000",
     "removeNormalColor": "#444444",
-    "symbolPack": "symbols/test-en"
+    "symbolPack": "symbols/aac-test-en"
 }

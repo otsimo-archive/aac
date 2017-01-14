@@ -7,11 +7,12 @@
 	<link href="css/icon.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="css/font.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="css/sortable.css" rel="stylesheet" type="text/css" media="screen">
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
 	<!-- build:remove -->
-	<script src='//vws.responsivevoice.com/v/e?key=utvgu25X'></script>
+	<script src="responsivevoice.js"></script>
 	<!-- endbuild -->
 </head>
 
@@ -22,17 +23,23 @@
 			<a href="https://itunes.apple.com/tr/app/otsimo-cocuk-otizm-icin-online/id1084723770?mt=8" style="display:inline-block;overflow:hidden;background:url(img/update.svg) no-repeat;width:165px;height:40px;position:relative; left:calc(50% - 82.5px)"></a>
 		</div>
 	</div>
-
-	<div header></div>
-	<div phrase></div>
-	<div grid></div>
+	<div id="generalCarrier">
+		<div header></div>
+		<div phrase></div>
+		<div grid></div>
+	</div>
 
 	<script src="vendor.js"></script>
 	<script src="otsimo.js"></script>
 	<script src="fastclick.js"></script>
+	<script src="init.js"></script>
 	<script src="app.js"></script>
 	<script type="text/javascript">
-	otsimo.init({language:"en",capabilities:["tts"]});
+		otsimo.init({
+			language: "en",
+			capabilities: ["tts"],
+			isTestApp: true
+		});
 	</script>
 </body>
 

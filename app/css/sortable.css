@@ -1,0 +1,81 @@
+/* ************************************** */
+/* Mandatory CSS required for ng-sortable */
+/* ************************************** */
+
+.as-sortable-item, .as-sortable-placeholder {
+    display: block;
+}
+
+@keyframes mymove {
+    0% { transform: rotateZ(-3deg); }
+    50% { transform: rotateZ(3deg); }
+    100% { transform: rotateZ(-3deg); }
+}
+
+.as-sortable-item {
+    -ms-touch-action: inital;
+    touch-action: inital;
+    /* to disable context menu on iOS devices */
+    -webkit-touch-callout: none;
+}
+
+.as-sortable-item-handle {
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+
+.as-sortable-placeholder {
+}
+
+.as-sortable-drag {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.as-sortable-hidden {
+    display: none !important;
+}
+
+.as-sortable-un-selectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.as-sortable-item, .as-sortable-placeholder {
+    float: left;
+}
+
+.as-sortable-item {
+  transform: rotateZ(3deg) scale(1);
+  animation: mymove 300ms infinite;
+  transition:300ms all;
+}
+.draggable-true .as-sortable-item {
+  transform: none !important;
+  animation: none !important;
+}
+
+.as-sortable-item-handle {
+}
+
+.as-sortable-placeholder {
+    background-color: #eaeaea;
+}
+
+.as-sortable-drag {
+    opacity: .8;
+}
+
+.as-sortable-dragging .as-sortable-item{
+  transform: scale(1.2) !important;
+  animation: none !important;
+}
+
+.as-sortable-hidden {
+}

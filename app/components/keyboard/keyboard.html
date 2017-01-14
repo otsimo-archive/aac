@@ -1,0 +1,14 @@
+<div ng-controller="keyboard-controller as keyboard">
+    <div id="suggestionList" class="suggestions">
+        <div class="suggestedWord" ng-repeat="suggestionWord in keyboard.suggestionList track by $index" ng-click="keyboard.clickSuggestion(suggestionWord)">
+            <img ng-src="{{global.symbolPath}}/{{keyboard.slugSuggest(suggestionWord)}}.svg" />
+            <div class="wordText">{{suggestionWord}}</div>
+        </div>
+    </div>
+
+    <div class="inputCarrier">
+        <input id="typeInput" type="text" tabindex="1" ng-keydown="keyboard.enterSubmit($event)" placeholder="{{startTyping}}" ng-focus="keyboard.showKeyboardFocused($event)" ng-blur="keyboard.hideKeyboard()" autocomplete="off" autocorrect="off" autocapitalize="off"
+            spellcheck="false" />
+        <i ng-click="keyboard.submitCurrentInput()" class="material-icons">check_circle</i>
+    </div>
+</div>

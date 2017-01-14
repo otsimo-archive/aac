@@ -26,8 +26,8 @@ coverage
 dist
 spec
 .vscode
-app/symbols/en
-app/symbols/tr
+app/symbols/aac-en
+app/symbols/aac-tr
 out
 public
 

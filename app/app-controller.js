@@ -1,151 +1,247 @@
-import { deviceType } from './js/utils';
+import {
+    deviceType
+} from './js/utils';
 import * as CONSTANT from './js/constants';
+
 /**
  *
  * @class AppController
  */
 export default class AppController {
-  /**
-   * Creates an instance of AppController.
-   *
-   * @param {any} $scope
-   * @param {any} $global
-   * @param {angular.IHttpService} $http
-   * @param {TTSManager} TTSManager
-   *
-   * @memberOf AppController
-   */
-  constructor($scope, $global, $http, TTSManager) {
-    this.$scope = $scope;
-    this.$scope.global = $global;
-    this.$http = $http;
-    this.tts = TTSManager;
-    // Initilize variables for controller.
+    /**
+     * Creates an instance of AppController.
+     *
+     * @param {any} $scope
+     * @param {any} $global
+     * @param {angular.IHttpService} $http
+     * @param {TTSManager} TTSManager
+     * @param {ConjunctionManager} ConjunctionManager
+     * @param {OtsimoHandler} OtsimoHandler
+     *
+     * @memberOf AppController
+     */
+    constructor($scope, $global, $http, TTSManager, ConjunctionManager, OtsimoHandler) {
+        this.$scope = $scope;
+        this.$scope.global = $global;
+        this.$http = $http;
+        this.tts = TTSManager;
+        this.conj = ConjunctionManager;
+        this.otsimo = OtsimoHandler.init();
+        // Initilize variables for controller.
 
-    // Call controllerInit
-    this.controllerInit();
-  }
-
-  controllerInit() {
-    // Create or facilitate new functions for $scope or $global service.
-    otsimo.run(() => {
-
-      this.checkCapabilities();
-      this.setSettings();
-      this.runApp();
-
-      // Listen the changes on the resolution and
-      // orientation from the device.
-      this.resolutionListener();
-
-    });
-  }
-
-  /**
-   * Does the inital tasks to start the app.
-   */
-  runApp() {
-    // Get grid size X and Y from otsimo settings object.
-    let otsGridSize = otsimo.settings.gridsize.split('grid-')[1];
-    let otsGridXY = otsGridSize.split('x');
-    let x = otsGridXY[0];
-    let y = otsGridXY[1];
-    // Check if the device is a phone
-    // Limit the grid size to 6x4
-    if (deviceType() === 'phone') {
-      if (x > 6) { x = 6; }
-      if (y > 4) { y = 4; }
+        // Call controllerInit
+        this.controllerInit();
     }
-    // Set grid size and check device orientation.
-    this.$scope.global.changeGridSize(x, y);
-    this.$scope.global.checkOrientation();
 
-    // Load symbol data to global array variable.
-    this.loadSymbols();
-  }
+    controllerInit() {
+        // Create or facilitate new functions for $scope or $global service.
+        this.otsimo.run(() => {
 
-  /**
-   * Sets the setting properties fron otsimo object
-   *
-   */
-  setSettings() {
+            this.checkCapabilities();
+            this.setSettings();
+            this.runApp();
+        });
 
-    this.$scope.global.language = otsimo.child.language;
-    // Colors & styles
-    this.$scope.headerColor = otsimo.kv.headerColor;
-    this.$scope.generalFont = otsimo.kv.generalFont;
-    document.getElementById('header')
-      .style.background = this.$scope.headerColor;
-    document.body.style.fontSize = this.$scope.generalFont;
-
-    this.setUIText();
-
-  }
-
-  /**
-   * Loads symbol package respect to language
-   *
-   */
-  loadSymbols() {
-    let global = this.$scope.global;
-    let metadataPath = `${otsimo.kv.symbolPack}/metadata.json`;
-    this.$http.get(metadataPath)
-      .success((resp) => {
-        this.metadata = resp;
-        global.symbolPath = `${otsimo.kv.symbolPack}/${resp.images}`;
-        this.tts.setVoiceDriver(resp.voiceId);
-
-        let symbolDataPath = `${otsimo.kv.symbolPack}/${resp.data}`
-
-        this.$http.get(symbolDataPath)
-          .success(resp => {
-            global.mainArray = resp.symbols;
-            global.changeCurrentTab(CONSTANT.TAB_MAIN);
-          })
-          .error(console.error)
-      })
-      .error(console.error);
-  }
-
-  /**
-   * Checks if the device or installed otsimo app is supporting TTS.
-   *
-   */
-  checkCapabilities() {
-    if (otsimo.capabilities.indexOf('tts') === -1) {
-      document.getElementById('outdated')
-        .style.display = 'block';
+        // Listen the changes on the resolution and
+        // orientation from the device.
+        this.resolutionListener();
     }
-  }
 
-  /**
-   * Sets UI text setting properties from otsimo kv object
-   *
-   */
-  setUIText() {
-    this.$scope.pageText1 = otsimo.kv.pageText1;
-    this.$scope.pageText2 = otsimo.kv.pageText2;
-    this.$scope.pageText3 = otsimo.kv.pageText3;
-    this.$scope.pageText4 = otsimo.kv.pageText4;
-    this.$scope.timeIntervalText1 = otsimo.kv.timeIntervalText1;
-    this.$scope.timeIntervalText2 = otsimo.kv.timeIntervalText2;
-    this.$scope.timeIntervalText3 = otsimo.kv.timeIntervalText3;
-    this.$scope.timeIntervalText4 = otsimo.kv.timeIntervalText4;
-    this.$scope.previousText = otsimo.kv.previousText;
-    this.$scope.nextText = otsimo.kv.nextText;
-    this.$scope.backText = otsimo.kv.backText;
-  }
+    /**
+     * Does the inital tasks to start the app.
+     */
+    runApp() {
+        // Get grid size X and Y from otsimo settings object.
+        let otsGridSize = this.otsimo.settings.gridsize.split('grid-')[1];
+        let otsGridXY = otsGridSize.split('x');
+        let x = otsGridXY[0];
+        let y = otsGridXY[1];
+        // Check if the device is a phone
+        // Limit the grid size to 6x4
+        if (deviceType() === 'phone') {
+            if (x > 6) {
+                x = 6;
+            }
+            if (y > 4) {
+                y = 4;
+            }
+        }
+        // Set grid size and check device orientation.
+        this.$scope.global.changeGridSize(x, y);
+        if (this.otsimo.width < this.otsimo.height) {
+            this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
+        } else {
+            this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
+        }
 
-  /**
-   * Listens any resolution changes
-   *
-   */
-  resolutionListener() {
-    otsimo.onResolutionChanged((width, height, orientation) => {
-      this.$scope.global.checkOrientation(orientation);
-    });
-  }
+        // Load symbol data to global array variable.
+        this.loadSymbols();
+    }
+
+    /**
+     * Sets the setting properties fron otsimo object
+     *
+     */
+    setSettings() {
+
+        this.$scope.global.language = this.otsimo.child.language;
+        // Colors & styles
+        this.$scope.headerColor = this.otsimo.kv.headerColor;
+        this.$scope.generalFont = this.otsimo.kv.generalFont;
+        let header = document.getElementById('header');
+        if (header) {
+            header.style.background = this.$scope.headerColor;
+            document.body.style.fontSize = this.$scope.generalFont;
+        }
+
+        this.setUIText();
+
+    }
+
+    /**
+     * Loads symbol package respect to language
+     *
+     */
+    loadSymbols() {
+        let global = this.$scope.global;
+        let symbolPackPath = this.otsimo.kv.symbolPack;
+        let metadataPath = `${symbolPackPath}/metadata.json`;
+        console.log("Symbol Pack: " + symbolPackPath);
+        this.$http.get(metadataPath)
+            .then(resp => {
+                this.metadata = resp.data;
+                global.symbolPath = `${symbolPackPath}/${resp.data.images}`;
+                this.tts.setVoiceDriver(resp.data.voiceId);
+
+                let symbolDataPath = `${symbolPackPath}/${resp.data.data}`;
+
+                this.$http.get(symbolDataPath)
+                    .then(resp => {
+                        global.mainArray = resp.data.symbols;
+                        this.initExtendedSymbols();
+                        global.changeCurrentTab(CONSTANT.TAB_MAIN);
+                    }, err => {
+                        console.log(err);
+                    });
+            }, err => {
+                console.log(err);
+            });
+    }
+
+    /**
+     * Initilizes the extended symbol array for phrase view.
+     *
+     */
+    initExtendedSymbols() {
+        let global = this.$scope.global;
+        if (global.mainArray) {
+            global.mainArray.forEach(objMirror => {
+                let obj = JSON.parse(JSON.stringify(objMirror));
+                global.extendedArray.push(obj);
+                // Extend synonyms
+                if (obj.synonym.length) {
+                    obj.synonym.forEach(s => {
+                        obj.title = s;
+                        let pushObj = JSON.parse(JSON.stringify(obj));
+                        global.extendedArray.push(pushObj);
+                    });
+                }
+                let lang = this.$scope.global.language;
+                // Extend conjuncted verbs
+                if (obj.type == "verb") {
+                    let possessors = CONSTANT.POSS[lang];
+                    if (lang == "tr") {
+                        possessors.forEach(p => {
+                            CONSTANT.CONJTYPE[lang].forEach(c => {
+                                obj.title = this.conj.conjTurkish(obj.slug, c, p);
+                                let pushObj = JSON.parse(JSON.stringify(obj));
+                                global.extendedArray.push(pushObj);
+                            });
+                        });
+                    } else if (lang == "en") {
+                        //Set english verb conjunction.
+                        possessors.forEach(p => {
+                            CONSTANT.CONJTYPE[lang].forEach(c => {
+                                obj.title = this.conj.conjEnglish(obj.slug, c, p);
+                                let pushObj = JSON.parse(JSON.stringify(obj));
+                                global.extendedArray.push(pushObj);
+                            });
+                        });
+                    }
+                }
+                // extend conjuncted nouns
+                if (obj.type == "noun") {
+                    if (CONSTANT.NOUN_CONDITION[lang]) {
+                        CONSTANT.NOUN_CONDITION[lang].forEach(c => {
+                            if (lang == "tr") {
+                                obj.title = this.conj.conjNounTr(obj.slug, c);
+                            } else if (lang == "en") {
+                                obj.title = this.conj.conjNounEn(obj.slug, c);
+                            }
+                            let pushObj = JSON.parse(JSON.stringify(obj));
+                            global.extendedArray.push(pushObj);
+                        });
+                    }
+                }
+            });
+        }
+        global.extendedArray.forEach(ext => {
+            let cleanTitle = ext.title.replaceAll("-", " ");
+            global.extendedTitleArray.push(cleanTitle);
+            global.extendedSlugArray.push(ext.slug);
+            global.extendedSlugMap[cleanTitle] = ext.slug;
+        });
+
+    }
+
+    /**
+     * Checks if the device or installed otsimo app is supporting TTS.
+     *
+     */
+    checkCapabilities() {
+        if (this.otsimo.capabilities.indexOf('tts') === -1) {
+            document.getElementById('outdated').style.display = 'block';
+        }
+    }
+
+    /**
+     * Sets UI text setting properties from otsimo kv object
+     *
+     */
+    setUIText() {
+        let otsKV = this.otsimo.kv;
+        let sc = this.$scope;
+        sc.pageText1 = otsKV.pageText1;
+        sc.pageText2 = otsKV.pageText2;
+        sc.pageText3 = otsKV.pageText3;
+        sc.pageText4 = otsKV.pageText4;
+        sc.pageText5 = otsKV.pageText5;
+        sc.timeIntervalText1 = otsKV.timeIntervalText1;
+        sc.timeIntervalText2 = otsKV.timeIntervalText2;
+        sc.timeIntervalText3 = otsKV.timeIntervalText3;
+        sc.timeIntervalText4 = otsKV.timeIntervalText4;
+        sc.previousText = otsKV.previousText;
+        sc.nextText = otsKV.nextText;
+        sc.backText = otsKV.backText;
+        sc.removeHoldColor = otsKV.removeHoldColor;
+        sc.removeNormalColor = otsKV.removeNormalColor;
+        sc.startTyping = otsKV.startTyping;
+    }
+
+    /**
+     * Listens any resolution changes
+     *
+     */
+    resolutionListener() {
+        this.otsimo.onResolutionChanged((width, height, orientation) => {
+            if (width < height) {
+                this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
+            } else {
+                this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
+            }
+        });
+    }
 
 }
 // Service Dependency Injection
-AppController.$inject = ['$scope', '$global', '$http', 'TTSManager'];
+AppController.$inject = ['$scope', '$global', '$http', 'TTSManager', 'ConjunctionManager', 'OtsimoHandler'];
