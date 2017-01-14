@@ -103,27 +103,32 @@ export default class AppController {
      *
      */
     loadSymbols() {
-        let global = this.$scope.global;
-        let symbolPackPath = this.otsimo.kv.symbolPack;
-        let metadataPath = `${symbolPackPath}/metadata.json`;
-        console.log("Symbol Pack: " + symbolPackPath);
+        const global = this.$scope.global;
+        const symbolPackPath = this.otsimo.kv.symbolPack;
+        const metadataPath = `${symbolPackPath}/metadata.json`;
+
+        const so = symbolPackPath.replace('symbols/', '');
+        const pluginModule = require(`./symbols/${so}/main.js`);
+        const plugin = new pluginModule.default();
+        console.log(plugin.name, plugin.conj());
+
         this.$http.get(metadataPath)
-            .then(resp => {
+            .then((resp) => {
                 this.metadata = resp.data;
                 global.symbolPath = `${symbolPackPath}/${resp.data.images}`;
                 this.tts.setVoiceDriver(resp.data.voiceId);
 
-                let symbolDataPath = `${symbolPackPath}/${resp.data.data}`;
+                const symbolDataPath = `${symbolPackPath}/${resp.data.data}`;
 
                 this.$http.get(symbolDataPath)
-                    .then(resp => {
+                    .then((resp) => {
                         global.mainArray = resp.data.symbols;
                         this.initExtendedSymbols();
                         global.changeCurrentTab(CONSTANT.TAB_MAIN);
-                    }, err => {
+                    }, (err) => {
                         console.log(err);
                     });
-            }, err => {
+            }, (err) => {
                 console.log(err);
             });
     }
