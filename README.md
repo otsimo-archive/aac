@@ -1,4 +1,4 @@
-# Otsimo AAC SPECS App
+# Otsimo AAC PECS App
 
 An app that helps kids with autism to compose phrases.
 
