@@ -1,6 +1,4 @@
-import {
-    deviceType
-} from './js/utils';
+import {deviceType} from './js/utils';
 import * as CONSTANT from './js/constants';
 
 /**
@@ -20,12 +18,11 @@ export default class AppController {
      *
      * @memberOf AppController
      */
-    constructor($scope, $global, $http, TTSManager, ConjunctionManager, OtsimoHandler) {
+    constructor($scope, $global, $http, TTSManager, OtsimoHandler) {
         this.$scope = $scope;
         this.$scope.global = $global;
         this.$http = $http;
         this.tts = TTSManager;
-        this.conj = ConjunctionManager;
         this.otsimo = OtsimoHandler.init();
         // Initilize variables for controller.
 
@@ -109,28 +106,25 @@ export default class AppController {
 
         const so = symbolPackPath.replace('symbols/', '');
         const pluginModule = require(`./symbols/${so}/main.js`);
-        const plugin = new pluginModule.default();
-        console.log(plugin.name, plugin.conj());
+        this.languagePlugin = new pluginModule.default();
 
-        this.$http.get(metadataPath)
-            .then((resp) => {
-                this.metadata = resp.data;
-                global.symbolPath = `${symbolPackPath}/${resp.data.images}`;
-                this.tts.setVoiceDriver(resp.data.voiceId);
+        this.$http.get(metadataPath).then((resp) => {
+            this.metadata = resp.data;
+            global.symbolPath = `${symbolPackPath}/${resp.data.images}`;
+            this.tts.setVoiceDriver(resp.data.voiceId);
 
-                const symbolDataPath = `${symbolPackPath}/${resp.data.data}`;
+            const symbolDataPath = `${symbolPackPath}/${resp.data.data}`;
 
-                this.$http.get(symbolDataPath)
-                    .then((resp) => {
-                        global.mainArray = resp.data.symbols;
-                        this.initExtendedSymbols();
-                        global.changeCurrentTab(CONSTANT.TAB_MAIN);
-                    }, (err) => {
-                        console.log(err);
-                    });
+            this.$http.get(symbolDataPath).then((resp) => {
+                global.mainArray = resp.data.symbols;
+                this.initExtendedSymbols();
+                global.changeCurrentTab(CONSTANT.TAB_MAIN);
             }, (err) => {
                 console.log(err);
             });
+        }, (err) => {
+            console.log(err);
+        });
     }
 
     /**
@@ -154,39 +148,24 @@ export default class AppController {
                 let lang = this.$scope.global.language;
                 // Extend conjuncted verbs
                 if (obj.type == "verb") {
-                    let possessors = CONSTANT.POSS[lang];
-                    if (lang == "tr") {
-                        possessors.forEach(p => {
-                            CONSTANT.CONJTYPE[lang].forEach(c => {
-                                obj.title = this.conj.conjTurkish(obj.slug, c, p);
-                                let pushObj = JSON.parse(JSON.stringify(obj));
-                                global.extendedArray.push(pushObj);
-                            });
-                        });
-                    } else if (lang == "en") {
-                        //Set english verb conjunction.
-                        possessors.forEach(p => {
-                            CONSTANT.CONJTYPE[lang].forEach(c => {
-                                obj.title = this.conj.conjEnglish(obj.slug, c, p);
-                                let pushObj = JSON.parse(JSON.stringify(obj));
-                                global.extendedArray.push(pushObj);
-                            });
-                        });
-                    }
-                }
-                // extend conjuncted nouns
-                if (obj.type == "noun") {
-                    if (CONSTANT.NOUN_CONDITION[lang]) {
-                        CONSTANT.NOUN_CONDITION[lang].forEach(c => {
-                            if (lang == "tr") {
-                                obj.title = this.conj.conjNounTr(obj.slug, c);
-                            } else if (lang == "en") {
-                                obj.title = this.conj.conjNounEn(obj.slug, c);
-                            }
+                    let possessors = this.languagePlugin.poss;
+                    let conjtypes = this.languagePlugin.conjtype;
+                    possessors.forEach(p => {
+                        conjtypes.forEach(c => {
+                            obj.title = this.languagePlugin.conjVerb(obj.slug, c, p);
                             let pushObj = JSON.parse(JSON.stringify(obj));
                             global.extendedArray.push(pushObj);
                         });
-                    }
+                    });
+                }
+                // extend conjuncted nouns
+                if (obj.type == "noun") {
+                    let nounConditions = this.languagePlugin.nounCondition;
+                    nounConditions.forEach(c => {
+                        obj.title = this.languagePlugin.conjNoun(obj.slug, c);
+                        let pushObj = JSON.parse(JSON.stringify(obj));
+                        global.extendedArray.push(pushObj);
+                    });
                 }
             });
         }
@@ -249,4 +228,4 @@ export default class AppController {
 
 }
 // Service Dependency Injection
-AppController.$inject = ['$scope', '$global', '$http', 'TTSManager', 'ConjunctionManager', 'OtsimoHandler'];
+AppController.$inject = ['$scope', '$global', '$http', 'TTSManager', 'OtsimoHandler'];
