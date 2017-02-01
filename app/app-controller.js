@@ -18,11 +18,12 @@ export default class AppController {
      *
      * @memberOf AppController
      */
-    constructor($scope, $global, $http, TTSManager, OtsimoHandler) {
+    constructor($scope, $global, $http, TTSManager, OtsimoHandler, ConjunctionManager) {
         this.$scope = $scope;
         this.$scope.global = $global;
         this.$http = $http;
         this.tts = TTSManager;
+        this.conj = ConjunctionManager;
         this.otsimo = OtsimoHandler.init();
         // Initilize variables for controller.
 
@@ -104,10 +105,6 @@ export default class AppController {
         const symbolPackPath = this.otsimo.kv.symbolPack;
         const metadataPath = `${symbolPackPath}/metadata.json`;
 
-        const so = symbolPackPath.replace('symbols/', '');
-        const pluginModule = require(`./symbols/${so}/main.js`);
-        this.languagePlugin = new pluginModule.default();
-
         this.$http.get(metadataPath).then((resp) => {
             this.metadata = resp.data;
             global.symbolPath = `${symbolPackPath}/${resp.data.images}`;
@@ -148,11 +145,11 @@ export default class AppController {
                 let lang = this.$scope.global.language;
                 // Extend conjuncted verbs
                 if (obj.type == "verb") {
-                    let possessors = this.languagePlugin.poss;
-                    let conjtypes = this.languagePlugin.conjtype;
+                    let possessors = this.conj.poss;
+                    let conjtypes = this.conj.conjtype;
                     possessors.forEach(p => {
                         conjtypes.forEach(c => {
-                            obj.title = this.languagePlugin.conjVerb(obj.slug, c, p);
+                            obj.title = this.conj.conjVerb(obj.slug, c, p);
                             let pushObj = JSON.parse(JSON.stringify(obj));
                             global.extendedArray.push(pushObj);
                         });
@@ -160,14 +157,17 @@ export default class AppController {
                 }
                 // extend conjuncted nouns
                 if (obj.type == "noun") {
-                    let nounConditions = this.languagePlugin.nounCondition;
+                    let nounConditions = this.conj.nounCondition;
+
                     nounConditions.forEach(c => {
-                        obj.title = this.languagePlugin.conjNoun(obj.slug, c);
+                        obj.title = this.conj.conjNoun(obj.slug, c);
                         let pushObj = JSON.parse(JSON.stringify(obj));
                         global.extendedArray.push(pushObj);
                     });
                 }
             });
+            console.log(global.extendedArray);
+
         }
         global.extendedArray.forEach(ext => {
             let cleanTitle = ext.title.replaceAll("-", " ");
@@ -228,4 +228,11 @@ export default class AppController {
 
 }
 // Service Dependency Injection
-AppController.$inject = ['$scope', '$global', '$http', 'TTSManager', 'OtsimoHandler'];
+AppController.$inject = [
+    '$scope',
+    '$global',
+    '$http',
+    'TTSManager',
+    'OtsimoHandler',
+    'ConjunctionManager'
+];

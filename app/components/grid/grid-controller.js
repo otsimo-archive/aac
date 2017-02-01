@@ -53,27 +53,27 @@ export default class GridController {
      * @param {string} tabExp - the ne tab
      */
     changeTab(tabExp) {
-            let mArray = this.global.mainArray;
-            switch (tabExp) {
-                case CONSTANT.TAB_MAIN:
-                    this.$scope.mainDataUnpaged = mArray.filter((f) => f.parent === CONSTANT.CLASS_MAIN);
-                    break;
-                case CONSTANT.TAB_DERIVABLE:
-                    this.prevPageNo = this.$scope.pageNo;
-                    this.pushNavigationHistory(CONSTANT.TAB_DERIVABLE);
-                    this.$scope.pageNo = 0;
-                    this.$scope.mainDataUnpaged = mArray.filter(f => f.parent === this.global.currentDerivable);
-                    break;
-                case CONSTANT.TAB_GROUP:
-                    this.prevPageNo = this.$scope.pageNo;
-                    this.pushNavigationHistory(CONSTANT.TAB_GROUP);
-                    this.$scope.pageNo = 0;
-                    this.$scope.mainDataUnpaged = mArray.filter(f => f.parent === this.global.currentGroup);
-                    break;
-            }
-            this.updateGridSlicing();
+        let mArray = this.global.mainArray;
+        switch (tabExp) {
+            case CONSTANT.TAB_MAIN:
+                this.$scope.mainDataUnpaged = mArray.filter((f) => f.parent === CONSTANT.CLASS_MAIN);
+                break;
+            case CONSTANT.TAB_DERIVABLE:
+                this.prevPageNo = this.$scope.pageNo;
+                this.pushNavigationHistory(CONSTANT.TAB_DERIVABLE);
+                this.$scope.pageNo = 0;
+                this.$scope.mainDataUnpaged = mArray.filter(f => f.parent === this.global.currentDerivable);
+                break;
+            case CONSTANT.TAB_GROUP:
+                this.prevPageNo = this.$scope.pageNo;
+                this.pushNavigationHistory(CONSTANT.TAB_GROUP);
+                this.$scope.pageNo = 0;
+                this.$scope.mainDataUnpaged = mArray.filter(f => f.parent === this.global.currentGroup);
+                break;
         }
-        /**
+        this.updateGridSlicing();
+    }
+    /**
          * Stores the history of navigation (navigation history used for 'goback' navigation)
          *
          * @param {string} tab for history pushing
@@ -102,11 +102,9 @@ export default class GridController {
      */
     sliceArray(symbolQuantity) {
         if (this.global.isHome === 1 && this.$scope.pageNo !== 0) {
-            this.$scope.mainData = this.$scope.mainDataUnpaged.slice(parseInt(this.$scope.pageNo * symbolQuantity + 1), parseInt((this.$scope.pageNo + 1) * symbolQuantity + 1))
-                .map(this.mapStyle);
+            this.$scope.mainData = this.$scope.mainDataUnpaged.slice(parseInt(this.$scope.pageNo * symbolQuantity + 1), parseInt((this.$scope.pageNo + 1) * symbolQuantity + 1)).map(this.mapStyle);
         } else {
-            this.$scope.mainData = this.$scope.mainDataUnpaged.slice(this.$scope.pageNo * symbolQuantity, (this.$scope.pageNo + 1) * symbolQuantity)
-                .map(this.mapStyle);
+            this.$scope.mainData = this.$scope.mainDataUnpaged.slice(this.$scope.pageNo * symbolQuantity, (this.$scope.pageNo + 1) * symbolQuantity).map(this.mapStyle);
         }
         this.$scope.maxPageNo = this.returnMaxPage();
     }
@@ -167,20 +165,20 @@ export default class GridController {
      * In current symbol array.
      */
     goNextMain() {
-            this.$scope.pageNo++;
-            this.updateGridSlicing();
-        }
-        /**
+        this.$scope.pageNo++;
+        this.updateGridSlicing();
+    }
+    /**
          * Navigation function to go to previous page
          * In current symbol array.
          */
     goPrevMain() {
-            if (this.$scope.pageNo !== 0) {
-                this.$scope.pageNo--;
-            }
-            this.updateGridSlicing();
+        if (this.$scope.pageNo !== 0) {
+            this.$scope.pageNo--;
         }
-        /**
+        this.updateGridSlicing();
+    }
+    /**
          * Updates sliceAmount and calls sliceArray function
          * Also calls animateSlicing function.
          */
@@ -223,8 +221,7 @@ export default class GridController {
     animateSlicing() {
         let elemGridHolder = document.getElementById('gridHolder');
         if (elemGridHolder) {
-            document.getElementById('gridHolder')
-                .className = 'gridHolder gridSlicingAnim';
+            document.getElementById('gridHolder').className = 'gridHolder gridSlicingAnim';
             this.$timeout(() => {
                 elemGridHolder.className = 'gridHolder gridNoAnim';
             }, 200);
@@ -297,65 +294,65 @@ export default class GridController {
     }
 
     pushToCurrentPhrase(wordObj2Push, speak) {
-            let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
-            let cp = this.$scope.global.currentPhrase;
-            let lang = this.$scope.global.language;
-            if (cp.length > 0) {
-                if (wo2p.type == "verb") {
-                    let i = cp.length;
-                    if (lang == "tr") {
-                        while (i > 0) {
-                            let cpt = cp[i - 1].title;
-                            if (CONSTANT.POSS[lang].contains(cpt)) {
-                                if (wordObj2Push.tence) {
-                                    wo2p.title = this.conj.addTurkishPoss(wo2p.title, cpt, wordObj2Push.tence);
-                                } else {
-                                    wo2p.title = this.conj.conjTurkish(wo2p.title, "simZam", cpt);
-                                }
-                                break;
+        let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
+        let cp = this.$scope.global.currentPhrase;
+        let lang = this.$scope.global.language;
+        if (cp.length > 0) {
+            if (wo2p.type == "verb") {
+                let i = cp.length;
+                if (lang == "tr") {
+                    while (i > 0) {
+                        let cpt = cp[i - 1].title;
+                        if (this.conj.poss.contains(cpt)) {
+                            if (wordObj2Push.tence) {
+                                wo2p.title = this.conj.addPoss(wo2p.title, cpt, wordObj2Push.tence);
+                            } else {
+                                wo2p.title = this.conj.conjVerb(wo2p.title, "simZam", cpt);
                             }
-                            i--;
+                            break;
                         }
-                    } else if (lang == "en") {
-                        while (i > 0) {
-                            let cpt = cp[i - 1].title;
-                            if (CONSTANT.POSS[lang].contains(cpt)) {
-                                if (wordObj2Push.tence) {
-                                    let hasIdenifier = true;
-                                    let cp = this.$scope.global.currentPhrase;
-                                    let idenifier = cp[cp.length - 1].title;
-                                    if (idenifier == "am" || idenifier == "is" ||  idenifier == "are") {
-                                        hasIdenifier = false;
-                                    }
-                                    wo2p.title = this.conj.addEnglishPoss(wo2p.title, cpt, wordObj2Push.tence, hasIdenifier);
-                                } else {
-                                    wo2p.title = this.conj.conjEnglish(wo2p.title, "simPresTence", cpt);
-                                }
-                                break;
-                            }
-                            i--;
-                        }
+                        i--;
                     }
-                } else {
-                    let pronoun = cp[cp.length - 1].title;
-                    if (pronoun == "i") {
-                        wo2p.title = "am";
-                        wo2p.slug = "am";
-                    } else if (pronoun == "you" || pronoun == "we" || pronoun == "they") {
-                        wo2p.title = "are";
-                        wo2p.slug = "are";
-                    } else if (pronoun == "he" || pronoun == "she" || pronoun == "it") {
-                        wo2p.title = "is";
-                        wo2p.slug = "is";
+                } else if (lang == "en") {
+                    while (i > 0) {
+                        let cpt = cp[i - 1].title;
+                        if (CONSTANT.POSS[lang].contains(cpt)) {
+                            if (wordObj2Push.tence) {
+                                let hasIdenifier = true;
+                                let cp = this.$scope.global.currentPhrase;
+                                let idenifier = cp[cp.length - 1].title;
+                                if (idenifier == "am" || idenifier == "is" || idenifier == "are") {
+                                    hasIdenifier = false;
+                                }
+                                wo2p.title = this.conj.addPoss(wo2p.title, cpt, wordObj2Push.tence, hasIdenifier);
+                            } else {
+                                wo2p.title = this.conj.conjVerb(wo2p.title, "simPresTence", cpt);
+                            }
+                            break;
+                        }
+                        i--;
                     }
                 }
-            }
-            this.$scope.global.currentPhrase.push(wo2p);
-            if (speak == true) {
-                this.tts.speak(wo2p.title);
+            } else {
+                let pronoun = cp[cp.length - 1].title;
+                if (pronoun == "i") {
+                    wo2p.title = "am";
+                    wo2p.slug = "am";
+                } else if (pronoun == "you" || pronoun == "we" || pronoun == "they") {
+                    wo2p.title = "are";
+                    wo2p.slug = "are";
+                } else if (pronoun == "he" || pronoun == "she" || pronoun == "it") {
+                    wo2p.title = "is";
+                    wo2p.slug = "is";
+                }
             }
         }
-        /**
+        this.$scope.global.currentPhrase.push(wo2p);
+        if (speak == true) {
+            this.tts.speak(wo2p.title);
+        }
+    }
+    /**
          * Closes cover on clicking on it!
          */
     clickCover() {
