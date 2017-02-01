@@ -166,9 +166,8 @@ export default class AppController {
                     });
                 }
             });
-            console.log(global.extendedArray);
-
         }
+        // BUG: extendeArray is not initilizing
         global.extendedArray.forEach(ext => {
             let cleanTitle = ext.title.replaceAll("-", " ");
             global.extendedTitleArray.push(cleanTitle);

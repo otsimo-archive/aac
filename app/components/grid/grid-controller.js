@@ -316,7 +316,7 @@ export default class GridController {
                 } else if (lang == "en") {
                     while (i > 0) {
                         let cpt = cp[i - 1].title;
-                        if (CONSTANT.POSS[lang].contains(cpt)) {
+                        if (this.conj.poss.contains(cpt)) {
                             if (wordObj2Push.tence) {
                                 let hasIdenifier = true;
                                 let cp = this.$scope.global.currentPhrase;
