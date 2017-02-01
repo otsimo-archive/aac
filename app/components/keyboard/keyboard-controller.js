@@ -1,7 +1,4 @@
-import {
-    returnTime,
-    updateCurrentPhraseScroll
-} from 'js/utils';
+import {returnTime, updateCurrentPhraseScroll} from 'js/utils';
 
 /**
  * KeyboardController
@@ -45,12 +42,12 @@ export default class KeyboardController {
      * Shows the keyboard
      */
     showKeyboard() {
-            let typeInput = document.getElementById("typeInput");
-            if (typeInput) {
-                typeInput.focus();
-            }
+        let typeInput = document.getElementById("typeInput");
+        if (typeInput) {
+            typeInput.focus();
         }
-        /**
+    }
+    /**
          * Removes readonly from typeInput
          * Triggered when type input is
          * Walkaround for ios autocorrect
@@ -98,7 +95,9 @@ export default class KeyboardController {
     showHideSuggestions(status) {
         let suggestionList = document.getElementById("suggestionList");
         if (suggestionList) {
-            suggestionList.style.opacity = (status) ? "1" : "0";
+            suggestionList.style.opacity = (status)
+                ? "1"
+                : "0";
         }
     }
 
@@ -128,7 +127,7 @@ export default class KeyboardController {
             updateCurrentPhraseScroll();
             this.tts.speak(inputWord.title);
             let gs = this.$scope.global.gridSize;
-            this.event.appWord(inputWord.title, gs[0], gs[1]);
+            this.event.appWord(inputWord.title, gs[0], gs[1], true);
             typeInput.value = "";
         }
     }
