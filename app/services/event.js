@@ -35,14 +35,17 @@ export default class EventManager {
         if (isKeyboard && word.includes(" ")) {
             //Submitted string is a keyboard input.
             word.split(" ").forEach((w) => {
-                this.appWord(w, x, y);
+                this.appWord(w, x, y, true);
             });
         } else {
             otsimo.customevent('app:word', {
                 word: word,
                 grid_x: x,
                 grid_y: y,
-                grid_xy: x + 'x' + y
+                grid_xy: x + 'x' + y,
+                is_keyboard: isKeyboard
+                    ? true
+                    : false
             });
         }
     }
