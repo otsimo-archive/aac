@@ -19,6 +19,8 @@ export default class AppController {
      * @memberOf AppController
      */
     constructor($scope, $global, $http, TTSManager, OtsimoHandler, ConjunctionManager) {
+
+        console.log("APP MOUNTED");
         this.$scope = $scope;
         this.$scope.global = $global;
         this.$http = $http;
@@ -34,7 +36,6 @@ export default class AppController {
     controllerInit() {
         // Create or facilitate new functions for $scope or $global service.
         this.otsimo.run(() => {
-
             this.checkCapabilities();
             this.setSettings();
             this.runApp();
@@ -65,11 +66,11 @@ export default class AppController {
             }
         }
         // Set grid size and check device orientation.
-        this.$scope.global.changeGridSize(x, y);
+        this.changeGridSize(x, y);
         if (this.otsimo.width < this.otsimo.height) {
-            this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
+            this.checkOrientation(CONSTANT.PORTRAIT);
         } else {
-            this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
+            this.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
         }
 
         // Load symbol data to global array variable.
@@ -218,11 +219,57 @@ export default class AppController {
     resolutionListener() {
         this.otsimo.onResolutionChanged((width, height, orientation) => {
             if (width < height) {
-                this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
+                this.checkOrientation(CONSTANT.PORTRAIT);
             } else {
-                this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
+                this.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
             }
         });
+    }
+
+    /**
+         * Initilizes the grid size by given X,Y variables.
+         * @param {number} gridX number of grid item on horizontal
+         * @param {number} gridY number of grid item on vertical
+         */
+    changeGridSize(gridX, gridY) {
+        let global = this.$scope.global;
+        global.gridSize = [gridX, gridY];
+        global.gridSizeStatic = [gridX, gridY];
+        global.gridQuantity = gridX * gridY;
+    };
+
+    /**
+         * Updates the gridSize with respect to current
+         * Orientation type.
+         * Eg: if orientation changes, then change gridSize as; X-Y => Y=X
+         * @param {string} orientation Orientation name
+         */
+    checkOrientation(orientation) {
+        let gridSizeTemp = this.$scope.global.gridSizeStatic;
+        let x = gridSizeTemp[0];
+        let y = gridSizeTemp[1];
+        let theGridSize;
+        if (orientation) {
+            // In production
+            if (orientation === CONSTANT.PORTRAIT || orientation === CONSTANT.UPSIDE_DOWN) {
+                theGridSize = [y, x];
+            } else if (orientation === CONSTANT.LANDSCAPE_LEFT || orientation === CONSTANT.LANDSCAPE_RIGHT) {
+                theGridSize = [x, y];
+            }
+        } else {
+            // In development
+            if (typeof screen.orientation !== 'undefined') {
+                if (screen.orientation.type === CONSTANT.PORTRAIT_PRIMARY) {
+                    theGridSize = [y, x];
+                } else if (screen.orientation.type === CONSTANT.LANDSCAPE_PRIMARY) {
+                    theGridSize = [x, y];
+                }
+            } else {
+                theGridSize = [x, y];
+            }
+        }
+        this.$scope.global.gridSize = theGridSize;
+        //this.$scope.$apply();
     }
 
 }
