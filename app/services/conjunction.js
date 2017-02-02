@@ -12,6 +12,7 @@ export default class ConjunctionManager {
         this.pm = new pluginModule.default();
         this.name = this.pm.name;
         this.conjtype = this.pm.conjtype;
+        this.defaultConjunctor = this.pm.defaultConjunctor;
         this.poss = this.pm.poss;
         this.nounCondition = this.pm.nounCondition;
     }
