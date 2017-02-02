@@ -41,9 +41,6 @@ export default class GridController {
         this.global.go2FirstPage = this.go2FirstPage.bind(this);
         this.global.getPage = this.getPage.bind(this);
         this.global.changeTab = this.changeTab.bind(this);
-        this.global.checkOrientation = this.checkOrientation.bind(this);
-        this.global.changeGridSize = this.changeGridSize.bind(this);
-        this.global.updateGridQuantity = this.updateGridQuantity.bind(this);
         this.global.pushToCurrentPhrase = this.pushToCurrentPhrase.bind(this);
     }
 
@@ -226,71 +223,6 @@ export default class GridController {
                 elemGridHolder.className = 'gridHolder gridNoAnim';
             }, 200);
         }
-    }
-
-    /**
-     * Updates the quantity of the symbols in the grid
-     * with respect to the current page/view.
-     */
-    updateGridQuantity() {
-        let x = this.global.gridSize[0];
-        let y = this.global.gridSize[1];
-        let gridQuantity;
-        if (this.global.currentTab !== CONSTANT.TAB_MAIN) {
-            gridQuantity = (x * y) - 1;
-        } else {
-            if (this.$scope.pageNo === 0) {
-                gridQuantity = x * y;
-            } else {
-                gridQuantity = (x * y) - 1;
-            }
-        }
-        this.global.gridQuantity = gridQuantity;
-    }
-
-    /**
-     * Initilizes the grid size by given X,Y variables.
-     * @param {number} gridX number of grid item on horizontal
-     * @param {number} gridY number of grid item on vertical
-     */
-    changeGridSize(gridX, gridY) {
-        this.global.gridSize = [gridX, gridY];
-        this.global.gridSizeStatic = [gridX, gridY];
-        this.global.gridQuantity = gridX * gridY;
-    };
-
-    /**
-     * Updates the gridSize with respect to current
-     * Orientation type.
-     * Eg: if orientation changes, then change gridSize as; X-Y => Y=X
-     * @param {string} orientation Orientation name
-     */
-    checkOrientation(orientation) {
-        let gridSizeTemp = this.global.gridSizeStatic;
-        let x = gridSizeTemp[0];
-        let y = gridSizeTemp[1];
-        let theGridSize;
-        if (orientation) {
-            // In production
-            if (orientation === CONSTANT.PORTRAIT || orientation === CONSTANT.UPSIDE_DOWN) {
-                theGridSize = [y, x];
-            } else if (orientation === CONSTANT.LANDSCAPE_LEFT || orientation === CONSTANT.LANDSCAPE_RIGHT) {
-                theGridSize = [x, y];
-            }
-        } else {
-            // In development
-            if (typeof screen.orientation !== 'undefined') {
-                if (screen.orientation.type === CONSTANT.PORTRAIT_PRIMARY) {
-                    theGridSize = [y, x];
-                } else if (screen.orientation.type === CONSTANT.LANDSCAPE_PRIMARY) {
-                    theGridSize = [x, y];
-                }
-            } else {
-                theGridSize = [x, y];
-            }
-        }
-        this.global.gridSize = theGridSize;
-        this.$scope.$apply();
     }
 
     pushToCurrentPhrase(wordObj2Push, speak) {

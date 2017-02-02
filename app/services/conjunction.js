@@ -3,9 +3,10 @@
  * @export
  * @class ConjunctionManager
  */
+
 export default class ConjunctionManager {
     constructor() {
-        const symbolPackPath = "symbols/aac-en";/*this.otsimo.kv.symbolPack; */
+        const symbolPackPath = otsimo.kv.symbolPack;
         const so = symbolPackPath.replace('symbols/', '');
         const pluginModule = require(`./../symbols/${so}/main.js`);
         this.pm = new pluginModule.default();
