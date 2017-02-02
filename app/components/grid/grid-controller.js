@@ -333,18 +333,6 @@ export default class GridController {
                         i--;
                     }
                 }
-            } else {
-                let pronoun = cp[cp.length - 1].title;
-                if (pronoun == "i") {
-                    wo2p.title = "am";
-                    wo2p.slug = "am";
-                } else if (pronoun == "you" || pronoun == "we" || pronoun == "they") {
-                    wo2p.title = "are";
-                    wo2p.slug = "are";
-                } else if (pronoun == "he" || pronoun == "she" || pronoun == "it") {
-                    wo2p.title = "is";
-                    wo2p.slug = "is";
-                }
             }
         }
         this.$scope.global.currentPhrase.push(wo2p);
