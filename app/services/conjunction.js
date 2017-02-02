@@ -25,4 +25,7 @@ export default class ConjunctionManager {
     addPoss(verb, poss, tence) {
         return this.pm.addPoss(verb, poss, tence);
     }
+    beforePushing(wordObj, currentPhrase) {
+        return this.pm.beforePushing(wordObj, currentPhrase);
+    }
 }

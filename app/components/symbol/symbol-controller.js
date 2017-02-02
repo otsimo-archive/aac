@@ -61,7 +61,6 @@ export default class SymbolController {
 
     openVerbConjunction(wordObj) {
         this.conjArr = [];
-        let language = this.$scope.global.language;
         this.conj.conjtype.forEach(c => {
             let conjable = {
                 title: this.conj.conjVerb(wordObj.title, c),
@@ -74,7 +73,6 @@ export default class SymbolController {
 
     openNounConjunction(wordObj) {
         this.nounConjArr = [];
-        let language = this.$scope.global.language;
         this.conj.nounCondition.forEach(c => {
             let conjable = {
                 title: this.conj.conjNoun(wordObj.title, c),

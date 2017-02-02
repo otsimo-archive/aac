@@ -228,29 +228,16 @@ export default class GridController {
     pushToCurrentPhrase(wordObj2Push, speak) {
         let wo2p = JSON.parse(JSON.stringify(wordObj2Push));
         let cp = this.$scope.global.currentPhrase;
-        let lang = this.$scope.global.language;
-        if (cp.length > 0) {
-            if (wo2p.type == "verb") {
-                let i = cp.length;
-                while (i > 0) {
-                    let cpt = cp[i - 1].title;
-                    if (this.conj.poss.contains(cpt)) {
-                        if (wordObj2Push.tence) {
-                            wo2p.title = this.conj.addPoss(wo2p.title, cpt, wordObj2Push.tence);
-                        } else {
-                            wo2p.title = this.conj.conjVerb(wo2p.title, this.conj.defaultConjunctor, cpt);
-                        }
-                        break;
-                    }
-                    i--;
-                }
-            }
-        }
+
+        // Update word with custom languagePack function.
+        wo2p = this.conj.beforePushing(wo2p, cp);
+
         this.$scope.global.currentPhrase.push(wo2p);
         if (speak == true) {
             this.tts.speak(wo2p.title);
         }
     }
+
     /**
          * Closes cover on clicking on it!
          */
