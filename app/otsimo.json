@@ -1,6 +1,6 @@
 {
     "unique_name": "aac",
-    "version": "2.0.99",
+    "version": "2.0.105",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [
@@ -28,7 +28,8 @@
         "tts"
     ],
     "labels": {
-        "categories": "home"
+        "categories": "home",
+        "color": "#2ca8c2"
     },
     "metadata": [
         {
