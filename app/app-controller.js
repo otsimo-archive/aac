@@ -1,6 +1,4 @@
-import {
-    deviceType
-} from './js/utils';
+import {deviceType} from './js/utils';
 import * as CONSTANT from './js/constants';
 
 /**
@@ -20,7 +18,9 @@ export default class AppController {
      *
      * @memberOf AppController
      */
-    constructor($scope, $global, $http, TTSManager, ConjunctionManager, OtsimoHandler) {
+    constructor($scope, $global, $http, TTSManager, OtsimoHandler, ConjunctionManager) {
+
+        console.log("APP MOUNTED");
         this.$scope = $scope;
         this.$scope.global = $global;
         this.$http = $http;
@@ -36,7 +36,6 @@ export default class AppController {
     controllerInit() {
         // Create or facilitate new functions for $scope or $global service.
         this.otsimo.run(() => {
-
             this.checkCapabilities();
             this.setSettings();
             this.runApp();
@@ -67,11 +66,11 @@ export default class AppController {
             }
         }
         // Set grid size and check device orientation.
-        this.$scope.global.changeGridSize(x, y);
+        this.changeGridSize(x, y);
         if (this.otsimo.width < this.otsimo.height) {
-            this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
+            this.checkOrientation(CONSTANT.PORTRAIT);
         } else {
-            this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
+            this.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
         }
 
         // Load symbol data to global array variable.
@@ -103,29 +102,27 @@ export default class AppController {
      *
      */
     loadSymbols() {
-        let global = this.$scope.global;
-        let symbolPackPath = this.otsimo.kv.symbolPack;
-        let metadataPath = `${symbolPackPath}/metadata.json`;
-        console.log("Symbol Pack: " + symbolPackPath);
-        this.$http.get(metadataPath)
-            .then(resp => {
-                this.metadata = resp.data;
-                global.symbolPath = `${symbolPackPath}/${resp.data.images}`;
-                this.tts.setVoiceDriver(resp.data.voiceId);
+        const global = this.$scope.global;
+        const symbolPackPath = this.otsimo.kv.symbolPack;
+        const metadataPath = `${symbolPackPath}/metadata.json`;
 
-                let symbolDataPath = `${symbolPackPath}/${resp.data.data}`;
+        this.$http.get(metadataPath).then((resp) => {
+            this.metadata = resp.data;
+            global.symbolPath = `${symbolPackPath}/${resp.data.images}`;
+            this.tts.setVoiceDriver(resp.data.voiceId);
 
-                this.$http.get(symbolDataPath)
-                    .then(resp => {
-                        global.mainArray = resp.data.symbols;
-                        this.initExtendedSymbols();
-                        global.changeCurrentTab(CONSTANT.TAB_MAIN);
-                    }, err => {
-                        console.log(err);
-                    });
-            }, err => {
+            const symbolDataPath = `${symbolPackPath}/${resp.data.data}`;
+
+            this.$http.get(symbolDataPath).then((resp) => {
+                global.mainArray = resp.data.symbols;
+                this.initExtendedSymbols();
+                global.changeCurrentTab(CONSTANT.TAB_MAIN);
+            }, (err) => {
                 console.log(err);
             });
+        }, (err) => {
+            console.log(err);
+        });
     }
 
     /**
@@ -149,42 +146,29 @@ export default class AppController {
                 let lang = this.$scope.global.language;
                 // Extend conjuncted verbs
                 if (obj.type == "verb") {
-                    let possessors = CONSTANT.POSS[lang];
-                    if (lang == "tr") {
-                        possessors.forEach(p => {
-                            CONSTANT.CONJTYPE[lang].forEach(c => {
-                                obj.title = this.conj.conjTurkish(obj.slug, c, p);
-                                let pushObj = JSON.parse(JSON.stringify(obj));
-                                global.extendedArray.push(pushObj);
-                            });
-                        });
-                    } else if (lang == "en") {
-                        //Set english verb conjunction.
-                        possessors.forEach(p => {
-                            CONSTANT.CONJTYPE[lang].forEach(c => {
-                                obj.title = this.conj.conjEnglish(obj.slug, c, p);
-                                let pushObj = JSON.parse(JSON.stringify(obj));
-                                global.extendedArray.push(pushObj);
-                            });
-                        });
-                    }
-                }
-                // extend conjuncted nouns
-                if (obj.type == "noun") {
-                    if (CONSTANT.NOUN_CONDITION[lang]) {
-                        CONSTANT.NOUN_CONDITION[lang].forEach(c => {
-                            if (lang == "tr") {
-                                obj.title = this.conj.conjNounTr(obj.slug, c);
-                            } else if (lang == "en") {
-                                obj.title = this.conj.conjNounEn(obj.slug, c);
-                            }
+                    let possessors = this.conj.poss;
+                    let conjtypes = this.conj.conjtype;
+                    possessors.forEach(p => {
+                        conjtypes.forEach(c => {
+                            obj.title = this.conj.conjVerb(obj.slug, c, p);
                             let pushObj = JSON.parse(JSON.stringify(obj));
                             global.extendedArray.push(pushObj);
                         });
-                    }
+                    });
+                }
+                // extend conjuncted nouns
+                if (obj.type == "noun") {
+                    let nounConditions = this.conj.nounCondition;
+
+                    nounConditions.forEach(c => {
+                        obj.title = this.conj.conjNoun(obj.slug, c);
+                        let pushObj = JSON.parse(JSON.stringify(obj));
+                        global.extendedArray.push(pushObj);
+                    });
                 }
             });
         }
+        // BUG: extendeArray is not initilizing
         global.extendedArray.forEach(ext => {
             let cleanTitle = ext.title.replaceAll("-", " ");
             global.extendedTitleArray.push(cleanTitle);
@@ -235,13 +219,66 @@ export default class AppController {
     resolutionListener() {
         this.otsimo.onResolutionChanged((width, height, orientation) => {
             if (width < height) {
-                this.$scope.global.checkOrientation(CONSTANT.PORTRAIT);
+                this.checkOrientation(CONSTANT.PORTRAIT);
             } else {
-                this.$scope.global.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
+                this.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
             }
         });
     }
 
+    /**
+         * Initilizes the grid size by given X,Y variables.
+         * @param {number} gridX number of grid item on horizontal
+         * @param {number} gridY number of grid item on vertical
+         */
+    changeGridSize(gridX, gridY) {
+        let global = this.$scope.global;
+        global.gridSize = [gridX, gridY];
+        global.gridSizeStatic = [gridX, gridY];
+        global.gridQuantity = gridX * gridY;
+    };
+
+    /**
+         * Updates the gridSize with respect to current
+         * Orientation type.
+         * Eg: if orientation changes, then change gridSize as; X-Y => Y=X
+         * @param {string} orientation Orientation name
+         */
+    checkOrientation(orientation) {
+        let gridSizeTemp = this.$scope.global.gridSizeStatic;
+        let x = gridSizeTemp[0];
+        let y = gridSizeTemp[1];
+        let theGridSize;
+        if (orientation) {
+            // In production
+            if (orientation === CONSTANT.PORTRAIT || orientation === CONSTANT.UPSIDE_DOWN) {
+                theGridSize = [y, x];
+            } else if (orientation === CONSTANT.LANDSCAPE_LEFT || orientation === CONSTANT.LANDSCAPE_RIGHT) {
+                theGridSize = [x, y];
+            }
+        } else {
+            // In development
+            if (typeof screen.orientation !== 'undefined') {
+                if (screen.orientation.type === CONSTANT.PORTRAIT_PRIMARY) {
+                    theGridSize = [y, x];
+                } else if (screen.orientation.type === CONSTANT.LANDSCAPE_PRIMARY) {
+                    theGridSize = [x, y];
+                }
+            } else {
+                theGridSize = [x, y];
+            }
+        }
+        this.$scope.global.gridSize = theGridSize;
+        //this.$scope.$apply();
+    }
+
 }
 // Service Dependency Injection
-AppController.$inject = ['$scope', '$global', '$http', 'TTSManager', 'ConjunctionManager', 'OtsimoHandler'];
+AppController.$inject = [
+    '$scope',
+    '$global',
+    '$http',
+    'TTSManager',
+    'OtsimoHandler',
+    'ConjunctionManager'
+];

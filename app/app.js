@@ -13,14 +13,8 @@ import LSManager from 'services/localstorage'
 import ConjunctionManager from 'services/conjunction'
 import OtsimoHandler from 'services/otsimo-handler';
 
-let aacApp = angular
-    .module('aacApp', [
-        headerModule.name,
-        phraseModule.name,
-        gridModule.name,
-        'ngTouch',
-        'as.sortable'
-    ]);
+let aacApp = angular.module('aacApp', [headerModule.name, phraseModule.name, gridModule.name, 'ngTouch', 'as.sortable']);
+
 aacApp.factory('$global', () => new Global());
 aacApp.factory('EventManager', () => new EventManager());
 aacApp.factory('TTSManager', () => new TTSManager());
@@ -31,13 +25,16 @@ aacApp.controller('aac-controller', AppController);
 
 // Unhandled Rejection -> false
 // Check this on other releases ^1.6.0
-aacApp.config(['$qProvider', function($qProvider) {
-    $qProvider.errorOnUnhandledRejections(false);
-}]);
-
+aacApp.config([
+    '$qProvider',
+    function($qProvider) {
+        $qProvider.errorOnUnhandledRejections(false);
+    }
+]);
 // Bootstrap the angular when document is ready.
-angular
-    .element(document)
-    .ready(() => {
-        angular.bootstrap(document.body, [aacApp.name])
+
+otsimo.run(() => {
+    angular.element(document).ready(() => {
+        angular.bootstrap(document.body, [aacApp.name]);
     });
+});
