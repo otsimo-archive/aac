@@ -29,7 +29,9 @@
     ],
     "labels": {
         "categories": "home",
-        "color": "#2ca8c2"
+        "color": "#2ca8c2",
+        "consent": "aac_consent",
+        "consent_default": "yes"
     },
     "metadata": [
         {

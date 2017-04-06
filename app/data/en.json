@@ -21,6 +21,7 @@
     "settings/gridsize/keys/grid-10x7/description": "10x7 Size",
     "settings/gridsize/keys/grid-11x9/title": "11x9 Size",
     "settings/gridsize/keys/grid-11x9/description": "11x9 Size",
+    "aac_consent": "Send the written words and show analytics.",
     "loadingText": "Loading...",
     "generalFont": "18px",
     "pageText1": "Main Picture Cards",

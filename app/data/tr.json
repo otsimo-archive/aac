@@ -21,6 +21,7 @@
     "settings/gridsize/keys/grid-10x7/description": "10x7 Boyutu",
     "settings/gridsize/keys/grid-11x9/title": "11x9 Boyutu",
     "settings/gridsize/keys/grid-11x9/description": "11x9 Boyutu",
+    "aac_consent": "Yazılan kelimeleri gönder",
     "loadingText": "Yükleniyor...",
     "generalFont": "18px",
     "pageText1": "Tüm Resim Kartları",
