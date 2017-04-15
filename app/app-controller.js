@@ -39,6 +39,8 @@ export default class AppController {
             this.checkCapabilities();
             this.setSettings();
             this.runApp();
+            // Open in the respectful mode to height and width.
+            this.initOrientationCheck(this.otsimo.width, this.otsimo.height, 1);
         });
 
         // Listen the changes on the resolution and
@@ -218,12 +220,21 @@ export default class AppController {
      */
     resolutionListener() {
         this.otsimo.onResolutionChanged((width, height, orientation) => {
-            if (width < height) {
-                this.checkOrientation(CONSTANT.PORTRAIT);
-            } else {
-                this.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
-            }
+            this.initOrientationCheck(width, height, 0);
+            this.$scope.$apply();
         });
+    }
+
+    initOrientationCheck(width, height, init) {
+      if(init){
+        this.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
+      }else{
+        if (width < height) {
+            this.checkOrientation(CONSTANT.PORTRAIT);
+        } else {
+            this.checkOrientation(CONSTANT.LANDSCAPE_LEFT);
+        }
+      }
     }
 
     /**
