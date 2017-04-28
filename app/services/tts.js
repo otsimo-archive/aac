@@ -6,7 +6,7 @@
  */
 export default class TTSManager {
     setVoiceDriver(id) {
-            if (otsimo.isWKWebView) {
+            if (otsimo.isWKWebView || otsimo.android) {
                 otsimo.tts.setVoice(id);
             } else {
                 let responsiveVoiceDriver = new ResponsiveVoiceDriver();
@@ -26,6 +26,7 @@ export default class TTSManager {
          */
     speak(text2Speak) {
         otsimo.tts.speak(text2Speak);
+        console.log(otsimo.tts)
     }
 }
 
@@ -53,6 +54,6 @@ class ResponsiveVoiceDriver {
     }
 
     voiceList() {
-        return [];
+        return [];        
     }
 }
