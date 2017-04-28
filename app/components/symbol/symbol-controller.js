@@ -133,7 +133,7 @@ export default class SymbolController {
             }
         }
         if (wordObj.class === 'group') {
-            this.$scope.global.currentGroup = wordObj.slug;
+            this.$scope.global.currentGroup = wordObj.title.replaceAll(" ", "-");
             this.$scope.global.changeCurrentTab(CONSTANT.TAB_GROUP);
         }
         this.clickAnimEnd(index);
