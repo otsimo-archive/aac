@@ -26,7 +26,6 @@ export default class TTSManager {
          */
     speak(text2Speak) {
         otsimo.tts.speak(text2Speak);
-        console.log(otsimo.tts)
     }
 }
 
@@ -54,6 +53,6 @@ class ResponsiveVoiceDriver {
     }
 
     voiceList() {
-        return [];        
+        return [];
     }
 }
