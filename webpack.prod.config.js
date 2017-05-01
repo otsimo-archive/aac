@@ -50,11 +50,11 @@ module.exports = {
       minimize: true,
       sourceMap: false,
       output: {
-        comments: false
+        comments: true,
       },
       compressor: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
     new CopyWebpackPlugin([
       {
