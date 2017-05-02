@@ -6,19 +6,28 @@
  */
 export default class TTSManager {
     setVoiceDriver(id) {
-            if (otsimo.isWKWebView || otsimo.android) {
-                otsimo.tts.setVoice(id);
-            } else {
-                let responsiveVoiceDriver = new ResponsiveVoiceDriver();
-                otsimo.tts.setDriver(responsiveVoiceDriver);
-                if (otsimo.child.language === 'tr') {
-                    otsimo.tts.setVoice('Turkish Female');
-                } else if (otsimo.child.language === 'en') {
-                    otsimo.tts.setVoice('US English Female');
-                } else {
-                    console.log('This language for development is not recognized.');
-                }
-            }
+          if (otsimo.isWKWebView) {
+               otsimo.tts.setVoice(id);
+           } else if (otsimo.android) {
+               let vl = otsimo.tts.voiceList();
+               for (let v of vl) {
+                   let lang = v.language.split('-')[0];
+                   if (lang === otsimo.child.language) {
+                       otsimo.tts.setVoice(v.id);
+                       break;
+                   }
+               }
+           } else {
+               let responsiveVoiceDriver = new ResponsiveVoiceDriver();
+               otsimo.tts.setDriver(responsiveVoiceDriver);
+               if (otsimo.child.language === 'tr') {
+                   otsimo.tts.setVoice('Turkish Female');
+               } else if (otsimo.child.language === 'en') {
+                   otsimo.tts.setVoice('US English Female');
+               } else {
+                   console.log('This language for development is not recognized.');
+               }
+           }
         }
         /**
          * speak

@@ -9,7 +9,6 @@
           "type": "string",
           "default": "grid-6x4",
           "enum": [
-              "grid-2x2",
               "grid-3x2",
               "grid-3x3",
               "grid-4x3",
@@ -19,7 +18,7 @@
               "grid-6x5",
               "grid-8x5",
               "grid-10x7",
-              "grid-11x8"
+              "grid-11x9"
             ]
         }
     }
