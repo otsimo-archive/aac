@@ -1,3 +1,8 @@
+/*
+  a nodejs script to update the otsimo game
+  manifest version.
+*/
+
 var fs = require('fs');
 
 var directory = "app/otsimo.json";

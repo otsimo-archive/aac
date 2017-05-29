@@ -4,9 +4,9 @@
   "description": "Otsimo symbol based AAC",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress",
-    "update-symbols": "node update-symbols.js",
-    "staging": "node version.js; NODE_ENV=production webpack --progress; otsimoctl -s game publish --release --dir ./dist",
-    "publish": "node version.js; NODE_ENV=production webpack --progress; otsimoctl game publish --release --dir ./dist",
+    "update-symbols": "node tasks/update-symbols.js",
+    "staging": "node tasks/version.js; NODE_ENV=production webpack --progress; otsimoctl -s game publish --release --dir ./dist",
+    "publish": "node tasks/version.js; NODE_ENV=production webpack --progress; otsimoctl game publish --release --dir ./dist",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --port 3001 --host 0.0.0.0",
     "start": "npm run server",
