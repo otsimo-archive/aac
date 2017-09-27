@@ -1,6 +1,6 @@
 import angular from 'angular'
 import ngsortable from 'ng-sortable'
-
+import otsimo from 'otsimo';
 import headerModule from 'components/header/header'
 import phraseModule from 'components/phrase/phrase'
 import gridModule from 'components/grid/grid'
@@ -27,7 +27,7 @@ aacApp.controller('aac-controller', AppController);
 // Check this on other releases ^1.6.0
 aacApp.config([
     '$qProvider',
-    function($qProvider) {
+    function ($qProvider) {
         $qProvider.errorOnUnhandledRejections(false);
     }
 ]);
@@ -38,3 +38,5 @@ otsimo.run(() => {
         angular.bootstrap(document.body, [aacApp.name]);
     });
 });
+
+otsimo.init({});

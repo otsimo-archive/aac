@@ -54,9 +54,6 @@ module.exports = {
             context: sourcePath,
             from: '**/*.{html,css,woff,json,svg}'
         }, {
-            context: otsimoPath,
-            from: 'otsimo.js'
-        }, {
             context: initPath,
             from: 'init.js'
         }, {

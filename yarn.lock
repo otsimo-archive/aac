@@ -4011,8 +4011,8 @@ osx-release@^1.0.0:
     minimist "^1.1.0"
 
 otsimo@^1.6.8:
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/otsimo/-/otsimo-1.6.8.tgz#671a7514d0acc3f1efd6c36bcfd2ac1a8ab54730"
+  version "1.8.24"
+  resolved "https://registry.yarnpkg.com/otsimo/-/otsimo-1.8.24.tgz#daaac7df608697d2f7188d0af49a914d8905f5d5"
 
 p-throttler@0.1.0:
   version "0.1.0"

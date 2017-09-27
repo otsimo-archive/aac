@@ -1,5 +1,6 @@
 import {capitalize} from '../../js/utils'
 import * as CONSTANT from '../../js/constants'
+import otsimo from 'otsimo';
 
 /**
  *
