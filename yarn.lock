@@ -4065,9 +4065,9 @@ osx-release@^1.0.0:
   dependencies:
     minimist "^1.1.0"
 
-otsimo@^1.6.8:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/otsimo/-/otsimo-1.9.0.tgz#a60b1b8a0aa5b4f4a97a8e444e756287e1cadbb5"
+otsimo@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/otsimo/-/otsimo-1.9.1.tgz#a823dc25b86fb371a04d9a85bbb8b71bdb2dae03"
   dependencies:
     protobufjs "^6.8.0"
 

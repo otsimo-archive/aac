@@ -185,6 +185,7 @@ img {
     border-top: 1px solid #eee;
     overflow: hidden;
     overflow-y: scroll;
+    width: 100%;
 }
 
 .gridNoAnim .gridItem img {
