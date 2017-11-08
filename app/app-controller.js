@@ -36,7 +36,6 @@ export default class AppController {
     controllerInit() {
         // Create or facilitate new functions for $scope or $global service.
         this.otsimo.run(() => {
-            this.checkCapabilities();
             this.setSettings();
             this.runApp();
             // Open in the respectful mode to height and width.
@@ -180,16 +179,7 @@ export default class AppController {
 
     }
 
-    /**
-     * Checks if the device or installed otsimo app is supporting TTS.
-     *
-     */
-    checkCapabilities() {
-        if (this.otsimo.capabilities.indexOf('tts') === -1) {
-            document.getElementById('outdated').style.display = 'block';
-        }
-    }
-
+   
     /**
      * Sets UI text setting properties from otsimo kv object
      *

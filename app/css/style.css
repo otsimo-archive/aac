@@ -45,23 +45,6 @@ img {
     /* Kill touch scrolling */
 }
 
-#outdated {
-    width: 100%;
-    height: 100%;
-    background: #eee;
-    display: none;
-}
-
-#outdated p {
-    text-align: center;
-    padding: 5px;
-}
-
-.outdated-cover {
-    height: 100px;
-    position: relative;
-    top: calc(50% - 50px);
-}
 
 .updateBtn {
     padding: 10px;
