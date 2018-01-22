@@ -10,10 +10,69 @@
 	<link href="css/sortable.css" rel="stylesheet" type="text/css" media="screen">
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<style>
+		.spinner {
+			margin: 100px auto;
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			font-size: 10px;
+		}
 
-	<!-- build:remove -->
-	<script src="responsivevoice.js"></script>
-	<!-- endbuild -->
+		.spinner>div {
+			background-color: #333;
+			height: 100%;
+			width: 6px;
+			display: inline-block;
+
+			-webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+			animation: sk-stretchdelay 1.2s infinite ease-in-out;
+		}
+
+		.spinner .rect2 {
+			-webkit-animation-delay: -1.1s;
+			animation-delay: -1.1s;
+		}
+
+		.spinner .rect3 {
+			-webkit-animation-delay: -1.0s;
+			animation-delay: -1.0s;
+		}
+
+		.spinner .rect4 {
+			-webkit-animation-delay: -0.9s;
+			animation-delay: -0.9s;
+		}
+
+		.spinner .rect5 {
+			-webkit-animation-delay: -0.8s;
+			animation-delay: -0.8s;
+		}
+
+		@-webkit-keyframes sk-stretchdelay {
+			0%,
+			40%,
+			100% {
+				-webkit-transform: scaleY(0.4)
+			}
+			20% {
+				-webkit-transform: scaleY(1.0)
+			}
+		}
+
+		@keyframes sk-stretchdelay {
+			0%,
+			40%,
+			100% {
+				transform: scaleY(0.4);
+				-webkit-transform: scaleY(0.4);
+			}
+			20% {
+				transform: scaleY(1.0);
+				-webkit-transform: scaleY(1.0);
+			}
+		}
+	</style>
 </head>
 
 <body ng-controller="aac-controller as aac" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -22,7 +81,13 @@
 		<div phrase></div>
 		<div grid></div>
 	</div>
-
+	<div id="splash" class="spinner">
+		<div class="rect1"></div>
+		<div class="rect2"></div>
+		<div class="rect3"></div>
+		<div class="rect4"></div>
+		<div class="rect5"></div>
+	</div>
 	<script src="vendor.js"></script>
 	<script src="fastclick.js"></script>
 	<script src="init.js"></script>
