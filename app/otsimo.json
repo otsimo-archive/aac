@@ -31,7 +31,8 @@
         "categories": "daily",
         "color": "#2ca8c2",
         "consent": "aac_consent",
-        "consent_default": "yes"
+        "consent_default": "yes",
+        "no-game-jump": "yes"
     },
     "options": {
         "gridsize": {
