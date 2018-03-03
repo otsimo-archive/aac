@@ -1,6 +1,6 @@
 {
     "unique_name": "aac",
-    "version": "2.2.68",
+    "version": "2.3.2",
     "main": "index.html",
     "licence": "GPL-v3",
     "languages": [
@@ -28,10 +28,29 @@
         "tts"
     ],
     "labels": {
-        "categories": "home",
+        "categories": "daily",
         "color": "#2ca8c2",
         "consent": "aac_consent",
         "consent_default": "yes"
+    },
+    "options": {
+        "gridsize": {
+            "id": "gridsize",
+            "type": "string",
+            "default": "grid-6x4",
+            "enum": [
+                "grid-3x2",
+                "grid-3x3",
+                "grid-4x3",
+                "grid-5x3",
+                "grid-5x4",
+                "grid-6x4",
+                "grid-6x5",
+                "grid-8x5",
+                "grid-10x7",
+                "grid-11x9"
+            ]
+        }
     },
     "metadata": [
         {
@@ -52,7 +71,31 @@
                 "i18n/en/ss2_en_1024x768.png",
                 "i18n/en/ss3_en_1024x768.png"
             ],
-            "assets": []
+            "assets": [],
+            "annotations": {
+                "settings/gridsize/title": "Picture Grid Size",
+                "settings/gridsize/description": "The grid size of the picture panel",
+                "settings/gridsize/keys/grid-3x2/title": "3x2 Size",
+                "settings/gridsize/keys/grid-3x2/description": "3x2 Size",
+                "settings/gridsize/keys/grid-3x3/title": "3x3 Size",
+                "settings/gridsize/keys/grid-3x3/description": "3x3 Size",
+                "settings/gridsize/keys/grid-4x3/title": "4x3 Size",
+                "settings/gridsize/keys/grid-4x3/description": "4x3 Size",
+                "settings/gridsize/keys/grid-5x3/title": "5x3 Size",
+                "settings/gridsize/keys/grid-5x3/description": "5x3 Size",
+                "settings/gridsize/keys/grid-5x4/title": "5x4 Size",
+                "settings/gridsize/keys/grid-5x4/description": "5x4 Size",
+                "settings/gridsize/keys/grid-6x4/title": "6x4 Size",
+                "settings/gridsize/keys/grid-6x4/description": "6x4 Size",
+                "settings/gridsize/keys/grid-6x5/title": "6x5 Size",
+                "settings/gridsize/keys/grid-6x5/description": "6x5 Size",
+                "settings/gridsize/keys/grid-8x5/title": "8x5 Size",
+                "settings/gridsize/keys/grid-8x5/description": "8x5 Size",
+                "settings/gridsize/keys/grid-10x7/title": "10x7 Size",
+                "settings/gridsize/keys/grid-10x7/description": "10x7 Size",
+                "settings/gridsize/keys/grid-11x9/title": "11x9 Size",
+                "settings/gridsize/keys/grid-11x9/description": "11x9 Size"
+            }
         },
         {
             "language": "tr",
@@ -72,7 +115,31 @@
                 "i18n/tr/ss2_tr_1024x768.png",
                 "i18n/tr/ss3_tr_1024x768.png"
             ],
-            "assets": []
+            "assets": [],
+            "annotations": {
+                "settings/gridsize/title": "Resim Izgarası Boyutu",
+                "settings/gridsize/description": "Resim panelinin ızgara boyutu",
+                "settings/gridsize/keys/grid-3x2/title": "3x2 Boyutu",
+                "settings/gridsize/keys/grid-3x2/description": "3x2 Boyutu",
+                "settings/gridsize/keys/grid-3x3/title": "3x3 Boyutu",
+                "settings/gridsize/keys/grid-3x3/description": "3x3 Boyutu",
+                "settings/gridsize/keys/grid-4x3/title": "4x3 Boyutu",
+                "settings/gridsize/keys/grid-4x3/description": "4x3 Boyutu",
+                "settings/gridsize/keys/grid-5x3/title": "5x3 Boyutu",
+                "settings/gridsize/keys/grid-5x3/description": "5x3 Boyutu",
+                "settings/gridsize/keys/grid-5x4/title": "5x4 Boyutu",
+                "settings/gridsize/keys/grid-5x4/description": "5x4 Boyutu",
+                "settings/gridsize/keys/grid-6x4/title": "6x4 Boyutu",
+                "settings/gridsize/keys/grid-6x4/description": "6x4 Boyutu",
+                "settings/gridsize/keys/grid-6x5/title": "6x5 Boyutu",
+                "settings/gridsize/keys/grid-6x5/description": "6x5 Boyutu",
+                "settings/gridsize/keys/grid-8x5/title": "8x5 Boyutu",
+                "settings/gridsize/keys/grid-8x5/description": "8x5 Boyutu",
+                "settings/gridsize/keys/grid-10x7/title": "10x7 Boyutu",
+                "settings/gridsize/keys/grid-10x7/description": "10x7 Boyutu",
+                "settings/gridsize/keys/grid-11x9/title": "11x9 Boyutu",
+                "settings/gridsize/keys/grid-11x9/description": "11x9 Boyutu"
+            }
         }
     ]
 }
