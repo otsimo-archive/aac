@@ -1,146 +1,142 @@
 {
-    "unique_name": "aac",
-    "version": "2.3.2",
-    "main": "index.html",
-    "licence": "GPL-v3",
-    "languages": [
-        "en",
-        "tr"
-    ],
-    "supported_orientations": [
-        "all"
-    ],
-    "default_language": "en",
-    "developer_name": "Otsimo",
-    "homepage": "https://github.com/otsimo/aac",
-    "repository": "https://github.com/otsimo/aac.git",
-    "authors": [
-        {
-            "name": "Burak Tokak",
-            "email": "burak@otsimo.com"
-        }
-    ],
-    "exclude": [],
-    "settings": "settings.json",
-    "kv_path": "data",
-    "capabilities": [
-        "sandbox",
-        "tts"
-    ],
-    "labels": {
-        "categories": "daily",
-        "color": "#2ca8c2",
-        "consent": "aac_consent",
-        "consent_default": "yes",
-        "no-game-jump": "yes"
+  "unique_name": "aac",
+  "version": "2.3.6",
+  "main": "index.html",
+  "licence": "GPL-v3",
+  "languages": ["en", "tr"],
+  "supported_orientations": ["all"],
+  "default_language": "en",
+  "developer_name": "Otsimo",
+  "homepage": "https://github.com/otsimo/aac",
+  "repository": "https://github.com/otsimo/aac.git",
+  "authors": [
+    {
+      "name": "Burak Tokak",
+      "email": "burak@otsimo.com"
+    }
+  ],
+  "exclude": [],
+  "settings": "settings.json",
+  "kv_path": "data",
+  "capabilities": ["sandbox", "tts"],
+  "labels": {
+    "categories": "daily",
+    "color": "#2ca8c2",
+    "consent": "aac_consent",
+    "consent_default": "yes",
+    "no-game-jump": "yes"
+  },
+  "options": {
+    "gridsize": {
+      "id": "gridsize",
+      "type": "string",
+      "default": "grid-6x4",
+      "enum": [
+        "grid-3x2",
+        "grid-3x3",
+        "grid-4x3",
+        "grid-5x3",
+        "grid-5x4",
+        "grid-6x4",
+        "grid-6x5",
+        "grid-8x5",
+        "grid-10x7",
+        "grid-11x9"
+      ]
+    }
+  },
+  "metadata": [
+    {
+      "language": "en",
+      "visible_name": "Otsimo AAC",
+      "summary": "Augmentative and alternative way of communication!",
+      "description":
+        "Otsimo AAC helps children with speech disorders to communicate with significant others by tapping on word cards.",
+      "keywords": ["aac", "pecs", "phrase", "talking", "communication"],
+      "logo": "i18n/logo.png",
+      "icon": "i18n/icon.png",
+      "images": [
+        "i18n/en/ss1_en_1024x768.png",
+        "i18n/en/ss2_en_1024x768.png",
+        "i18n/en/ss3_en_1024x768.png"
+      ],
+      "assets": [],
+      "annotations": {
+        "knowledge":
+          "Children gain ability of self-expression by using AAC symbols. By this way they learn to communicate effectively.",
+        "thinking-skills":
+          "Children can develop language skills with the help of verbal labels of objects and actions.",
+        "physical-skills":
+          "Children can control their finger movements by pointing and tapping.",
+        "settings/gridsize/title": "Picture Grid Size",
+        "settings/gridsize/description": "The grid size of the picture panel",
+        "settings/gridsize/keys/grid-3x2/title": "3x2 Size",
+        "settings/gridsize/keys/grid-3x2/description": "3x2 Size",
+        "settings/gridsize/keys/grid-3x3/title": "3x3 Size",
+        "settings/gridsize/keys/grid-3x3/description": "3x3 Size",
+        "settings/gridsize/keys/grid-4x3/title": "4x3 Size",
+        "settings/gridsize/keys/grid-4x3/description": "4x3 Size",
+        "settings/gridsize/keys/grid-5x3/title": "5x3 Size",
+        "settings/gridsize/keys/grid-5x3/description": "5x3 Size",
+        "settings/gridsize/keys/grid-5x4/title": "5x4 Size",
+        "settings/gridsize/keys/grid-5x4/description": "5x4 Size",
+        "settings/gridsize/keys/grid-6x4/title": "6x4 Size",
+        "settings/gridsize/keys/grid-6x4/description": "6x4 Size",
+        "settings/gridsize/keys/grid-6x5/title": "6x5 Size",
+        "settings/gridsize/keys/grid-6x5/description": "6x5 Size",
+        "settings/gridsize/keys/grid-8x5/title": "8x5 Size",
+        "settings/gridsize/keys/grid-8x5/description": "8x5 Size",
+        "settings/gridsize/keys/grid-10x7/title": "10x7 Size",
+        "settings/gridsize/keys/grid-10x7/description": "10x7 Size",
+        "settings/gridsize/keys/grid-11x9/title": "11x9 Size",
+        "settings/gridsize/keys/grid-11x9/description": "11x9 Size"
+      }
     },
-    "options": {
-        "gridsize": {
-            "id": "gridsize",
-            "type": "string",
-            "default": "grid-6x4",
-            "enum": [
-                "grid-3x2",
-                "grid-3x3",
-                "grid-4x3",
-                "grid-5x3",
-                "grid-5x4",
-                "grid-6x4",
-                "grid-6x5",
-                "grid-8x5",
-                "grid-10x7",
-                "grid-11x9"
-            ]
-        }
-    },
-    "metadata": [
-        {
-            "language": "en",
-            "visible_name": "Otsimo AAC",
-            "summary": "An app to compose phrases for kids with autism.",
-            "description": "Otsimo AAC is an application that ables kids with autism who can not speak to compose phrases by tapping on the words. Otsimo AAC uses picture exchange communication system.",
-            "keywords": [
-                "aac",
-                "pecs",
-                "phrase",
-                "talking"
-            ],
-            "logo": "i18n/logo.png",
-            "icon": "i18n/icon.png",
-            "images": [
-                "i18n/en/ss1_en_1024x768.png",
-                "i18n/en/ss2_en_1024x768.png",
-                "i18n/en/ss3_en_1024x768.png"
-            ],
-            "assets": [],
-            "annotations": {
-                "settings/gridsize/title": "Picture Grid Size",
-                "settings/gridsize/description": "The grid size of the picture panel",
-                "settings/gridsize/keys/grid-3x2/title": "3x2 Size",
-                "settings/gridsize/keys/grid-3x2/description": "3x2 Size",
-                "settings/gridsize/keys/grid-3x3/title": "3x3 Size",
-                "settings/gridsize/keys/grid-3x3/description": "3x3 Size",
-                "settings/gridsize/keys/grid-4x3/title": "4x3 Size",
-                "settings/gridsize/keys/grid-4x3/description": "4x3 Size",
-                "settings/gridsize/keys/grid-5x3/title": "5x3 Size",
-                "settings/gridsize/keys/grid-5x3/description": "5x3 Size",
-                "settings/gridsize/keys/grid-5x4/title": "5x4 Size",
-                "settings/gridsize/keys/grid-5x4/description": "5x4 Size",
-                "settings/gridsize/keys/grid-6x4/title": "6x4 Size",
-                "settings/gridsize/keys/grid-6x4/description": "6x4 Size",
-                "settings/gridsize/keys/grid-6x5/title": "6x5 Size",
-                "settings/gridsize/keys/grid-6x5/description": "6x5 Size",
-                "settings/gridsize/keys/grid-8x5/title": "8x5 Size",
-                "settings/gridsize/keys/grid-8x5/description": "8x5 Size",
-                "settings/gridsize/keys/grid-10x7/title": "10x7 Size",
-                "settings/gridsize/keys/grid-10x7/description": "10x7 Size",
-                "settings/gridsize/keys/grid-11x9/title": "11x9 Size",
-                "settings/gridsize/keys/grid-11x9/description": "11x9 Size"
-            }
-        },
-        {
-            "language": "tr",
-            "visible_name": "Otsimo AAC",
-            "summary": "Otizmli çocuklar için cümle oluşturma uygulaması",
-            "description": "Otsimo AAC, konuşmakta zorluk çeken otizmli çocukların, ekrandaki kelimelere dokunarak cümle oluşturmasını sağlayan bir uygulamasdır. Otsimo AAC, resim değiş-tokuş iletişim sistemini kullanır.",
-            "keywords": [
-                "aac",
-                "pecs",
-                "cümle",
-                "konuşma"
-            ],
-            "logo": "i18n/logo.png",
-            "icon": "i18n/icon.png",
-            "images": [
-                "i18n/tr/ss1_tr_1024x768.png",
-                "i18n/tr/ss2_tr_1024x768.png",
-                "i18n/tr/ss3_tr_1024x768.png"
-            ],
-            "assets": [],
-            "annotations": {
-                "settings/gridsize/title": "Resim Izgarası Boyutu",
-                "settings/gridsize/description": "Resim panelinin ızgara boyutu",
-                "settings/gridsize/keys/grid-3x2/title": "3x2 Boyutu",
-                "settings/gridsize/keys/grid-3x2/description": "3x2 Boyutu",
-                "settings/gridsize/keys/grid-3x3/title": "3x3 Boyutu",
-                "settings/gridsize/keys/grid-3x3/description": "3x3 Boyutu",
-                "settings/gridsize/keys/grid-4x3/title": "4x3 Boyutu",
-                "settings/gridsize/keys/grid-4x3/description": "4x3 Boyutu",
-                "settings/gridsize/keys/grid-5x3/title": "5x3 Boyutu",
-                "settings/gridsize/keys/grid-5x3/description": "5x3 Boyutu",
-                "settings/gridsize/keys/grid-5x4/title": "5x4 Boyutu",
-                "settings/gridsize/keys/grid-5x4/description": "5x4 Boyutu",
-                "settings/gridsize/keys/grid-6x4/title": "6x4 Boyutu",
-                "settings/gridsize/keys/grid-6x4/description": "6x4 Boyutu",
-                "settings/gridsize/keys/grid-6x5/title": "6x5 Boyutu",
-                "settings/gridsize/keys/grid-6x5/description": "6x5 Boyutu",
-                "settings/gridsize/keys/grid-8x5/title": "8x5 Boyutu",
-                "settings/gridsize/keys/grid-8x5/description": "8x5 Boyutu",
-                "settings/gridsize/keys/grid-10x7/title": "10x7 Boyutu",
-                "settings/gridsize/keys/grid-10x7/description": "10x7 Boyutu",
-                "settings/gridsize/keys/grid-11x9/title": "11x9 Boyutu",
-                "settings/gridsize/keys/grid-11x9/description": "11x9 Boyutu"
-            }
-        }
-    ]
+    {
+      "language": "tr",
+      "visible_name": "Otsimo AAC",
+      "summary": "İletişimin alternatif ve yardımcı yolu!",
+      "description":
+        "Otsimo AAC konuşma bozukluğu olan çocukların çevresindekilerle iletişim kurmasını sağlamak amacıyla geliştirilen bir uygulamadır. Çocuklar sembollerin üzerine tıklayarak söylemek istediklerini ifade edebilirler.",
+      "keywords": ["aac", "pecs", "cümle", "konuşma", "iletişim"],
+      "logo": "i18n/logo.png",
+      "icon": "i18n/icon.png",
+      "images": [
+        "i18n/tr/ss1_tr_1024x768.png",
+        "i18n/tr/ss2_tr_1024x768.png",
+        "i18n/tr/ss3_tr_1024x768.png"
+      ],
+      "assets": [],
+      "annotations": {
+        "knowledge":
+          "Konuşma güçlüğü çeken çocuklar AAC sembollerini kullanarak kendilerini kolayca ifade edebilirler. Bu şekilde aileleriyle etkili bir iletişim kurabilirler.",
+        "thinking-skills":
+          "Çocuklar sesli semboller yardımıyla objeleri ve faaliyetleri öğrenebilir.",
+        "physical-skills":
+          "Çocuklar parmak ile işaret etmeyi öğrenirken tıklama hareketleriyle parmak hareketlerini kontrol edebilir.",
+        "settings/gridsize/title": "Resim Izgarası Boyutu",
+        "settings/gridsize/description": "Resim panelinin ızgara boyutu",
+        "settings/gridsize/keys/grid-3x2/title": "3x2 Boyutu",
+        "settings/gridsize/keys/grid-3x2/description": "3x2 Boyutu",
+        "settings/gridsize/keys/grid-3x3/title": "3x3 Boyutu",
+        "settings/gridsize/keys/grid-3x3/description": "3x3 Boyutu",
+        "settings/gridsize/keys/grid-4x3/title": "4x3 Boyutu",
+        "settings/gridsize/keys/grid-4x3/description": "4x3 Boyutu",
+        "settings/gridsize/keys/grid-5x3/title": "5x3 Boyutu",
+        "settings/gridsize/keys/grid-5x3/description": "5x3 Boyutu",
+        "settings/gridsize/keys/grid-5x4/title": "5x4 Boyutu",
+        "settings/gridsize/keys/grid-5x4/description": "5x4 Boyutu",
+        "settings/gridsize/keys/grid-6x4/title": "6x4 Boyutu",
+        "settings/gridsize/keys/grid-6x4/description": "6x4 Boyutu",
+        "settings/gridsize/keys/grid-6x5/title": "6x5 Boyutu",
+        "settings/gridsize/keys/grid-6x5/description": "6x5 Boyutu",
+        "settings/gridsize/keys/grid-8x5/title": "8x5 Boyutu",
+        "settings/gridsize/keys/grid-8x5/description": "8x5 Boyutu",
+        "settings/gridsize/keys/grid-10x7/title": "10x7 Boyutu",
+        "settings/gridsize/keys/grid-10x7/description": "10x7 Boyutu",
+        "settings/gridsize/keys/grid-11x9/title": "11x9 Boyutu",
+        "settings/gridsize/keys/grid-11x9/description": "11x9 Boyutu"
+      }
+    }
+  ]
 }
