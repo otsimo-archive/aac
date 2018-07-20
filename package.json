@@ -15,7 +15,8 @@
     "lint": "eslint app",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "yarn run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js"
+    "protractor": "protractor e2e-tests/protractor.conf.js",
+    "generator": "echo 'no generator' && exit 1"
   },
   "repository": {
     "type": "git",
