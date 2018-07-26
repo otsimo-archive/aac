@@ -4698,8 +4698,8 @@ osx-release@^1.0.0:
     minimist "^1.1.0"
 
 otsimo-game-generator@^1.0.11:
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/otsimo-game-generator/-/otsimo-game-generator-1.0.13.tgz#3dd3c411aa42dbfa26f119fa7bd0ba9a8010c809"
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/otsimo-game-generator/-/otsimo-game-generator-1.0.14.tgz#6ad6a506b34bf3f3d7ceda05e1ba75f20788d571"
   dependencies:
     string-template "^1.0.0"
 

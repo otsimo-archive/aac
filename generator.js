@@ -1,5 +1,4 @@
 const generator = require("otsimo-game-generator");
-const utils = require("otsimo-game-generator/dist/utils/");
 const child_process = require("child_process");
 const path = require("path");
 function execPromise(command) {
