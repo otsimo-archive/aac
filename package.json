@@ -16,7 +16,7 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "yarn run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js",
-    "generator": "echo 'no generator' && exit 1"
+    "generator": "node generator.js"
   },
   "repository": {
     "type": "git",
@@ -71,9 +71,11 @@
   "dependencies": {
     "angular": "^1.6.0",
     "angular-touch": "^1.5.8",
+    "async": "^2.6.1",
     "fastclick": "^1.0.6",
     "ng-sortable": "^1.3.6",
     "ngtouch": "^1.0.1",
-    "otsimo": "1.9.1"
+    "otsimo": "1.9.1",
+    "otsimo-game-generator": "^1.0.11"
   }
 }
