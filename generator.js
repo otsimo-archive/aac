@@ -4,7 +4,7 @@ const child_process = require("child_process");
 const path = require("path");
 function execPromise(command) {
   return new Promise((resolve, reject) => {
-    const cmd = child_process.execFile("sh", ["-c", command]);
+    const cmd = child_process.execFile("sh", ["-c", command],{maxBuffer:2000*1024});
     cmd.stdout.pipe(process.stdout);
     cmd.stderr.pipe(process.stderr);
     cmd.on("exit", (code, signal) => {
@@ -94,7 +94,6 @@ var opts = {
   outputDir: "dist",
   gameOptions: gopts,
   annotations: optionAnnotations,
-  disableAwsSync:true,
 };
 
 const symbolLocation = path.join(__dirname, "app", "symbols");
