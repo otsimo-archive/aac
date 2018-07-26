@@ -103,10 +103,10 @@ const getEn = process.env["AAC_EN_REPO"];
 const command = `
 cd ${symbolLocation}
 if [ ! -d "aac-tr" ]; then
-git clone ${getTr}
+  git clone ${getTr}
 fi
 if [ ! -d "aac-en" ]; then
-git clone ${getEn}
+  git clone ${getEn}
 fi
 `;
 

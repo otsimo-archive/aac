@@ -3,7 +3,7 @@
   "version": "2.3.1",
   "description": "Otsimo symbol based AAC",
   "scripts": {
-    "build": "NODE_ENV=production webpack --progress",
+    "build": "NODE_ENV=production webpack",
     "update-symbols": "node tasks/update-symbols.js",
     "staging": "node tasks/version.js;rm -rf ./dist; NODE_ENV=production webpack --progress; otsimoctl -s game publish --release --dir ./dist --aws-sync",
     "production": "node tasks/version.js;rm -rf ./dist; NODE_ENV=production webpack --progress; otsimoctl game publish --release --dir ./dist --aws-sync",
