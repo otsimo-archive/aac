@@ -94,6 +94,7 @@ var opts = {
   outputDir: "dist",
   gameOptions: gopts,
   annotations: optionAnnotations,
+  disableAwsSync:true,
 };
 
 const symbolLocation = path.join(__dirname, "app", "symbols");
