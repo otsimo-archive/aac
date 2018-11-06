@@ -5,966 +5,987 @@
 */
 
 * {
-    -webkit-user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 input {
-    -webkit-user-select: auto !important;
+  -webkit-user-select: auto !important;
 }
 
 body {
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 18px;
-    position: relative;
-    color: #555;
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    overflow: hidden !important;
-    user-select: none;
-    overflow: hidden;
-    -webkit-overflow-scrolling: auto;
-    /* Kill touch scrolling */
-    /* -webkit-touch-callout: none; */
-    /* -webkit-user-drag: none; */
+  font-family: "Titillium Web", sans-serif;
+  font-size: 18px;
+  position: relative;
+  color: #555;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  overflow: hidden !important;
+  user-select: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+  /* Kill touch scrolling */
+  /* -webkit-touch-callout: none; */
+  /* -webkit-user-drag: none; */
 }
 
 img {
-    pointer-events: none !important;
-    /* Kill "Save image - Copy" Menu */
+  pointer-events: none !important;
+  /* Kill "Save image - Copy" Menu */
 }
 
 #generalCarrier {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0px !important;
-    left: 0px !important;
-    -webkit-overflow-scrolling: auto;
-    /* Kill touch scrolling */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px !important;
+  left: 0px !important;
+  -webkit-overflow-scrolling: auto;
+  /* Kill touch scrolling */
 }
 
-
 .updateBtn {
-    padding: 10px;
-    background: #3a3e4a;
-    color: #fff;
-    font-size: 1.1em;
-    border-radius: 5px;
-    text-align: center;
-    width: 200px;
-    margin: auto;
+  padding: 10px;
+  background: #3a3e4a;
+  color: #fff;
+  font-size: 1.1em;
+  border-radius: 5px;
+  text-align: center;
+  width: 200px;
+  margin: auto;
 }
 
 .header {
-    height: 60px;
-    background: #3a3e4a;
-    color: #fff;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-    position: relative;
-    z-index: 999;
-    width: 100%;
+  height: 60px;
+  background: #3a3e4a;
+  color: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 999;
+  width: 100%;
 }
 
 .headerTitle {
-    line-height: 60px;
-    padding: 0px 20px;
-    padding-left: 0px;
-    font-size: 1.16em;
-    float: left;
-    position: fixed;
-    left: 0px;
-    text-align: center;
-    width: 100%;
+  line-height: 60px;
+  padding: 0px 20px;
+  padding-left: 0px;
+  font-size: 1.16em;
+  float: left;
+  position: fixed;
+  left: 0px;
+  text-align: center;
+  width: 100%;
 }
 
 .headerIcons {
-    float: right;
+  float: right;
 }
 
 .headerIcons i {
-    line-height: 60px;
-    width: 60px;
-    text-align: center !important;
-    font-size: 1.6em;
-    transition: 200ms all;
+  line-height: 60px;
+  width: 60px;
+  text-align: center !important;
+  font-size: 1.6em;
+  transition: 200ms all;
 }
 
 .iconOpacity {
-    background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .backIcon {
-    float: left;
+  float: left;
 }
 
 .backIcon i {
-    padding-left: 10px;
-    position: relative;
-    top: 2px;
-    line-height: 60px;
-    width: 50px;
-    text-align: center !important;
-    font-size: 1.6em;
-    transition: 200ms all;
+  padding-left: 10px;
+  position: relative;
+  top: 2px;
+  line-height: 60px;
+  width: 50px;
+  text-align: center !important;
+  font-size: 1.6em;
+  transition: 200ms all;
 }
 
 .backIconHovered {
-    background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.backIcon, .headerIcons {
-    position: relative;
-    z-index: 99;
+.backIcon,
+.headerIcons {
+  position: relative;
+  z-index: 99;
 }
 
 .phraseHolder {
-    position: relative;
-    z-index: 98;
-    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    background: #fbfbfb;
-    height: 130px;
+  position: relative;
+  z-index: 98;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  background: #fbfbfb;
+  height: 130px;
 }
 
 .currentPhrase {
-    position: relative;
-    float: left;
-    width: calc(100% - 100px);
-    height: 130px;
-    transform: scale(1);
-    opacity: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
-    transition: 250ms all;
+  position: relative;
+  float: left;
+  width: calc(100% - 100px);
+  height: 130px;
+  transform: scale(1);
+  opacity: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  transition: 250ms all;
 }
 
 .currentPhraseScroll {
-    width: 10000px;
+  width: 10000px;
 }
 
 .cpTransition {
-    transform: scale(0.95);
-    opacity: 0.7;
+  transform: scale(0.95);
+  opacity: 0.7;
 }
 
 .backspace {
-    float: right;
-    height: 130px;
-    margin-right: 30px;
+  float: right;
+  height: 130px;
+  margin-right: 30px;
 }
 
 .backspace i {
-    line-height: 130px !important;
-    font-size: 2.77em;
-    color: #444;
+  line-height: 130px !important;
+  font-size: 2.77em;
+  color: #444;
 }
 
 .gridHolder {
-    position: relative;
-    height: calc(100% - 191px);
-    background: #f5f5f5;
-    border-top: 1px solid #eee;
-    overflow: hidden;
-    overflow-y: scroll;
-    width: 100%;
+  position: relative;
+  height: calc(100% - 191px);
+  background: #f5f5f5;
+  border-top: 1px solid #eee;
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 .gridNoAnim .gridItem img {
-    opacity: 1;
-    transition: 100ms opacity, 100ms transform;
-    transform: scale(1);
+  opacity: 1;
+  transition: 100ms opacity, 100ms transform;
+  transform: scale(1);
 }
 
 .gridSlicingAnim .gridItem img {
-    opacity: 0 !important;
-    transform: scale(0.9);
+  opacity: 0 !important;
+  transform: scale(0.9);
 }
 
 .gridItem {
-    float: left;
-    padding: 10px;
-    margin: 5px;
-    border: 2px solid #eee;
-    background: #fff;
-    border-radius: 8px;
-    transform: scale(1);
-    transition: 100ms transform;
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.01);
-    overflow: hidden;
-    position: relative;
+  float: left;
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #eee;
+  background: #fff;
+  border-radius: 8px;
+  transform: scale(1);
+  transition: 100ms transform;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.01);
+  overflow: hidden;
+  position: relative;
 }
 
 .gridItemClick {
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.01);
-    transform: scale(0.9);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.01);
+  transform: scale(0.9);
 }
 
 .transitionKill {
-    transition: 0ms transform !important;
+  transition: 0ms transform !important;
 }
 
 .gridNavigation {
-    border: 2px solid #333;
+  border: 2px solid #333;
 }
 
 .gridItem img {
-    width: 100%;
-    height: calc(100% - 38px);
+  width: 100%;
+  height: calc(100% - 38px);
 }
 
 .gridItem .gridText {
-    text-align: center;
-    font-weight: normal;
-    font-size: 1em;
-    line-height: 16px;
-    text-transform: capitalize;
-    padding-top: 10px;
-    height: 30px;
-    overflow: hidden;
+  text-align: center;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 16px;
+  text-transform: capitalize;
+  padding-top: 10px;
+  height: 30px;
+  overflow: hidden;
 }
 
 .gridTextLong {
-    padding-top: 3px !important;
-    height: 33px !important;
+  padding-top: 3px !important;
+  height: 33px !important;
 }
 
 .gridType-noun {
-    border-color: #cc5e5d;
+  border-color: #cc5e5d;
 }
 
 .gridType-noun .derivable {
-    background: #cc5e5d;
+  background: #cc5e5d;
 }
 
 .gridType-verb {
-    border-color: #cb5dcc;
+  border-color: #cb5dcc;
 }
 
 .gridType-verb .derivable {
-    background: #cb5dcc;
+  background: #cb5dcc;
 }
 
 .gridType-pronoun {
-    border-color: #5d8dcc;
+  border-color: #5d8dcc;
 }
 
 .gridType-pronoun .derivable {
-    background: #5d8dcc;
+  background: #5d8dcc;
 }
 
 .gridType-adjective {
-    border-color: #5dcc66;
+  border-color: #5dcc66;
 }
 
 .gridType-adjective .derivable {
-    background: #5dcc66;
+  background: #5dcc66;
 }
 
 .gridType-adverb {
-    border-color: #c4cc5d;
+  border-color: #c4cc5d;
 }
 
 .gridType-adverb .derivable {
-    bbackground: #c4cc5d;
+  background: #c4cc5d;
 }
 
 .gridType-preposition {
-    border-color: #5dccb3;
+  border-color: #5dccb3;
 }
 
 .gridType-preposition .derivable {
-    background: #5dccb3;
+  background: #5dccb3;
 }
 
 .gridType-conjunction {
-    border-color: #795dcc;
+  border-color: #795dcc;
 }
 
 .gridType-conjunction .derivable {
-    background: #795dcc;
+  background: #795dcc;
 }
 
 .gridType-interjection {
-    border-color: #cc5d9f;
+  border-color: #cc5d9f;
 }
 
 .gridType-interjection .derivable {
-    background: #cc5d9f;
+  background: #cc5d9f;
 }
 
 .derivable {
-    position: absolute;
-    right: -20px;
-    top: -20px;
-    width: 40px;
-    height: 40px;
-    transform: rotateZ(45deg);
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 40px;
+  height: 40px;
+  transform: rotateZ(45deg);
 }
 
 .group {
-    position: absolute;
-    left: 5px;
-    width: calc(100% - 14px);
-    height: 3px;
-    border: 2px solid #555;
-    border-bottom: 0px;
-    top: -6px;
-    border-radius: 6px 6px 0px 0px;
-    background: #fff;
+  position: absolute;
+  left: 5px;
+  width: calc(100% - 14px);
+  height: 3px;
+  border: 2px solid #555;
+  border-bottom: 0px;
+  top: -6px;
+  border-radius: 6px 6px 0px 0px;
+  background: #fff;
 }
 
 .group2 {
-    position: absolute;
-    left: 5px;
-    width: calc(100% - 14px);
-    height: 3px;
-    border: 2px solid #666;
-    border-bottom: 0px;
-    top: -6px;
-    border-radius: 6px 6px 0px 0px;
-    background: #fff;
+  position: absolute;
+  left: 5px;
+  width: calc(100% - 14px);
+  height: 3px;
+  border: 2px solid #666;
+  border-bottom: 0px;
+  top: -6px;
+  border-radius: 6px 6px 0px 0px;
+  background: #fff;
 }
 
 .gridGroup {
-    border: 2px solid #333;
-    padding-top: 5px !important;
-    margin-top: 15px !important;
-    overflow: visible !important;
-    padding-bottom: 5px !important;
+  border: 2px solid #333;
+  padding-top: 5px !important;
+  margin-top: 15px !important;
+  overflow: visible !important;
+  padding-bottom: 5px !important;
 }
 
 .gridGroup img {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
-.grid8x5 .gridGroup, .grid5x8 .gridGroup {
-    padding-top: 3px !important;
-    margin-top: 8px !important;
-    overflow: visible !important;
-    padding-bottom: 3px !important;
+.grid8x5 .gridGroup,
+.grid5x8 .gridGroup {
+  padding-top: 3px !important;
+  margin-top: 8px !important;
+  overflow: visible !important;
+  padding-bottom: 3px !important;
 }
 
-.grid8x5 .group, .grid8x5 .group2, .grid5x8 .group, .grid5x8 .group2 {
-    height: 2px !important;
-    top: -6px !important;
+.grid8x5 .group,
+.grid8x5 .group2,
+.grid5x8 .group,
+.grid5x8 .group2 {
+  height: 2px !important;
+  top: -6px !important;
 }
 
-.grid10x7 .gridGroup, .grid7x10 .gridGroup {
-    padding-top: 2px !important;
-    margin-top: 5px !important;
-    overflow: visible !important;
-    padding-bottom: 1px !important;
+.grid10x7 .gridGroup,
+.grid7x10 .gridGroup {
+  padding-top: 2px !important;
+  margin-top: 5px !important;
+  overflow: visible !important;
+  padding-bottom: 1px !important;
 }
 
-.grid10x7 .group, .grid10x7 .group2, .grid7x10 .group, .grid7x10 .group2 {
-    height: 2px !important;
-    top: -5px !important;
+.grid10x7 .group,
+.grid10x7 .group2,
+.grid7x10 .group,
+.grid7x10 .group2 {
+  height: 2px !important;
+  top: -5px !important;
 }
 
-.grid11x9 .gridGroup, .grid9x11 .gridGroup {
-    padding-top: 0px !important;
-    margin-top: 3px !important;
-    overflow: visible !important;
-    padding-bottom: 0px !important;
+.grid11x9 .gridGroup,
+.grid9x11 .gridGroup {
+  padding-top: 0px !important;
+  margin-top: 3px !important;
+  overflow: visible !important;
+  padding-bottom: 0px !important;
 }
 
-.grid11x9 .group, .grid11x9 .group {
-    height: 2px;
-    top: -6px !important;
+.grid11x9 .group,
+.grid11x9 .group {
+  height: 2px;
+  top: -6px !important;
 }
 
-.grid11x9 .group2, .grid11x9 .group2 {
-    display: none
+.grid11x9 .group2,
+.grid11x9 .group2 {
+  display: none;
 }
 
-.grid11x9 img, .grid9x11 img {
-    height: calc(100% - 30px);
-    margin-top: 3px;
+.grid11x9 img,
+.grid9x11 img {
+  height: calc(100% - 30px);
+  margin-top: 3px;
 }
 
-.grid10x7 img, .grid10x7 img {
-    height: calc(100% - 32px);
+.grid10x7 img,
+.grid10x7 img {
+  height: calc(100% - 32px);
 }
 
-.grid10x7 .derivable, .grid7x10 .derivable, .grid11x9 .derivable, .grid9x11 .derivable {
-    width: 35px;
-    height: 35px;
+.grid10x7 .derivable,
+.grid7x10 .derivable,
+.grid11x9 .derivable,
+.grid9x11 .derivable {
+  width: 35px;
+  height: 35px;
 }
 
 .grid3x2 .gridItem {
-    width: calc(100% / 3 - 34px);
-    height: calc(100% / 2 - 34px);
+  width: calc(100% / 3 - 34px);
+  height: calc(100% / 2 - 34px);
 }
 
 .grid2x3 .gridItem {
-    width: calc(100% / 2 - 34px);
-    height: calc(100% / 3 - 34px);
+  width: calc(100% / 2 - 34px);
+  height: calc(100% / 3 - 34px);
 }
 
 .grid3x3 .gridItem {
-    width: calc(100% / 3 - 34px);
-    height: calc(100% / 3 - 34px);
+  width: calc(100% / 3 - 34px);
+  height: calc(100% / 3 - 34px);
 }
 
 .grid4x3 .gridItem {
-    width: calc(100% / 4 - 34px);
-    height: calc(100% / 3 - 34px);
+  width: calc(100% / 4 - 34px);
+  height: calc(100% / 3 - 34px);
 }
 
 .grid3x4 .gridItem {
-    width: calc(100% / 3 - 34px);
-    height: calc(100% / 4 - 34px);
+  width: calc(100% / 3 - 34px);
+  height: calc(100% / 4 - 34px);
 }
 
 .grid5x3 .gridItem {
-    width: calc(100% / 5 - 34px);
-    height: calc(100% / 3 - 34px);
+  width: calc(100% / 5 - 34px);
+  height: calc(100% / 3 - 34px);
 }
 
 .grid3x5 .gridItem {
-    width: calc(100% / 3 - 34px);
-    height: calc(100% / 5 - 34px);
+  width: calc(100% / 3 - 34px);
+  height: calc(100% / 5 - 34px);
 }
 
 .grid5x4 .gridItem {
-    width: calc(100% / 5 - 34px);
-    height: calc(100% / 4 - 34px);
+  width: calc(100% / 5 - 34px);
+  height: calc(100% / 4 - 34px);
 }
 
 .grid4x5 .gridItem {
-    width: calc(100% / 4 - 34px);
-    height: calc(100% / 5 - 34px);
+  width: calc(100% / 4 - 34px);
+  height: calc(100% / 5 - 34px);
 }
 
 .grid6x4 .gridItem {
-    width: calc(100% / 6 - 34px);
-    height: calc(100% / 4 - 34px);
+  width: calc(100% / 6 - 34px);
+  height: calc(100% / 4 - 34px);
 }
 
 .grid6x4 .gridText {
-    font-size: 0.94em;
+  font-size: 0.94em;
 }
 
 .grid4x6 .gridItem {
-    width: calc(100% / 4 - 34px);
-    height: calc(100% / 6 - 34px);
+  width: calc(100% / 4 - 34px);
+  height: calc(100% / 6 - 34px);
 }
 
 .grid4x6 .gridText {
-    font-size: 0.94em;
+  font-size: 0.94em;
 }
 
 .grid6x5 .gridItem {
-    width: calc(100% / 6 - 34px);
-    height: calc(100% / 5 - 34px);
+  width: calc(100% / 6 - 34px);
+  height: calc(100% / 5 - 34px);
 }
 
 .grid5x6 .gridItem {
-    width: calc(100% / 5 - 34px);
-    height: calc(100% / 6 - 34px);
+  width: calc(100% / 5 - 34px);
+  height: calc(100% / 6 - 34px);
 }
 
 .grid6x5 .gridText {
-    font-size: 0.94em;
+  font-size: 0.94em;
 }
 
 .grid5x6 .gridText {
-    font-size: 0.94em;
+  font-size: 0.94em;
 }
 
 .grid8x5 .gridItem {
-    width: calc(100% / 8 - 20px);
-    height: calc(100% / 5 - 20px);
-    padding: 5px;
-    margin: 3px;
+  width: calc(100% / 8 - 20px);
+  height: calc(100% / 5 - 20px);
+  padding: 5px;
+  margin: 3px;
 }
 
 .grid5x8 .gridItem {
-    width: calc(100% / 5 - 20px);
-    height: calc(100% / 8 - 20px);
-    padding: 5px;
-    margin: 3px;
+  width: calc(100% / 5 - 20px);
+  height: calc(100% / 8 - 20px);
+  padding: 5px;
+  margin: 3px;
 }
 
 .grid8x5 .gridText {
-    font-size: 0.88em;
+  font-size: 0.88em;
 }
 
 .grid5x8 .gridText {
-    font-size: 0.88em;
+  font-size: 0.88em;
 }
 
 .grid10x7 .gridItem {
-    width: calc(100% / 10 - 14px);
-    height: calc(100% / 7 - 14px);
-    padding: 3px;
-    margin: 2px;
+  width: calc(100% / 10 - 14px);
+  height: calc(100% / 7 - 14px);
+  padding: 3px;
+  margin: 2px;
 }
 
 .grid7x10 .gridItem {
-    width: calc(100% / 7 - 14px);
-    height: calc(100% / 10 - 14px);
-    padding: 3px;
-    margin: 2px;
+  width: calc(100% / 7 - 14px);
+  height: calc(100% / 10 - 14px);
+  padding: 3px;
+  margin: 2px;
 }
 
 .grid10x7 .gridText {
-    font-size: 0.72em;
+  font-size: 0.72em;
 }
 
 .grid7x10 .gridText {
-    font-size: 0.72em;
+  font-size: 0.72em;
 }
 
 .grid11x9 .gridItem {
-    width: calc(100% / 11 - 8px);
-    height: calc(100% / 9 - 0px);
-    padding: 0px;
-    margin: 2px;
+  width: calc(100% / 11 - 8px);
+  height: calc(100% / 9 - 0px);
+  padding: 0px;
+  margin: 2px;
 }
 
 .grid9x11 .gridItem {
-    width: calc(100% / 9 - 8px);
-    height: calc(100% / 11 - 0px);
-    padding: 0px;
-    margin: 2px;
+  width: calc(100% / 9 - 8px);
+  height: calc(100% / 11 - 0px);
+  padding: 0px;
+  margin: 2px;
 }
 
-.grid11x9 .gridText, .grid9x11 .gridText {
-    font-size: 0.61em;
-    padding-top: 5px;
+.grid11x9 .gridText,
+.grid9x11 .gridText {
+  font-size: 0.61em;
+  padding-top: 5px;
 }
 
 .resPhrase {
-    float: left;
-    width: 100%;
-    height: 130px;
-    transform: scale(1);
-    opacity: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
-    border-bottom: 1px solid #ddd;
+  float: left;
+  width: 100%;
+  height: 130px;
+  transform: scale(1);
+  opacity: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-bottom: 1px solid #ddd;
 }
 
 .resPhraseScroll {
-    width: 10000px;
+  width: 10000px;
 }
 
 .wordItem {
-    float: left;
-    height: 120px;
-    padding: 10px;
-    text-align: center;
+  float: left;
+  height: 120px;
+  padding: 10px;
+  text-align: center;
 }
 
 .wordItem img {
-    height: calc(100% - 40px);
+  height: calc(100% - 40px);
 }
 
 .wordText {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1em;
-    line-height: 16px;
-    text-transform: capitalize;
-    padding-top: 10px;
-    height: 30px;
-    overflow: hidden;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 16px;
+  text-transform: capitalize;
+  padding-top: 10px;
+  height: 30px;
+  overflow: hidden;
 }
 
 .wordTextSolo {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.45em;
-    line-height: 110px;
-    text-transform: capitalize;
-    overflow: hidden;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.45em;
+  line-height: 110px;
+  text-transform: capitalize;
+  overflow: hidden;
 }
 
 .wordItemRes {
-    float: left;
-    height: 120px;
-    padding: 10px;
-    text-align: center;
+  float: left;
+  height: 120px;
+  padding: 10px;
+  text-align: center;
 }
 
 .wordItemRes img {
-    height: calc(100% - 40px);
+  height: calc(100% - 40px);
 }
 
 .wordTextRes {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1em;
-    line-height: 16px;
-    text-transform: capitalize;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
-    height: 30px;
-    overflow: hidden;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 16px;
+  text-transform: capitalize;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  height: 30px;
+  overflow: hidden;
 }
 
-.gridTemplate {}
+.gridTemplate {
+}
 
 #symbolCover {
-    display: none;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-    background: rgba(255, 255, 255, 0.5);
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #verbConj {
-    display: none;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-    background: rgba(255, 255, 255, 0.5);
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #nounConj {
-    display: none;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-    background: rgba(255, 255, 255, 0.5);
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .recentTabs {
-    background: #fafafa;
-    border-bottom: 1px solid #ddd;
+  background: #fafafa;
+  border-bottom: 1px solid #ddd;
 }
 
 .recentTabs ul {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .recentTabs li {
-    list-style: none;
-    padding: 15px 0px;
-    width: calc(100% / 4 - 1px);
-    float: left;
-    border-right: 1px solid #ddd;
-    text-align: center;
-    font-size: 1.16em;
+  list-style: none;
+  padding: 15px 0px;
+  width: calc(100% / 4 - 1px);
+  float: left;
+  border-right: 1px solid #ddd;
+  text-align: center;
+  font-size: 1.16em;
 }
 
 .recentTabs li:hover {
-    font-weight: bold;
-    background: #fff;
+  font-weight: bold;
+  background: #fff;
 }
 
 .recentTabs ul:last-child {
-    border: 0px;
+  border: 0px;
 }
 
 .derivableCover {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 999;
-    display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  display: none;
 }
 
 .settings {
-    position: fixed;
-    width: 252px;
-    z-index: 9999;
-    right: -270px;
-    height: 100%;
-    background: #fff;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    transition: 300ms all;
+  position: fixed;
+  width: 252px;
+  z-index: 9999;
+  right: -270px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: 300ms all;
 }
 
 .settingHeader {
-    border-bottom: 1px solid #eee;
-    padding: 10px;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
 }
 
 .settingHeader i {
-    position: relative;
-    top: 5px;
-    margin-right: 5px;
-    margin-left: 7px;
+  position: relative;
+  top: 5px;
+  margin-right: 5px;
+  margin-left: 7px;
 }
 
 .settingList li {
-    list-style: none;
-    padding: 10px 15px;
+  list-style: none;
+  padding: 10px 15px;
 }
-
 
 /* Keyboard */
 
 .inputCarrier {
-    background-color: #fff;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 100%;
-    height: 70px;
-    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-    transition: 300ms all;
+  background-color: #fff;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  transition: 300ms all;
 }
 
 .inputCarrier input {
-    border: 0px;
-    width: calc(100% - 100px);
-    height: 70px;
-    font-size: 2em;
-    position: absolute;
-    float: left;
+  border: 0px;
+  width: calc(100% - 100px);
+  height: 70px;
+  font-size: 2em;
+  position: absolute;
+  float: left;
 }
 
 .inputCarrier i {
-    float: right;
-    line-height: 70px;
-    font-size: 2.66em;
-    padding: 0px 26px;
+  float: right;
+  line-height: 70px;
+  font-size: 2.66em;
+  padding: 0px 26px;
 }
 
 .suggestions {
-    height: 100px;
-    opacity: 0;
-    transition: 200ms opacity;
-    overflow: hidden;
+  height: 100px;
+  opacity: 0;
+  transition: 200ms opacity;
+  overflow: hidden;
 }
 
 .suggestedWord {
-    float: left;
-    height: 100px;
-    padding: 10px;
-    text-align: center;
+  float: left;
+  height: 100px;
+  padding: 10px;
+  text-align: center;
 }
 
 .suggestedWord img {
-    height: calc(100% - 40px);
+  height: calc(100% - 40px);
 }
 
-.verbConjCarrier, .nounConjCarrier {
-    position: relative;
-    width: 480px;
-    height: 479px;
-    overflow: hidden;
-    top: calc(50% - 240px);
-    left: calc(50% - 240px);
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+.verbConjCarrier,
+.nounConjCarrier {
+  position: relative;
+  width: 480px;
+  height: 479px;
+  overflow: hidden;
+  top: calc(50% - 240px);
+  left: calc(50% - 240px);
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
 }
 
-.verbConjCarrier img, .nounConjCarrier img {
-    height: calc(100% - 65px);
-    margin: 15px;
-    border-radius: 10px;
+.verbConjCarrier img,
+.nounConjCarrier img {
+  height: calc(100% - 65px);
+  margin: 15px;
+  border-radius: 10px;
 }
 
 .conjableItem {
-    width: calc(100% / 3 - 2px);
-    height: calc(100% / 3 - 2px);
-    border: 1px solid #ddd;
-    float: left;
-    text-align: center;
+  width: calc(100% / 3 - 2px);
+  height: calc(100% / 3 - 2px);
+  border: 1px solid #ddd;
+  float: left;
+  text-align: center;
 }
 
-@media all and (max-width:800px) and (max-height:800px) {
-    .header {
-        height: 40px;
-        font-size: 0.8em;
-    }
-    .header .headerTitle {
-        line-height: 40px;
-    }
-    .header i {
-        line-height: 40px;
-        width: 40px !important;
-    }
-    .phraseHolder {
-        height: 80px;
-    }
-    .wordItem {
-        height: 80px;
-        padding: 0px 10px;
-        padding-top: 5px;
-    }
-    .wordItemRes {
-        height: 80px;
-        padding: 0px 10px;
-        padding-top: 5px;
-    }
-    .backspace i {
-        height: 80px;
-        line-height: 80px !important;
-        font-size: 2.22em;
-    }
-    .backspace {
-        height: 80px;
-        margin-right: 18px;
-    }
-    .wordTextSolo {
-        height: 70px;
-        line-height: 70px
-    }
-    .currentPhrase {
-        height: 80px;
-    }
-    .gridHolder {
-        height: calc(100% - 121px);
-    }
-    .resPhrase {
-        height: 80px;
-    }
-    .recentTabs li {
-        font-size: 0.9em;
-        padding: 8px 0px;
-    }
-    .gridItem {
-        padding: 5px;
-        margin: 2px;
-    }
-    .grid3x2 .gridItem {
-        width: calc(100% / 3 - 18px);
-        height: calc(100% / 2 - 19px);
-    }
-    .grid2x3 .gridItem {
-        width: calc(100% / 2 - 18px);
-        height: calc(100% / 3 - 19px);
-    }
-    .grid3x3 .gridItem {
-        width: calc(100% / 3 - 18px);
-        height: calc(100% / 3 - 19px);
-    }
-    .grid4x3 .gridItem {
-        width: calc(100% / 4 - 18px);
-        height: calc(100% / 3 - 19px);
-    }
-    .grid3x4 .gridItem {
-        width: calc(100% / 3 - 18px);
-        height: calc(100% / 4 - 19px);
-    }
-    .grid5x3 .gridItem {
-        width: calc(100% / 5 - 18px);
-        height: calc(100% / 3 - 19px);
-    }
-    .grid3x5 .gridItem {
-        width: calc(100% / 3 - 18px);
-        height: calc(100% / 5 - 19px);
-    }
-    .grid5x4 .gridItem {
-        width: calc(100% / 5 - 18px);
-        height: calc(100% / 4 - 19px);
-    }
-    .grid4x5 .gridItem {
-        width: calc(100% / 4 - 18px);
-        height: calc(100% / 5 - 19px);
-    }
-    .grid6x4 .gridItem {
-        width: calc(100% / 6 - 18px);
-        height: calc(100% / 4 - 19px);
-    }
-    .grid6x4 .gridText {
-        font-size: 0.85em;
-        padding-top: 6px;
-    }
-    .grid4x6 .gridItem {
-        width: calc(100% / 4 - 18px);
-        height: calc(100% / 6 - 19px);
-    }
-    .grid4x6 .gridText {
-        font-size: 0.85em;
-        padding-top: 6px;
-    }
-    .grid6x5 .gridItem {
-        width: calc(100% / 6 - 18px);
-        height: calc(100% / 5 - 19px);
-    }
-    .grid5x6 .gridItem {
-        width: calc(100% / 5 - 18px);
-        height: calc(100% / 6 - 19px);
-    }
-    .grid6x5 .gridText {
-        font-size: 0.85em;
-        padding-top: 6px;
-    }
-    .grid5x6 .gridText {
-        font-size: 0.85em;
-        padding-top: 6px;
-    }
-    .group {
-        display: none;
-    }
-    .group2 {
-        display: none;
-    }
-    .gridTextLong {
-        padding-top: 3px !important;
-        height: 33px !important;
-        font-size: 0.7em !important;
-        line-height: 1em !important;
-    }
-    .gridGroup {
-        border: 2px solid #333;
-        padding-top: 5px !important;
-        margin-top: 3px !important;
-        overflow: hidden !important;
-        padding-bottom: 5px !important;
-    }
-    .gridGroup img {
-        margin-top: 0px;
-    }
-    .gridItem img {
-        height: calc(100% - 23px);
-    }
-    .inputCarrier {
-        height: 50px;
-    }
-    .inputCarrier input {
-        width: calc(100% - 70px);
-        height: 50px;
-        font-size: 1.5em;
-    }
-    .inputCarrier i {
-        line-height: 50px;
-        font-size: 2em;
-        padding: 0px 15px;
-    }
-    .verbConjCarrier, .nounConjCarrier {
-        position: relative;
-        width: 360px;
-        height: 360px;
-        top: calc(50% - 180px);
-        left: calc(50% - 180px);
-        background: #fff;
-        border: 2px solid #666;
-        border-radius: 5px;
-    }
+@media all and (max-width: 896px) and (max-height: 800px) {
+  .header {
+    height: 40px;
+    font-size: 0.8em;
+  }
+  .header .headerTitle {
+    line-height: 40px;
+  }
+  .header i {
+    line-height: 40px;
+    width: 40px !important;
+  }
+  .phraseHolder {
+    height: 80px;
+  }
+  .wordItem {
+    height: 80px;
+    padding: 0px 10px;
+    padding-top: 5px;
+  }
+  .wordItemRes {
+    height: 80px;
+    padding: 0px 10px;
+    padding-top: 5px;
+  }
+  .backspace i {
+    height: 80px;
+    line-height: 80px !important;
+    font-size: 2.22em;
+  }
+  .backspace {
+    height: 80px;
+    margin-right: 18px;
+  }
+  .wordTextSolo {
+    height: 70px;
+    line-height: 70px;
+  }
+  .currentPhrase {
+    height: 80px;
+  }
+  .gridHolder {
+    height: calc(100% - 121px);
+  }
+  .resPhrase {
+    height: 80px;
+  }
+  .recentTabs li {
+    font-size: 0.9em;
+    padding: 8px 0px;
+  }
+  .gridItem {
+    padding: 5px;
+    margin: 2px;
+  }
+  .grid3x2 .gridItem {
+    width: calc(100% / 3 - 18px);
+    height: calc(100% / 2 - 19px);
+  }
+  .grid2x3 .gridItem {
+    width: calc(100% / 2 - 18px);
+    height: calc(100% / 3 - 19px);
+  }
+  .grid3x3 .gridItem {
+    width: calc(100% / 3 - 18px);
+    height: calc(100% / 3 - 19px);
+  }
+  .grid4x3 .gridItem {
+    width: calc(100% / 4 - 18px);
+    height: calc(100% / 3 - 19px);
+  }
+  .grid3x4 .gridItem {
+    width: calc(100% / 3 - 18px);
+    height: calc(100% / 4 - 19px);
+  }
+  .grid5x3 .gridItem {
+    width: calc(100% / 5 - 18px);
+    height: calc(100% / 3 - 19px);
+  }
+  .grid3x5 .gridItem {
+    width: calc(100% / 3 - 18px);
+    height: calc(100% / 5 - 19px);
+  }
+  .grid5x4 .gridItem {
+    width: calc(100% / 5 - 18px);
+    height: calc(100% / 4 - 19px);
+  }
+  .grid4x5 .gridItem {
+    width: calc(100% / 4 - 18px);
+    height: calc(100% / 5 - 19px);
+  }
+  .grid6x4 .gridItem {
+    width: calc(100% / 6 - 18px);
+    height: calc(100% / 4 - 19px);
+  }
+  .grid6x4 .gridText {
+    font-size: 0.85em;
+    padding-top: 6px;
+  }
+  .grid4x6 .gridItem {
+    width: calc(100% / 4 - 18px);
+    height: calc(100% / 6 - 19px);
+  }
+  .grid4x6 .gridText {
+    font-size: 0.85em;
+    padding-top: 6px;
+  }
+  .grid6x5 .gridItem {
+    width: calc(100% / 6 - 18px);
+    height: calc(100% / 5 - 19px);
+  }
+  .grid5x6 .gridItem {
+    width: calc(100% / 5 - 18px);
+    height: calc(100% / 6 - 19px);
+  }
+  .grid6x5 .gridText {
+    font-size: 0.85em;
+    padding-top: 6px;
+  }
+  .grid5x6 .gridText {
+    font-size: 0.85em;
+    padding-top: 6px;
+  }
+  .group {
+    display: none;
+  }
+  .group2 {
+    display: none;
+  }
+  .gridTextLong {
+    padding-top: 3px !important;
+    height: 33px !important;
+    font-size: 0.7em !important;
+    line-height: 1em !important;
+  }
+  .gridGroup {
+    border: 2px solid #333;
+    padding-top: 5px !important;
+    margin-top: 3px !important;
+    overflow: hidden !important;
+    padding-bottom: 5px !important;
+  }
+  .gridGroup img {
+    margin-top: 0px;
+  }
+  .gridItem img {
+    height: calc(100% - 23px);
+  }
+  .inputCarrier {
+    height: 50px;
+  }
+  .inputCarrier input {
+    width: calc(100% - 70px);
+    height: 50px;
+    font-size: 1.5em;
+  }
+  .inputCarrier i {
+    line-height: 50px;
+    font-size: 2em;
+    padding: 0px 15px;
+  }
+  .verbConjCarrier,
+  .nounConjCarrier {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    top: calc(50% - 180px);
+    left: calc(50% - 180px);
+    background: #fff;
+    border: 2px solid #666;
+    border-radius: 5px;
+  }
 }
 
-@media all and (min-width:500px) and (max-height:400px) {
-    /* Device is not vertical */
-    .verbConjCarrier, .nounConjCarrier {
-        transform: scale(0.65);
-    }
+@media all and (min-width: 500px) and (max-height: 400px) {
+  /* Device is not vertical */
+  .verbConjCarrier,
+  .nounConjCarrier {
+    transform: scale(0.65);
+  }
 }
 
-@media all and (max-width:500px) {
-    .headerTitle {
-        display: none;
-    }
+@media all and (max-width: 500px) {
+  .headerTitle {
+    display: none;
+  }
 }
