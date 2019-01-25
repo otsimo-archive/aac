@@ -4703,9 +4703,10 @@ otsimo-game-generator@^1.0.11:
   dependencies:
     string-template "^1.0.0"
 
-otsimo@1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/otsimo/-/otsimo-1.9.1.tgz#a823dc25b86fb371a04d9a85bbb8b71bdb2dae03"
+otsimo@2.1.180906:
+  version "2.1.180906"
+  resolved "https://registry.yarnpkg.com/otsimo/-/otsimo-2.1.180906.tgz#8c402b524943aaa003af8498f11ba4f45069422c"
+  integrity sha512-37ZcBDslzvIoi54Uwq7vqKSpVgeMez/hbAsPb+UNJScIQSNw8KKY9XzN+jYL2m5UYMZud3qSm03AI2AJMrQUng==
   dependencies:
     protobufjs "^6.8.0"
 
