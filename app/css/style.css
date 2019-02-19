@@ -759,6 +759,7 @@ img {
 .suggestions {
   height: 100px;
   opacity: 0;
+  margin-top: 70px;
   transition: 200ms opacity;
   overflow: hidden;
 }
@@ -776,7 +777,8 @@ img {
 
 .verbConjCarrier,
 .nounConjCarrier {
-  position: relative;
+  position: fixed;
+  z-index: 1000;
   width: 480px;
   height: 479px;
   overflow: hidden;
@@ -965,10 +967,10 @@ img {
   }
   .verbConjCarrier,
   .nounConjCarrier {
-    position: relative;
+    position: fixed;
     width: 360px;
     height: 360px;
-    top: calc(50% - 180px);
+    top: calc(50% - 170px);
     left: calc(50% - 180px);
     background: #fff;
     border: 2px solid #666;
