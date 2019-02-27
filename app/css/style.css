@@ -780,9 +780,9 @@ img {
   position: fixed;
   z-index: 1000;
   width: 480px;
-  height: 479px;
+  height: 440px;
   overflow: hidden;
-  top: calc(50% - 240px);
+  top: 12%;
   left: calc(50% - 240px);
   background: #fff;
   border-radius: 5px;
