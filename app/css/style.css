@@ -968,21 +968,14 @@ img {
   .verbConjCarrier,
   .nounConjCarrier {
     position: fixed;
-    width: 360px;
-    height: 360px;
-    top: calc(50% - 170px);
+    max-width: 360px;
+    max-height: 360px;
+    height: calc(80%);
+    top: 12%;
     left: calc(50% - 180px);
     background: #fff;
     border: 2px solid #666;
     border-radius: 5px;
-  }
-}
-
-@media all and (min-width: 500px) and (max-height: 400px) {
-  /* Device is not vertical */
-  .verbConjCarrier,
-  .nounConjCarrier {
-    transform: scale(0.65);
   }
 }
 
