@@ -50,7 +50,7 @@ export default class SymbolController {
         this.events.appDerive(wordObj.slug);
         this.$scope.global.changeCurrentTab(CONSTANT.TAB_DERIVABLE);
       } else if (wordObj.class === CONSTANT.CLASS_GROUP) {
-        this.$scope.global.currentGroup = wordObj.slug;
+        this.$scope.global.currentGroup = wordObj.title.replaceAll(" ", "-");
         this.$scope.global.changeCurrentTab(CONSTANT.TAB_GROUP);
         /*
 				Category animation killing in touchEnd:
