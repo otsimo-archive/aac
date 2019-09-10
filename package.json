@@ -75,7 +75,7 @@
     "fastclick": "^1.0.6",
     "ng-sortable": "^1.3.6",
     "ngtouch": "^1.0.1",
-    "otsimo": "2.1.180906",
-    "otsimo-game-generator": "^1.0.11"
+    "otsimo": "2.6.190909",
+    "otsimo-game-generator": "^1.0.24"
   }
 }

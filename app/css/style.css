@@ -141,7 +141,7 @@ img {
 }
 
 .currentPhraseScroll {
-  width: 10000px;
+  width: max-content;
 }
 
 .cpTransition {
@@ -566,7 +566,7 @@ img {
 }
 
 .resPhraseScroll {
-  width: 10000px;
+  width: max-content;
 }
 
 .wordItem {
