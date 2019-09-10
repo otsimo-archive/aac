@@ -76,6 +76,6 @@
     "ng-sortable": "^1.3.6",
     "ngtouch": "^1.0.1",
     "otsimo": "2.6.190909",
-    "otsimo-game-generator": "^1.1.2"
+    "otsimo-game-generator": "^1.1.3"
   }
 }
