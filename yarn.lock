@@ -4707,10 +4707,10 @@ osx-release@^1.0.0:
   dependencies:
     minimist "^1.1.0"
 
-otsimo-game-generator@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/otsimo-game-generator/-/otsimo-game-generator-1.1.0.tgz#366c9659d94a6c422412693757f2b7e77244c1b2"
-  integrity sha512-FBeTyPfkZJqqZzzYHNpnykiPJL0daZdb6jBVuQzlcOqIdCsZ0Uhni8mrcqUuB7jU8ksjuFV5omn/r4sdeoYmRA==
+otsimo-game-generator@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/otsimo-game-generator/-/otsimo-game-generator-1.1.2.tgz#60af71e6b4de2290f0c7157963a88405a3abdd59"
+  integrity sha512-DAbaaiK18tHZMS8moESCypcryEGnqk57y6rNqFZuQP8jR7LDGENgtqfI3Trxa3PtDw4c6CFdBQgQdSrPOj7AUQ==
   dependencies:
     simple-thumbnail "^1.2.0"
     string-template "^1.0.0"
