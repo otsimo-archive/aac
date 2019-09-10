@@ -3,7 +3,9 @@ const child_process = require("child_process");
 const path = require("path");
 function execPromise(command) {
   return new Promise((resolve, reject) => {
-    const cmd = child_process.execFile("sh", ["-c", command],{maxBuffer:2000*1024});
+    const cmd = child_process.execFile("sh", ["-c", command], {
+      maxBuffer: 2000 * 1024,
+    });
     cmd.stdout.pipe(process.stdout);
     cmd.stderr.pipe(process.stderr);
     cmd.on("exit", (code, signal) => {
@@ -89,12 +91,6 @@ function optionAnnotations(lang) {
   };
 }
 
-var opts = {
-  outputDir: "dist",
-  gameOptions: gopts,
-  annotations: optionAnnotations,
-};
-
 const symbolLocation = path.join(__dirname, "app", "symbols");
 const getTr = process.env["AAC_TR_REPO"];
 const getEn = process.env["AAC_EN_REPO"];
@@ -112,7 +108,16 @@ fi
 console.log("build command", command);
 execPromise(command)
   .then(() => {
-    generator(opts);
+    generator({
+      outputDir: "dist",
+      gameOptions: gopts,
+      annotations: optionAnnotations,
+      deviceFilter: {
+        edition: {
+          exclude: ["kid"],
+        },
+      },
+    });
   })
   .catch(err => {
     console.error(err);
