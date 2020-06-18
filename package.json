@@ -69,7 +69,7 @@
     "webpack-uglify-js-plugin": "^1.1.9"
   },
   "dependencies": {
-    "angular": "^1.6.0",
+    "angular": "^1.8.0",
     "angular-touch": "^1.5.8",
     "async": "^2.6.1",
     "fastclick": "^1.0.6",
